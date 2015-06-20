@@ -60,9 +60,9 @@ namespace GTR.Core.AIController
             return cards;
         }
 
-        public IMove<CardModelBase> GetMove(MoveSpace moveSpace)
+        public MoveCombo GetMove(MoveSpace moveSpace)
         {
-            return moveSpace.ElementAt(0).ElementAt(0);
+            return moveSpace.ElementAt(0);
         }
     }
 }

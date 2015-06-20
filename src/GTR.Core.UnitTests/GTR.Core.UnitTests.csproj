@@ -57,8 +57,10 @@
     <Compile Include="Actions\ArchitectTests.cs" />
     <Compile Include="Actions\CraftsmanTests.cs" />
     <Compile Include="Actions\LaborerTests.cs" />
+    <Compile Include="Actions\LegionnaireTests.cs" />
     <Compile Include="Actions\MerchantTests.cs" />
     <Compile Include="Actions\PatronTests.cs" />
+    <Compile Include="Actions\ThinkerTests.cs" />
     <Compile Include="CardLoaderTests.cs" />
     <Compile Include="DeckSerializerTests.cs" />
     <Compile Include="DeckTypeTests.cs" />

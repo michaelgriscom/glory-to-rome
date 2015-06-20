@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.Model;
@@ -53,9 +54,23 @@ namespace GTR.Core.UnitTests.Services
             throw new NotImplementedException();
         }
 
-        public IMove<CardModelBase> GetMove(MoveSpace moveSpace)
+        public MoveCombo GetMove(MoveSpace moveSpace)
         {
-            throw new NotImplementedException();
+            if (OnMoveEventHandler != null)
+            {
+                var eventArgs = new OnMoveEventArgs() { MoveSpace = moveSpace };
+                OnMoveEventHandler(this, eventArgs);
+            }
+            return moveSpace.ElementAt(0);
         }
+
+        public event OnMove OnMoveEventHandler;
+
+        public delegate void OnMove(object sender, OnMoveEventArgs eventArgs);
+    }
+
+    public class OnMoveEventArgs : EventArgs
+    {
+        public MoveSpace MoveSpace { get; set; }
     }
 }

@@ -265,7 +265,7 @@ namespace GTR.Core.Game
             }
         }
 
-        private IMove<CardModelBase> EvaluateMoveSpace(MoveSpace moveSpace)
+        private MoveCombo EvaluateMoveSpace(MoveSpace moveSpace)
         {
             var move = InputService.GetMove(moveSpace);
 

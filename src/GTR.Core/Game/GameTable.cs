@@ -174,5 +174,13 @@ namespace GTR.Core.Game
         {
             move.Perform();
         }
+
+        internal void ExecuteMove(MoveCombo moveCombo)
+        {
+            foreach (var move in moveCombo)
+            {
+                ExecuteMove(move);
+            }
+        }
     }
 }

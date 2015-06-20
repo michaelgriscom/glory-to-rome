@@ -1,6 +1,9 @@
 ﻿#region
 
+using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.Model;
@@ -19,6 +22,41 @@ namespace GTR.Core.ManipulatableRules.Actions
         {
             _playerHand = player.Hand.OrderCards;
             _demandArea = player.DemandArea;
+            player.DemandArea.CollectionChanged += DemandAreaOnCollectionChanged;
+        }
+
+        private void DemandAreaOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
+        {
+            if (notifyCollectionChangedEventArgs.Action != NotifyCollectionChangedAction.Add)
+            {
+                return;
+            }
+            var demandedCards = notifyCollectionChangedEventArgs.NewItems;
+            foreach (OrderCardModel card in demandedCards)
+            {
+                HandleDemand(card);
+            }
+        }
+
+        private void HandleDemand(OrderCardModel card)
+        {
+            var demandedCardType = card.RoleType;
+            DemandCard(demandedCardType, Player.PlayerToLeft);
+            DemandCard(demandedCardType, Player.PlayerToRight);
+        }
+
+        private void DemandCard(RoleType demandedRoleType, Player demandee)
+        {
+            MoveSpace moveSpace = new MoveSpace(true);
+            foreach (var handCard in demandee.Hand.OrderCards)
+            {
+                if (handCard.RoleType == demandedRoleType)
+                {
+                    IMove<OrderCardModel> demandMove = new Move<OrderCardModel>(handCard, demandee.Hand.OrderCards, Player.Camp.Stockpile);
+                    moveSpace.Add(demandMove);
+                }
+            }
+            demandee.InputService.GetMove(moveSpace);
         }
 
         protected override MoveSpace GetMoveSpace()
@@ -32,14 +70,14 @@ namespace GTR.Core.ManipulatableRules.Actions
             return moveSpace;
         }
 
-        protected override IEnumerable<MoveSpace> GetPostmoveSpaces(IMove<CardModelBase> move)
+        protected override IEnumerable<MoveSpace> GetPostmoveSpaces(MoveCombo moveCombo)
         {
             var movespaces = new List<MoveSpace>();
             var moveSpace = new MoveSpace(true);
 
             //var demandEnumeration = demandArea.GetEnumerator();
             //OrderCard demandCard = (OrderCard)demandEnumeration.Current;
-            IMove<CardModelBase> undemandMove = new Move<OrderCardModel>((OrderCardModel) move.Card, _demandArea,
+            IMove<CardModelBase> undemandMove = new Move<OrderCardModel>((OrderCardModel)moveCombo.ElementAt(0).Card, _demandArea,
                 _playerHand);
 
             moveSpace.Add(undemandMove);
