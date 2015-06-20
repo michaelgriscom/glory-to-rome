@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using GTR.Core.Action;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.ManipulatableRules.Actions;
@@ -28,7 +29,6 @@ namespace GTR.Core.UnitTests.Actions
 
             _gameTable = new GameTable(orderDeck, jackDeck);
 
-
             PlayerInputForTest input = new PlayerInputForTest();
 
             _player = new Player("test-player", input);
@@ -54,14 +54,16 @@ namespace GTR.Core.UnitTests.Actions
 
             // there should be two moves, to move the hand card to the build site and to move the build site to the construction zone
             var moveCombo = enumerator.Current;
-            Assert.AreEqual(2, moveCombo.Count);
+            Assert.IsInstanceOfType(moveCombo, typeof (BuildCombo));
+            var buildCombo = moveCombo as BuildCombo;
 
-            var buildAction = moveCombo.ElementAt(0);
+            // ReSharper disable once PossibleNullReferenceException
+            var buildAction = buildCombo.BuildMove;
+
             Assert.AreEqual(buildAction.Card, handCard);
             Assert.AreEqual(buildAction.Source, _player.Hand.OrderCards);
             Assert.AreEqual(buildAction.Destination, _gameTable.GetSiteDeck(handCardMaterial).Top.BuildingFoundation);
-
-            var siteMove = moveCombo.ElementAt(1);
+            var siteMove = buildCombo.SiteMove;
             Assert.AreEqual(siteMove.Card, _gameTable.GetSiteDeck(handCardMaterial).Top);
             Assert.AreEqual(siteMove.Source, _gameTable.GetSiteDeck(handCardMaterial));
             Assert.AreEqual(siteMove.Destination, _player.ConstructionZone);
@@ -86,15 +88,17 @@ namespace GTR.Core.UnitTests.Actions
 
             var moveSpace = _action.Execute();
 
-            var moves = moveSpace.Where(moveCollection => moveCollection.ElementAt(0).Destination == site.Materials);
+            var moves =
+                moveSpace.Where(moveCollection => ((IMove<OrderCardModel>) moveCollection).Destination == site.Materials);
 
             var enumerator = moves.GetEnumerator();
             enumerator.MoveNext();
             // there should only be one move, to move the hand card to the concrete build site
             var moveCombo = enumerator.Current;
-            Assert.AreEqual(1, moveCombo.Count);
+            Assert.IsInstanceOfType(moveCombo, typeof (IMove<OrderCardModel>));
+            var feedAction = moveCombo as IMove<OrderCardModel>;
 
-            var feedAction = moveCombo.ElementAt(0);
+            // ReSharper disable once PossibleNullReferenceException
             Assert.AreEqual(feedAction.Card, stockpileCard);
             Assert.AreEqual(feedAction.Source, _player.Camp.Stockpile);
             Assert.AreEqual(feedAction.Destination, site.Materials);

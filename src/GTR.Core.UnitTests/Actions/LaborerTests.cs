@@ -1,7 +1,7 @@
 ﻿#region
 
 using System.Collections.Generic;
-using System.Linq;
+using GTR.Core.Action;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.ManipulatableRules.Actions;
@@ -47,9 +47,10 @@ namespace GTR.Core.UnitTests.Actions
 
             // there should only be one move, to move the pool card to the stockpile
             var moveCombo = enumerator.Current;
-            Assert.AreEqual(1, moveCombo.Count);
+            Assert.IsInstanceOfType(moveCombo, typeof (IMove<OrderCardModel>));
 
-            var move = moveCombo.ElementAt(0);
+            var move = moveCombo as IMove<OrderCardModel>;
+            // ReSharper disable once PossibleNullReferenceException
             Assert.AreEqual(move.Card, poolCard);
             Assert.AreEqual(move.Source, _gameTable.Pool);
             Assert.AreEqual(move.Destination, _player.Camp.Stockpile);
@@ -76,9 +77,11 @@ namespace GTR.Core.UnitTests.Actions
             {
                 moveCount++;
 
-                Assert.AreEqual(1, moveCollection.Count);
+                Assert.IsInstanceOfType(moveCollection, typeof (IMove<OrderCardModel>));
 
-                var move = moveCollection.ElementAt(0);
+                var move = moveCollection as IMove<OrderCardModel>;
+
+                // ReSharper disable once PossibleNullReferenceException
                 Assert.IsTrue(poolCards.Contains(move.Card));
                 Assert.AreEqual(move.Source, _gameTable.Pool);
                 Assert.AreEqual(move.Destination, _player.Camp.Stockpile);

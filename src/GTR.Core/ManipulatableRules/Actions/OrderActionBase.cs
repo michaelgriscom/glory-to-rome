@@ -1,6 +1,7 @@
 ﻿#region
 
 using System.Collections.Generic;
+using GTR.Core.Action;
 using GTR.Core.Buildings;
 using GTR.Core.Game;
 using GTR.Core.Model;
@@ -13,7 +14,7 @@ namespace GTR.Core.ManipulatableRules.Actions
     public abstract class OrderActionBase : ITriAction
     {
         protected readonly WrappedFunc<MoveSpace> actionMoves;
-        protected readonly WrappedFunc<IMove<CardModelBase>, IEnumerable<MoveSpace>> postActionMoves;
+        protected readonly WrappedFunc<IAction, IEnumerable<MoveSpace>> postActionMoves;
         protected readonly WrappedFunc<IEnumerable<MoveSpace>> preActionMoves;
         protected GameTable GameTable;
         protected Player Player;
@@ -24,7 +25,7 @@ namespace GTR.Core.ManipulatableRules.Actions
             GameTable = gameTable;
             preActionMoves = new WrappedFunc<IEnumerable<MoveSpace>>(GetPremoveSpaces);
             actionMoves = new WrappedFunc<MoveSpace>(GetMoveSpace);
-            postActionMoves = new WrappedFunc<IMove<CardModelBase>, IEnumerable<MoveSpace>>(GetPostmoveSpaces);
+            postActionMoves = new WrappedFunc<IAction, IEnumerable<MoveSpace>>(GetPostmoveSpaces);
         }
 
         public event PlayerActionHandler OnAction;
@@ -36,7 +37,7 @@ namespace GTR.Core.ManipulatableRules.Actions
             get { return actionMoves; }
         }
 
-        public WrappedFunc<IMove<CardModelBase>, IEnumerable<MoveSpace>> PostActionMoves
+        public WrappedFunc<IAction, IEnumerable<MoveSpace>> PostActionMoves
         {
             get { return postActionMoves; }
         }
@@ -68,7 +69,7 @@ namespace GTR.Core.ManipulatableRules.Actions
             return actionMoveResult;
         }
 
-        internal IEnumerable<MoveSpace> Complete(IMove<CardModelBase> move)
+        internal IEnumerable<MoveSpace> Complete(IAction action)
         {
             if (OnPostAction != null)
             {
@@ -76,7 +77,7 @@ namespace GTR.Core.ManipulatableRules.Actions
                 OnPostAction(this, args);
             }
 
-            var postMoveResult = postActionMoves.Execute(move);
+            var postMoveResult = postActionMoves.Execute(action);
             return postMoveResult;
         }
 
@@ -100,7 +101,7 @@ namespace GTR.Core.ManipulatableRules.Actions
 
         protected abstract MoveSpace GetMoveSpace();
 
-        protected virtual IEnumerable<MoveSpace> GetPostmoveSpaces(IMove<CardModelBase> move)
+        protected virtual IEnumerable<MoveSpace> GetPostmoveSpaces(IAction move)
         {
             return new List<MoveSpace>();
         }

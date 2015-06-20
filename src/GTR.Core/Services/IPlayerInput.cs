@@ -1,6 +1,7 @@
 ﻿#region
 
 using System.Collections.Generic;
+using GTR.Core.Action;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.Model;
@@ -19,6 +20,6 @@ namespace GTR.Core.Services
         ActionType GetFollow();
         ICollection<HandCardModel> SelectLeadCards(List<HandCardModel> cardOptions);
         ICollection<HandCardModel> SelectFollowCards(List<HandCardModel> cardOptions, RoleType role);
-        IMove<CardModelBase> GetMove(MoveSpace moveSpace);
+        IAction GetMove(MoveSpace moveSpace);
     }
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using GTR.Core.Action;
 using GTR.Core.CardCollections;
 using GTR.Core.Model;
 using GTR.Core.Util;
@@ -170,17 +171,9 @@ namespace GTR.Core.Game
             return siteDeck;
         }
 
-        internal void ExecuteMove(IMove<CardModelBase> move)
+        internal void ExecuteMove(IAction action)
         {
-            move.Perform();
-        }
-
-        internal void ExecuteMove(MoveCombo moveCombo)
-        {
-            foreach (var move in moveCombo)
-            {
-                ExecuteMove(move);
-            }
+            action.Perform();
         }
     }
 }

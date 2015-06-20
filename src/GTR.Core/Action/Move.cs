@@ -7,16 +7,8 @@ using GTR.Core.Util;
 
 #endregion
 
-namespace GTR.Core.Game
+namespace GTR.Core.Action
 {
-    public interface IMove<out T> where T : CardModelBase
-    {
-        T Card { get; }
-        ICardLocation<T> Destination { get; }
-        ICardLocation<T> Source { get; }
-        bool Perform();
-    }
-
     public class Move<T> : IMove<T> where T : CardModelBase
     {
         private readonly T _card;

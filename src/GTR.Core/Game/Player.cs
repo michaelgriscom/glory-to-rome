@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.Diagnostics;
+using GTR.Core.Action;
 using GTR.Core.CardCollections;
 using GTR.Core.ManipulatableRules;
 using GTR.Core.ManipulatableRules.Actions;
@@ -264,7 +265,7 @@ namespace GTR.Core.Game
             }
         }
 
-        private IMove<CardModelBase> EvaluateMoveSpace(MoveSpace moveSpace)
+        private IAction EvaluateMoveSpace(MoveSpace moveSpace)
         {
             var move = InputService.GetMove(moveSpace);
 

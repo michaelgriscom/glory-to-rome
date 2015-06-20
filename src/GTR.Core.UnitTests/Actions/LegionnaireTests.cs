@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using GTR.Core.Action;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.ManipulatableRules.Actions;
@@ -37,10 +38,10 @@ namespace GTR.Core.UnitTests.Actions
         [TestMethod]
         public void LegionnaireDemandSpace()
         {
-            List<Player> players = new List<Player> {_player};
+            var players = new List<Player> {_player};
             _gameTable.AddPlayers(players);
 
-            RoleType handCardRole = RoleType.Craftsman;
+            const RoleType handCardRole = RoleType.Craftsman;
 
             OrderCardModel demandCard = new OrderCardModel("hand card", "test", handCardRole);
             _player.Hand.OrderCards.Add(demandCard);
@@ -52,9 +53,9 @@ namespace GTR.Core.UnitTests.Actions
 
             // there should only be one move, to move the hand card to the demand area
             var moveCombo = enumerator.Current;
-            Assert.AreEqual(1, moveCombo.Count);
-
-            var move = moveCombo.ElementAt(0);
+            Assert.IsInstanceOfType(moveCombo, typeof (IMove<OrderCardModel>));
+            var move = moveCombo as IMove<OrderCardModel>;
+            // ReSharper disable once PossibleNullReferenceException
             Assert.AreEqual(move.Card, demandCard);
             Assert.AreEqual(move.Source, _player.Hand.OrderCards);
             Assert.AreEqual(move.Destination, _player.DemandArea);
@@ -87,7 +88,11 @@ namespace GTR.Core.UnitTests.Actions
                 (sender, args) =>
                 {
                     Assert.IsTrue(args.MoveSpace.IsRequired);
-                    var demandedMove = args.MoveSpace.ElementAt(0).ElementAt(0);
+
+                    Assert.IsInstanceOfType(args.MoveSpace.ElementAt(0), typeof (IMove<OrderCardModel>));
+                    var demandedMove = args.MoveSpace.ElementAt(0) as IMove<OrderCardModel>;
+
+                    // ReSharper disable once PossibleNullReferenceException
                     Assert.AreEqual(demandedMove.Card, demandedCard);
                     Assert.AreEqual(demandedMove.Source, enemyPlayer.Hand.OrderCards);
                     Assert.AreEqual(demandedMove.Destination, _player.Camp.Stockpile);
@@ -125,7 +130,11 @@ namespace GTR.Core.UnitTests.Actions
                     foreach (var moveCombo in args.MoveSpace)
                     {
                         possibleMoves++;
-                        var demandedMove = moveCombo.ElementAt(0);
+
+                        Assert.IsInstanceOfType(moveCombo, typeof (IMove<OrderCardModel>));
+                        var demandedMove = moveCombo as IMove<OrderCardModel>;
+
+                        // ReSharper disable once PossibleNullReferenceException
                         bool isDemandable = demandedMove.Card == demandedCard1 || demandedMove.Card == demandedCard2;
                         Assert.IsTrue(isDemandable);
                         Assert.AreEqual(demandedMove.Source, enemyPlayer.Hand.OrderCards);

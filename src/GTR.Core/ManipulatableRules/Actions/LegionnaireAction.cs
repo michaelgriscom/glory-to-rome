@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using GTR.Core.Action;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.Model;
@@ -70,14 +71,15 @@ namespace GTR.Core.ManipulatableRules.Actions
             return moveSpace;
         }
 
-        protected override IEnumerable<MoveSpace> GetPostmoveSpaces(IMove<CardModelBase> move)
+        protected override IEnumerable<MoveSpace> GetPostmoveSpaces(IAction action)
         {
             var movespaces = new List<MoveSpace>();
             var moveSpace = new MoveSpace(true);
 
             //var demandEnumeration = demandArea.GetEnumerator();
             //OrderCard demandCard = (OrderCard)demandEnumeration.Current;
-            IMove<CardModelBase> undemandMove = new Move<OrderCardModel>((OrderCardModel) move.Card, _demandArea,
+            var demandedCard = ((IMove<OrderCardModel>) action).Card;
+            IMove<CardModelBase> undemandMove = new Move<OrderCardModel>(demandedCard, _demandArea,
                 _playerHand);
 
             moveSpace.Add(undemandMove);

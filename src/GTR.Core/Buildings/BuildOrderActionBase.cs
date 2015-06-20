@@ -1,5 +1,6 @@
 ﻿#region
 
+using GTR.Core.Action;
 using GTR.Core.Game;
 using GTR.Core.ManipulatableRules.Actions;
 using GTR.Core.Model;
@@ -25,7 +26,7 @@ namespace GTR.Core.Buildings
 
             if (outstandingActions >= buildCost)
             {
-                MoveCombo buildCombo = GetBuildCombo(handCard);
+                var buildCombo = GetBuildCombo(handCard);
                 if (buildCombo != null)
                 {
                     moveSpace.Add(buildCombo);
@@ -33,9 +34,8 @@ namespace GTR.Core.Buildings
             }
         }
 
-        private MoveCombo GetBuildCombo(OrderCardModel handCard)
+        private BuildCombo GetBuildCombo(OrderCardModel handCard)
         {
-            MoveCombo buildCombo = new MoveCombo();
             var siteDeck = GameTable.GetSiteDeck(handCard.GetMaterialType());
             if (siteDeck.Count == 0)
             {
@@ -46,12 +46,11 @@ namespace GTR.Core.Buildings
             // move building card on top of site foundation
             IMove<OrderCardModel> buildAction = new Move<OrderCardModel>(handCard, Player.Hand.OrderCards,
                 site.BuildingFoundation);
-            buildCombo.Add(buildAction);
 
             // move site foundation card from deck to player's camp
             IMove<BuildingSite> siteMove = new Move<BuildingSite>(site, siteDeck, Player.ConstructionZone);
-            buildCombo.Add(siteMove);
 
+            BuildCombo buildCombo = new BuildCombo(siteMove, buildAction);
             return buildCombo;
         }
 

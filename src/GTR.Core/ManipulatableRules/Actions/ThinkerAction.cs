@@ -1,6 +1,7 @@
 ﻿#region
 
 using System;
+using GTR.Core.Action;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.Model;
@@ -35,16 +36,16 @@ namespace GTR.Core.ManipulatableRules.Actions
                 moveSpace.Add(jackThinker);
             }
 
-            MoveCombo moveSet = GetHandThinkerMove();
+            var thinkerMove = GetHandThinkerMove();
 
-            moveSpace.Add(moveSet);
+            moveSpace.Add(thinkerMove);
 
             return moveSpace;
         }
 
-        private MoveCombo GetHandThinkerMove()
+        private ThinkCombo GetHandThinkerMove()
         {
-            MoveCombo moveSet = new MoveCombo();
+            ThinkCombo moveSet = new ThinkCombo();
 
             int maxDraws = Math.Max(1, _playerHand.RefillCapacity - _playerHand.Count);
             int thinkerDraws = Math.Min(maxDraws, _orderDeck.Count);

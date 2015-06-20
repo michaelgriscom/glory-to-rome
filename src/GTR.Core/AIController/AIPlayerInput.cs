@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using GTR.Core.Action;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.Model;
@@ -60,9 +61,9 @@ namespace GTR.Core.AIController
             return cards;
         }
 
-        public IMove<CardModelBase> GetMove(MoveSpace moveSpace)
+        public IAction GetMove(MoveSpace moveSpace)
         {
-            return moveSpace.ElementAt(0).ElementAt(0);
+            return moveSpace.ElementAt(0);
         }
     }
 }

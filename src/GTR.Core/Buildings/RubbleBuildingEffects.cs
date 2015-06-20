@@ -1,6 +1,7 @@
 ﻿#region
 
 using System.Collections.Generic;
+using GTR.Core.Action;
 using GTR.Core.Game;
 using GTR.Core.Model;
 
@@ -30,7 +31,7 @@ namespace GTR.Core.Buildings
             player.PlayerActions.Patron.PostActionMoves.Unwrap(DeckPatron);
         }
 
-        private IEnumerable<MoveSpace> DeckPatron(IMove<CardModelBase> move, IEnumerable<MoveSpace> arg)
+        private IEnumerable<MoveSpace> DeckPatron(IAction action, IEnumerable<MoveSpace> arg)
         {
             if (_playerClientele.IsFull)
             {
@@ -69,7 +70,7 @@ namespace GTR.Core.Buildings
             player.PlayerActions.Laborer.PostActionMoves.Unwrap(HandLabor);
         }
 
-        private IEnumerable<MoveSpace> HandLabor(IMove<CardModelBase> move, IEnumerable<MoveSpace> arg)
+        private IEnumerable<MoveSpace> HandLabor(IAction action, IEnumerable<MoveSpace> arg)
         {
             MoveSpace moveSpace = new MoveSpace();
             foreach (OrderCardModel handCard in _playerHand)
