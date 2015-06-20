@@ -59,7 +59,7 @@
     <Compile Include="Game\PlayerScores.cs" />
     <Compile Include="Game\GameScorer.cs" />
     <Compile Include="Game\GameWonEventArgs.cs" />
-    <Compile Include="Game\WrappedFunc.cs" />
+    <Compile Include="Util\WrappedFunc.cs" />
     <Compile Include="ManipulatableRules\ConstructionManager.cs" />
     <Compile Include="Model\ConstructionZone.cs" />
     <Compile Include="Model\CompletedBuildings.cs" />

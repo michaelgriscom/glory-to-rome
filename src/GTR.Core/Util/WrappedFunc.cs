@@ -6,7 +6,7 @@ using System.Linq;
 
 #endregion
 
-namespace GTR.Core.Game
+namespace GTR.Core.Util
 {
     // ReSharper disable once InconsistentNaming
     public class WrappedFunc<T, U>
@@ -38,7 +38,7 @@ namespace GTR.Core.Game
     }
 }
 
-namespace GTR.Core
+namespace GTR.Core.Util
 {
     // ReSharper disable once InconsistentNaming
     public class WrappedFunc<U>
@@ -66,12 +66,13 @@ namespace GTR.Core
 
         public void Wrap(Func<U, U> funcWrapper)
         {
+            // consider: should we throw an exception if the function is already present?
             _funcWrappers.Add(funcWrapper);
         }
     }
 }
 
-namespace GTR.Core.Game
+namespace GTR.Core.Util
 {
     // ReSharper disable once InconsistentNaming
     internal class WrappedFunc<T1, T2, U>

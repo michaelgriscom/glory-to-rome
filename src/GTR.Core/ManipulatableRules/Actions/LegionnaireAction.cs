@@ -1,9 +1,7 @@
 ﻿#region
 
-using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.Model;
@@ -25,7 +23,8 @@ namespace GTR.Core.ManipulatableRules.Actions
             player.DemandArea.CollectionChanged += DemandAreaOnCollectionChanged;
         }
 
-        private void DemandAreaOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
+        private void DemandAreaOnCollectionChanged(object sender,
+            NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
         {
             if (notifyCollectionChangedEventArgs.Action != NotifyCollectionChangedAction.Add)
             {
@@ -52,7 +51,8 @@ namespace GTR.Core.ManipulatableRules.Actions
             {
                 if (handCard.RoleType == demandedRoleType)
                 {
-                    IMove<OrderCardModel> demandMove = new Move<OrderCardModel>(handCard, demandee.Hand.OrderCards, Player.Camp.Stockpile);
+                    IMove<OrderCardModel> demandMove = new Move<OrderCardModel>(handCard, demandee.Hand.OrderCards,
+                        Player.Camp.Stockpile);
                     moveSpace.Add(demandMove);
                 }
             }
@@ -70,14 +70,14 @@ namespace GTR.Core.ManipulatableRules.Actions
             return moveSpace;
         }
 
-        protected override IEnumerable<MoveSpace> GetPostmoveSpaces(MoveCombo moveCombo)
+        protected override IEnumerable<MoveSpace> GetPostmoveSpaces(IMove<CardModelBase> move)
         {
             var movespaces = new List<MoveSpace>();
             var moveSpace = new MoveSpace(true);
 
             //var demandEnumeration = demandArea.GetEnumerator();
             //OrderCard demandCard = (OrderCard)demandEnumeration.Current;
-            IMove<CardModelBase> undemandMove = new Move<OrderCardModel>((OrderCardModel)moveCombo.ElementAt(0).Card, _demandArea,
+            IMove<CardModelBase> undemandMove = new Move<OrderCardModel>((OrderCardModel) move.Card, _demandArea,
                 _playerHand);
 
             moveSpace.Add(undemandMove);

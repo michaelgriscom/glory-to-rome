@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using GTR.Core.Buildings;
 using GTR.Core.Game;
 using GTR.Core.Model;
+using GTR.Core.Util;
 
 #endregion
 
@@ -12,7 +13,7 @@ namespace GTR.Core.ManipulatableRules.Actions
     public abstract class OrderActionBase : ITriAction
     {
         protected readonly WrappedFunc<MoveSpace> actionMoves;
-        protected readonly WrappedFunc<MoveCombo, IEnumerable<MoveSpace>> postActionMoves;
+        protected readonly WrappedFunc<IMove<CardModelBase>, IEnumerable<MoveSpace>> postActionMoves;
         protected readonly WrappedFunc<IEnumerable<MoveSpace>> preActionMoves;
         protected GameTable GameTable;
         protected Player Player;
@@ -23,7 +24,7 @@ namespace GTR.Core.ManipulatableRules.Actions
             GameTable = gameTable;
             preActionMoves = new WrappedFunc<IEnumerable<MoveSpace>>(GetPremoveSpaces);
             actionMoves = new WrappedFunc<MoveSpace>(GetMoveSpace);
-            postActionMoves = new WrappedFunc<MoveCombo, IEnumerable<MoveSpace>>(GetPostmoveSpaces);
+            postActionMoves = new WrappedFunc<IMove<CardModelBase>, IEnumerable<MoveSpace>>(GetPostmoveSpaces);
         }
 
         public event PlayerActionHandler OnAction;
@@ -69,21 +70,13 @@ namespace GTR.Core.ManipulatableRules.Actions
 
         internal IEnumerable<MoveSpace> Complete(IMove<CardModelBase> move)
         {
-         
-            MoveCombo moveCombo = new MoveCombo(move);
-
-            return Complete(moveCombo);
-        }
-
-        internal IEnumerable<MoveSpace> Complete(MoveCombo moveCombo)
-        {
             if (OnPostAction != null)
             {
                 var args = GetActionEventArgs();
                 OnPostAction(this, args);
             }
 
-            var postMoveResult = postActionMoves.Execute(moveCombo);
+            var postMoveResult = postActionMoves.Execute(move);
             return postMoveResult;
         }
 
@@ -107,7 +100,7 @@ namespace GTR.Core.ManipulatableRules.Actions
 
         protected abstract MoveSpace GetMoveSpace();
 
-        protected virtual IEnumerable<MoveSpace> GetPostmoveSpaces(MoveCombo moveCombo)
+        protected virtual IEnumerable<MoveSpace> GetPostmoveSpaces(IMove<CardModelBase> move)
         {
             return new List<MoveSpace>();
         }

@@ -19,6 +19,6 @@ namespace GTR.Core.Services
         ActionType GetFollow();
         ICollection<HandCardModel> SelectLeadCards(List<HandCardModel> cardOptions);
         ICollection<HandCardModel> SelectFollowCards(List<HandCardModel> cardOptions, RoleType role);
-        MoveCombo GetMove(MoveSpace moveSpace);
+        IMove<CardModelBase> GetMove(MoveSpace moveSpace);
     }
 }

@@ -78,6 +78,7 @@
     <Compile Include="DeckTests.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="UtilTests\MultisetTests.cs" />
+    <Compile Include="UtilTests\WrappedFuncTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

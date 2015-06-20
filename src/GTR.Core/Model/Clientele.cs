@@ -2,6 +2,7 @@
 
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
+using GTR.Core.Util;
 
 #endregion
 

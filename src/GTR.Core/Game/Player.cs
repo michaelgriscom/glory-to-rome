@@ -2,7 +2,6 @@
 
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Threading.Tasks;
 using GTR.Core.CardCollections;
 using GTR.Core.ManipulatableRules;
 using GTR.Core.ManipulatableRules.Actions;
@@ -265,7 +264,7 @@ namespace GTR.Core.Game
             }
         }
 
-        private MoveCombo EvaluateMoveSpace(MoveSpace moveSpace)
+        private IMove<CardModelBase> EvaluateMoveSpace(MoveSpace moveSpace)
         {
             var move = InputService.GetMove(moveSpace);
 

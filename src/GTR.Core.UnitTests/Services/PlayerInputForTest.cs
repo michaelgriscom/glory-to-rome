@@ -14,6 +14,8 @@ namespace GTR.Core.UnitTests.Services
 {
     internal class PlayerInputForTest : IPlayerInput
     {
+        public delegate void OnMove(object sender, OnMoveEventArgs eventArgs);
+
         public RoleType GetLeadRole(ICollection<RoleType> availableLeads)
         {
             return RoleType.Patron;
@@ -54,19 +56,17 @@ namespace GTR.Core.UnitTests.Services
             throw new NotImplementedException();
         }
 
-        public MoveCombo GetMove(MoveSpace moveSpace)
+        public IMove<CardModelBase> GetMove(MoveSpace moveSpace)
         {
             if (OnMoveEventHandler != null)
             {
-                var eventArgs = new OnMoveEventArgs() { MoveSpace = moveSpace };
+                var eventArgs = new OnMoveEventArgs {MoveSpace = moveSpace};
                 OnMoveEventHandler(this, eventArgs);
             }
-            return moveSpace.ElementAt(0);
+            return !moveSpace.Any() ? null : moveSpace.ElementAt(0).ElementAt(0);
         }
 
         public event OnMove OnMoveEventHandler;
-
-        public delegate void OnMove(object sender, OnMoveEventArgs eventArgs);
     }
 
     public class OnMoveEventArgs : EventArgs
