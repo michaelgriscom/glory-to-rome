@@ -1,0 +1,105 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTR.Core.UnitTests", "GTR.Core.UnitTests\GTR.Core.UnitTests.csproj", "{D4E10A73-076F-4ABD-AB73-525C6132571D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTR.Windows", "GTR.Windows\GTR.Windows.csproj", "{3EFF9233-3602-4E9D-B263-274553537946}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTR.Windows.UnitTests", "GTR.Windows.UnitTests\GTR.Windows.UnitTests.csproj", "{E70FD36B-BACE-44D4-B1E5-7A2B72DDAAE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedResources", "SharedResources", "{8DD2F807-50B9-4B23-8F3C-C9A3AD5603E8}"
+	ProjectSection(SolutionItems) = preProject
+		SharedResources\Cards.xml = SharedResources\Cards.xml
+		SharedResources\CardsSchema.xsd = SharedResources\CardsSchema.xsd
+		SharedResources\imperialdeck.csv = SharedResources\imperialdeck.csv
+		SharedResources\images\logo.jpeg = SharedResources\images\logo.jpeg
+		SharedResources\republicdeck.csv = SharedResources\republicdeck.csv
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTR.Core", "GTR.Core\GTR.Core.csproj", "{15B839AF-A44E-4676-B7DB-9555ECE3101A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{79DE3B88-ADBB-4901-957D-818C37EB5416}"
+	ProjectSection(SolutionItems) = preProject
+		SharedResources\images\logo.jpeg = SharedResources\images\logo.jpeg
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://michaelgriscom.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = GTR.Core.UnitTests\\GTR.Core.UnitTests.csproj
+		SccProjectName1 = GTR.Core.UnitTests
+		SccLocalPath1 = GTR.Core.UnitTests
+		SccProjectUniqueName2 = GTR.Windows\\GTR.Windows.csproj
+		SccProjectName2 = GTR.Windows
+		SccLocalPath2 = GTR.Windows
+		SccProjectUniqueName3 = GTR.Windows.UnitTests\\GTR.Windows.UnitTests.csproj
+		SccProjectName3 = GTR.Windows.UnitTests
+		SccLocalPath3 = GTR.Windows.UnitTests
+		SccProjectUniqueName4 = GTR.Core\\GTR.Core.csproj
+		SccProjectName4 = GTR.Core
+		SccLocalPath4 = GTR.Core
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4E10A73-076F-4ABD-AB73-525C6132571D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4E10A73-076F-4ABD-AB73-525C6132571D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4E10A73-076F-4ABD-AB73-525C6132571D}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{D4E10A73-076F-4ABD-AB73-525C6132571D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D4E10A73-076F-4ABD-AB73-525C6132571D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D4E10A73-076F-4ABD-AB73-525C6132571D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4E10A73-076F-4ABD-AB73-525C6132571D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4E10A73-076F-4ABD-AB73-525C6132571D}.Release|ARM.ActiveCfg = Release|Any CPU
+		{D4E10A73-076F-4ABD-AB73-525C6132571D}.Release|x64.ActiveCfg = Release|Any CPU
+		{D4E10A73-076F-4ABD-AB73-525C6132571D}.Release|x86.ActiveCfg = Release|Any CPU
+		{3EFF9233-3602-4E9D-B263-274553537946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EFF9233-3602-4E9D-B263-274553537946}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EFF9233-3602-4E9D-B263-274553537946}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{3EFF9233-3602-4E9D-B263-274553537946}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3EFF9233-3602-4E9D-B263-274553537946}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3EFF9233-3602-4E9D-B263-274553537946}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EFF9233-3602-4E9D-B263-274553537946}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EFF9233-3602-4E9D-B263-274553537946}.Release|ARM.ActiveCfg = Release|Any CPU
+		{3EFF9233-3602-4E9D-B263-274553537946}.Release|x64.ActiveCfg = Release|Any CPU
+		{3EFF9233-3602-4E9D-B263-274553537946}.Release|x86.ActiveCfg = Release|Any CPU
+		{E70FD36B-BACE-44D4-B1E5-7A2B72DDAAE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E70FD36B-BACE-44D4-B1E5-7A2B72DDAAE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E70FD36B-BACE-44D4-B1E5-7A2B72DDAAE3}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{E70FD36B-BACE-44D4-B1E5-7A2B72DDAAE3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E70FD36B-BACE-44D4-B1E5-7A2B72DDAAE3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E70FD36B-BACE-44D4-B1E5-7A2B72DDAAE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E70FD36B-BACE-44D4-B1E5-7A2B72DDAAE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E70FD36B-BACE-44D4-B1E5-7A2B72DDAAE3}.Release|ARM.ActiveCfg = Release|Any CPU
+		{E70FD36B-BACE-44D4-B1E5-7A2B72DDAAE3}.Release|x64.ActiveCfg = Release|Any CPU
+		{E70FD36B-BACE-44D4-B1E5-7A2B72DDAAE3}.Release|x86.ActiveCfg = Release|Any CPU
+		{15B839AF-A44E-4676-B7DB-9555ECE3101A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B839AF-A44E-4676-B7DB-9555ECE3101A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B839AF-A44E-4676-B7DB-9555ECE3101A}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{15B839AF-A44E-4676-B7DB-9555ECE3101A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{15B839AF-A44E-4676-B7DB-9555ECE3101A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{15B839AF-A44E-4676-B7DB-9555ECE3101A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B839AF-A44E-4676-B7DB-9555ECE3101A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15B839AF-A44E-4676-B7DB-9555ECE3101A}.Release|ARM.ActiveCfg = Release|Any CPU
+		{15B839AF-A44E-4676-B7DB-9555ECE3101A}.Release|x64.ActiveCfg = Release|Any CPU
+		{15B839AF-A44E-4676-B7DB-9555ECE3101A}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{79DE3B88-ADBB-4901-957D-818C37EB5416} = {8DD2F807-50B9-4B23-8F3C-C9A3AD5603E8}
+	EndGlobalSection
+EndGlobal

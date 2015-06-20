@@ -1,2 +1,2 @@
-# glory-to-rome
-Glory to Rome
+# Glory to Rome
+## A .NET implementation of the Glory to Rome card game

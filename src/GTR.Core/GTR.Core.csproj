@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{15B839AF-A44E-4676-B7DB-9555ECE3101A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GTR.Core</RootNamespace>
+    <AssemblyName>GTR.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <ExpressionBlendVersion>12.0.50716.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Util\Messages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AIController\AIPlayerInput.cs" />
+    <Compile Include="Buildings\BuildingActivatedEventArgs.cs" />
+    <Compile Include="Buildings\BuildingDeactivatedEventArgs.cs" />
+    <Compile Include="CardCollections\BoundedSourceTarget.cs" />
+    <Compile Include="CardCollections\CardTarget.cs" />
+    <Compile Include="DeckManagement\CardSet.cs" />
+    <Compile Include="Game\GameOverEventArgs.cs" />
+    <Compile Include="Game\PlayerScores.cs" />
+    <Compile Include="Game\GameScorer.cs" />
+    <Compile Include="Game\GameWonEventArgs.cs" />
+    <Compile Include="Game\WrappedFunc.cs" />
+    <Compile Include="ManipulatableRules\ConstructionManager.cs" />
+    <Compile Include="Model\ConstructionZone.cs" />
+    <Compile Include="Model\CompletedBuildings.cs" />
+    <Compile Include="Model\CompletedStructures.cs" />
+    <Compile Include="CardCollections\ICardSource.cs" />
+    <Compile Include="DeckManagement\CardManager.cs" />
+    <Compile Include="DeckManagement\DeckTypeSerializer.cs" />
+    <Compile Include="Design\DesignResourceProvider.cs" />
+    <Compile Include="Game\GameOptions.cs" />
+    <Compile Include="Game\MoveCombo.cs" />
+    <Compile Include="ManipulatableRules\LeadFollowManager.cs" />
+    <Compile Include="ManipulatableRules\Actions\ArchitectAction.cs" />
+    <Compile Include="Buildings\BuildOrderActionBase.cs" />
+    <Compile Include="ManipulatableRules\Actions\CraftsmanAction.cs" />
+    <Compile Include="Model\DemandArea.cs" />
+    <Compile Include="Model\LeaderCardLocation.cs" />
+    <Compile Include="Game\Move.cs" />
+    <Compile Include="Game\MoveSpace.cs" />
+    <Compile Include="ManipulatableRules\Actions\GameAction.cs" />
+    <Compile Include="ManipulatableRules\Actions\IPlayerAction.cs" />
+    <Compile Include="ManipulatableRules\Actions\OrderActions.cs" />
+    <Compile Include="ManipulatableRules\Actions\ITriAction.cs" />
+    <Compile Include="ManipulatableRules\Actions\LaborerAction.cs" />
+    <Compile Include="ManipulatableRules\Actions\LegionnaireAction.cs" />
+    <Compile Include="ManipulatableRules\Actions\MerchantAction.cs" />
+    <Compile Include="ManipulatableRules\Actions\OrderActionBase.cs" />
+    <Compile Include="ManipulatableRules\Actions\PatronAction.cs" />
+    <Compile Include="ManipulatableRules\Actions\ThinkerAction.cs" />
+    <Compile Include="CardCollections\BoundedCardTarget.cs" />
+    <Compile Include="CardCollections\ICardLocation.cs" />
+    <Compile Include="CardCollections\ICardTarget.cs" />
+    <Compile Include="CardCollections\CardLocation.cs" />
+    <Compile Include="Model\BuildingSite.cs" />
+    <Compile Include="Model\Clientele.cs" />
+    <Compile Include="Model\Deck.cs" />
+    <Compile Include="Model\Hand.cs" />
+    <Compile Include="Model\Pool.cs" />
+    <Compile Include="Model\SiteDeck.cs" />
+    <Compile Include="Model\Stockpile.cs" />
+    <Compile Include="CardCollections\CardSourceTarget.cs" />
+    <Compile Include="DeckManagement\DeckType.cs" />
+    <Compile Include="Model\CardModelBase.cs" />
+    <Compile Include="DeckManagement\CardSetSerializer.cs" />
+    <Compile Include="Model\HandCardModel.cs" />
+    <Compile Include="Model\JackCardModel.cs" />
+    <Compile Include="Model\LeaderCardModel.cs" />
+    <Compile Include="Model\PlayerBoard.cs" />
+    <Compile Include="Model\OrderCardModel.cs" />
+    <Compile Include="Services\IPlayerInput.cs" />
+    <Compile Include="Util\Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Util\Multiset.cs" />
+    <Compile Include="Util\ObservableObject.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\IDeckIO.cs" />
+    <Compile Include="Services\IMessageBox.cs" />
+    <Compile Include="Services\IResourceProvider.cs" />
+    <Compile Include="Util\ExtensionMethods.cs" />
+    <Compile Include="Model\Vault.cs" />
+    <Compile Include="Buildings\BuildEventArgs.cs" />
+    <Compile Include="Buildings\Building.cs" />
+    <Compile Include="Buildings\BuildingCompletedEventArgs.cs" />
+    <Compile Include="Buildings\BuildingEffect.cs" />
+    <Compile Include="Buildings\RubbleBuildingEffects.cs" />
+    <Compile Include="Buildings\IBuildingReader.cs" />
+    <Compile Include="Model\Camp.cs" />
+    <Compile Include="Game\Constants.cs" />
+    <Compile Include="Game\Enumerations.cs" />
+    <Compile Include="Game\Game.cs" />
+    <Compile Include="Game\GameHistory.cs" />
+    <Compile Include="Game\Player.cs" />
+    <Compile Include="Game\GameTable.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Globals.cs" />
+    <Compile Include="ViewModel\GameViewModel.cs" />
+    <Compile Include="ViewModel\MenuOptionViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
