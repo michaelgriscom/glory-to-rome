@@ -23,6 +23,7 @@ namespace GTR.Core.Game
         {
             OrderDeck = orderDeck;
             JackDeck = jackDeck;
+            JackDeck.LocationName = "Jack Deck";
             Pool = new Pool();
             LeaderCard = new LeaderCardModel();
         }
@@ -60,12 +61,15 @@ namespace GTR.Core.Game
             }
         }
 
-        internal void MoveCard<T>(T card, ICardSource<CardModelBase> source, ICardTarget<T> target)
+        //TODO: it'd be way better to rely on Move.Perform
+        internal void MoveCard<T>(T card, ICardSource<CardModelBase> source, ICardTarget<T> destination)
             where T : CardModelBase
         {
             source.Remove(card);
+            destination.Add(card);
 
-            target.Add(card);
+            Game.MessageProvider.Display(string.Format("Card {0} moved from {1} to {2}", card.Name, source.LocationName,
+                destination.LocationName));
         }
 
         public void AddPlayers(IList<Player> players)

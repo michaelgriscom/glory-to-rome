@@ -8,5 +8,8 @@ namespace GTR.Core.Model
 {
     internal class Pool : CardSourceTarget<OrderCardModel>
     {
+        public Pool() : base("Pool")
+        {
+        }
     }
 }

@@ -9,6 +9,6 @@
 
     public interface IMessageProvider
     {
-        void Display(MessageType messageType, string message);
+        void Display(string message, MessageType messageType = MessageType.Information);
     }
 }

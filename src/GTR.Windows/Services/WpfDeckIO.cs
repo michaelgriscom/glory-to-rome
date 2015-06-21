@@ -17,11 +17,11 @@ namespace GTR.Windows.Services
         private static readonly string DeckDirectory =
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-        private static readonly string deckFilePattern = "*" + DeckFileExtension;
+        private static readonly string DeckFilePattern = "*" + DeckFileExtension;
 
         public IEnumerable<string> GetCustomDeckNames()
         {
-            return Directory.EnumerateFiles(DeckDirectory, deckFilePattern);
+            return Directory.EnumerateFiles(DeckDirectory, DeckFilePattern);
         }
 
         public string GetCustomDeck(string deckName)

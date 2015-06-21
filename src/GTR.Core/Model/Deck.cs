@@ -71,6 +71,11 @@ namespace GTR.Core.Model
             _cards.RemoveAt(0);
         }
 
+        public string LocationName
+        {
+            get { return "Deck"; }
+        }
+
         public bool Remove(T card)
         {
             // only allow removal from top

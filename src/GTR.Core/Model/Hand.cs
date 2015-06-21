@@ -12,11 +12,12 @@ namespace GTR.Core.Model
     {
         protected const int DefaultHandSize = 5;
 
-        internal Hand()
+        internal Hand(string player = "")
         {
             RefillCapacity = DefaultHandSize;
             JackCards = new JackCardGroup(this);
             OrderCards = new OrderCardGroup(this);
+            LocationName = string.Format("Player {0} hand", player);
         }
 
         internal JackCardGroup JackCards { get; private set; }
@@ -68,23 +69,30 @@ namespace GTR.Core.Model
             }
         }
 
+        public string LocationName { get; private set; }
+
         internal class JackCardGroup : CardSourceTarget<JackCardModel>
         {
-            private Hand _hand;
+            private readonly Hand _hand;
 
             public JackCardGroup(Hand hand)
             {
                 _hand = hand;
             }
+
+            public override string LocationName
+            {
+                get { return _hand.LocationName; }
+            }
         }
 
         internal class OrderCardGroup : BoundedCardTarget<OrderCardModel>, ICardSource<OrderCardModel>
         {
-            private readonly Hand _containingHand;
+            private readonly Hand _hand;
 
-            internal OrderCardGroup(Hand containingHand)
+            internal OrderCardGroup(Hand hand)
             {
-                _containingHand = containingHand;
+                _hand = hand;
             }
 
             public OrderCardModel ElementAt(int index)
@@ -92,9 +100,14 @@ namespace GTR.Core.Model
                 return this[index];
             }
 
+            public override string LocationName
+            {
+                get { return _hand.LocationName; }
+            }
+
             public override bool CanAdd(OrderCardModel card)
             {
-                return _containingHand.Count < _containingHand.RefillCapacity;
+                return _hand.Count < _hand.RefillCapacity;
             }
         }
     }

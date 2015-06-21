@@ -1,6 +1,7 @@
 ﻿#region
 
-using GTR.Core.Game;
+using System.Collections;
+using System.Collections.Generic;
 using GTR.Core.Model;
 
 #endregion
@@ -9,19 +10,29 @@ namespace GTR.Core.Action
 {
     public class BuildCombo : IAction
     {
-        public IMove<OrderCardModel> BuildMove { get; private set; }
-
-        public IMove<BuildingSite> SiteMove { get; private set; }
-
         public BuildCombo(IMove<BuildingSite> siteMove, IMove<OrderCardModel> buildMove)
         {
-            this.BuildMove = buildMove;
-            this.SiteMove = siteMove;
+            BuildMove = buildMove;
+            SiteMove = siteMove;
         }
+
+        public IMove<OrderCardModel> BuildMove { get; private set; }
+        public IMove<BuildingSite> SiteMove { get; private set; }
 
         public bool Perform()
         {
             return BuildMove.Perform() && SiteMove.Perform();
+        }
+
+        public IEnumerator<IMove<CardModelBase>> GetEnumerator()
+        {
+            yield return BuildMove;
+            yield return SiteMove;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

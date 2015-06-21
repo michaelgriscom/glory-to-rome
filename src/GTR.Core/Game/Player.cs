@@ -18,7 +18,8 @@ namespace GTR.Core.Game
     {
         private readonly Queue<MoveSpace> _availableMoves;
         private readonly LeadFollowManager _lfManager;
-        private readonly CardSourceTarget<HandCardModel> _playArea = new CardSourceTarget<HandCardModel>();
+        private readonly IMessageProvider _messageProvider;
+        private readonly CardSourceTarget<HandCardModel> _playArea;
         private CompletedBuildings _completedBuildings;
         private ConstructionZone _constructionZone;
         private DemandArea _demandArea;
@@ -26,22 +27,28 @@ namespace GTR.Core.Game
         private LeaderCardLocation _leaderCardLocation;
         internal OrderActions PlayerActions;
 
-        internal Player(string playerName, IPlayerInput inputService)
+        internal Player(string playerName, IPlayerInput inputService, IMessageProvider messageProvider = null)
         {
+            if (messageProvider == null)
+            {
+                messageProvider = new NullMessageProvider();
+            }
+            _messageProvider = messageProvider;
             PlayerName = playerName;
             InputService = inputService;
+            _playArea = new CardSourceTarget<HandCardModel>(string.Format("Player {0} play area", playerName));
 
-            Hand = new Hand();
-            Camp = new Camp();
+            Hand = new Hand(PlayerName);
+            Camp = new Camp(PlayerName);
 
             _availableMoves = new Queue<MoveSpace>();
             OutstandingActions = new Multiset<RoleType>();
             _lfManager = new LeadFollowManager(inputService);
 
-            ConstructionZone = new ConstructionZone();
-            CompletedBuildings = new CompletedBuildings();
-            LeaderCardLocation = new LeaderCardLocation();
-            DemandArea = new DemandArea();
+            ConstructionZone = new ConstructionZone(playerName);
+            CompletedBuildings = new CompletedBuildings(playerName);
+            LeaderCardLocation = new LeaderCardLocation(playerName);
+            DemandArea = new DemandArea(playerName);
         }
 
         public CompletedBuildings CompletedBuildings
@@ -109,6 +116,7 @@ namespace GTR.Core.Game
             _gameTable = gameTable;
             PlayerActions = new OrderActions(this, gameTable);
             ConstructionManager constructionManager = new ConstructionManager(this, gameTable);
+            DisplayAction("joined the game");
         }
 
         public OrderActionBase GetAction(RoleType role)
@@ -134,6 +142,7 @@ namespace GTR.Core.Game
                 if (card is JackCardModel)
                 {
                     JackCardModel jack = card as JackCardModel;
+                    //IMove<JackCardModel> move = new Move<JackCardModel>(jack, PlayArea, _gameTable.JackDeck);
                     _gameTable.MoveCard(
                         jack,
                         PlayArea,
@@ -142,6 +151,8 @@ namespace GTR.Core.Game
                 else
                 {
                     OrderCardModel order = card as OrderCardModel;
+                    //var move = new Move<OrderCardModel>(order, PlayArea, _gameTable.JackDeck);
+
                     _gameTable.MoveCard(
                         order,
                         PlayArea,
@@ -156,6 +167,7 @@ namespace GTR.Core.Game
         {
             if (Hand.Count == 0)
             {
+                DisplayAction("thought");
                 ExecuteAction(Thinker);
                 return null;
             }
@@ -165,31 +177,44 @@ namespace GTR.Core.Game
                 var leadCards = _lfManager.GetLeadCards(Hand);
                 PlayCards(leadCards);
                 var lead = _lfManager.GetLeadRole(leadCards);
+                DisplayAction(string.Concat("performed ", lead));
                 AddActionLead(lead);
                 return lead;
             }
+            DisplayAction("thought");
+
             ExecuteAction(Thinker);
             return null;
         }
 
-        internal void Follow(RoleType order)
+        private void DisplayAction(string action)
+        {
+            _messageProvider.Display(string.Format("Player {0} {1}", PlayerName, action));
+        }
+
+        internal void Follow(RoleType leadRole)
         {
             if (Hand.Count == 0)
             {
                 ExecuteAction(Thinker);
+                DisplayAction("thought");
+
                 return;
             }
             var action = InputService.GetFollow();
             if (action == ActionType.Thinker)
             {
+                DisplayAction("thought");
+
                 ExecuteAction(Thinker);
             }
             else
             {
-                var followCards = _lfManager.GetFollowCards(Hand, order);
+                var followCards = _lfManager.GetFollowCards(Hand, leadRole);
                 bool followed = (followCards.Count == 0);
+                DisplayAction(string.Concat("followed ", leadRole));
 
-                AddActionFollow(order, followed);
+                AddActionFollow(leadRole, followed);
                 PlayCards(followCards);
             }
         }
@@ -225,10 +250,8 @@ namespace GTR.Core.Game
         {
             foreach (HandCardModel card in cards)
             {
-                _gameTable.MoveCard(
-                    card,
-                    Hand,
-                    PlayArea);
+                IMove<HandCardModel> move = new Move<HandCardModel>(card, Hand, PlayArea);
+                move.Perform();
             }
         }
 
@@ -257,11 +280,13 @@ namespace GTR.Core.Game
 
             var moves = action.Execute();
             var move = EvaluateMoveSpace(moves);
-
-            var postMoves = action.Complete(move);
-            foreach (var moveSpace in postMoves)
+            if (move != null)
             {
-                EvaluateMoveSpace(moveSpace);
+                var postMoves = action.Complete(move);
+                foreach (var moveSpace in postMoves)
+                {
+                    EvaluateMoveSpace(moveSpace);
+                }
             }
         }
 
@@ -270,7 +295,10 @@ namespace GTR.Core.Game
             var move = InputService.GetMove(moveSpace);
 
             Debug.Assert(!(move == null && moveSpace.IsRequired), "player must choose a move");
-            _gameTable.ExecuteMove(move);
+            if (move != null)
+            {
+                _gameTable.ExecuteMove(move);
+            }
             return move;
         }
 

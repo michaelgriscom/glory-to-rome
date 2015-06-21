@@ -6,7 +6,8 @@ using GTR.Core.Util;
 
 namespace GTR.Core.Model
 {
-    public class CardModelBase : ObservableObject
+    public abstract class CardModelBase : ObservableObject
     {
+        public abstract string Name { get; }
     }
 }

@@ -12,7 +12,6 @@ namespace GTR.Core.Action
     {
         public MoveSpace(bool isRequired = false) : base(isRequired)
         {
-            
         }
     }
 

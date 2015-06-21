@@ -9,8 +9,11 @@ namespace GTR.Core.CardCollections
 {
     public class CardSourceTarget<T> : CardLocation<T>, ICardTarget<T>, ICardSource<T> where T : CardModelBase
     {
-        public CardSourceTarget()
+        private string _locationName;
+
+        public CardSourceTarget(string name = "")
         {
+            _locationName = name;
         }
 
         public CardSourceTarget(IEnumerable<T> cards) : base(cards)
@@ -25,6 +28,12 @@ namespace GTR.Core.CardCollections
         public virtual bool CanAdd(T card)
         {
             return true;
+        }
+
+        public override string LocationName
+        {
+            get { return _locationName; }
+            set { _locationName = value; }
         }
     }
 }

@@ -13,7 +13,6 @@ namespace GTR.Core.Model
     {
         private readonly SiteType _siteType;
         private BoundedSourceTarget<OrderCardModel> _building;
-        private OrderCardModel _card;
         private BoundedCardTarget<OrderCardModel> _materials;
 
         public BuildingSite(MaterialType materialType, SiteType siteType = SiteType.InsideRome)
@@ -23,8 +22,9 @@ namespace GTR.Core.Model
 
             Materials = new BoundedCardTarget<OrderCardModel>(MaterialType.MaterialWorth());
             Materials.CollectionChanged += MaterialsOnCollectionChanged;
+            Materials.LocationName = "Building materials";
 
-            BuildingFoundation = new BoundedSourceTarget<OrderCardModel>(1);
+            BuildingFoundation = new BoundedSourceTarget<OrderCardModel>(1) {LocationName = "Building foundation"};
         }
 
         public BoundedCardTarget<OrderCardModel> Materials
@@ -49,19 +49,14 @@ namespace GTR.Core.Model
 
         public MaterialType MaterialType { get; private set; }
 
-        public OrderCardModel Card
-        {
-            get { return _card; }
-            private set
-            {
-                _card = value;
-                RaisePropertyChanged();
-            }
-        }
-
         public SiteType SiteType
         {
             get { return _siteType; }
+        }
+
+        public override string Name
+        {
+            get { return string.Concat(MaterialType, " building site"); }
         }
 
         private void MaterialsOnCollectionChanged(object sender,
@@ -77,7 +72,9 @@ namespace GTR.Core.Model
             }
             if (Complete != null)
             {
-                Complete(this, null);
+                // TODO: what should these args be?
+                var buildingCompleteEventArgs = new BuildingCompletedEventArgs {BuildingSite = this};
+                Complete(this, buildingCompleteEventArgs);
             }
         }
 

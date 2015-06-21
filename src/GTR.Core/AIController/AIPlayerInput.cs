@@ -63,7 +63,7 @@ namespace GTR.Core.AIController
 
         public IAction GetMove(MoveSpace moveSpace)
         {
-            return moveSpace.ElementAt(0);
+            return moveSpace.Any() ? moveSpace.ElementAt(0) : null;
         }
     }
 }

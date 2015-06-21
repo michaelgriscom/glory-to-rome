@@ -8,15 +8,21 @@ namespace GTR.Core.Model
 {
     public class OrderCardModel : HandCardModel
     {
+        private readonly string _name;
+
         public OrderCardModel(string name, string description, RoleType roleType)
         {
-            Name = name;
+            _name = name;
             Description = description;
             RoleType = roleType;
         }
 
         public RoleType RoleType { get; private set; }
         public string Description { get; private set; }
-        public string Name { get; private set; }
+
+        public override string Name
+        {
+            get { return _name; }
+        }
     }
 }

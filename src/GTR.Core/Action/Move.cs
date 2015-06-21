@@ -1,6 +1,8 @@
 ﻿#region
 
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using GTR.Core.CardCollections;
 using GTR.Core.Model;
 using GTR.Core.Util;
@@ -26,6 +28,22 @@ namespace GTR.Core.Action
             _source = source;
             _destination = destination;
         }
+
+        /*
+        // consider: the constructor is pickier than it should be.
+        // As long as source<U> destination<U> and T card have the relationship T:U
+        // then it's a valid move. The problem is that C# doesn't support constraints in a constructor,
+        // so we'd need a messy Initialize method like below. The problem though is that we'd have to expose U and V
+        // through the getters, so this type will become really ugly.
+         * 
+        public void Initialize<T, U, V>(T card, ICardSource<U> source, ICardTarget<V> destination ) where T:U,V where U : CardModelBase where V:CardModelBase
+        {
+            _card = card;
+            _source = source;
+            _destination = destination;
+        }
+         * */
+
 
         public Move(T card, ICardSource<T> source, Func<ICardTarget<T>> destinationFunction)
         {
@@ -63,8 +81,21 @@ namespace GTR.Core.Action
             if (success)
             {
                 _destination.Add(_card);
+                // TODO: add in dependency injection or something to avoid doing this
+                Game.Game.MessageProvider.Display(string.Format("Card [{0}] moved from [{1}] to [{2}]", _card.Name,
+                    _source.LocationName, _destination.LocationName));
             }
             return success;
+        }
+
+        public IEnumerator<IMove<CardModelBase>> GetEnumerator()
+        {
+            yield return this;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
 
         public override bool Equals(object obj)

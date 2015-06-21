@@ -8,15 +8,28 @@ using GTR.Core.Model;
 
 namespace GTR.Core.CardCollections
 {
-    public class CardLocation<T> : ObservableCollection<T>, ICardLocation<T> where T : CardModelBase
+    public abstract class CardLocation<T> : ObservableCollection<T>, ICardLocation<T> where T : CardModelBase
     {
+        private string _locationName;
+
         internal CardLocation()
         {
+        }
+
+        internal CardLocation(string name)
+        {
+            _locationName = name;
         }
 
         internal CardLocation(IEnumerable<T> cards)
             : base(cards)
         {
+        }
+
+        public virtual string LocationName
+        {
+            get { return _locationName; }
+            set { _locationName = value; }
         }
     }
 }

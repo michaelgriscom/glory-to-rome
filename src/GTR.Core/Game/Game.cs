@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Text;
 using GTR.Core.AIController;
 using GTR.Core.CardCollections;
 using GTR.Core.DeckManagement;
@@ -21,14 +22,18 @@ namespace GTR.Core.Game
         private readonly GameTable _gameTable;
         private readonly IResourceProvider _resourceProvider;
         private Player _actionPlayer; // player who has an action pending
+        private bool _isGameOver;
         private Player _leadPlayer; // player whose turn it is to lead
+        private int _turnNumber;
 
         public Game(
             int playerCount,
             GameOptions gameOptions,
             IDeckIo deckIo,
-            IResourceProvider resourceProvider)
+            IResourceProvider resourceProvider,
+            IMessageProvider messageProvider)
         {
+            MessageProvider = messageProvider;
             _gameOptions = gameOptions;
             _deckIo = deckIo;
             _resourceProvider = resourceProvider;
@@ -45,8 +50,11 @@ namespace GTR.Core.Game
             GameOver += OnGameOver;
         }
 
+        public static IMessageProvider MessageProvider { get; private set; }
+
         private void OnGameOver(object sender, GameOverEventArgs args)
         {
+            _isGameOver = true;
             var gameScore = GameScorer.Score(_gameTable.Players);
             var winners = GameScorer.CalculateWinners(gameScore);
 
@@ -114,13 +122,71 @@ namespace GTR.Core.Game
             return table;
         }
 
-        public Player PlayGame()
+        public void PlayGame()
         {
             DealCards();
             _leadPlayer = DetermineGoesFirst(_gameTable);
-            HandleTurn();
-            Player winner = _leadPlayer;
-            return winner;
+            _turnNumber = 1;
+            while (!_isGameOver)
+            {
+                HandleTurn();
+                _turnNumber++;
+            }
+        }
+
+        public string GetGameState()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine(string.Concat("Turn: ", _turnNumber));
+            stringBuilder.AppendLine(string.Concat("Lead player: ", _leadPlayer.PlayerName));
+            stringBuilder.AppendLine(string.Concat("Action player: ", _actionPlayer.PlayerName));
+
+            stringBuilder.AppendLine(string.Concat("Remaining order deck: ", _gameTable.OrderDeck.Count));
+            stringBuilder.AppendLine(string.Concat("Remaining jack deck: ", _gameTable.JackDeck.Count));
+            foreach (var siteDeck in _gameTable.SiteDecks)
+            {
+                stringBuilder.AppendLine(string.Format("Remaining sites for {0} : {1} within Rome, {2} outside Rome",
+                    siteDeck.MaterialType,
+                    siteDeck.Cards.Count(site => site.SiteType == SiteType.InsideRome),
+                    siteDeck.Cards.Count(site => site.SiteType == SiteType.OutOfTown)));
+            }
+            foreach (var player in _gameTable.Players)
+            {
+                DumpPlayerState(player, stringBuilder);
+            }
+
+            return stringBuilder.ToString();
+        }
+
+        private void DumpPlayerState(Player player, StringBuilder stringBuilder)
+        {
+            stringBuilder.AppendLine(string.Format("Player {0}:", player.PlayerName));
+            stringBuilder.AppendLine(string.Concat("Jacks in hand: ", player.Hand.JackCards.Count));
+            foreach (var handCard in player.Hand.OrderCards)
+            {
+                stringBuilder.AppendLine(string.Concat("Hand card: ", handCard.Name));
+            }
+            foreach (var completedBuilding in player.CompletedBuildings)
+            {
+                stringBuilder.AppendLine(string.Concat("Completed building: ", completedBuilding.Name));
+            }
+            foreach (var uncompletedBuilding in player.ConstructionZone)
+            {
+                stringBuilder.AppendLine(string.Format("Building in progress: {0} materials added: {1}",
+                    uncompletedBuilding.BuildingFoundation.First().Name, uncompletedBuilding.Materials.Count));
+            }
+            foreach (var card in player.Camp.Stockpile)
+            {
+                stringBuilder.AppendLine(string.Concat("Stockpile material: ", card.GetMaterialType()));
+            }
+            foreach (var card in player.Camp.Vault)
+            {
+                stringBuilder.AppendLine(string.Concat("Vault material: ", card.GetMaterialType()));
+            }
+            foreach (var card in player.Camp.Clientele)
+            {
+                stringBuilder.AppendLine(string.Concat("Client: ", card.RoleType));
+            }
         }
 
         private void DealCards()
@@ -139,9 +205,12 @@ namespace GTR.Core.Game
 
         private void HandleTurn()
         {
+            MessageProvider.Display(string.Format("Turn {0} lead phase", _turnNumber));
             HandleLeadFollow();
+            MessageProvider.Display(string.Format("Turn {0} action phase", _turnNumber));
             HandleActions();
             CompleteTurn();
+            MessageProvider.Display(string.Format("Turn {0} complete", _turnNumber));
         }
 
         private void CompleteTurn()
@@ -189,9 +258,8 @@ namespace GTR.Core.Game
                     _gameTable.LeaderCard,
                     _leadPlayer.LeaderCardLocation,
                     player.LeaderCardLocation);
-                _leadPlayer.LeaderCardLocation.Remove(_gameTable.LeaderCard);
             }
-            player.LeaderCardLocation.Add(_gameTable.LeaderCard);
+            _leadPlayer = player;
         }
 
         private static CardSourceTarget<JackCardModel> CreateJackDeck()
@@ -206,14 +274,14 @@ namespace GTR.Core.Game
             return new CardSourceTarget<JackCardModel>(cards);
         }
 
-        private static List<Player> CreatePlayers(int playerCount, GameTable gameTable)
+        private List<Player> CreatePlayers(int playerCount, GameTable gameTable)
         {
             IPlayerInput playerInput = new AiPlayerInput();
-            List<Player> players = new List<Player>(playerCount);
+            var players = new List<Player>(playerCount);
             for (int i = 0; i < playerCount; i++)
             {
-                string playerName = "Player " + (i + 1);
-                players.Add(new Player(playerName, playerInput));
+                string playerName = (i + 1).ToString();
+                players.Add(new Player(playerName, playerInput, MessageProvider));
             }
             return players;
         }

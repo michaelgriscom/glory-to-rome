@@ -72,6 +72,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\DeckIoForTest.cs" />
+    <Compile Include="Services\InMemoryMessageProvider.cs" />
+    <Compile Include="Services\MessageProviderForTest.cs" />
     <Compile Include="Services\PlayerInputForTest.cs" />
     <Compile Include="Services\ResourceProviderForTest.cs" />
     <Compile Include="GameTests.cs" />

@@ -1,6 +1,6 @@
 ﻿namespace GTR.Core.Model
 {
-    public class HandCardModel : CardModelBase
+    public abstract class HandCardModel : CardModelBase
     {
     }
 }

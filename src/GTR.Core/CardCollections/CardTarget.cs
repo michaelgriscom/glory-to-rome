@@ -7,11 +7,18 @@ using GTR.Core.Model;
 
 namespace GTR.Core.CardCollections
 {
-    public class CardTarget<T> : ObservableCollection<T>, ICardTarget<T> where T : CardModelBase
+    public abstract class CardTarget<T> : ObservableCollection<T>, ICardTarget<T> where T : CardModelBase
     {
+        public CardTarget(string name = "")
+        {
+            LocationName = name;
+        }
+
         public virtual bool CanAdd(T card)
         {
             return true;
         }
+
+        public string LocationName { get; set; }
     }
 }

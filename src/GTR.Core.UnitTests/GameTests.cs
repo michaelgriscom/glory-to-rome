@@ -19,8 +19,8 @@ namespace GTR.Core.UnitTests
             GameOptions options = new GameOptions("Republic");
             IDeckIo deckIo = new DeckIoForTest();
             IResourceProvider rp = new ResourceProviderForTest();
-
-            Game.Game game = new Game.Game(2, options, deckIo, rp);
+            IMessageProvider mp = new InMemoryMessageProvider();
+            Game.Game game = new Game.Game(2, options, deckIo, rp, mp);
             try
             {
                 game.PlayGame();

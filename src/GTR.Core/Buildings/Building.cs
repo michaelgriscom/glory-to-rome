@@ -59,6 +59,11 @@ namespace GTR.Core.Buildings
             return GetEnumerator();
         }
 
+        public string LocationName
+        {
+            get { return Name; }
+        }
+
         internal event BuildingActivatedHandler Activated;
         internal event BuildingCompletedHandler Complete;
         internal event BuildingDeactivatedHandler Deactivated;

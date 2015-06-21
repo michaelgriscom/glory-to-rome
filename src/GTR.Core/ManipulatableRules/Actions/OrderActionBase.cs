@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using GTR.Core.Action;
 using GTR.Core.Buildings;
 using GTR.Core.Game;
-using GTR.Core.Model;
 using GTR.Core.Util;
 
 #endregion

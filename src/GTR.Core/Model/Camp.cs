@@ -15,12 +15,12 @@ namespace GTR.Core.Model
         private Stockpile _stockpile;
         private Vault _vault;
 
-        public Camp()
+        public Camp(string playerName = "")
         {
-            Clientele = new Clientele();
-            Vault = new Vault();
-            CompletedFoundations = new CompletedFoundations();
-            Stockpile = new Stockpile();
+            Clientele = new Clientele(playerName);
+            Vault = new Vault(playerName);
+            CompletedFoundations = new CompletedFoundations(playerName);
+            Stockpile = new Stockpile(playerName);
             InfluencePoints = StartingInfluence;
         }
 
