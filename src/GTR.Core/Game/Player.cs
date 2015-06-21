@@ -18,7 +18,6 @@ namespace GTR.Core.Game
     {
         private readonly Queue<MoveSpace> _availableMoves;
         private readonly LeadFollowManager _lfManager;
-        private readonly IMessageProvider _messageProvider;
         private readonly CardSourceTarget<HandCardModel> _playArea;
         private CompletedBuildings _completedBuildings;
         private ConstructionZone _constructionZone;
@@ -29,11 +28,6 @@ namespace GTR.Core.Game
 
         internal Player(string playerName, IPlayerInput inputService, IMessageProvider messageProvider = null)
         {
-            if (messageProvider == null)
-            {
-                messageProvider = new NullMessageProvider();
-            }
-            _messageProvider = messageProvider;
             PlayerName = playerName;
             InputService = inputService;
             _playArea = new CardSourceTarget<HandCardModel>(string.Format("Player {0} play area", playerName));
@@ -189,7 +183,7 @@ namespace GTR.Core.Game
 
         private void DisplayAction(string action)
         {
-            _messageProvider.Display(string.Format("Player {0} {1}", PlayerName, action));
+            Game.MessageProvider.Display(string.Format("Player {0} {1}", PlayerName, action));
         }
 
         internal void Follow(RoleType leadRole)

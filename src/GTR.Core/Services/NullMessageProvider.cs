@@ -10,7 +10,6 @@ namespace GTR.Core.Services
     {
         public void Display(string message, MessageType messageType = MessageType.Information)
         {
-            throw new NotImplementedException();
         }
     }
 }

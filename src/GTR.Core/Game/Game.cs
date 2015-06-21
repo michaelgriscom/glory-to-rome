@@ -26,6 +26,13 @@ namespace GTR.Core.Game
         private Player _leadPlayer; // player whose turn it is to lead
         private int _turnNumber;
 
+        static Game()
+        {
+            if (MessageProvider == null)
+            {
+                MessageProvider = new NullMessageProvider();
+            }
+        }
         public Game(
             int playerCount,
             GameOptions gameOptions,
@@ -34,6 +41,7 @@ namespace GTR.Core.Game
             IMessageProvider messageProvider)
         {
             MessageProvider = messageProvider;
+
             _gameOptions = gameOptions;
             _deckIo = deckIo;
             _resourceProvider = resourceProvider;
