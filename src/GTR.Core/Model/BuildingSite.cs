@@ -12,7 +12,7 @@ namespace GTR.Core.Model
     public class BuildingSite : CardModelBase
     {
         private readonly SiteType _siteType;
-        private BoundedSourceTarget<OrderCardModel> _building;
+        private BuildingFoundation _building;
         private BoundedCardTarget<OrderCardModel> _materials;
 
         public BuildingSite(MaterialType materialType, SiteType siteType = SiteType.InsideRome)
@@ -24,7 +24,7 @@ namespace GTR.Core.Model
             Materials.CollectionChanged += MaterialsOnCollectionChanged;
             Materials.LocationName = "Building materials";
 
-            BuildingFoundation = new BoundedSourceTarget<OrderCardModel>(1) {LocationName = "Building foundation"};
+            BuildingFoundation = new BuildingFoundation();
         }
 
         public BoundedCardTarget<OrderCardModel> Materials
@@ -37,7 +37,7 @@ namespace GTR.Core.Model
             }
         }
 
-        public BoundedSourceTarget<OrderCardModel> BuildingFoundation
+        public BuildingFoundation BuildingFoundation
         {
             get { return _building; }
             private set

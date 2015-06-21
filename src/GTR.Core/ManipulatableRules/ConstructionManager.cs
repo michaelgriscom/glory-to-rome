@@ -62,7 +62,7 @@ namespace GTR.Core.ManipulatableRules
             _gameTable.MoveCard(buildingSite, constructionZone, completedFoundations);
 
             // move building into completed building zone
-            var buildingCard = args.BuildingSite.BuildingFoundation.First();
+            var buildingCard = args.BuildingSite.BuildingFoundation.BuildingCard;
             var completedBuildings = _player.CompletedBuildings;
             _gameTable.MoveCard(buildingCard, buildingSite.BuildingFoundation, completedBuildings);
 
