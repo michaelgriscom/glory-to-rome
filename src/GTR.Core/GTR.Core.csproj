@@ -50,8 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AIController\AIPlayerInput.cs" />
-    <Compile Include="Buildings\BuildingActivatedEventArgs.cs" />
-    <Compile Include="Buildings\BuildingDeactivatedEventArgs.cs" />
     <Compile Include="CardCollections\BoundedSourceTarget.cs" />
     <Compile Include="CardCollections\CardTarget.cs" />
     <Compile Include="DeckManagement\CardSet.cs" />
@@ -129,8 +127,6 @@
     <Compile Include="Services\IResourceProvider.cs" />
     <Compile Include="Util\ExtensionMethods.cs" />
     <Compile Include="Model\Vault.cs" />
-    <Compile Include="Buildings\BuildEventArgs.cs" />
-    <Compile Include="Buildings\Building.cs" />
     <Compile Include="Buildings\BuildingCompletedEventArgs.cs" />
     <Compile Include="Buildings\BuildingEffect.cs" />
     <Compile Include="Buildings\RubbleBuildingEffects.cs" />

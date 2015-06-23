@@ -9,6 +9,26 @@ using GTR.Core.Model;
 
 namespace GTR.Core.Buildings
 {
+    internal class NullBuildingEffect : BuildingEffectBase
+    {
+        public override MaterialType Material
+        {
+            get { return MaterialType.Rubble; }
+        }
+
+        public override void ActivateBuilding(Player player, GameTable gameTable)
+        {
+        }
+
+        public override void CompleteBuilding(Player player, GameTable gameTable)
+        {
+            
+        }
+
+        public override void DeactivateBuilding(Player player, GameTable gameTable)
+        {
+        }
+    }
     internal class BarEffect : BuildingEffectBase
     {
         private Deck<OrderCardModel> _deck;
@@ -21,9 +41,14 @@ namespace GTR.Core.Buildings
 
         public override void ActivateBuilding(Player player, GameTable gameTable)
         {
+            Game.Game.MessageProvider.Display("Bar activated");
             player.PlayerActions.Patron.PostActionMoves.Wrap(DeckPatron);
             _deck = gameTable.OrderDeck;
             _playerClientele = player.Camp.Clientele;
+        }
+
+        public override void CompleteBuilding(Player player, GameTable gameTable)
+        {
         }
 
         public override void DeactivateBuilding(Player player, GameTable gameTable)
@@ -60,9 +85,16 @@ namespace GTR.Core.Buildings
 
         public override void ActivateBuilding(Player player, GameTable gameTable)
         {
+            Game.Game.MessageProvider.Display("Dock activated");
+
             player.PlayerActions.Laborer.PostActionMoves.Wrap(HandLabor);
             _playerHand = player.Hand.OrderCards;
             _playerStockpile = player.Camp.Stockpile;
+        }
+
+        public override void CompleteBuilding(Player player, GameTable gameTable)
+        {
+            
         }
 
         public override void DeactivateBuilding(Player player, GameTable gameTable)
@@ -97,10 +129,17 @@ namespace GTR.Core.Buildings
 
         public override void ActivateBuilding(Player player, GameTable gameTable)
         {
+            Game.Game.MessageProvider.Display("Fountain activated");
+
             _deck = gameTable.OrderDeck;
             _playerHand = player.Hand.OrderCards;
 
             player.PlayerActions.Craftsman.PreActionMoves.Wrap(HandCard);
+        }
+
+        public override void CompleteBuilding(Player player, GameTable gameTable)
+        {
+            
         }
 
         public override void DeactivateBuilding(Player player, GameTable gameTable)
@@ -130,7 +169,14 @@ namespace GTR.Core.Buildings
 
         public override void ActivateBuilding(Player player, GameTable gameTable)
         {
+            Game.Game.MessageProvider.Display("Temple activated");
+
             player.Hand.RefillCapacity += 4;
+        }
+
+        public override void CompleteBuilding(Player player, GameTable gameTable)
+        {
+            
         }
 
         public override void DeactivateBuilding(Player player, GameTable gameTable)

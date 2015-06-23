@@ -181,7 +181,7 @@ namespace GTR.Core.Game
             foreach (var uncompletedBuilding in player.ConstructionZone)
             {
                 stringBuilder.AppendLine(string.Format("Building in progress: {0} materials added: {1}",
-                    uncompletedBuilding.BuildingFoundation.BuildingCard.Name, uncompletedBuilding.Materials.Count));
+                    uncompletedBuilding.BuildingFoundation.Building.Name, uncompletedBuilding.Materials.Count));
             }
             foreach (var card in player.Camp.Stockpile)
             {
