@@ -2,6 +2,7 @@
 
 using System.Collections.Specialized;
 using System.Linq;
+using GTR.Core.Action;
 using GTR.Core.Buildings;
 using GTR.Core.Game;
 using GTR.Core.Model;
@@ -62,12 +63,14 @@ namespace GTR.Core.ManipulatableRules
             var buildingSite = args.BuildingSite;
             var completedFoundations = _player.Camp.CompletedFoundations;
             var constructionZone = _player.ConstructionZone;
-            _gameTable.MoveCard(buildingSite, constructionZone, completedFoundations);
+            var siteMove = new Move<BuildingSite>(buildingSite, constructionZone, completedFoundations);
+            siteMove.Perform();
 
             // move building into completed building zone
             var buildingCard = args.BuildingSite.BuildingFoundation.Building;
             var completedBuildings = _player.CompletedBuildings;
-            _gameTable.MoveCard(buildingCard, buildingSite.BuildingFoundation, completedBuildings);
+            var buildingMove = new Move<OrderCardModel>(buildingCard, buildingSite.BuildingFoundation, completedBuildings);
+            buildingMove.Perform();
 
             // material cards no longer needed,
             // let the garbage collector get rid of them

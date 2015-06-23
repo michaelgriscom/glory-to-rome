@@ -61,6 +61,7 @@
     <Compile Include="Game\GameWonEventArgs.cs" />
     <Compile Include="Action\ThinkCombo.cs" />
     <Compile Include="Model\BuildingFoundation.cs" />
+    <Compile Include="Model\PlayArea.cs" />
     <Compile Include="Services\NullMessageProvider.cs" />
     <Compile Include="Util\WrappedFunc.cs" />
     <Compile Include="ManipulatableRules\ConstructionManager.cs" />
@@ -130,7 +131,7 @@
     <Compile Include="Buildings\BuildingCompletedEventArgs.cs" />
     <Compile Include="Buildings\BuildingEffect.cs" />
     <Compile Include="Buildings\RubbleBuildingEffects.cs" />
-    <Compile Include="Buildings\IBuildingReader.cs" />
+    <Compile Include="Buildings\BuildingEffectService.cs" />
     <Compile Include="Model\Camp.cs" />
     <Compile Include="Game\Constants.cs" />
     <Compile Include="Game\Enumerations.cs" />

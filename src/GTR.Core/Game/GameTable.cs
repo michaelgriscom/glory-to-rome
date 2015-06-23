@@ -44,34 +44,6 @@ namespace GTR.Core.Game
         internal IList<Player> Players { get; private set; }
         internal Pool Pool { get; private set; }
 
-        private Player CurrentLeader
-        {
-            get { return null; }
-        }
-
-        private Player NextLeader
-        {
-            get
-            {
-                if (CurrentLeader == null)
-                {
-                    return null;
-                }
-                return CurrentLeader.PlayerToRight;
-            }
-        }
-
-        //TODO: it'd be way better to rely on Move.Perform
-        internal void MoveCard<T>(T card, ICardSource<CardModelBase> source, ICardTarget<T> destination)
-            where T : CardModelBase
-        {
-            source.Remove(card);
-            destination.Add(card);
-
-            Game.MessageProvider.Display(string.Format("Card {0} moved from {1} to {2}", card.Name, source.LocationName,
-                destination.LocationName));
-        }
-
         public void AddPlayers(IList<Player> players)
         {
             Players = players;

@@ -18,7 +18,7 @@ namespace GTR.Core.Game
     {
         private readonly Queue<MoveSpace> _availableMoves;
         private readonly LeadFollowManager _lfManager;
-        private readonly CardSourceTarget<HandCardModel> _playArea;
+        private readonly PlayArea _playArea;
         private CompletedBuildings _completedBuildings;
         private ConstructionZone _constructionZone;
         private DemandArea _demandArea;
@@ -30,7 +30,7 @@ namespace GTR.Core.Game
         {
             PlayerName = playerName;
             InputService = inputService;
-            _playArea = new CardSourceTarget<HandCardModel>(string.Format("Player {0} play area", playerName));
+            _playArea = new PlayArea(playerName);
 
             Hand = new Hand(PlayerName);
             Camp = new Camp(PlayerName);
@@ -97,7 +97,7 @@ namespace GTR.Core.Game
         internal Camp Camp { get; private set; }
         internal Hand Hand { get; private set; }
 
-        internal CardSourceTarget<HandCardModel> PlayArea
+        internal PlayArea PlayArea
         {
             get { return _playArea; }
         }
@@ -130,28 +130,17 @@ namespace GTR.Core.Game
 
         internal void ClearPlayArea()
         {
-            while (PlayArea.Count > 0)
+            while (PlayArea.JackCards.Count > 0)
             {
-                var card = PlayArea.ElementAt(0);
-                if (card is JackCardModel)
-                {
-                    JackCardModel jack = card as JackCardModel;
-                    //IMove<JackCardModel> move = new Move<JackCardModel>(jack, PlayArea, _gameTable.JackDeck);
-                    _gameTable.MoveCard(
-                        jack,
-                        PlayArea,
-                        _gameTable.JackDeck);
-                }
-                else
-                {
-                    OrderCardModel order = card as OrderCardModel;
-                    //var move = new Move<OrderCardModel>(order, PlayArea, _gameTable.JackDeck);
-
-                    _gameTable.MoveCard(
-                        order,
-                        PlayArea,
-                        _gameTable.Pool);
-                }
+                var card = PlayArea.JackCards.ElementAt(0);
+                var move = new Move<JackCardModel>(card, PlayArea.JackCards, _gameTable.JackDeck);
+                move.Perform();
+            }
+            while (PlayArea.OrderCards.Count > 0)
+            {
+                var card = PlayArea.OrderCards.ElementAt(0);
+                var move = new Move<OrderCardModel>(card, PlayArea.OrderCards, _gameTable.Pool);
+                move.Perform();
             }
         }
 
@@ -244,8 +233,18 @@ namespace GTR.Core.Game
         {
             foreach (HandCardModel card in cards)
             {
-                IMove<HandCardModel> move = new Move<HandCardModel>(card, Hand, PlayArea);
-                move.Perform();
+                if (card is JackCardModel)
+                {
+                    var jack = card as JackCardModel;
+                    var move = new Move<JackCardModel>(jack, Hand.JackCards, PlayArea.JackCards);
+                    move.Perform();
+                }
+                else
+                {
+                    var order = card as OrderCardModel;
+                    var move = new Move<OrderCardModel>(order, Hand.OrderCards, PlayArea.OrderCards);
+                    move.Perform();
+                }
             }
         }
 
