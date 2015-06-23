@@ -50,6 +50,9 @@ namespace GTR.Core.ManipulatableRules
             foreach (BuildingSite newSite in notifyCollectionChangedEventArgs.NewItems)
             {
                 newSite.Complete += BuildingOnComplete;
+                var buildingEffect = BuildingEffectService.GetBuildingEffect(newSite.BuildingFoundation.Building);
+                buildingEffect.CompleteBuilding(_player, _gameTable);
+                buildingEffect.ActivateBuilding(_player, _gameTable);
             }
         }
 
@@ -62,7 +65,7 @@ namespace GTR.Core.ManipulatableRules
             _gameTable.MoveCard(buildingSite, constructionZone, completedFoundations);
 
             // move building into completed building zone
-            var buildingCard = args.BuildingSite.BuildingFoundation.BuildingCard;
+            var buildingCard = args.BuildingSite.BuildingFoundation.Building;
             var completedBuildings = _player.CompletedBuildings;
             _gameTable.MoveCard(buildingCard, buildingSite.BuildingFoundation, completedBuildings);
 

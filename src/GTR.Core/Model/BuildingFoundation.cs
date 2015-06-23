@@ -15,7 +15,7 @@ namespace GTR.Core.Model
         {
         }
 
-        public OrderCardModel BuildingCard
+        public OrderCardModel Building
         {
             get
             {
@@ -39,7 +39,7 @@ namespace GTR.Core.Model
                 {
                     return "Empty foundation";
                 }
-                return string.Concat("Foundation for ", BuildingCard.Name);
+                return string.Concat("Foundation for ", Building.Name);
             }
             set { _overridenName = value; }
         }

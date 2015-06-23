@@ -12,7 +12,7 @@ namespace GTR.Core.Model
 
         public Stockpile(string playerName = "")
         {
-            _locationName = string.Format("Player {0} vault", playerName);
+            _locationName = string.Format("Player {0} stockpile", playerName);
         }
 
         public override string LocationName
