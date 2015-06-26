@@ -50,7 +50,8 @@ namespace GTR.Core.ManipulatableRules
             foreach (BuildingSite newSite in notifyCollectionChangedEventArgs.NewItems)
             {
                 newSite.Complete += BuildingOnComplete;
-                var buildingEffect = BuildingEffectService.GetBuildingEffect(newSite.BuildingFoundation.Building);
+                BuildingEffectFactory effectService = new BuildingEffectFactory();
+                var buildingEffect = effectService.Create(newSite.BuildingFoundation.Building.Name);
                 buildingEffect.CompleteBuilding(_player, _gameTable);
                 buildingEffect.ActivateBuilding(_player, _gameTable);
             }
