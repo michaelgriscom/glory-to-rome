@@ -27,7 +27,9 @@ namespace GTR.Core.ManipulatableRules
 
         public ICollection<HandCardModel> GetFollowCards(Hand hand, RoleType role)
         {
-            var cardOptions = hand.ToList();
+            var cardOptions = hand.OrderCards.Cast<HandCardModel>().ToList();
+            cardOptions.AddRange(hand.JackCards.Cast<HandCardModel>());
+
             ICollection<HandCardModel> cards;
             do
             {
@@ -130,7 +132,9 @@ namespace GTR.Core.ManipulatableRules
 
         internal ICollection<HandCardModel> GetLeadCards(Hand hand)
         {
-            List<HandCardModel> cardOptions = hand.ToList();
+            var cardOptions = hand.OrderCards.Cast<HandCardModel>().ToList();
+            cardOptions.AddRange(hand.JackCards.Cast<HandCardModel>());
+
             ICollection<HandCardModel> cards;
             do
             {

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
+using GTR.Core.Action;
 using GTR.Core.AIController;
 using GTR.Core.CardCollections;
 using GTR.Core.DeckManagement;
@@ -204,10 +205,12 @@ namespace GTR.Core.Game
                 for (int i = 0; i < player.Hand.RefillCapacity; i++)
                 {
                     var topDeckCard = _gameTable.OrderDeck.Top;
-                    _gameTable.MoveCard(topDeckCard, _gameTable.OrderDeck, player.Hand.OrderCards);
+                    var move = new Move<OrderCardModel>(topDeckCard, _gameTable.OrderDeck, player.Hand.OrderCards);
+                    move.Perform();
                 }
                 var topJackCard = _gameTable.JackDeck.ElementAt(0);
-                _gameTable.MoveCard(topJackCard, _gameTable.JackDeck, player.Hand.JackCards);
+                var jackMove = new Move<JackCardModel>(topJackCard, _gameTable.JackDeck, player.Hand.JackCards);
+                jackMove.Perform();
             }
         }
 
@@ -262,10 +265,10 @@ namespace GTR.Core.Game
         {
             if (_leadPlayer != null)
             {
-                _gameTable.MoveCard(
-                    _gameTable.LeaderCard,
+                var leaderMove = new Move<LeaderCardModel>(_gameTable.LeaderCard,
                     _leadPlayer.LeaderCardLocation,
                     player.LeaderCardLocation);
+                leaderMove.Perform();
             }
             _leadPlayer = player;
         }

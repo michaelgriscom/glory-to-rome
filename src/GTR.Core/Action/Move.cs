@@ -29,20 +29,13 @@ namespace GTR.Core.Action
             _destination = destination;
         }
 
-        /*
         // consider: the constructor is pickier than it should be.
         // As long as source<U> destination<U> and T card have the relationship T:U
         // then it's a valid move. The problem is that C# doesn't support constraints in a constructor,
-        // so we'd need a messy Initialize method like below. The problem though is that we'd have to expose U and V
-        // through the getters, so this type will become really ugly.
-         * 
-        public void Initialize<T, U, V>(T card, ICardSource<U> source, ICardTarget<V> destination ) where T:U,V where U : CardModelBase where V:CardModelBase
-        {
-            _card = card;
-            _source = source;
-            _destination = destination;
-        }
-         * */
+        // so we'd need a messy Initialize method with a signature like below. The problem though is that we'd have to expose U and V
+        // through the getters, so this type will become really ugly. Instead, the ugliness is currently isolated to two main places,
+        // the player's play area and the player's hand, which both have a collection of jack cards and a collection of order cards.
+        // public void Initialize<T, U, V>(T card, ICardSource<U> source, ICardTarget<V> destination ) where T:U,V where U : CardModelBase where V:CardModelBase
 
 
         public Move(T card, ICardSource<T> source, Func<ICardTarget<T>> destinationFunction)
