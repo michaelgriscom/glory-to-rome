@@ -1,25 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿#region
+
 using GTR.Core.CardCollections;
+using GTR.Core.Util;
+
+#endregion
 
 namespace GTR.Core.Model
 {
-    public class PlayArea
+    public class PlayArea : ObservableObject
     {
-        internal JackCardGroup JackCards { get; private set; }
-        internal OrderCardGroup OrderCards { get; private set; }
+        private JackCardGroup _jackCards;
+        private OrderCardGroup _orderCards;
 
-        internal PlayArea(string player = "")
+        public PlayArea(string player = "")
         {
-            string locationName =  string.Format("Player {0} PlayArea", player);
+            string locationName = string.Format("Player {0} PlayArea", player);
             JackCards = new JackCardGroup(this, locationName);
             OrderCards = new OrderCardGroup(this, locationName);
         }
 
-        internal class JackCardGroup : CardSourceTarget<JackCardModel>
+        public JackCardGroup JackCards
+        {
+            get { return _jackCards; }
+            set
+            {
+                _jackCards = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public OrderCardGroup OrderCards
+        {
+            get { return _orderCards; }
+            set
+            {
+                _orderCards = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public class JackCardGroup : CardSourceTarget<JackCardModel>
         {
             private readonly PlayArea _playArea;
 
@@ -30,7 +50,7 @@ namespace GTR.Core.Model
             }
         }
 
-        internal class OrderCardGroup : BoundedCardTarget<OrderCardModel>, ICardSource<OrderCardModel>
+        public class OrderCardGroup : BoundedCardTarget<OrderCardModel>, ICardSource<OrderCardModel>
         {
             private readonly PlayArea _playArea;
 

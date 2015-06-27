@@ -1,18 +1,19 @@
 ﻿#region
 
-using System.Collections;
-using System.Collections.Generic;
 using GTR.Core.CardCollections;
+using GTR.Core.Util;
 
 #endregion
 
 namespace GTR.Core.Model
 {
-    public class Hand
+    public class Hand : ObservableObject
     {
         protected const int DefaultHandSize = 5;
+        private JackCardGroup _jackCards;
+        private OrderCardGroup _orderCards;
 
-        internal Hand(string player = "")
+        public Hand(string player = "")
         {
             RefillCapacity = DefaultHandSize;
             string locationName = string.Format("Player {0} hand", player);
@@ -20,30 +21,48 @@ namespace GTR.Core.Model
             OrderCards = new OrderCardGroup(this, locationName);
         }
 
-        internal JackCardGroup JackCards { get; private set; }
-        internal OrderCardGroup OrderCards { get; private set; }
-        internal int RefillCapacity { get; set; }
+        public JackCardGroup JackCards
+        {
+            get { return _jackCards; }
+            set
+            {
+                _jackCards = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public OrderCardGroup OrderCards
+        {
+            get { return _orderCards; }
+            set
+            {
+                _orderCards = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public int RefillCapacity { get; set; }
 
         public int Count
         {
             get { return OrderCards.Count + JackCards.Count; }
         }
 
-        internal class JackCardGroup : CardSourceTarget<JackCardModel>
+        public class JackCardGroup : CardSourceTarget<JackCardModel>
         {
             private readonly Hand _hand;
 
-            public JackCardGroup(Hand hand, string locationName) : base(locationName) 
+            public JackCardGroup(Hand hand, string locationName) : base(locationName)
             {
                 _hand = hand;
             }
         }
 
-        internal class OrderCardGroup : BoundedCardTarget<OrderCardModel>, ICardSource<OrderCardModel>
+        public class OrderCardGroup : BoundedCardTarget<OrderCardModel>, ICardSource<OrderCardModel>
         {
             private readonly Hand _hand;
 
-            internal OrderCardGroup(Hand hand, string locationName)
+            public OrderCardGroup(Hand hand, string locationName)
                 : base(locationName)
             {
                 _hand = hand;

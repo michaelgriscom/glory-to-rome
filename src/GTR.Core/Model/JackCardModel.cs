@@ -1,6 +1,6 @@
 ﻿namespace GTR.Core.Model
 {
-    internal class JackCardModel : HandCardModel
+    public class JackCardModel : HandCardModel
     {
         public override string Name
         {

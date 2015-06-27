@@ -25,6 +25,17 @@ namespace GTR.Core.Model
                 }
                 return Items.ElementAt(0);
             }
+            set
+            {
+                if (Items.Count == 0)
+                {
+                    Items.Add(value);
+                }
+                else
+                {
+                    Items[0] = value;
+                }
+            }
         }
 
         public override string LocationName
