@@ -49,7 +49,8 @@ namespace GTR.Windows
             mat.CompletedFoundations.Add(new BuildingSite(MaterialType.Stone));
             mat.CompletedFoundations.Add(new BuildingSite(MaterialType.Wood));
 
-            var board = new PlayerBoard(mat);
+            var board = new PlayerBoard("player");
+            board.Camp = mat;
             var viewModel = new GameViewModel(board);
             DataContext = viewModel;
         }

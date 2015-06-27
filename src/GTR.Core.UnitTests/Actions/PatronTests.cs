@@ -37,7 +37,7 @@ namespace GTR.Core.UnitTests.Actions
         [TestMethod]
         public void VanillaPatron()
         {
-            _player.Camp.Clientele.MaxCapacity = 1;
+            _player.Board.Camp.Clientele.MaxCapacity = 1;
 
             OrderCardModel poolCard = new OrderCardModel("pool card", "test", RoleType.Architect);
             _gameTable.Pool.Add(poolCard);
@@ -54,7 +54,7 @@ namespace GTR.Core.UnitTests.Actions
             // ReSharper disable once PossibleNullReferenceException
             Assert.AreEqual(move.Card, poolCard);
             Assert.AreEqual(move.Source, _gameTable.Pool);
-            Assert.AreEqual(move.Destination, _player.Camp.Clientele);
+            Assert.AreEqual(move.Destination, _player.Board.Camp.Clientele);
 
             Assert.IsFalse(enumerator.MoveNext());
         }
@@ -62,7 +62,7 @@ namespace GTR.Core.UnitTests.Actions
         [TestMethod]
         public void FullClientelePatron()
         {
-            _player.Camp.Clientele.MaxCapacity = 0;
+            _player.Board.Camp.Clientele.MaxCapacity = 0;
 
             OrderCardModel poolCard = new OrderCardModel("pool card", "test", RoleType.Architect);
             _gameTable.Pool.Add(poolCard);
@@ -75,7 +75,7 @@ namespace GTR.Core.UnitTests.Actions
         [TestMethod]
         public void EmptyPoolPatron()
         {
-            _player.Camp.Clientele.MaxCapacity = 1;
+            _player.Board.Camp.Clientele.MaxCapacity = 1;
 
             var moveSpace = _action.Execute();
 
@@ -86,7 +86,7 @@ namespace GTR.Core.UnitTests.Actions
         [TestMethod]
         public void MultipleOptionsPatron()
         {
-            _player.Camp.Clientele.MaxCapacity = 1;
+            _player.Board.Camp.Clientele.MaxCapacity = 1;
 
             const int poolCount = 5;
             HashSet<OrderCardModel> poolCards = new HashSet<OrderCardModel>();
@@ -110,7 +110,7 @@ namespace GTR.Core.UnitTests.Actions
                 // ReSharper disable once PossibleNullReferenceException
                 Assert.IsTrue(poolCards.Contains(move.Card));
                 Assert.AreEqual(move.Source, _gameTable.Pool);
-                Assert.AreEqual(move.Destination, _player.Camp.Clientele);
+                Assert.AreEqual(move.Destination, _player.Board.Camp.Clientele);
             }
 
             Assert.AreEqual(poolCount, moveCount);

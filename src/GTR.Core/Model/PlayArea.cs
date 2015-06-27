@@ -7,7 +7,7 @@ using GTR.Core.CardCollections;
 
 namespace GTR.Core.Model
 {
-    class PlayArea
+    public class PlayArea
     {
         internal JackCardGroup JackCards { get; private set; }
         internal OrderCardGroup OrderCards { get; private set; }

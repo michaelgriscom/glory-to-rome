@@ -1,28 +1,28 @@
-﻿#region
+﻿//#region
 
-using GTR.Core.Util;
+//using GTR.Core.Util;
 
-#endregion
+//#endregion
 
-namespace GTR.Core.Model
-{
-    public class PlayerBoard : ObservableObject
-    {
-        private Camp _camp;
+//namespace GTR.Core.Model
+//{
+//    public class PlayerBoard : ObservableObject
+//    {
+//        private Camp _camp;
 
-        public PlayerBoard(Camp camp)
-        {
-            Camp = camp;
-        }
+//        public PlayerBoard(Camp camp)
+//        {
+//            Camp = camp;
+//        }
 
-        public Camp Camp
-        {
-            get { return _camp; }
-            private set
-            {
-                _camp = value;
-                RaisePropertyChanged();
-            }
-        }
-    }
-}
+//        public Camp Camp
+//        {
+//            get { return _camp; }
+//            private set
+//            {
+//                _camp = value;
+//                RaisePropertyChanged();
+//            }
+//        }
+//    }
+//}

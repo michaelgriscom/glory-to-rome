@@ -44,7 +44,7 @@ namespace GTR.Core.Buildings
             Game.Game.MessageProvider.Display("Bar activated");
             player.PlayerActions.Patron.PostActionMoves.Wrap(DeckPatron);
             _deck = gameTable.OrderDeck;
-            _playerClientele = player.Camp.Clientele;
+            _playerClientele = player.Board.Camp.Clientele;
         }
 
         public override void CompleteBuilding(Player player, GameTable gameTable)
@@ -88,8 +88,8 @@ namespace GTR.Core.Buildings
             Game.Game.MessageProvider.Display("Dock activated");
 
             player.PlayerActions.Laborer.PostActionMoves.Wrap(HandLabor);
-            _playerHand = player.Hand.OrderCards;
-            _playerStockpile = player.Camp.Stockpile;
+            _playerHand = player.Board.Hand.OrderCards;
+            _playerStockpile = player.Board.Camp.Stockpile;
         }
 
         public override void CompleteBuilding(Player player, GameTable gameTable)
@@ -132,7 +132,7 @@ namespace GTR.Core.Buildings
             Game.Game.MessageProvider.Display("Fountain activated");
 
             _deck = gameTable.OrderDeck;
-            _playerHand = player.Hand.OrderCards;
+            _playerHand = player.Board.Hand.OrderCards;
 
             player.PlayerActions.Craftsman.PreActionMoves.Wrap(HandCard);
         }
@@ -171,7 +171,7 @@ namespace GTR.Core.Buildings
         {
             Game.Game.MessageProvider.Display("Temple activated");
 
-            player.Hand.RefillCapacity += 4;
+            player.Board.Hand.RefillCapacity += 4;
         }
 
         public override void CompleteBuilding(Player player, GameTable gameTable)
@@ -181,7 +181,7 @@ namespace GTR.Core.Buildings
 
         public override void DeactivateBuilding(Player player, GameTable gameTable)
         {
-            player.Hand.RefillCapacity -= 4;
+            player.Board.Hand.RefillCapacity -= 4;
         }
     }
 }

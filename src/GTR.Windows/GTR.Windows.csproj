@@ -18,6 +18,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <ExpressionBlendVersion>12.0.51020.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -90,7 +91,11 @@
     <Compile Include="UserControls\VaultControl.xaml.cs">
       <DependentUpon>VaultControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\FullPlayerControlModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="UserControls\FullPlayerControl.xaml.cs">
+      <DependentUpon>FullPlayerControl.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -132,6 +137,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\VaultControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\FullPlayerControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

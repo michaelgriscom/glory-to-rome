@@ -34,7 +34,7 @@ namespace GTR.Core.Game
         {
             foreach (var player in gameScore.Players)
             {
-                gameScore.GetScoreBreakdown(player).BuildingPoints = player.Camp.InfluencePoints;
+                gameScore.GetScoreBreakdown(player).BuildingPoints = player.Board.Camp.InfluencePoints;
             }
         }
 
@@ -46,7 +46,7 @@ namespace GTR.Core.Game
             {
                 var playerScore = gameScore.GetScoreBreakdown(player);
 
-                var vault = player.Camp.Vault;
+                var vault = player.Board.Camp.Vault;
 
                 var groupedMaterials = from card in vault
                     group card by card.RoleType
@@ -87,12 +87,12 @@ namespace GTR.Core.Game
             var winners = new List<Player>();
             foreach (var player in topPlayers.Select(playerEntry => playerEntry.Key))
             {
-                if (player.Hand.Count > maxHandSize)
+                if (player.Board.Hand.Count > maxHandSize)
                 {
-                    maxHandSize = player.Hand.Count;
+                    maxHandSize = player.Board.Hand.Count;
                     winners = new List<Player> {player};
                 }
-                else if (player.Hand.Count == maxHandSize)
+                else if (player.Board.Hand.Count == maxHandSize)
                 {
                     winners.Add(player);
                 }

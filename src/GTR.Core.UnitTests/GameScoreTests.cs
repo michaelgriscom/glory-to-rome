@@ -61,12 +61,12 @@ namespace GTR.Core.UnitTests
             var woodFoundation = new BuildingSite(MaterialType.Wood);
             var rubbleFoundation = new BuildingSite(MaterialType.Rubble);
 
-            player.Camp.CompletedFoundations.Add(brickFoundation);
-            player.Camp.CompletedFoundations.Add(concreteFoundation);
-            player.Camp.CompletedFoundations.Add(marbleFoundation);
-            player.Camp.CompletedFoundations.Add(stoneFoundation);
-            player.Camp.CompletedFoundations.Add(woodFoundation);
-            player.Camp.CompletedFoundations.Add(rubbleFoundation);
+            player.Board.Camp.CompletedFoundations.Add(brickFoundation);
+            player.Board.Camp.CompletedFoundations.Add(concreteFoundation);
+            player.Board.Camp.CompletedFoundations.Add(marbleFoundation);
+            player.Board.Camp.CompletedFoundations.Add(stoneFoundation);
+            player.Board.Camp.CompletedFoundations.Add(woodFoundation);
+            player.Board.Camp.CompletedFoundations.Add(rubbleFoundation);
 
             var gameScore = GameScorer.Score(players);
             int playerScore = gameScore.GetScoreBreakdown(player).Total;
@@ -96,10 +96,10 @@ namespace GTR.Core.UnitTests
             var concreteFoundation = new BuildingSite(MaterialType.Concrete);
             var stoneFoundation = new BuildingSite(MaterialType.Stone);
 
-            player1.Camp.CompletedFoundations.Add(brickFoundation1);
-            player1.Camp.CompletedFoundations.Add(brickFoundation2);
-            player1.Camp.CompletedFoundations.Add(concreteFoundation);
-            player1.Camp.CompletedFoundations.Add(stoneFoundation);
+            player1.Board.Camp.CompletedFoundations.Add(brickFoundation1);
+            player1.Board.Camp.CompletedFoundations.Add(brickFoundation2);
+            player1.Board.Camp.CompletedFoundations.Add(concreteFoundation);
+            player1.Board.Camp.CompletedFoundations.Add(stoneFoundation);
 
 
             int player1BuildingScore = brickFoundation1.MaterialType.MaterialWorth()*2 +
@@ -113,12 +113,12 @@ namespace GTR.Core.UnitTests
             var player1MarbleMaterial2 = new OrderCardModel("p1 vault material", null, RoleType.Patron);
             var player1MarbleMaterial3 = new OrderCardModel("p1 vault material", null, RoleType.Patron);
 
-            player1.Camp.Vault.Add(player1BrickMaterial);
-            player1.Camp.Vault.Add(player1StoneMaterial1);
-            player1.Camp.Vault.Add(player1StoneMaterial2);
-            player1.Camp.Vault.Add(player1MarbleMaterial1);
-            player1.Camp.Vault.Add(player1MarbleMaterial2);
-            player1.Camp.Vault.Add(player1MarbleMaterial3);
+            player1.Board.Camp.Vault.Add(player1BrickMaterial);
+            player1.Board.Camp.Vault.Add(player1StoneMaterial1);
+            player1.Board.Camp.Vault.Add(player1StoneMaterial2);
+            player1.Board.Camp.Vault.Add(player1MarbleMaterial1);
+            player1.Board.Camp.Vault.Add(player1MarbleMaterial2);
+            player1.Board.Camp.Vault.Add(player1MarbleMaterial3);
             int player1Monopolies = 2;
             int player1MaterialScores = player1BrickMaterial.GetMaterialType().MaterialWorth() +
                                         player1StoneMaterial1.GetMaterialType().MaterialWorth()*2 +
@@ -127,7 +127,7 @@ namespace GTR.Core.UnitTests
 
 
             var rubbleFoundation = new BuildingSite(MaterialType.Rubble);
-            player2.Camp.CompletedFoundations.Add(rubbleFoundation);
+            player2.Board.Camp.CompletedFoundations.Add(rubbleFoundation);
 
             int player2BuildingScore = rubbleFoundation.MaterialType.MaterialWorth();
 
@@ -137,12 +137,12 @@ namespace GTR.Core.UnitTests
             var player2StoneMaterial2 = new OrderCardModel("p2 vault material", null, RoleType.Merchant);
             var player2WoodMaterial = new OrderCardModel("p2 vault material", null, RoleType.Craftsman);
             var player2ConcreteMaterial = new OrderCardModel("p2 vault material", null, RoleType.Architect);
-            player2.Camp.Vault.Add(player2RubbleMaterial1);
-            player2.Camp.Vault.Add(player2RubbleMaterial2);
-            player2.Camp.Vault.Add(player2StoneMaterial1);
-            player2.Camp.Vault.Add(player2StoneMaterial2);
-            player2.Camp.Vault.Add(player2WoodMaterial);
-            player2.Camp.Vault.Add(player2ConcreteMaterial);
+            player2.Board.Camp.Vault.Add(player2RubbleMaterial1);
+            player2.Board.Camp.Vault.Add(player2RubbleMaterial2);
+            player2.Board.Camp.Vault.Add(player2StoneMaterial1);
+            player2.Board.Camp.Vault.Add(player2StoneMaterial2);
+            player2.Board.Camp.Vault.Add(player2WoodMaterial);
+            player2.Board.Camp.Vault.Add(player2ConcreteMaterial);
             int player2Monopolies = 3;
             int player2MaterialScores = player2RubbleMaterial1.GetMaterialType().MaterialWorth()*2 +
                                         player2WoodMaterial.GetMaterialType().MaterialWorth() +
@@ -176,9 +176,9 @@ namespace GTR.Core.UnitTests
             var player1BrickMaterial = new OrderCardModel("p1 vault material", null, RoleType.Legionnaire);
             var player1StoneMaterial = new OrderCardModel("p1 vault material", null, RoleType.Merchant);
             var player1MarbleMaterial = new OrderCardModel("p1 vault material", null, RoleType.Patron);
-            player1.Camp.Vault.Add(player1BrickMaterial);
-            player1.Camp.Vault.Add(player1StoneMaterial);
-            player1.Camp.Vault.Add(player1MarbleMaterial);
+            player1.Board.Camp.Vault.Add(player1BrickMaterial);
+            player1.Board.Camp.Vault.Add(player1StoneMaterial);
+            player1.Board.Camp.Vault.Add(player1MarbleMaterial);
             int player1Monopolies = 3;
             int player1MaterialScores = player1BrickMaterial.GetMaterialType().MaterialWorth() +
                                         player1StoneMaterial.GetMaterialType().MaterialWorth() +
@@ -189,9 +189,9 @@ namespace GTR.Core.UnitTests
             var player2RubbleMaterial = new OrderCardModel("p2 vault material", null, RoleType.Laborer);
             var player2WoodMaterial = new OrderCardModel("p2 vault material", null, RoleType.Craftsman);
             var player2ConcreteMaterial = new OrderCardModel("p2 vault material", null, RoleType.Architect);
-            player2.Camp.Vault.Add(player2RubbleMaterial);
-            player2.Camp.Vault.Add(player2WoodMaterial);
-            player2.Camp.Vault.Add(player2ConcreteMaterial);
+            player2.Board.Camp.Vault.Add(player2RubbleMaterial);
+            player2.Board.Camp.Vault.Add(player2WoodMaterial);
+            player2.Board.Camp.Vault.Add(player2ConcreteMaterial);
             int player2Monopolies = 3;
             int player2MaterialScores = player2RubbleMaterial.GetMaterialType().MaterialWorth() +
                                         player2WoodMaterial.GetMaterialType().MaterialWorth() +
@@ -224,9 +224,9 @@ namespace GTR.Core.UnitTests
             var player1BrickMaterial = new OrderCardModel("p1 vault material", null, RoleType.Legionnaire);
             var player1StoneMaterial = new OrderCardModel("p1 vault material", null, RoleType.Merchant);
             var player1MarbleMaterial = new OrderCardModel("p1 vault material", null, RoleType.Patron);
-            player1.Camp.Vault.Add(player1BrickMaterial);
-            player1.Camp.Vault.Add(player1StoneMaterial);
-            player1.Camp.Vault.Add(player1MarbleMaterial);
+            player1.Board.Camp.Vault.Add(player1BrickMaterial);
+            player1.Board.Camp.Vault.Add(player1StoneMaterial);
+            player1.Board.Camp.Vault.Add(player1MarbleMaterial);
             int player1MaterialScores = player1BrickMaterial.GetMaterialType().MaterialWorth() +
                                         player1StoneMaterial.GetMaterialType().MaterialWorth() +
                                         player1MarbleMaterial.GetMaterialType().MaterialWorth();
@@ -236,9 +236,9 @@ namespace GTR.Core.UnitTests
             var player2BrickMaterial = new OrderCardModel("p2 vault material", null, RoleType.Legionnaire);
             var player2StoneMaterial = new OrderCardModel("p2 vault material", null, RoleType.Merchant);
             var player2MarbleMaterial = new OrderCardModel("p2 vault material", null, RoleType.Patron);
-            player2.Camp.Vault.Add(player2BrickMaterial);
-            player2.Camp.Vault.Add(player2StoneMaterial);
-            player2.Camp.Vault.Add(player2MarbleMaterial);
+            player2.Board.Camp.Vault.Add(player2BrickMaterial);
+            player2.Board.Camp.Vault.Add(player2StoneMaterial);
+            player2.Board.Camp.Vault.Add(player2MarbleMaterial);
             int player2MaterialScores = player2BrickMaterial.GetMaterialType().MaterialWorth() +
                                         player2StoneMaterial.GetMaterialType().MaterialWorth() +
                                         player2MarbleMaterial.GetMaterialType().MaterialWorth();
@@ -272,7 +272,7 @@ namespace GTR.Core.UnitTests
             _gameTable.AddPlayers(players);
 
             var player3BrickMaterial = new OrderCardModel(null, null, RoleType.Legionnaire);
-            player3.Camp.Vault.Add(player3BrickMaterial);
+            player3.Board.Camp.Vault.Add(player3BrickMaterial);
 
             var gameScore = GameScorer.Score(players);
             var winners = GameScorer.CalculateWinners(gameScore);
@@ -299,23 +299,23 @@ namespace GTR.Core.UnitTests
             _gameTable.AddPlayers(players);
 
             var player4BrickMaterial = new OrderCardModel(null, null, RoleType.Legionnaire);
-            player4.Camp.Vault.Add(player4BrickMaterial);
+            player4.Board.Camp.Vault.Add(player4BrickMaterial);
 
             var player1BrickMaterial = new OrderCardModel(null, null, RoleType.Legionnaire);
-            player1.Camp.Vault.Add(player1BrickMaterial);
+            player1.Board.Camp.Vault.Add(player1BrickMaterial);
 
             int player1HandSize = 5;
             for (int i = 0; i < player1HandSize; i++)
             {
                 var player1HandCard = new OrderCardModel(null, null, RoleType.Architect);
-                player1.Hand.OrderCards.Add(player1HandCard);
+                player1.Board.Hand.OrderCards.Add(player1HandCard);
             }
 
             int player4HandSize = 4;
             for (int i = 0; i < player4HandSize; i++)
             {
                 var player4HandCard = new OrderCardModel(null, null, RoleType.Craftsman);
-                player4.Hand.OrderCards.Add(player4HandCard);
+                player4.Board.Hand.OrderCards.Add(player4HandCard);
             }
 
             var gameScore = GameScorer.Score(players);
@@ -343,23 +343,23 @@ namespace GTR.Core.UnitTests
             _gameTable.AddPlayers(players);
 
             var player2BrickMaterial = new OrderCardModel(null, null, RoleType.Legionnaire);
-            player2.Camp.Vault.Add(player2BrickMaterial);
+            player2.Board.Camp.Vault.Add(player2BrickMaterial);
 
             var player3BrickMaterial = new OrderCardModel(null, null, RoleType.Legionnaire);
-            player3.Camp.Vault.Add(player3BrickMaterial);
+            player3.Board.Camp.Vault.Add(player3BrickMaterial);
 
             int player2HandSize = 3;
             for (int i = 0; i < player2HandSize; i++)
             {
                 var player2HandCard = new OrderCardModel(null, null, RoleType.Architect);
-                player2.Hand.OrderCards.Add(player2HandCard);
+                player2.Board.Hand.OrderCards.Add(player2HandCard);
             }
 
             int player3HandSize = 3;
             for (int i = 0; i < player3HandSize; i++)
             {
                 var player3HandCard = new OrderCardModel(null, null, RoleType.Craftsman);
-                player3.Hand.OrderCards.Add(player3HandCard);
+                player3.Board.Hand.OrderCards.Add(player3HandCard);
             }
 
             var gameScore = GameScorer.Score(players);

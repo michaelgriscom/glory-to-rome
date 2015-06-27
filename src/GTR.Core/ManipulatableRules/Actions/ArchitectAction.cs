@@ -19,9 +19,9 @@ namespace GTR.Core.ManipulatableRules.Actions
         public ArchitectAction(Player player, GameTable gameTable)
             : base(player, gameTable)
         {
-            _buildingSites = player.ConstructionZone;
-            _playerHand = player.Hand.OrderCards;
-            _playerStockpile = player.Camp.Stockpile;
+            _buildingSites = player.Board.ConstructionZone;
+            _playerHand = player.Board.Hand.OrderCards;
+            _playerStockpile = player.Board.Camp.Stockpile;
         }
 
         public override RoleType Role

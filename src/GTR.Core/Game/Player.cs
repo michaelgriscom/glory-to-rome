@@ -3,7 +3,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using GTR.Core.Action;
-using GTR.Core.CardCollections;
 using GTR.Core.ManipulatableRules;
 using GTR.Core.ManipulatableRules.Actions;
 using GTR.Core.Model;
@@ -16,71 +15,61 @@ namespace GTR.Core.Game
 {
     public class Player : ObservableObject
     {
+        private PlayerBoard _board;
+
+        public PlayerBoard Board
+        {
+            get { return _board; }
+            set { _board = value; }
+        }
+
+        private Player _playerToLeft;
+        private Player _playerToRight;
+        private string _playerName;
         private readonly Queue<MoveSpace> _availableMoves;
         private readonly LeadFollowManager _lfManager;
-        private readonly PlayArea _playArea;
-        private CompletedBuildings _completedBuildings;
-        private ConstructionZone _constructionZone;
-        private DemandArea _demandArea;
-        private GameTable _gameTable;
-        private LeaderCardLocation _leaderCardLocation;
         internal OrderActions PlayerActions;
+
+
+        public string PlayerName
+        {
+            get { return _playerName; }
+            set
+            {
+                _playerName = value;
+                RaisePropertyChanged();
+            }
+        }
 
         internal Player(string playerName, IPlayerInput inputService, IMessageProvider messageProvider = null)
         {
-            PlayerName = playerName;
-            InputService = inputService;
-            _playArea = new PlayArea(playerName);
+            Board = new PlayerBoard(playerName);
 
-            Hand = new Hand(PlayerName);
-            Camp = new Camp(PlayerName);
+            InputService = inputService;
+            PlayerName = playerName;
 
             _availableMoves = new Queue<MoveSpace>();
             OutstandingActions = new Multiset<RoleType>();
             _lfManager = new LeadFollowManager(inputService);
-
-            ConstructionZone = new ConstructionZone(playerName);
-            CompletedBuildings = new CompletedBuildings(playerName);
-            LeaderCardLocation = new LeaderCardLocation(playerName);
-            DemandArea = new DemandArea(playerName);
         }
 
-        public CompletedBuildings CompletedBuildings
+
+        public Player PlayerToLeft
         {
-            get { return _completedBuildings; }
+            get { return _playerToLeft; }
             set
             {
-                _completedBuildings = value;
+                _playerToLeft = value;
                 RaisePropertyChanged();
             }
         }
 
-        public ConstructionZone ConstructionZone
+        public Player PlayerToRight
         {
-            get { return _constructionZone; }
-            private set
+            get { return _playerToRight; }
+            set
             {
-                _constructionZone = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public LeaderCardLocation LeaderCardLocation
-        {
-            get { return _leaderCardLocation; }
-            private set
-            {
-                _leaderCardLocation = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public DemandArea DemandArea
-        {
-            get { return _demandArea; }
-            private set
-            {
-                _demandArea = value;
+                _playerToRight = value;
                 RaisePropertyChanged();
             }
         }
@@ -93,17 +82,8 @@ namespace GTR.Core.Game
         }
 
         public IPlayerInput InputService { get; private set; }
-        public string PlayerName { get; private set; }
-        internal Camp Camp { get; private set; }
-        internal Hand Hand { get; private set; }
 
-        internal PlayArea PlayArea
-        {
-            get { return _playArea; }
-        }
 
-        internal Player PlayerToLeft { get; set; }
-        internal Player PlayerToRight { get; set; }
 
         public void SitAt(GameTable gameTable)
         {
@@ -118,11 +98,6 @@ namespace GTR.Core.Game
             return PlayerActions.GetAction(role);
         }
 
-        public int RemainingActions()
-        {
-            return OutstandingActions.TotalCount;
-        }
-
         internal void AddMoveSpace(MoveSpace movespace)
         {
             _availableMoves.Enqueue(movespace);
@@ -130,16 +105,16 @@ namespace GTR.Core.Game
 
         internal void ClearPlayArea()
         {
-            while (PlayArea.JackCards.Count > 0)
+            while (Board.PlayArea.JackCards.Count > 0)
             {
-                var card = PlayArea.JackCards.ElementAt(0);
-                var move = new Move<JackCardModel>(card, PlayArea.JackCards, _gameTable.JackDeck);
+                var card = Board.PlayArea.JackCards.ElementAt(0);
+                var move = new Move<JackCardModel>(card, Board.PlayArea.JackCards, _gameTable.JackDeck);
                 move.Perform();
             }
-            while (PlayArea.OrderCards.Count > 0)
+            while (Board.PlayArea.OrderCards.Count > 0)
             {
-                var card = PlayArea.OrderCards.ElementAt(0);
-                var move = new Move<OrderCardModel>(card, PlayArea.OrderCards, _gameTable.Pool);
+                var card = Board.PlayArea.OrderCards.ElementAt(0);
+                var move = new Move<OrderCardModel>(card, Board.PlayArea.OrderCards, _gameTable.Pool);
                 move.Perform();
             }
         }
@@ -148,7 +123,7 @@ namespace GTR.Core.Game
 
         internal RoleType? Lead()
         {
-            if (Hand.Count == 0)
+            if (Board.Hand.Count == 0)
             {
                 DisplayAction("thought");
                 ExecuteAction(Thinker);
@@ -157,7 +132,7 @@ namespace GTR.Core.Game
             ActionType action = InputService.GetLead();
             if (action == ActionType.HandPlay)
             {
-                var leadCards = _lfManager.GetLeadCards(Hand);
+                var leadCards = _lfManager.GetLeadCards(Board.Hand);
                 PlayCards(leadCards);
                 var lead = _lfManager.GetLeadRole(leadCards);
                 DisplayAction(string.Concat("performed ", lead));
@@ -177,7 +152,7 @@ namespace GTR.Core.Game
 
         internal void Follow(RoleType leadRole)
         {
-            if (Hand.Count == 0)
+            if (Board.Hand.Count == 0)
             {
                 ExecuteAction(Thinker);
                 DisplayAction("thought");
@@ -193,7 +168,7 @@ namespace GTR.Core.Game
             }
             else
             {
-                var followCards = _lfManager.GetFollowCards(Hand, leadRole);
+                var followCards = _lfManager.GetFollowCards(Board.Hand, leadRole);
                 bool followed = (followCards.Count == 0);
                 DisplayAction(string.Concat("followed ", leadRole));
 
@@ -205,7 +180,7 @@ namespace GTR.Core.Game
         private void AddActionLead(RoleType role)
         {
             OutstandingActions.Add(role);
-            foreach (OrderCardModel client in Camp.Clientele)
+            foreach (OrderCardModel client in Board.Camp.Clientele)
             {
                 if (client.RoleType == role)
                 {
@@ -220,7 +195,7 @@ namespace GTR.Core.Game
             {
                 OutstandingActions.Add(role);
             }
-            foreach (OrderCardModel client in Camp.Clientele)
+            foreach (OrderCardModel client in Board.Camp.Clientele)
             {
                 if (client.RoleType == role)
                 {
@@ -236,13 +211,13 @@ namespace GTR.Core.Game
                 if (card is JackCardModel)
                 {
                     var jack = card as JackCardModel;
-                    var move = new Move<JackCardModel>(jack, Hand.JackCards, PlayArea.JackCards);
+                    var move = new Move<JackCardModel>(jack, Board.Hand.JackCards, Board.PlayArea.JackCards);
                     move.Perform();
                 }
                 else
                 {
                     var order = card as OrderCardModel;
-                    var move = new Move<OrderCardModel>(order, Hand.OrderCards, PlayArea.OrderCards);
+                    var move = new Move<OrderCardModel>(order, Board.Hand.OrderCards, Board.PlayArea.OrderCards);
                     move.Perform();
                 }
             }
@@ -283,6 +258,9 @@ namespace GTR.Core.Game
             }
         }
 
+        private GameTable _gameTable;
+
+
         private IAction EvaluateMoveSpace(MoveSpace moveSpace)
         {
             var move = InputService.GetMove(moveSpace);
@@ -301,5 +279,102 @@ namespace GTR.Core.Game
         }
 
         #endregion action
+    }
+
+    public class PlayerBoard : ObservableObject
+    {
+        private Camp _camp;
+        private CompletedBuildings _completedBuildings;
+        private ConstructionZone _constructionZone;
+        private DemandArea _demandArea;
+        private Hand _hand;
+        private LeaderCardLocation _leaderCardLocation;
+        private PlayArea _playArea;
+   
+      
+        
+
+        public PlayerBoard(string playerName)
+        {
+            PlayArea = new PlayArea(playerName);
+            Hand = new Hand(playerName);
+            Camp = new Camp(playerName);
+            ConstructionZone = new ConstructionZone(playerName);
+            CompletedBuildings = new CompletedBuildings(playerName);
+            LeaderCardLocation = new LeaderCardLocation(playerName);
+            DemandArea = new DemandArea(playerName);
+        }
+
+        public CompletedBuildings CompletedBuildings
+        {
+            get { return _completedBuildings; }
+            set
+            {
+                _completedBuildings = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public ConstructionZone ConstructionZone
+        {
+            get { return _constructionZone; }
+             set
+            {
+                _constructionZone = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public LeaderCardLocation LeaderCardLocation
+        {
+            get { return _leaderCardLocation; }
+             set
+            {
+                _leaderCardLocation = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public DemandArea DemandArea
+        {
+            get { return _demandArea; }
+             set
+            {
+                _demandArea = value;
+                RaisePropertyChanged();
+            }
+        }
+
+
+        public Camp Camp
+        {
+            get { return _camp; }
+             set
+            {
+                _camp = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public Hand Hand
+        {
+            get { return _hand; }
+             set
+            {
+                _hand = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public PlayArea PlayArea
+        {
+            get { return _playArea; }
+             set
+            {
+                _playArea = value;
+                RaisePropertyChanged();
+            }
+        }
+
     }
 }

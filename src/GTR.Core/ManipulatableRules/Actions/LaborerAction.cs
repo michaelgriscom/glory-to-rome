@@ -17,7 +17,7 @@ namespace GTR.Core.ManipulatableRules.Actions
             : base(player, gameTable)
         {
             _pool = gameTable.Pool;
-            _playerStockpile = player.Camp.Stockpile;
+            _playerStockpile = player.Board.Camp.Stockpile;
         }
 
         protected override MoveSpace GetMoveSpace()

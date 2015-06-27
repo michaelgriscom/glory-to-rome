@@ -19,8 +19,8 @@ namespace GTR.Core.ManipulatableRules.Actions
         internal CraftsmanAction(Player player, GameTable gameTable)
             : base(player, gameTable)
         {
-            _playerHand = player.Hand.OrderCards;
-            _buildingSites = player.ConstructionZone;
+            _playerHand = player.Board.Hand.OrderCards;
+            _buildingSites = player.Board.ConstructionZone;
         }
 
         public override RoleType Role

@@ -8,7 +8,7 @@ using GTR.Core.CardCollections;
 
 namespace GTR.Core.Model
 {
-    internal class Hand
+    public class Hand
     {
         protected const int DefaultHandSize = 5;
 

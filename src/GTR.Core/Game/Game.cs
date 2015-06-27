@@ -170,29 +170,29 @@ namespace GTR.Core.Game
         private void DumpPlayerState(Player player, StringBuilder stringBuilder)
         {
             stringBuilder.AppendLine(string.Format("Player {0}:", player.PlayerName));
-            stringBuilder.AppendLine(string.Concat("Jacks in hand: ", player.Hand.JackCards.Count));
-            foreach (var handCard in player.Hand.OrderCards)
+            stringBuilder.AppendLine(string.Concat("Jacks in hand: ", player.Board.Hand.JackCards.Count));
+            foreach (var handCard in player.Board.Hand.OrderCards)
             {
                 stringBuilder.AppendLine(string.Concat("Hand card: ", handCard.Name));
             }
-            foreach (var completedBuilding in player.CompletedBuildings)
+            foreach (var completedBuilding in player.Board.CompletedBuildings)
             {
                 stringBuilder.AppendLine(string.Concat("Completed building: ", completedBuilding.Name));
             }
-            foreach (var uncompletedBuilding in player.ConstructionZone)
+            foreach (var uncompletedBuilding in player.Board.ConstructionZone)
             {
                 stringBuilder.AppendLine(string.Format("Building in progress: {0} materials added: {1}",
                     uncompletedBuilding.BuildingFoundation.Building.Name, uncompletedBuilding.Materials.Count));
             }
-            foreach (var card in player.Camp.Stockpile)
+            foreach (var card in player.Board.Camp.Stockpile)
             {
                 stringBuilder.AppendLine(string.Concat("Stockpile material: ", card.GetMaterialType()));
             }
-            foreach (var card in player.Camp.Vault)
+            foreach (var card in player.Board.Camp.Vault)
             {
                 stringBuilder.AppendLine(string.Concat("Vault material: ", card.GetMaterialType()));
             }
-            foreach (var card in player.Camp.Clientele)
+            foreach (var card in player.Board.Camp.Clientele)
             {
                 stringBuilder.AppendLine(string.Concat("Client: ", card.RoleType));
             }
@@ -202,14 +202,14 @@ namespace GTR.Core.Game
         {
             foreach (var player in _gameTable.Players)
             {
-                for (int i = 0; i < player.Hand.RefillCapacity; i++)
+                for (int i = 0; i < player.Board.Hand.RefillCapacity; i++)
                 {
                     var topDeckCard = _gameTable.OrderDeck.Top;
-                    var move = new Move<OrderCardModel>(topDeckCard, _gameTable.OrderDeck, player.Hand.OrderCards);
+                    var move = new Move<OrderCardModel>(topDeckCard, _gameTable.OrderDeck, player.Board.Hand.OrderCards);
                     move.Perform();
                 }
                 var topJackCard = _gameTable.JackDeck.ElementAt(0);
-                var jackMove = new Move<JackCardModel>(topJackCard, _gameTable.JackDeck, player.Hand.JackCards);
+                var jackMove = new Move<JackCardModel>(topJackCard, _gameTable.JackDeck, player.Board.Hand.JackCards);
                 jackMove.Perform();
             }
         }
@@ -266,8 +266,8 @@ namespace GTR.Core.Game
             if (_leadPlayer != null)
             {
                 var leaderMove = new Move<LeaderCardModel>(_gameTable.LeaderCard,
-                    _leadPlayer.LeaderCardLocation,
-                    player.LeaderCardLocation);
+                    _leadPlayer.Board.LeaderCardLocation,
+                    player.Board.LeaderCardLocation);
                 leaderMove.Perform();
             }
             _leadPlayer = player;

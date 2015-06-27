@@ -16,8 +16,8 @@ namespace GTR.Core.ManipulatableRules.Actions
         public MerchantAction(Player player, GameTable gameTable)
             : base(player, gameTable)
         {
-            _playerStockpile = player.Camp.Stockpile;
-            _playerVault = player.Camp.Vault;
+            _playerStockpile = player.Board.Camp.Stockpile;
+            _playerVault = player.Board.Camp.Vault;
         }
 
         protected override MoveSpace GetMoveSpace()

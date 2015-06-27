@@ -20,10 +20,10 @@ namespace GTR.Core.ManipulatableRules
         {
             _player = player;
             _gameTable = gameTable;
-            var constructionZone = player.ConstructionZone;
+            var constructionZone = player.Board.ConstructionZone;
             constructionZone.CollectionChanged += ConstructionZoneOnCollectionChanged;
 
-            var completedFoundations = player.Camp.CompletedFoundations;
+            var completedFoundations = player.Board.Camp.CompletedFoundations;
             completedFoundations.CollectionChanged += CompletedFoundationsOnCollectionChanged;
         }
 
@@ -37,7 +37,7 @@ namespace GTR.Core.ManipulatableRules
 
             foreach (BuildingSite buildingSite in notifyCollectionChangedEventArgs.NewItems)
             {
-                _player.Camp.InfluencePoints += buildingSite.MaterialType.MaterialWorth();
+                _player.Board.Camp.InfluencePoints += buildingSite.MaterialType.MaterialWorth();
             }
         }
 
@@ -62,14 +62,14 @@ namespace GTR.Core.ManipulatableRules
         {
             // move foundation into influence area
             var buildingSite = args.BuildingSite;
-            var completedFoundations = _player.Camp.CompletedFoundations;
-            var constructionZone = _player.ConstructionZone;
+            var completedFoundations = _player.Board.Camp.CompletedFoundations;
+            var constructionZone = _player.Board.ConstructionZone;
             var siteMove = new Move<BuildingSite>(buildingSite, constructionZone, completedFoundations);
             siteMove.Perform();
 
             // move building into completed building zone
             var buildingCard = args.BuildingSite.BuildingFoundation.Building;
-            var completedBuildings = _player.CompletedBuildings;
+            var completedBuildings = _player.Board.CompletedBuildings;
             var buildingMove = new Move<OrderCardModel>(buildingCard, buildingSite.BuildingFoundation, completedBuildings);
             buildingMove.Perform();
 

@@ -44,7 +44,7 @@ namespace GTR.Core.UnitTests.Actions
             const RoleType handCardRole = RoleType.Craftsman;
 
             OrderCardModel demandCard = new OrderCardModel("hand card", "test", handCardRole);
-            _player.Hand.OrderCards.Add(demandCard);
+            _player.Board.Hand.OrderCards.Add(demandCard);
             _player.OutstandingActions.Add(RoleType.Legionnaire);
             var moveSpace = _action.Execute();
 
@@ -57,8 +57,8 @@ namespace GTR.Core.UnitTests.Actions
             var move = moveCombo as IMove<OrderCardModel>;
             // ReSharper disable once PossibleNullReferenceException
             Assert.AreEqual(move.Card, demandCard);
-            Assert.AreEqual(move.Source, _player.Hand.OrderCards);
-            Assert.AreEqual(move.Destination, _player.DemandArea);
+            Assert.AreEqual(move.Source, _player.Board.Hand.OrderCards);
+            Assert.AreEqual(move.Destination, _player.Board.DemandArea);
 
             Assert.IsFalse(enumerator.MoveNext());
         }
@@ -75,13 +75,13 @@ namespace GTR.Core.UnitTests.Actions
             RoleType handCardRole = RoleType.Craftsman;
 
             OrderCardModel demandCard = new OrderCardModel("hand card", "test", handCardRole);
-            _player.Hand.OrderCards.Add(demandCard);
+            _player.Board.Hand.OrderCards.Add(demandCard);
 
             OrderCardModel demandedCard = new OrderCardModel("hand card", "test", handCardRole);
-            enemyPlayer.Hand.OrderCards.Add(demandedCard);
+            enemyPlayer.Board.Hand.OrderCards.Add(demandedCard);
 
-            IMove<OrderCardModel> demandMove = new Move<OrderCardModel>(demandCard, _player.Hand.OrderCards,
-                _player.DemandArea);
+            IMove<OrderCardModel> demandMove = new Move<OrderCardModel>(demandCard, _player.Board.Hand.OrderCards,
+                _player.Board.DemandArea);
             demandMove.Perform();
 
             enemyPlayerInput.OnMoveEventHandler +=
@@ -94,8 +94,8 @@ namespace GTR.Core.UnitTests.Actions
 
                     // ReSharper disable once PossibleNullReferenceException
                     Assert.AreEqual(demandedMove.Card, demandedCard);
-                    Assert.AreEqual(demandedMove.Source, enemyPlayer.Hand.OrderCards);
-                    Assert.AreEqual(demandedMove.Destination, _player.Camp.Stockpile);
+                    Assert.AreEqual(demandedMove.Source, enemyPlayer.Board.Hand.OrderCards);
+                    Assert.AreEqual(demandedMove.Destination, _player.Board.Camp.Stockpile);
                 };
         }
 
@@ -111,15 +111,15 @@ namespace GTR.Core.UnitTests.Actions
             RoleType handCardRole = RoleType.Craftsman;
 
             OrderCardModel demandCard = new OrderCardModel("hand card", "test", handCardRole);
-            _player.Hand.OrderCards.Add(demandCard);
+            _player.Board.Hand.OrderCards.Add(demandCard);
 
             OrderCardModel demandedCard1 = new OrderCardModel("hand card", "test", handCardRole);
-            enemyPlayer.Hand.OrderCards.Add(demandedCard1);
+            enemyPlayer.Board.Hand.OrderCards.Add(demandedCard1);
             OrderCardModel demandedCard2 = new OrderCardModel("hand card", "test", handCardRole);
-            enemyPlayer.Hand.OrderCards.Add(demandedCard2);
+            enemyPlayer.Board.Hand.OrderCards.Add(demandedCard2);
 
-            IMove<OrderCardModel> demandMove = new Move<OrderCardModel>(demandCard, _player.Hand.OrderCards,
-                _player.DemandArea);
+            IMove<OrderCardModel> demandMove = new Move<OrderCardModel>(demandCard, _player.Board.Hand.OrderCards,
+                _player.Board.DemandArea);
             demandMove.Perform();
 
             enemyPlayerInput.OnMoveEventHandler +=
@@ -137,8 +137,8 @@ namespace GTR.Core.UnitTests.Actions
                         // ReSharper disable once PossibleNullReferenceException
                         bool isDemandable = demandedMove.Card == demandedCard1 || demandedMove.Card == demandedCard2;
                         Assert.IsTrue(isDemandable);
-                        Assert.AreEqual(demandedMove.Source, enemyPlayer.Hand.OrderCards);
-                        Assert.AreEqual(demandedMove.Destination, _player.Camp.Stockpile);
+                        Assert.AreEqual(demandedMove.Source, enemyPlayer.Board.Hand.OrderCards);
+                        Assert.AreEqual(demandedMove.Destination, _player.Board.Camp.Stockpile);
                     }
                     Assert.AreEqual(2, possibleMoves);
                 };
@@ -165,15 +165,15 @@ namespace GTR.Core.UnitTests.Actions
             };
 
             OrderCardModel demandCard = new OrderCardModel("hand card", "test", demandRoleType);
-            _player.Hand.OrderCards.Add(demandCard);
+            _player.Board.Hand.OrderCards.Add(demandCard);
             foreach (var role in enemyCardTypes)
             {
                 OrderCardModel demandedCard = new OrderCardModel("hand card", "test", role);
-                enemyPlayer.Hand.OrderCards.Add(demandedCard);
+                enemyPlayer.Board.Hand.OrderCards.Add(demandedCard);
             }
 
-            IMove<OrderCardModel> demandMove = new Move<OrderCardModel>(demandCard, _player.Hand.OrderCards,
-                _player.DemandArea);
+            IMove<OrderCardModel> demandMove = new Move<OrderCardModel>(demandCard, _player.Board.Hand.OrderCards,
+                _player.Board.DemandArea);
             demandMove.Perform();
 
             enemyPlayerInput.OnMoveEventHandler +=

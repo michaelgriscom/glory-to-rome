@@ -16,7 +16,7 @@ namespace GTR.Core.ManipulatableRules.Actions
         public PatronAction(Player player, GameTable gameTable)
             : base(player, gameTable)
         {
-            _playerClientele = player.Camp.Clientele;
+            _playerClientele = player.Board.Camp.Clientele;
             _pool = gameTable.Pool;
         }
 

@@ -53,7 +53,7 @@ namespace GTR.Core.UnitTests.Actions
             // ReSharper disable once PossibleNullReferenceException
             Assert.AreEqual(move.Card, poolCard);
             Assert.AreEqual(move.Source, _gameTable.Pool);
-            Assert.AreEqual(move.Destination, _player.Camp.Stockpile);
+            Assert.AreEqual(move.Destination, _player.Board.Camp.Stockpile);
 
             Assert.IsFalse(enumerator.MoveNext());
         }
@@ -84,7 +84,7 @@ namespace GTR.Core.UnitTests.Actions
                 // ReSharper disable once PossibleNullReferenceException
                 Assert.IsTrue(poolCards.Contains(move.Card));
                 Assert.AreEqual(move.Source, _gameTable.Pool);
-                Assert.AreEqual(move.Destination, _player.Camp.Stockpile);
+                Assert.AreEqual(move.Destination, _player.Board.Camp.Stockpile);
             }
 
             Assert.AreEqual(poolCount, moveCount);

@@ -21,7 +21,7 @@ namespace GTR.Core.ManipulatableRules.Actions
         {
             _jackDeck = gameTable.JackDeck;
             _orderDeck = gameTable.OrderDeck;
-            _playerHand = player.Hand;
+            _playerHand = player.Board.Hand;
         }
 
         protected override MoveSpace GetMoveSpace()

@@ -44,11 +44,11 @@ namespace GTR.Core.Buildings
             BuildingSite site = siteDeck.Top;
 
             // move building card on top of site foundation
-            IMove<OrderCardModel> buildAction = new Move<OrderCardModel>(handCard, Player.Hand.OrderCards,
+            IMove<OrderCardModel> buildAction = new Move<OrderCardModel>(handCard, Player.Board.Hand.OrderCards,
                 site.BuildingFoundation);
 
             // move site foundation card from deck to player's camp
-            IMove<BuildingSite> siteMove = new Move<BuildingSite>(site, siteDeck, Player.ConstructionZone);
+            IMove<BuildingSite> siteMove = new Move<BuildingSite>(site, siteDeck, Player.Board.ConstructionZone);
 
             BuildCombo buildCombo = new BuildCombo(siteMove, buildAction);
             return buildCombo;

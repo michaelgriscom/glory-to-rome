@@ -45,7 +45,7 @@ namespace GTR.Core.UnitTests.Actions
             MaterialType handCardMaterial = handCardRole.ToMaterial();
 
             OrderCardModel handCard = new OrderCardModel("hand card", "test", handCardRole);
-            _player.Hand.OrderCards.Add(handCard);
+            _player.Board.Hand.OrderCards.Add(handCard);
             _player.OutstandingActions.Add(RoleType.Architect);
             var moveSpace = _action.Execute();
 
@@ -61,12 +61,12 @@ namespace GTR.Core.UnitTests.Actions
             var buildAction = buildCombo.BuildMove;
 
             Assert.AreEqual(buildAction.Card, handCard);
-            Assert.AreEqual(buildAction.Source, _player.Hand.OrderCards);
+            Assert.AreEqual(buildAction.Source, _player.Board.Hand.OrderCards);
             Assert.AreEqual(buildAction.Destination, _gameTable.GetSiteDeck(handCardMaterial).Top.BuildingFoundation);
             var siteMove = buildCombo.SiteMove;
             Assert.AreEqual(siteMove.Card, _gameTable.GetSiteDeck(handCardMaterial).Top);
             Assert.AreEqual(siteMove.Source, _gameTable.GetSiteDeck(handCardMaterial));
-            Assert.AreEqual(siteMove.Destination, _player.ConstructionZone);
+            Assert.AreEqual(siteMove.Destination, _player.Board.ConstructionZone);
 
             Assert.IsFalse(enumerator.MoveNext());
         }
@@ -78,13 +78,13 @@ namespace GTR.Core.UnitTests.Actions
             MaterialType stockpileCardMaterial = stockpileCardRole.ToMaterial();
 
             OrderCardModel stockpileCard = new OrderCardModel("stockpile card", "test", stockpileCardRole);
-            _player.Camp.Stockpile.Add(stockpileCard);
+            _player.Board.Camp.Stockpile.Add(stockpileCard);
             _player.OutstandingActions.Add(RoleType.Architect);
 
             BuildingSite site = new BuildingSite(stockpileCardMaterial);
             OrderCardModel building = new OrderCardModel("building card", "test", stockpileCardRole);
             site.BuildingFoundation.Add(building);
-            _player.ConstructionZone.Add(site);
+            _player.Board.ConstructionZone.Add(site);
 
             var moveSpace = _action.Execute();
 
@@ -100,7 +100,7 @@ namespace GTR.Core.UnitTests.Actions
 
             // ReSharper disable once PossibleNullReferenceException
             Assert.AreEqual(feedAction.Card, stockpileCard);
-            Assert.AreEqual(feedAction.Source, _player.Camp.Stockpile);
+            Assert.AreEqual(feedAction.Source, _player.Board.Camp.Stockpile);
             Assert.AreEqual(feedAction.Destination, site.Materials);
 
             Assert.IsFalse(enumerator.MoveNext());

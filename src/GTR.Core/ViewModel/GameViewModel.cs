@@ -1,5 +1,6 @@
 ﻿#region
 
+using GTR.Core.Game;
 using GTR.Core.Model;
 using GTR.Core.Util;
 
