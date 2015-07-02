@@ -2,6 +2,7 @@
 
 using System;
 using GTR.Core.Game;
+using GTR.Core.Model;
 
 #endregion
 

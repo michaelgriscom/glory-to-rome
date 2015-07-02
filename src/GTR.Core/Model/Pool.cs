@@ -6,7 +6,7 @@ using GTR.Core.CardCollections;
 
 namespace GTR.Core.Model
 {
-    internal class Pool : CardSourceTarget<OrderCardModel>
+    public class Pool : CardSourceTarget<OrderCardModel>
     {
         public Pool() : base("Pool")
         {

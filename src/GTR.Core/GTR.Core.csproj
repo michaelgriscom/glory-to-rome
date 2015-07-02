@@ -58,6 +58,7 @@
     <Compile Include="Action\IAction.cs" />
     <Compile Include="Game\GameOverEventArgs.cs" />
     <Compile Include="Action\IMove.cs" />
+    <Compile Include="Model\PlayerBoard.cs" />
     <Compile Include="Game\PlayerScores.cs" />
     <Compile Include="Game\GameScorer.cs" />
     <Compile Include="Game\GameWonEventArgs.cs" />
@@ -110,7 +111,6 @@
     <Compile Include="Model\HandCardModel.cs" />
     <Compile Include="Model\JackCardModel.cs" />
     <Compile Include="Model\LeaderCardModel.cs" />
-    <Compile Include="Model\PlayerBoard.cs" />
     <Compile Include="Model\OrderCardModel.cs" />
     <Compile Include="Services\IPlayerInput.cs" />
     <Compile Include="Util\Messages.Designer.cs">
@@ -138,7 +138,7 @@
     <Compile Include="Game\Game.cs" />
     <Compile Include="Game\GameHistory.cs" />
     <Compile Include="Game\Player.cs" />
-    <Compile Include="Game\GameTable.cs" />
+    <Compile Include="Model\GameTable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\Globals.cs" />

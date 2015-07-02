@@ -20,8 +20,8 @@
     </Style>
     <DataTemplate DataType="{x:Type m:JackCardModel}">
         <Border Style="{StaticResource Card}">
-            <Grid Background="Black">
-                <TextBlock Text="Jack"></TextBlock>
+            <Grid Background="Black" VerticalAlignment="Stretch">
+                <TextBlock Text="Jack" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             </Grid>
         </Border>
     </DataTemplate>

@@ -1,0 +1,16 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:Design="clr-namespace:GTR.Windows.Design" xmlns:local="clr-namespace:GTR.Windows"
+	mc:Ignorable="d"
+	x:Class="GTR.Windows.PlayerControl"
+	x:Name="UserControl"
+	d:DesignWidth="640" d:DesignHeight="480" d:DataContext="{d:DesignInstance {x:Type Design:DesignPlayer}}">
+
+	<Grid x:Name="LayoutRoot">
+		<TextBlock Text="{Binding PlayerName}" Margin="260,41,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="93"/>
+		<local:PlayerBoardControl HorizontalAlignment="Left" Margin="-199,113,-171.5,-411.5" VerticalAlignment="Top" DataContext="{Binding Board}"/>
+	</Grid>
+</UserControl>

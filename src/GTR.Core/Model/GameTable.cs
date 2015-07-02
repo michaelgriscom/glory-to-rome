@@ -7,19 +7,24 @@ using System.Diagnostics;
 using System.Linq;
 using GTR.Core.Action;
 using GTR.Core.CardCollections;
-using GTR.Core.Model;
+using GTR.Core.Game;
 using GTR.Core.Util;
 
 #endregion
 
-namespace GTR.Core.Game
+namespace GTR.Core.Model
 {
     public class GameTable : ObservableObject
     {
         private const int BuildingSiteCount = 6;
+        private CardSourceTarget<JackCardModel> _jackDeck;
+        private LeaderCardModel _leaderCard;
+        private Deck<OrderCardModel> _orderDeck;
+        private ObservableCollection<Player> _players;
+        private Pool _pool;
         private ObservableCollection<SiteDeck> _siteDecks;
 
-        internal GameTable(Deck<OrderCardModel> orderDeck, CardSourceTarget<JackCardModel> jackDeck)
+        public GameTable(Deck<OrderCardModel> orderDeck, CardSourceTarget<JackCardModel> jackDeck)
         {
             OrderDeck = orderDeck;
             JackDeck = jackDeck;
@@ -38,15 +43,59 @@ namespace GTR.Core.Game
             }
         }
 
-        internal CardSourceTarget<JackCardModel> JackDeck { get; private set; }
-        internal LeaderCardModel LeaderCard { get; private set; }
-        internal Deck<OrderCardModel> OrderDeck { get; private set; }
-        internal IList<Player> Players { get; private set; }
-        internal Pool Pool { get; private set; }
+        public CardSourceTarget<JackCardModel> JackDeck
+        {
+            get { return _jackDeck; }
+            set
+            {
+                _jackDeck = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public LeaderCardModel LeaderCard
+        {
+            get { return _leaderCard; }
+            set
+            {
+                _leaderCard = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public Deck<OrderCardModel> OrderDeck
+        {
+            get { return _orderDeck; }
+            set
+            {
+                _orderDeck = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public ObservableCollection<Player> Players
+        {
+            get { return _players; }
+            set
+            {
+                _players = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public Pool Pool
+        {
+            get { return _pool; }
+            set
+            {
+                _pool = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public void AddPlayers(IList<Player> players)
         {
-            Players = players;
+            Players = new ObservableCollection<Player>(players);
             int playerCount = players.Count;
             for (int i = 0; i < playerCount; i++)
             {
@@ -56,6 +105,15 @@ namespace GTR.Core.Game
                 players[rightPlayer].PlayerToLeft = players[i];
             }
             CreateBuildingSites(players.Count);
+        }
+
+        public void AddPlayer(Player player)
+        {
+            if (Players == null)
+            {
+                Players = new ObservableCollection<Player>();
+            }
+            Players.Add(player);
         }
 
         public int GetSiteCost(MaterialType materialType)

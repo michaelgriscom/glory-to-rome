@@ -6,7 +6,7 @@
     mc:Ignorable="d"
     x:Class="GTR.Windows.UserControls.HandControl"
     x:Name="UserControl"
-    d:DesignWidth="640" d:DesignHeight="480"
+    d:DesignWidth="640"
     xmlns:design="clr-namespace:GTR.Windows.Design"
     xmlns:uc="clr-namespace:GTR.Windows.UserControls"
     xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase">
@@ -17,46 +17,40 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <StackPanel d:DataContext="{d:DesignInstance design:DesignHand, IsDesignTimeCreatable=True}">
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Hand size: " />
-            <TextBlock Text="{Binding RefillCapacity}" />
-        </StackPanel>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Height="200">
-            <ItemsControl>
-                <ItemsControl.ItemsSource>
-                    <Binding Path="OrderCards"></Binding>
-                </ItemsControl.ItemsSource>
-                <ItemsControl.ItemContainerStyle>
-                    <Style TargetType="ContentPresenter">
-                        <Setter Property="Margin"
-                                Value="0 0 0 -180" />
-                    </Style>
-                </ItemsControl.ItemContainerStyle>
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ItemsControl>
-        </ScrollViewer>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Height="200">
-            <ItemsControl>
-                <ItemsControl.ItemsSource>
-                    <Binding Path="JackCards"></Binding>
-                </ItemsControl.ItemsSource>
-                <ItemsControl.ItemContainerStyle>
-                    <Style TargetType="ContentPresenter">
-                        <Setter Property="Margin"
-                                Value="0 0 0 -180" />
-                    </Style>
-                </ItemsControl.ItemContainerStyle>
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ItemsControl>
-        </ScrollViewer>
-    </StackPanel>
+    <Grid d:DataContext="{d:DesignInstance {x:Type design:DesignHand}, IsDesignTimeCreatable=True}" Height="502">
+		<StackPanel Orientation="Horizontal" Margin="0,0,0,464.04" HorizontalAlignment="Left" VerticalAlignment="Top">
+			<TextBlock Text="Hand size: " />
+			<TextBlock Text="{Binding RefillCapacity}" />
+		</StackPanel>
+		<ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,20.96,148.333,259.04">
+			<ItemsControl Width="408.667" ItemsSource="{Binding OrderCards}" HorizontalAlignment="Left" VerticalAlignment="Top">
+				<ItemsControl.ItemContainerStyle>
+					<Style TargetType="{x:Type ContentPresenter}">
+						<Setter Property="Margin"
+							Value="0 0 0 -180" />
+					</Style>
+				</ItemsControl.ItemContainerStyle>
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<WrapPanel />
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+			</ItemsControl>
+		</ScrollViewer>
+		<ScrollViewer VerticalScrollBarVisibility="Auto" Margin="496.667,20.96,0,259.04">
+			<ItemsControl Width="142.667" ItemsSource="{Binding JackCards}" HorizontalAlignment="Right" VerticalAlignment="Top">
+				<ItemsControl.ItemContainerStyle>
+					<Style TargetType="{x:Type ContentPresenter}">
+						<Setter Property="Margin"
+							Value="0 0 0 -180" />
+					</Style>
+				</ItemsControl.ItemContainerStyle>
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<WrapPanel />
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+			</ItemsControl>
+		</ScrollViewer>
+	</Grid>
 </UserControl>

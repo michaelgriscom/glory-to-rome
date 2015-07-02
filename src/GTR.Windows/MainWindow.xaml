@@ -1,15 +1,14 @@
-﻿<Window x:Class="GTR.Windows.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:uc="clr-namespace:GTR.Windows.UserControls"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        mc:Ignorable="d"
         xmlns:design="clr-namespace:GTR.Windows.Design"
-        Title="MainWindow" Height="480" Width="640">
-    <DockPanel>
-        <uc:CampControl DockPanel.Dock="Top"
-                        DataContext="{Binding Path=Player.Camp}"
-                        d:DataContext="{d:DesignInstance design:DesignCamp, IsDesignTimeCreatable=True}" />
-    </DockPanel>
+        xmlns:local="clr-namespace:GTR.Windows" x:Class="GTR.Windows.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="913" Width="1096">
+	<Grid>
+		<local:GameTableControl HorizontalAlignment="Left" Margin="210.5,52.5,0,0" VerticalAlignment="Top"/>
+	</Grid>
 </Window>

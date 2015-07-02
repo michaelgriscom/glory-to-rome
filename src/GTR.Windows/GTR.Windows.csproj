@@ -69,7 +69,9 @@
     <Compile Include="Converters\RoleTypeToStringConverter.cs" />
     <Compile Include="Design\DesignBoard.cs" />
     <Compile Include="Design\DesignCamp.cs" />
+    <Compile Include="Design\DesignGameTable.cs" />
     <Compile Include="Design\DesignHand.cs" />
+    <Compile Include="Design\DesignPlayer.cs" />
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\DataService.cs" />
     <Compile Include="Model\IDataService.cs" />
@@ -78,6 +80,9 @@
     <Compile Include="Services\WpfResourceProvider.cs" />
     <Compile Include="UserControls\ClienteleControl.xaml.cs">
       <DependentUpon>ClienteleControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GameTableControl.xaml.cs">
+      <DependentUpon>GameTableControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\HandControl.xaml.cs">
       <DependentUpon>HandControl.xaml</DependentUpon>
@@ -90,6 +95,9 @@
     </Compile>
     <Compile Include="UserControls\PlayerBoardControl.xaml.cs">
       <DependentUpon>PlayerBoardControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PlayerControl.xaml.cs">
+      <DependentUpon>PlayerControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ReverseZOrderStackPanel.cs" />
     <Compile Include="UserControls\ReverseZOrderWrapPanel.cs" />
@@ -128,7 +136,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserControls\ClienteleControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\GameTableControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -145,6 +161,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\PlayerBoardControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\PlayerControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -208,6 +228,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="SampleData\SampleDataSource\" />
     <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

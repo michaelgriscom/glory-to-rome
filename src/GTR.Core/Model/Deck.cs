@@ -20,7 +20,7 @@ namespace GTR.Core.Model
             Cards = new ObservableCollection<T>(cards);
         }
 
-        internal Deck()
+        public Deck()
             : this(new ObservableCollection<T>())
         {
             // empty deck

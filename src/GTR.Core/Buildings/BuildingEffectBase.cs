@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using GTR.Core.Game;
+using GTR.Core.Model;
 
 #endregion
 
