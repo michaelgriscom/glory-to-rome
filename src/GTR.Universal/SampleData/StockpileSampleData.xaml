@@ -1,0 +1,12 @@
+﻿<Model:Stockpile xmlns:Model="using:GTR.Core.Model" LocationName="Nam sed curabitur cras aliquam">
+	<Model:OrderCardModel Description="Class curae vestibulum phasellus" Name="Adipiscing aenean integer donec" RoleType="Merchant"/>
+	<Model:OrderCardModel Description="Quisque dis est maecenas praesent" Name="Accumsan hac vivamus" RoleType="Patron"/>
+	<Model:OrderCardModel Description="Leo aliquam etiam mauris nullam" Name="Aliquet fusce" RoleType="Legionnaire"/>
+	<Model:OrderCardModel Description="Mus aptent lorem" Name="Consequat nec blandit non convallis" RoleType="Patron"/>
+	<Model:OrderCardModel Description="Per parturient duis auctor" Name="Commodo bibendum sed congue" RoleType="Merchant"/>
+	<Model:OrderCardModel Description="Conubia dictumst" Name="Nunc amet cursus vestibulum dignissim" RoleType="Merchant"/>
+	<Model:OrderCardModel Description="Sem dictum lectus sit vestibulum" Name="Libero ligula eleifend ante" RoleType="Craftsman"/>
+	<Model:OrderCardModel Description="Elementum vel" Name="Adipiscing litora" RoleType="Merchant"/>
+	<Model:OrderCardModel Description="Facilisi cubilia" Name="Dapibus faucibus" RoleType="Craftsman"/>
+	<Model:OrderCardModel Description="Egestas morbi" Name="Parturient facilisis" RoleType="Architect"/>
+</Model:Stockpile>

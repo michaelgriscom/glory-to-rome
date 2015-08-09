@@ -1,0 +1,43 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GTR.Universal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    	xmlns:Design="clr-namespace:GTR.Universal.Design"
+    xmlns:ViewModel="using:GTR.Core.ViewModel"
+    xmlns:design="using:GTR.Universal.Design"
+    x:Class="GTR.Universal.Controls.GameControl"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400" Width="1280" Height="720" d:DataContext="{d:DesignData /SampleData/GameTableSampleData.xaml}">
+    <UserControl.Resources>
+        <DataTemplate x:Key="PlayerTemplate">
+            <Grid Height="800" Width="800" Margin="10" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <local:PlayerBoardControl Margin="0,0,0,10" d:LayoutOverrides="Width" DataContext="{Binding Board}" RenderTransformOrigin="0.5,0.5">
+                    <local:PlayerBoardControl.RenderTransform>
+                        <CompositeTransform Rotation="-0.087"/>
+                    </local:PlayerBoardControl.RenderTransform>
+                </local:PlayerBoardControl>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <UserControl.DataContext>
+        <design:DesignGameTable/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="417*"/>
+            <ColumnDefinition Width="223*"/>
+        </Grid.ColumnDefinitions>
+        <local:OrderDeckControl HorizontalAlignment="Right" Margin="0,-1,0,0" VerticalAlignment="Top" DataContext="{Binding Path=OrderDeck}" Grid.Column="1"/>
+        <local:JackDeckControl Margin="167,0" VerticalAlignment="Top" d:LayoutOverrides="Width, LeftPosition, RightPosition" DataContext="{Binding Path=JackDeck}" Grid.Column="1"/>
+        <local:PoolControl HorizontalAlignment="Right" Margin="0,5,-109,0" VerticalAlignment="Top" DataContext="{Binding Path=Pool}" Height="357" Width="614"/>
+        <ListView x:Name="listView" HorizontalAlignment="Left" ItemTemplate="{StaticResource PlayerTemplate}" ItemsSource="{Binding Players}" Margin="10,0,0,0" VerticalAlignment="Bottom" Height="176" Width="1270" d:LayoutOverrides="VerticalAlignment" Grid.ColumnSpan="2" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+    </Grid>
+</UserControl>

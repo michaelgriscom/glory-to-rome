@@ -12,7 +12,7 @@ namespace GTR.Windows.Design
 {
     public class DesignGameTable : GameTable
     {
-        public DesignGameTable() : base(new Deck<OrderCardModel>(), new CardSourceTarget<JackCardModel>())
+        public DesignGameTable() : base(new OrderDeck(), new JackDeck())
         {
             this.Players = new ObservableCollection<Player>() {new DesignPlayer()};
         }

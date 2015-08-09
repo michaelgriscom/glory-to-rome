@@ -17,14 +17,14 @@ namespace GTR.Core.Model
     public class GameTable : ObservableObject
     {
         private const int BuildingSiteCount = 6;
-        private CardSourceTarget<JackCardModel> _jackDeck;
+        private JackDeck _jackDeck;
         private LeaderCardModel _leaderCard;
-        private Deck<OrderCardModel> _orderDeck;
+        private OrderDeck _orderDeck;
         private ObservableCollection<Player> _players;
         private Pool _pool;
         private ObservableCollection<SiteDeck> _siteDecks;
 
-        public GameTable(Deck<OrderCardModel> orderDeck, CardSourceTarget<JackCardModel> jackDeck)
+        public GameTable(OrderDeck orderDeck, JackDeck jackDeck)
         {
             OrderDeck = orderDeck;
             JackDeck = jackDeck;
@@ -43,7 +43,7 @@ namespace GTR.Core.Model
             }
         }
 
-        public CardSourceTarget<JackCardModel> JackDeck
+        public JackDeck JackDeck
         {
             get { return _jackDeck; }
             set
@@ -63,7 +63,7 @@ namespace GTR.Core.Model
             }
         }
 
-        public Deck<OrderCardModel> OrderDeck
+        public OrderDeck OrderDeck
         {
             get { return _orderDeck; }
             set

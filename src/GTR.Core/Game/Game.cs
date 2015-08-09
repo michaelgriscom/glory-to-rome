@@ -273,7 +273,7 @@ namespace GTR.Core.Game
             _leadPlayer = player;
         }
 
-        private static CardSourceTarget<JackCardModel> CreateJackDeck()
+        private static JackDeck CreateJackDeck()
         {
             const int defaultJackCount = 6;
 
@@ -282,7 +282,7 @@ namespace GTR.Core.Game
             {
                 cards.Add(new JackCardModel());
             }
-            return new CardSourceTarget<JackCardModel>(cards);
+            return new JackDeck(cards);
         }
 
         private List<Player> CreatePlayers(int playerCount, GameTable gameTable)
@@ -305,7 +305,7 @@ namespace GTR.Core.Game
                 playingField.Pool);
         }
 
-        private Player DrawForFirst(IList<Player> players, Deck<OrderCardModel> orderDeck, Pool pool)
+        private Player DrawForFirst(IList<Player> players, OrderDeck orderDeck, Pool pool)
         {
             orderDeck.Shuffle();
 

@@ -31,7 +31,7 @@ namespace GTR.Core.Buildings
     }
     internal class BarEffect : BuildingEffectBase
     {
-        private Deck<OrderCardModel> _deck;
+        private OrderDeck _deck;
         private Clientele _playerClientele;
 
         public override MaterialType Material
@@ -119,7 +119,7 @@ namespace GTR.Core.Buildings
 
     internal class FountainEffect : BuildingEffectBase
     {
-        private Deck<OrderCardModel> _deck;
+        private OrderDeck _deck;
         private Hand.OrderCardGroup _playerHand;
 
         public override MaterialType Material

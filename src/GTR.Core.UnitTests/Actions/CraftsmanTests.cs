@@ -24,8 +24,8 @@ namespace GTR.Core.UnitTests.Actions
         [TestInitialize]
         public void Initialization()
         {
-            Deck<OrderCardModel> orderDeck = new Deck<OrderCardModel>();
-            CardSourceTarget<JackCardModel> jackDeck = new CardSourceTarget<JackCardModel>();
+            OrderDeck orderDeck = new OrderDeck();
+            JackDeck jackDeck = new JackDeck();
 
             _gameTable = new GameTable(orderDeck, jackDeck);
 

@@ -48,7 +48,7 @@ namespace GTR.Core.Model
             get { return OrderCards.Count + JackCards.Count; }
         }
 
-        public class JackCardGroup : CardSourceTarget<JackCardModel>
+        public class JackCardGroup : JackDeck
         {
             private readonly Hand _hand;
 

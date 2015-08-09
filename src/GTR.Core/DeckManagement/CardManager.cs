@@ -51,9 +51,9 @@ namespace GTR.Core.DeckManagement
             deckTypes.Add(deckType);
         }
 
-        public Deck<OrderCardModel> CreateOrderCardDeck(DeckType deckVersion)
+        public OrderDeck CreateOrderCardDeck(DeckType deckVersion)
         {
-            Deck<OrderCardModel> orderDeck = new Deck<OrderCardModel>();
+            OrderDeck orderDeck = new OrderDeck();
             foreach (string cardName in deckVersion.GetCardNames())
             {
                 int cardCount = deckVersion.GetCount(cardName);

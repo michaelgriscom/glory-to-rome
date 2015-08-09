@@ -58,6 +58,8 @@
     <Compile Include="Action\IAction.cs" />
     <Compile Include="Game\GameOverEventArgs.cs" />
     <Compile Include="Action\IMove.cs" />
+    <Compile Include="Model\JackDeck.cs" />
+    <Compile Include="Model\OrderDeck.cs" />
     <Compile Include="Model\PlayerBoard.cs" />
     <Compile Include="Game\PlayerScores.cs" />
     <Compile Include="Game\GameScorer.cs" />

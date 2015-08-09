@@ -1,0 +1,257 @@
+﻿<ViewModel:GameViewModel xmlns:ViewModel="using:GTR.Core.ViewModel" xmlns:Model="using:GTR.Core.Model" xmlns:Game="using:GTR.Core.Game">
+	<ViewModel:GameViewModel.GameTable>
+		<Model:GameTable>
+			<Model:GameTable.JackDeck>
+				<Model:JackDeck LocationName="Sem netus taciti sit">
+					<Model:JackCardModel Name="Nulla diam bibendum"/>
+					<Model:JackCardModel Name="Dictumst phasellus adipiscing consequat"/>
+					<Model:JackCardModel Name="Porta eleifend facilisi"/>
+					<Model:JackCardModel Name="Parturient faucibus eget tellus elit"/>
+					<Model:JackCardModel Name="Vel gravida"/>
+					<Model:JackCardModel Name="Nam convallis dignissim purus"/>
+					<Model:JackCardModel Name="Elementum enim vestibulum erat"/>
+					<Model:JackCardModel Name="Risus eros velit sed"/>
+					<Model:JackCardModel Name="Iaculis nibh tempor"/>
+					<Model:JackCardModel Name="Vitae class"/>
+				</Model:JackDeck>
+			</Model:GameTable.JackDeck>
+			<Model:GameTable.LeaderCard>
+				<Model:LeaderCardModel Name="Vestibulum tempus"/>
+			</Model:GameTable.LeaderCard>
+			<Model:GameTable.OrderDeck>
+				<Model:OrderDeck LocationName="Pede suscipit torquent hendrerit">
+					<Model:OrderDeck.Cards>
+						<Model:OrderCardModel Description="Curae adipiscing habitant parturient dis" Name="Lacinia donec" RoleType="Architect"/>
+						<Model:OrderCardModel Description="Nisi est tortor" Name="Inceptos laoreet turpis" RoleType="Architect"/>
+						<Model:OrderCardModel Description="Varius aenean vestibulum mauris interdum" Name="Lobortis nullam vestibulum" RoleType="Laborer"/>
+						<Model:OrderCardModel Description="Nascetur natoque" Name="Posuere pharetra aptent etiam" RoleType="Craftsman"/>
+						<Model:OrderCardModel Description="Nisl potenti" Name="Pretium auctor facilisis" RoleType="Legionnaire"/>
+						<Model:OrderCardModel Description="Congue fermentum placerat rhoncus cursus" Name="Adipiscing pulvinar fringilla dictum" RoleType="Laborer"/>
+						<Model:OrderCardModel Description="Hac parturient sagittis sodales viverra" Name="Vestibulum aliquam" RoleType="Patron"/>
+						<Model:OrderCardModel Description="Leo fusce vestibulum" Name="Integer senectus" RoleType="Legionnaire"/>
+						<Model:OrderCardModel Description="Lectus quisque" Name="Vivamus libero nunc" RoleType="Craftsman"/>
+						<Model:OrderCardModel Description="Odio aliquam orci mus sociosqu" Name="Aliquet nec habitasse" RoleType="Legionnaire"/>
+					</Model:OrderDeck.Cards>
+				</Model:OrderDeck>
+			</Model:GameTable.OrderDeck>
+			<Model:GameTable.Pool>
+				<Model:Pool LocationName="Justo interdum">
+					<Model:OrderCardModel Description="Facilisis lacus hac" Name="Leo nisl lobortis vestibulum nunc" RoleType="Laborer"/>
+					<Model:OrderCardModel Description="Nascetur vestibulum pharetra" Name="Odio tempor tempus" RoleType="Merchant"/>
+					<Model:OrderCardModel Description="Placerat orci adipiscing natoque" Name="Pede posuere potenti" RoleType="Merchant"/>
+					<Model:OrderCardModel Description="Tortor parturient mus quam" Name="Lorem magna" RoleType="Merchant"/>
+					<Model:OrderCardModel Description="Fermentum massa vestibulum pulvinar quis" Name="Sagittis pretium nec" RoleType="Craftsman"/>
+					<Model:OrderCardModel Description="Vestibulum rhoncus turpis" Name="Varius urna fringilla senectus aenean" RoleType="Craftsman"/>
+					<Model:OrderCardModel Description="Mauris habitasse sociosqu adipiscing" Name="Metus hendrerit parturient vestibulum" RoleType="Craftsman"/>
+					<Model:OrderCardModel Description="Cras non" Name="Suscipit per" RoleType="Craftsman"/>
+					<Model:OrderCardModel Description="Nullam morbi" Name="Sed vestibulum" RoleType="Patron"/>
+					<Model:OrderCardModel Description="Himenaeos aptent" Name="Duis imperdiet" RoleType="Architect"/>
+				</Model:Pool>
+			</Model:GameTable.Pool>
+			<Model:GameTable.Players>
+				<Game:Player PlayerName="Blandit commodo adipiscing">
+					<Game:Player.Board>
+						<Model:PlayerBoard/>
+					</Game:Player.Board>
+					<Game:Player.PlayerToLeft>
+						<Game:Player PlayerName="Himenaeos non imperdiet"/>
+					</Game:Player.PlayerToLeft>
+					<Game:Player.PlayerToRight>
+						<Game:Player PlayerName="Malesuada penatibus"/>
+					</Game:Player.PlayerToRight>
+				</Game:Player>
+				<Game:Player PlayerName="Parturient per conubia porttitor">
+					<Game:Player.Board>
+						<Model:PlayerBoard/>
+					</Game:Player.Board>
+					<Game:Player.PlayerToLeft>
+						<Game:Player PlayerName="Quam quis cubilia tincidunt urna"/>
+					</Game:Player.PlayerToLeft>
+					<Game:Player.PlayerToRight>
+						<Game:Player PlayerName="Vestibulum cras duis"/>
+					</Game:Player.PlayerToRight>
+				</Game:Player>
+				<Game:Player PlayerName="Nunc lorem ultrices amet vehicula">
+					<Game:Player.Board>
+						<Model:PlayerBoard/>
+					</Game:Player.Board>
+					<Game:Player.PlayerToLeft>
+						<Game:Player PlayerName="Ligula morbi"/>
+					</Game:Player.PlayerToLeft>
+					<Game:Player.PlayerToRight>
+						<Game:Player PlayerName="Litora volutpat"/>
+					</Game:Player.PlayerToRight>
+				</Game:Player>
+				<Game:Player PlayerName="Maecenas luctus nulla tristique">
+					<Game:Player.Board>
+						<Model:PlayerBoard/>
+					</Game:Player.Board>
+					<Game:Player.PlayerToLeft>
+						<Game:Player PlayerName="Proin praesent magnis"/>
+					</Game:Player.PlayerToLeft>
+					<Game:Player.PlayerToRight>
+						<Game:Player PlayerName="Accumsan ultricies mattis bibendum"/>
+					</Game:Player.PlayerToRight>
+				</Game:Player>
+				<Game:Player PlayerName="Venenatis dapibus ante sed">
+					<Game:Player.Board>
+						<Model:PlayerBoard/>
+					</Game:Player.Board>
+					<Game:Player.PlayerToLeft>
+						<Game:Player PlayerName="Sem mauris"/>
+					</Game:Player.PlayerToLeft>
+					<Game:Player.PlayerToRight>
+						<Game:Player PlayerName="Vestibulum mollis adipiscing"/>
+					</Game:Player.PlayerToRight>
+				</Game:Player>
+				<Game:Player PlayerName="Augue dictumst arcu montes egestas">
+					<Game:Player.Board>
+						<Model:PlayerBoard/>
+					</Game:Player.Board>
+					<Game:Player.PlayerToLeft>
+						<Game:Player PlayerName="Eleifend diam vulputate curabitur eget"/>
+					</Game:Player.PlayerToLeft>
+					<Game:Player.PlayerToRight>
+						<Game:Player PlayerName="Euismod feugiat"/>
+					</Game:Player.PlayerToRight>
+				</Game:Player>
+				<Game:Player PlayerName="Nostra sit">
+					<Game:Player.Board>
+						<Model:PlayerBoard/>
+					</Game:Player.Board>
+					<Game:Player.PlayerToLeft>
+						<Game:Player PlayerName="Elit facilisi dolor parturient"/>
+					</Game:Player.PlayerToLeft>
+					<Game:Player.PlayerToRight>
+						<Game:Player PlayerName="Phasellus ornare enim"/>
+					</Game:Player.PlayerToRight>
+				</Game:Player>
+				<Game:Player PlayerName="Vel fames platea gravida">
+					<Game:Player.Board>
+						<Model:PlayerBoard/>
+					</Game:Player.Board>
+					<Game:Player.PlayerToLeft>
+						<Game:Player PlayerName="Felis iaculis nam"/>
+					</Game:Player.PlayerToLeft>
+					<Game:Player.PlayerToRight>
+						<Game:Player PlayerName="Faucibus sed erat"/>
+					</Game:Player.PlayerToRight>
+				</Game:Player>
+				<Game:Player PlayerName="Primis consequat rutrum sapien dis">
+					<Game:Player.Board>
+						<Model:PlayerBoard/>
+					</Game:Player.Board>
+					<Game:Player.PlayerToLeft>
+						<Game:Player PlayerName="Eros convallis ipsum habitant"/>
+					</Game:Player.PlayerToLeft>
+					<Game:Player.PlayerToRight>
+						<Game:Player PlayerName="Lacinia laoreet vestibulum inceptos vestibulum"/>
+					</Game:Player.PlayerToRight>
+				</Game:Player>
+				<Game:Player PlayerName="Nibh semper sociis adipiscing">
+					<Game:Player.Board>
+						<Model:PlayerBoard/>
+					</Game:Player.Board>
+					<Game:Player.PlayerToLeft>
+						<Game:Player PlayerName="Taciti dignissim tellus est"/>
+					</Game:Player.PlayerToLeft>
+					<Game:Player.PlayerToRight>
+						<Game:Player PlayerName="Parturient elementum nisi"/>
+					</Game:Player.PlayerToRight>
+				</Game:Player>
+			</Model:GameTable.Players>
+			<Model:GameTable.SiteDecks>
+				<Model:SiteDeck LocationName="Etiam quisque" MaterialType="Brick">
+					<Model:SiteDeck.Cards>
+						<Model:BuildingSite MaterialType="Concrete" Name="Curabitur class aenean" SiteType="OutOfTown"/>
+						<Model:BuildingSite MaterialType="Stone" Name="Mauris cras" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Rubble" Name="Nam duis curae donec nunc" SiteType="OutOfTown"/>
+						<Model:BuildingSite MaterialType="Marble" Name="Maecenas praesent" SiteType="OutOfTown"/>
+						<Model:BuildingSite MaterialType="Brick" Name="Aliquam integer amet phasellus" SiteType="OutOfTown"/>
+					</Model:SiteDeck.Cards>
+				</Model:SiteDeck>
+				<Model:SiteDeck LocationName="Commodo dolor conubia adipiscing congue" MaterialType="Brick">
+					<Model:SiteDeck.Cards>
+						<Model:BuildingSite MaterialType="Brick" Name="Sed fusce accumsan vivamus" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Brick" Name="Consequat lorem morbi aliquam nullam" SiteType="OutOfTown"/>
+						<Model:BuildingSite MaterialType="Brick" Name="Dis aliquet" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Wood" Name="Blandit nulla est convallis aptent" SiteType="OutOfTown"/>
+						<Model:BuildingSite MaterialType="Stone" Name="Dignissim proin vestibulum auctor augue" SiteType="OutOfTown"/>
+					</Model:SiteDeck.Cards>
+				</Model:SiteDeck>
+				<Model:SiteDeck LocationName="Fermentum iaculis parturient eget eleifend" MaterialType="Rubble">
+					<Model:SiteDeck.Cards>
+						<Model:BuildingSite MaterialType="Rubble" Name="Cursus cubilia hac ante dapibus" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Concrete" Name="Elementum leo fames mus egestas" SiteType="OutOfTown"/>
+						<Model:BuildingSite MaterialType="Stone" Name="Euismod felis feugiat" SiteType="OutOfTown"/>
+						<Model:BuildingSite MaterialType="Brick" Name="Arcu nec" SiteType="OutOfTown"/>
+						<Model:BuildingSite MaterialType="Wood" Name="Gravida bibendum diam dictumst facilisis" SiteType="InsideRome"/>
+					</Model:SiteDeck.Cards>
+				</Model:SiteDeck>
+				<Model:SiteDeck LocationName="Eros vestibulum natoque habitant inceptos" MaterialType="Brick">
+					<Model:SiteDeck.Cards>
+						<Model:BuildingSite MaterialType="Stone" Name="Vestibulum vestibulum" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Rubble" Name="Adipiscing elit lacinia non enim" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Brick" Name="Facilisi dictum parturient faucibus" SiteType="OutOfTown"/>
+						<Model:BuildingSite MaterialType="Stone" Name="Lectus erat libero" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Brick" Name="Fringilla laoreet per sed" SiteType="OutOfTown"/>
+					</Model:SiteDeck.Cards>
+				</Model:SiteDeck>
+				<Model:SiteDeck LocationName="Justo pharetra nam lacus" MaterialType="Concrete">
+					<Model:SiteDeck.Cards>
+						<Model:BuildingSite MaterialType="Concrete" Name="Ipsum interdum" SiteType="OutOfTown"/>
+						<Model:BuildingSite MaterialType="Stone" Name="Vestibulum nibh habitasse sem posuere" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Rubble" Name="Hendrerit lobortis adipiscing potenti" SiteType="OutOfTown"/>
+						<Model:BuildingSite MaterialType="Wood" Name="Nascetur parturient sit" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Rubble" Name="Vel pretium ligula" SiteType="OutOfTown"/>
+					</Model:SiteDeck.Cards>
+				</Model:SiteDeck>
+				<Model:SiteDeck LocationName="Adipiscing sed" MaterialType="Stone">
+					<Model:SiteDeck.Cards>
+						<Model:BuildingSite MaterialType="Stone" Name="Litora nisi luctus placerat vestibulum" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Stone" Name="Lorem himenaeos rhoncus pulvinar magna" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Rubble" Name="Nisl nunc odio" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Concrete" Name="Sagittis sodales viverra" SiteType="OutOfTown"/>
+						<Model:BuildingSite MaterialType="Wood" Name="Vestibulum magnis aliquam" SiteType="OutOfTown"/>
+					</Model:SiteDeck.Cards>
+				</Model:SiteDeck>
+				<Model:SiteDeck LocationName="Aliquet montes" MaterialType="Concrete">
+					<Model:SiteDeck.Cards>
+						<Model:BuildingSite MaterialType="Wood" Name="Dis integer" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Concrete" Name="Quisque senectus parturient mattis" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Concrete" Name="Vestibulum mauris" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Marble" Name="Imperdiet vivamus" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Brick" Name="Malesuada aliquam mollis vestibulum" SiteType="OutOfTown"/>
+					</Model:SiteDeck.Cards>
+				</Model:SiteDeck>
+				<Model:SiteDeck LocationName="Conubia vestibulum" MaterialType="Concrete">
+					<Model:SiteDeck.Cards>
+						<Model:BuildingSite MaterialType="Concrete" Name="Nostra penatibus porttitor" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Brick" Name="Sociosqu orci adipiscing" SiteType="OutOfTown"/>
+						<Model:BuildingSite MaterialType="Wood" Name="Suscipit ornare blandit torquent platea" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Wood" Name="Primis est commodo parturient" SiteType="OutOfTown"/>
+						<Model:BuildingSite MaterialType="Brick" Name="Pede quam quis massa" SiteType="OutOfTown"/>
+					</Model:SiteDeck.Cards>
+				</Model:SiteDeck>
+				<Model:SiteDeck LocationName="Amet ante nec" MaterialType="Brick">
+					<Model:SiteDeck.Cards>
+						<Model:BuildingSite MaterialType="Wood" Name="Hac leo tincidunt tristique" SiteType="OutOfTown"/>
+						<Model:BuildingSite MaterialType="Wood" Name="Urna vestibulum ultrices metus" SiteType="OutOfTown"/>
+						<Model:BuildingSite MaterialType="Rubble" Name="Cubilia vehicula ultricies adipiscing mus" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Brick" Name="Rutrum dapibus volutpat cras venenatis" SiteType="OutOfTown"/>
+						<Model:BuildingSite MaterialType="Brick" Name="Duis parturient nunc" SiteType="OutOfTown"/>
+					</Model:SiteDeck.Cards>
+				</Model:SiteDeck>
+				<Model:SiteDeck LocationName="Vestibulum sed accumsan sociis vestibulum" MaterialType="Wood">
+					<Model:SiteDeck.Cards>
+						<Model:BuildingSite MaterialType="Brick" Name="Egestas sapien arcu" SiteType="OutOfTown"/>
+						<Model:BuildingSite MaterialType="Stone" Name="Maecenas praesent" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Rubble" Name="Morbi neque euismod" SiteType="InsideRome"/>
+						<Model:BuildingSite MaterialType="Concrete" Name="Vestibulum feugiat semper vulputate vestibulum" SiteType="OutOfTown"/>
+						<Model:BuildingSite MaterialType="Stone" Name="Curabitur non adipiscing parturient per" SiteType="InsideRome"/>
+					</Model:SiteDeck.Cards>
+				</Model:SiteDeck>
+			</Model:GameTable.SiteDecks>
+		</Model:GameTable>
+	</ViewModel:GameViewModel.GameTable>
+</ViewModel:GameViewModel>

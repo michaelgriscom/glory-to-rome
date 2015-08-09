@@ -12,8 +12,8 @@ namespace GTR.Core.ManipulatableRules.Actions
 {
     internal class ThinkerAction : OrderActionBase
     {
-        private readonly CardSourceTarget<JackCardModel> _jackDeck;
-        private readonly Deck<OrderCardModel> _orderDeck;
+        private readonly JackDeck _jackDeck;
+        private readonly OrderDeck _orderDeck;
         private readonly Hand _playerHand;
 
         public ThinkerAction(Player player, GameTable gameTable)

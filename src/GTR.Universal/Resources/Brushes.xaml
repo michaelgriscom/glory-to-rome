@@ -1,0 +1,17 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GTR.Universal.Resources">
+    <Color x:Key="MerchantColor">#FF3333FF</Color>
+    <Color x:Key="PatronColor">#FF993399</Color>
+    <Color x:Key="CraftsmanColor">#FF009933</Color>
+    <Color x:Key="LaborerColor">#FFFFEC00</Color>
+    <Color x:Key="LegionnaireColor">#FFFF3300</Color>
+    <Color x:Key="ArchitectColor">#FFADADAD</Color>
+    <SolidColorBrush x:Key="MerchantBrush" Color="{StaticResource MerchantColor}" />
+    <SolidColorBrush x:Key="PatronBrush" Color="{StaticResource PatronColor}" />
+    <SolidColorBrush x:Key="CraftsmanBrush" Color="{StaticResource CraftsmanColor}" />
+    <SolidColorBrush x:Key="LaborerBrush" Color="{StaticResource LaborerColor}" />
+    <SolidColorBrush x:Key="LegionnaireBrush" Color="{StaticResource LegionnaireColor}" />
+    <SolidColorBrush x:Key="ArchitectBrush" Color="{StaticResource ArchitectColor}" />
+</ResourceDictionary>

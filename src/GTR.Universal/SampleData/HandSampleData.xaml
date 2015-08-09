@@ -1,0 +1,26 @@
+﻿<Model:Hand xmlns:Model="using:GTR.Core.Model" Count="98" RefillCapacity="94">
+	<Model:Hand.JackCards>
+		<Model:JackCardModel Name="Curabitur aliquam class curae phasellus"/>
+		<Model:JackCardModel Name="Consequat aenean convallis mauris dignissim"/>
+		<Model:JackCardModel Name="Elementum nullam"/>
+		<Model:JackCardModel Name="Aptent facilisis fermentum vestibulum"/>
+		<Model:JackCardModel Name="Maecenas fringilla"/>
+		<Model:JackCardModel Name="Cras habitasse praesent integer quisque"/>
+		<Model:JackCardModel Name="Accumsan bibendum"/>
+		<Model:JackCardModel Name="Hendrerit auctor vivamus congue dictumst"/>
+		<Model:JackCardModel Name="Nam cursus"/>
+		<Model:JackCardModel Name="Eleifend facilisi faucibus duis"/>
+	</Model:Hand.JackCards>
+	<Model:Hand.OrderCards>
+		<Model:OrderCardModel Description="Habitant nunc himenaeos aliquam inceptos" Name="Amet imperdiet" RoleType="Patron"/>
+		<Model:OrderCardModel Description="Ante interdum adipiscing malesuada aliquet" Name="Donec parturient blandit" RoleType="Laborer"/>
+		<Model:OrderCardModel Description="Lobortis arcu nascetur penatibus" Name="Etiam sed commodo" RoleType="Craftsman"/>
+		<Model:OrderCardModel Description="Conubia vestibulum fusce porttitor dictum" Name="Pharetra placerat lectus tincidunt" RoleType="Architect"/>
+		<Model:OrderCardModel Description="Pulvinar diam sagittis eget cubilia" Name="Dis senectus" RoleType="Laborer"/>
+		<Model:OrderCardModel Description="Est libero sociosqu ligula vestibulum" Name="Tristique adipiscing parturient lorem litora" RoleType="Patron"/>
+		<Model:OrderCardModel Description="Hac luctus morbi leo ultricies" Name="Nulla elit enim dapibus" RoleType="Architect"/>
+		<Model:OrderCardModel Description="Venenatis erat" Name="Vestibulum vulputate eros" RoleType="Patron"/>
+		<Model:OrderCardModel Description="Egestas proin nibh mus" Name="Augue suscipit" RoleType="Architect"/>
+		<Model:OrderCardModel Description="Curabitur nec torquent" Name="Magnis ultrices dolor" RoleType="Craftsman"/>
+	</Model:Hand.OrderCards>
+</Model:Hand>

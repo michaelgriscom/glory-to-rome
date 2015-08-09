@@ -15,7 +15,7 @@ namespace GTR.Core.UnitTests
         [TestMethod]
         public void ShuffleMultipleCards()
         {
-            Deck<OrderCardModel> deck = new Deck<OrderCardModel>();
+            OrderDeck deck = new OrderDeck();
             HashSet<OrderCardModel> deckCompare = new HashSet<OrderCardModel>();
 
             int cardCount = 50;
