@@ -42,6 +42,6 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" d:DataContext="{d:DesignData /SampleData/GameViewModelSampleData.xaml}" >
-        <Controls:GameControl Margin="0,0,446,0" VerticalAlignment="Top" d:LayoutOverrides="Width" DataContext="{Binding Path=GameTable}"/>
+        <Controls:GameControl Margin="0" d:LayoutOverrides="Width" DataContext="{Binding Path=GameTable}"/>
     </Grid>
 </Page>

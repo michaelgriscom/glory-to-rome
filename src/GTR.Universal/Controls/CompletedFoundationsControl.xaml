@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignWidth="400" ScrollViewer.HorizontalScrollBarVisibility="Auto">
     <UserControl.Resources>
         <DataTemplate x:Key="OrderCardModelTemplate">
             <Grid HorizontalAlignment="Left" Width="250" Height="250"  >
@@ -22,7 +22,7 @@
         </DataTemplate>
         <!--<CollectionViewSource x:Key="BuildingFoundationGroupedByBuildingSite" Source="{d:DesignData /SampleData/CompletedFoundationsSampleData.xaml}"/>-->
         <DataTemplate x:Key="BuildingSiteTemplate">
-            <Grid Height="110" Width="480" Margin="10" >
+            <Grid Margin="10" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
@@ -36,7 +36,6 @@
     </UserControl.Resources>
 
     <Grid d:DataContext="{d:DesignData /SampleData/CompletedFoundationsSampleData.xaml}">
-        <ListView x:Name="listView" HorizontalAlignment="Left" ItemTemplate="{StaticResource BuildingSiteTemplate}" ItemsSource="{Binding}" Margin="19,12,19,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="COMPLETED FOUNDATIONS" VerticalAlignment="Top"/>
+        <ListView x:Name="listView" HorizontalAlignment="Left" ItemTemplate="{StaticResource BuildingSiteTemplate}" ItemsSource="{Binding}" Margin="19,12,19,0" VerticalAlignment="Top" Header="COMPLETED FOUNDATIONS" ItemsPanel="{StaticResource HorizontalItemsPanelTemplate}"/>
     </Grid>
 </UserControl>

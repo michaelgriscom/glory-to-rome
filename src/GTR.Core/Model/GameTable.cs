@@ -139,39 +139,6 @@ namespace GTR.Core.Model
             return Players[location];
         }
 
-        /// <summary>
-        ///     Get the location of a player.
-        /// </summary>
-        /// <param name="player">Player in question.</param>
-        /// <returns>Player location, indexed from zero.</returns>
-        private int GetPlayerLocation(Player player)
-        {
-            int playerLocation;
-            playerLocation = Players.IndexOf(player);
-            Debug.Assert(playerLocation > -1, "Player not in the game");
-            return playerLocation;
-        }
-
-        internal Player PlayerToLeft(Player player)
-        {
-            int playerIndex;
-            playerIndex = GetPlayerLocation(player);
-
-            // modulo will wrap around if player is at end
-            int leftPlayerLocation;
-            leftPlayerLocation = (playerIndex - 1)%Players.Count;
-            return GetPlayerAtLocation(leftPlayerLocation);
-        }
-
-        internal Player PlayerToRight(Player player)
-        {
-            int playerIndex = GetPlayerLocation(player);
-
-            // modulo will wrap around if player is at end
-            int rightPlayerLocation = (playerIndex + 1)%Players.Count;
-            return GetPlayerAtLocation(rightPlayerLocation);
-        }
-
         private void CreateBuildingSites(int playerCount)
         {
             int inTownSiteCount = Math.Min(playerCount, BuildingSiteCount);

@@ -27,8 +27,7 @@
     </UserControl.Resources>
 
     <Grid d:DataContext="{d:DesignData /SampleData/ClienteleSampleData.xaml}">
-        <ListView x:Name="listView" HorizontalAlignment="Left" ItemTemplate="{StaticResource RoleTypeCardTemplate}" ItemsSource="{Binding}" Margin="19,12,19,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="CLIENTELE" VerticalAlignment="Top"/>
+        <ListView x:Name="listView" HorizontalAlignment="Left" ItemTemplate="{StaticResource RoleTypeCardTemplate}" ItemsSource="{Binding}" Margin="19,12,19,0" VerticalAlignment="Top" SelectionMode="None" Header="CLIENTELE" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
 
     </Grid>
 </UserControl>

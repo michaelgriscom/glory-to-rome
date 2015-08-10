@@ -9,8 +9,8 @@
     xmlns:design="using:GTR.Universal.Design"
     x:Class="GTR.Universal.Controls.GameControl"
     mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="400" Width="1280" Height="720" d:DataContext="{d:DesignData /SampleData/GameTableSampleData.xaml}">
+    d:DesignHeight="1339.5"
+    d:DesignWidth="1219.5" Width="Auto" Height="Auto" d:DataContext="{d:DesignData /SampleData/GameTableSampleData.xaml}">
     <UserControl.Resources>
         <DataTemplate x:Key="PlayerTemplate">
             <Grid Height="800" Width="800" Margin="10" >
@@ -25,19 +25,63 @@
                 </local:PlayerBoardControl>
             </Grid>
         </DataTemplate>
+        <DataTemplate x:Key="SiteDeckTemplate">
+            <Grid Height="110" Width="480" Margin="10" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="110" Height="110">
+                    <Image Height="110" Width="110"/>
+                </Border>
+                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                    <TextBlock Text="{Binding LocationName}" Style="{StaticResource TitleTextBlockStyle}"/>
+                    <TextBlock Text="Subtitle" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="SiteDeckTemplate1">
+            <Grid Height="110" Width="480" Margin="10" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="110" Height="110">
+                    <Image Height="110" Width="110"/>
+                </Border>
+                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                    <TextBlock Text="{Binding LocationName}" Style="{StaticResource TitleTextBlockStyle}"/>
+                    <TextBlock Text="Subtitle" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="SiteDeckMaterialTemplate">
+            <Grid Margin="2" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="1" Margin="0">
+                    <TextBlock Text="{Binding MaterialType}" Style="{StaticResource TitleTextBlockStyle}" FontSize="18.667"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Cards.Count, Mode=OneWay}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap" d:LayoutOverrides="TopPosition, BottomPosition"/>
+                        <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text=" total remaining" FontSize="12"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
     </UserControl.Resources>
     <UserControl.DataContext>
         <design:DesignGameTable/>
     </UserControl.DataContext>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="417*"/>
-            <ColumnDefinition Width="223*"/>
-        </Grid.ColumnDefinitions>
-        <local:OrderDeckControl HorizontalAlignment="Right" Margin="0,-1,0,0" VerticalAlignment="Top" DataContext="{Binding Path=OrderDeck}" Grid.Column="1"/>
-        <local:JackDeckControl Margin="167,0" VerticalAlignment="Top" d:LayoutOverrides="Width, LeftPosition, RightPosition" DataContext="{Binding Path=JackDeck}" Grid.Column="1"/>
-        <local:PoolControl HorizontalAlignment="Right" Margin="0,5,-109,0" VerticalAlignment="Top" DataContext="{Binding Path=Pool}" Height="357" Width="614"/>
-        <ListView x:Name="listView" HorizontalAlignment="Left" ItemTemplate="{StaticResource PlayerTemplate}" ItemsSource="{Binding Players}" Margin="10,0,0,0" VerticalAlignment="Bottom" Height="176" Width="1270" d:LayoutOverrides="VerticalAlignment" Grid.ColumnSpan="2" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
-    </Grid>
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" d:LayoutOverrides="LeftMargin, RightMargin, LeftPosition, RightPosition">
+            <local:OrderDeckControl Margin="0" DataContext="{Binding OrderDeck}" d:LayoutOverrides="LeftPosition, RightPosition"/>
+            <local:JackDeckControl Margin="0" d:LayoutOverrides="Width" DataContext="{Binding JackDeck}"/>
+            <local:PoolControl DataContext="{Binding Pool}" Height="400"/>
+            <GridView x:Name="gridView" ItemTemplate="{StaticResource SiteDeckMaterialTemplate}" ItemsSource="{Binding SiteDecks}" IsSwipeEnabled="False" SelectionMode="Single" Header="SITES" Width="400"/>
+        </StackPanel>
+        <ListView x:Name="listView" ItemTemplate="{StaticResource PlayerTemplate}" ItemsSource="{Binding Players}" Margin="0" VerticalAlignment="Bottom" d:LayoutOverrides="LeftPosition, RightPosition" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectionMode="None"/>
+    </StackPanel>
 </UserControl>

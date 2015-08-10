@@ -7,9 +7,24 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignWidth="400" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
     <UserControl.Resources>
         <DataTemplate x:Key="OrderCardModelTemplate">
+            <Grid Height="110" Width="480" Margin="10" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="110" Height="110">
+                    <Image Height="110" Width="110"/>
+                </Border>
+                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                    <TextBlock Text="{Binding Description}" Style="{StaticResource TitleTextBlockStyle}"/>
+                    <TextBlock Text="{Binding Name}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="OrderCardModelTemplate1">
             <Grid Height="110" Width="480" Margin="10" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -27,8 +42,7 @@
     </UserControl.Resources>
 
     <Grid d:DataContext="{d:DesignData /SampleData/StockpileSampleData.xaml}">
-        <ListBox x:Name="listBox" ItemTemplate="{StaticResource RoleTypeCardTemplate}" ItemsSource="{Binding}" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" SelectionMode="Multiple"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="STOCKPILE" VerticalAlignment="Top"/>
+        <ListView x:Name="listView" HorizontalAlignment="Left" Header="STOCKPILE" ItemTemplate="{StaticResource RoleTypeCardTemplate}" ItemsSource="{Binding}" ItemsPanel="{StaticResource HorizontalItemsPanelTemplate}" ItemContainerStyle="{StaticResource ListViewItemContainerStyle}"/>
 
     </Grid>
 </UserControl>

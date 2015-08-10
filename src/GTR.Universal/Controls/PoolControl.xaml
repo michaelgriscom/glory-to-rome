@@ -27,7 +27,7 @@
     </UserControl.Resources>
 
     <Grid d:DataContext="{d:DesignData /SampleData/PoolSampleData.xaml}">
-        <ListView x:Name="listView" HorizontalAlignment="Left" ItemTemplate="{StaticResource OrderCardTemplate}" ItemsSource="{Binding}" Margin="19,12,19,0" SelectionMode="Multiple"/>
+        <ListView x:Name="listView" HorizontalAlignment="Left" ItemTemplate="{StaticResource OrderCardTemplate}" ItemsSource="{Binding}" Margin="19,12,19,0" SelectionMode="Multiple" Header="POOL"/>
 
     </Grid>
 </UserControl>
