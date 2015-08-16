@@ -123,6 +123,9 @@
     <Compile Include="Controls\PlayerBoardControl.xaml.cs">
       <DependentUpon>PlayerBoardControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PlayerSummaryControl.xaml.cs">
+      <DependentUpon>PlayerSummaryControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PoolControl.xaml.cs">
       <DependentUpon>PoolControl.xaml</DependentUpon>
     </Compile>
@@ -201,6 +204,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\PlayerBoardControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PlayerSummaryControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -70,6 +70,12 @@
                 </StackPanel>
             </Grid>
         </DataTemplate>
+        <DataTemplate x:Key="PlayerTemplate1">
+            <StackPanel Height="110" Margin="10" Width="480" >
+                <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding PlayerName}" d:LayoutOverrides="TopPosition, BottomPosition" HorizontalAlignment="Left"/>
+                <local:PlayerSummaryControl DataContext="{Binding Board}" HorizontalAlignment="Left"/>
+            </StackPanel>
+        </DataTemplate>
     </UserControl.Resources>
     <UserControl.DataContext>
         <design:DesignGameTable/>
@@ -77,11 +83,12 @@
 
     <StackPanel>
         <StackPanel Orientation="Horizontal" d:LayoutOverrides="LeftMargin, RightMargin, LeftPosition, RightPosition">
+            <ListView x:Name="listView" ItemTemplate="{StaticResource PlayerTemplate1}" ItemsSource="{Binding Players}" Header="PLAYERS" Height="564" Width="320" d:LayoutOverrides="TopPosition, BottomPosition" />
             <local:OrderDeckControl Margin="0" DataContext="{Binding OrderDeck}" d:LayoutOverrides="LeftPosition, RightPosition"/>
             <local:JackDeckControl Margin="0" d:LayoutOverrides="Width" DataContext="{Binding JackDeck}"/>
             <local:PoolControl DataContext="{Binding Pool}" Height="400"/>
             <GridView x:Name="gridView" ItemTemplate="{StaticResource SiteDeckMaterialTemplate}" ItemsSource="{Binding SiteDecks}" IsSwipeEnabled="False" SelectionMode="Single" Header="SITES" Width="400"/>
         </StackPanel>
-        <ListView x:Name="listView" ItemTemplate="{StaticResource PlayerTemplate}" ItemsSource="{Binding Players}" Margin="0" VerticalAlignment="Bottom" d:LayoutOverrides="LeftPosition, RightPosition" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectionMode="None"/>
+        <!--<local:PlayerBoardControl/>-->
     </StackPanel>
 </UserControl>
