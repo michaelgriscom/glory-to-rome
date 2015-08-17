@@ -11,7 +11,8 @@
 
     <StackPanel Margin="0,0,0,10" d:DataContext="{d:DesignData /SampleData/GameViewModelSampleData.xaml}"
                 Orientation="Horizontal">
-        <local:GameTableControl Margin="0" DataContext="{Binding GameTable}" Height="710" />
+        <local:GameTableControl Margin="0" DataContext="{Binding GameTable}" Height="710" Width="1000" />
+        <local:UserMessageControl Width="275" DataContext="{Binding MessageProvider}"/>
 
     </StackPanel>
 </UserControl>

@@ -1,0 +1,54 @@
+﻿<Services:MessageProvider xmlns:Services="using:GTR.Universal.Services" xmlns:Model="using:GTR.Core.Model">
+	<Services:MessageProvider.Messages>
+		<Services:TimestampMessage Timestamp="08/16/2015 19:04:11">
+			<Services:TimestampMessage.Message>
+				<Model:UserMessage Source="Vestibulum cras" Text="Aenean nam mauris" Type="Warning"/>
+			</Services:TimestampMessage.Message>
+		</Services:TimestampMessage>
+		<Services:TimestampMessage Timestamp="08/16/2015 19:04:11">
+			<Services:TimestampMessage.Message>
+				<Model:UserMessage Source="Class curae nullam sed nunc" Text="Duis curabitur adipiscing" Type="Error"/>
+			</Services:TimestampMessage.Message>
+		</Services:TimestampMessage>
+		<Services:TimestampMessage Timestamp="08/16/2015 19:04:11">
+			<Services:TimestampMessage.Message>
+				<Model:UserMessage Source="Parturient aptent" Text="Amet maecenas" Type="Error"/>
+			</Services:TimestampMessage.Message>
+		</Services:TimestampMessage>
+		<Services:TimestampMessage Timestamp="08/16/2015 19:04:11">
+			<Services:TimestampMessage.Message>
+				<Model:UserMessage Source="Consequat vestibulum convallis quisque auctor" Text="Phasellus vestibulum aliquam donec integer" Type="Information"/>
+			</Services:TimestampMessage.Message>
+		</Services:TimestampMessage>
+		<Services:TimestampMessage Timestamp="08/16/2015 19:04:11">
+			<Services:TimestampMessage.Message>
+				<Model:UserMessage Source="Ante etiam praesent" Text="Vivamus aliquam adipiscing" Type="Information"/>
+			</Services:TimestampMessage.Message>
+		</Services:TimestampMessage>
+		<Services:TimestampMessage Timestamp="08/16/2015 19:04:11">
+			<Services:TimestampMessage.Message>
+				<Model:UserMessage Source="Diam parturient" Text="Fusce congue arcu" Type="Error"/>
+			</Services:TimestampMessage.Message>
+		</Services:TimestampMessage>
+		<Services:TimestampMessage Timestamp="08/16/2015 19:04:11">
+			<Services:TimestampMessage.Message>
+				<Model:UserMessage Source="Vestibulum dignissim" Text="Eget elit" Type="Warning"/>
+			</Services:TimestampMessage.Message>
+		</Services:TimestampMessage>
+		<Services:TimestampMessage Timestamp="08/16/2015 19:04:11">
+			<Services:TimestampMessage.Message>
+				<Model:UserMessage Source="Dis bibendum enim dictumst eleifend" Text="Cursus aliquet accumsan dictum" Type="Warning"/>
+			</Services:TimestampMessage.Message>
+		</Services:TimestampMessage>
+		<Services:TimestampMessage Timestamp="08/16/2015 19:04:11">
+			<Services:TimestampMessage.Message>
+				<Model:UserMessage Source="Lectus vestibulum erat commodo eros" Text="Facilisi blandit faucibus" Type="Error"/>
+			</Services:TimestampMessage.Message>
+		</Services:TimestampMessage>
+		<Services:TimestampMessage Timestamp="08/16/2015 19:04:11">
+			<Services:TimestampMessage.Message>
+				<Model:UserMessage Source="Est hac morbi adipiscing" Text="Conubia elementum lorem libero ligula" Type="Information"/>
+			</Services:TimestampMessage.Message>
+		</Services:TimestampMessage>
+	</Services:MessageProvider.Messages>
+</Services:MessageProvider>

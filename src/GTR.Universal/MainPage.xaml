@@ -53,7 +53,7 @@
             <Button Content="NextTurn" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonBase_OnClick" />
 
         </StackPanel>
-        <Controls:GameTableControl Margin="0" d:LayoutOverrides="Width" DataContext="{Binding Path=GameTable}" />
+        <Controls:GameControl/>
     </StackPanel>
 
 </Page>

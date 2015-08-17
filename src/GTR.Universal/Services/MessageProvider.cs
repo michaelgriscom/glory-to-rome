@@ -21,7 +21,7 @@ namespace GTR.Universal.Services
         public void Display(UserMessage message)
         {
             TimestampMessage umt = new TimestampMessage(message);
-            Messages.Add(umt);
+            Messages.Insert(0, umt);
         }
     }
 }
