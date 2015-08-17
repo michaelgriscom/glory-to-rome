@@ -10,32 +10,36 @@
     d:DesignWidth="778" d:DataContext="{d:DesignData /SampleData/VaultSampleData.xaml}">
     <UserControl.Resources>
         <DataTemplate x:Key="OrderCardModelTemplate">
-            <Grid Height="110" Width="480" Margin="10" >
+            <Grid Height="110" Width="480" Margin="10">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="110" Height="110">
-                    <Image Height="110" Width="110"/>
+                <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="110"
+                        Height="110">
+                    <Image Height="110" Width="110" />
                 </Border>
                 <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                    <TextBlock Text="{Binding Description}" Style="{StaticResource TitleTextBlockStyle}"/>
-                    <TextBlock Text="{Binding Name}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap"/>
+                    <TextBlock Text="{Binding Description}" Style="{StaticResource TitleTextBlockStyle}" />
+                    <TextBlock Text="{Binding Name}" Style="{StaticResource CaptionTextBlockStyle}"
+                               TextWrapping="NoWrap" />
                 </StackPanel>
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="OrderCardModelTemplate1">
-            <Grid Height="110" Width="480" Margin="10" >
+            <Grid Height="110" Width="480" Margin="10">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="110" Height="110">
-                    <Image Height="110" Width="110"/>
+                <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="110"
+                        Height="110">
+                    <Image Height="110" Width="110" />
                 </Border>
                 <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                    <TextBlock Text="{Binding Description}" Style="{StaticResource TitleTextBlockStyle}"/>
-                    <TextBlock Text="{Binding Name}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap"/>
+                    <TextBlock Text="{Binding Description}" Style="{StaticResource TitleTextBlockStyle}" />
+                    <TextBlock Text="{Binding Name}" Style="{StaticResource CaptionTextBlockStyle}"
+                               TextWrapping="NoWrap" />
                 </StackPanel>
             </Grid>
         </DataTemplate>
@@ -44,23 +48,37 @@
     <Grid Margin="0" d:DataContext="{d:DesignData /SampleData/PlayerBoardSampleData.xaml}">
         <Grid Margin="0" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <local:StockpileControl Margin="0" d:DataContext="{d:DesignData /SampleData/StockpileSampleData.xaml}" DataContext="{Binding Camp.Stockpile}" Grid.Row="2" HorizontalAlignment="Center"/>
+            <local:StockpileControl Margin="0" d:DataContext="{d:DesignData /SampleData/StockpileSampleData.xaml}"
+                                    DataContext="{Binding Camp.Stockpile}" Grid.Row="2" HorizontalAlignment="Center" />
             <Grid Margin="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <local:CompletedFoundationsControl Margin="0" d:DataContext="{d:DesignData /SampleData/CompletedFoundationsSampleData.xaml}" DataContext="{Binding Camp.CompletedFoundations}" d:LayoutOverrides="Height, TopPosition, BottomPosition" Grid.Column="1"/>
-                <local:ConstructionZoneControl Margin="0" d:DataContext="{d:DesignData /SampleData/ConstructionZoneSampleData.xaml}" DataContext="{Binding ConstructionZone}" d:LayoutOverrides="Height, LeftPosition, RightPosition, TopPosition, BottomPosition"/>
+                <local:CompletedFoundationsControl Margin="0"
+                                                   d:DataContext="{d:DesignData /SampleData/CompletedFoundationsSampleData.xaml}"
+                                                   DataContext="{Binding Camp.CompletedFoundations}"
+                                                   d:LayoutOverrides="Height, TopPosition, BottomPosition"
+                                                   Grid.Column="1" />
+                <local:ConstructionZoneControl Margin="0"
+                                               d:DataContext="{d:DesignData /SampleData/ConstructionZoneSampleData.xaml}"
+                                               DataContext="{Binding ConstructionZone}"
+                                               d:LayoutOverrides="Height, LeftPosition, RightPosition, TopPosition, BottomPosition" />
             </Grid>
             <Grid Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="200">
-                <local:HandControl Margin="0" DataContext="{Binding Hand}" HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="1"/>
-                <local:ClienteleControl Margin="0" d:DataContext="{d:DesignData /SampleData/ClienteleSampleData.xaml}" DataContext="{Binding Camp.Clientele}" BorderBrush="Black" BorderThickness="1" d:LayoutOverrides="Width, LeftPosition, RightPosition" HorizontalAlignment="Left" Height="200"/>
-                <local:VaultControl d:DataContext="{d:DesignData /SampleData/VaultSampleData.xaml}" DataContext="{Binding Camp.Vault}" Margin="0" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Right" Height="200"/>
+                <local:HandControl Margin="0" DataContext="{Binding Hand}" HorizontalAlignment="Center"
+                                   BorderBrush="Black" BorderThickness="1" />
+                <local:ClienteleControl Margin="0" d:DataContext="{d:DesignData /SampleData/ClienteleSampleData.xaml}"
+                                        DataContext="{Binding Camp.Clientele}" BorderBrush="Black" BorderThickness="1"
+                                        d:LayoutOverrides="Width, LeftPosition, RightPosition"
+                                        HorizontalAlignment="Left" Height="200" />
+                <local:VaultControl d:DataContext="{d:DesignData /SampleData/VaultSampleData.xaml}"
+                                    DataContext="{Binding Camp.Vault}" Margin="0" BorderBrush="Black"
+                                    BorderThickness="1" HorizontalAlignment="Right" Height="200" />
             </Grid>
         </Grid>
 

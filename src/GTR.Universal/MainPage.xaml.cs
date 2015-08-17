@@ -1,39 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+﻿#region
+
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 using GTR.Core.Game;
-using GTR.Core.Services;
 using GTR.Core.ViewModel;
-using GTR.Universal.Design;
 using GTR.Universal.Services;
 using GTR.Windows.Services;
+
+#endregion
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace GTR.Universal
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    ///     An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private Game game;
-        private ButtonPlayerInput buttonPlayerInput;
+        private readonly ButtonPlayerInput buttonPlayerInput;
+        private readonly Game game;
 
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             //GameViewModel vm = new GameViewModel();
             //DesignGameTable dgt = new DesignGameTable();
             //vm.GameTable = dgt;
@@ -47,10 +37,9 @@ namespace GTR.Universal
             buttonPlayerInput = new ButtonPlayerInput();
             game = new Game(playerCount, gameOptions, deckIo, resourceProvider, messageProvider, () => buttonPlayerInput);
             var gameViewModel = new GameViewModel(game);
-            this.DataContext = gameViewModel;
+            DataContext = gameViewModel;
             //PlayerBoardDetailControl.DataContext = board;
         }
-
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {

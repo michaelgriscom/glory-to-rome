@@ -1,5 +1,9 @@
-﻿using GTR.Core.Game;
+﻿#region
+
+using GTR.Core.Game;
 using GTR.Core.Model;
+
+#endregion
 
 namespace GTR.Universal.Design
 {

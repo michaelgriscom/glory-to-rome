@@ -1,12 +1,27 @@
 ﻿<Model:Pool xmlns:Model="using:GTR.Core.Model" LocationName="Curabitur cras maecenas">
-    <Model:OrderCardModel Description="Maecenas cras nam class sed curae aliquam dis duis praesent est accumsan aenean mauris" Name="Cras" RoleType="Legionnaire"/>
-    <Model:OrderCardModel Description="Nunc nullam amet donec hac aptent bibendum etiam integer ante auctor congue" Name="Class" RoleType="Architect"/>
-    <Model:OrderCardModel Description="Leo cursus dictumst dictum eleifend lectus fusce facilisi mus quisque" Name="Duis" RoleType="Patron"/>
-    <Model:OrderCardModel Description="Faucibus lorem vivamus nec habitant morbi nulla inceptos interdum non libero" Name="Nam" RoleType="Architect"/>
-    <Model:OrderCardModel Description="Proin ligula per arcu aliquam diam eget aliquet augue litora lobortis blandit luctus" Name="Sed" RoleType="Architect"/>
-    <Model:OrderCardModel Description="Dolor elit sed magnis nascetur mattis mauris mollis fames felis commodo pharetra montes placerat conubia" Name="Nunc" RoleType="Architect"/>
-    <Model:OrderCardModel Description="Nostra sem cubilia enim ornare pulvinar dapibus sagittis egestas ipsum erat eros sit nibh" Name="Maecenas" RoleType="Laborer"/>
-    <Model:OrderCardModel Description="Platea nisi vel primis nam euismod rutrum justo senectus sociosqu lacus lorem suscipit" Name="Aliquam" RoleType="Laborer"/>
-    <Model:OrderCardModel Description="Torquent sed magna massa dis metus sapien nisl morbi feugiat semper" Name="Dis" RoleType="Legionnaire"/>
-    <Model:OrderCardModel Description="Nunc sociis gravida odio orci pede iaculis quam neque netus lacinia est taciti" Name="Est" RoleType="Merchant"/>
+    <Model:OrderCardModel
+        Description="Maecenas cras nam class sed curae aliquam dis duis praesent est accumsan aenean mauris"
+        Name="Cras" RoleType="Legionnaire" />
+    <Model:OrderCardModel Description="Nunc nullam amet donec hac aptent bibendum etiam integer ante auctor congue"
+                          Name="Class" RoleType="Architect" />
+    <Model:OrderCardModel Description="Leo cursus dictumst dictum eleifend lectus fusce facilisi mus quisque"
+                          Name="Duis" RoleType="Patron" />
+    <Model:OrderCardModel Description="Faucibus lorem vivamus nec habitant morbi nulla inceptos interdum non libero"
+                          Name="Nam" RoleType="Architect" />
+    <Model:OrderCardModel
+        Description="Proin ligula per arcu aliquam diam eget aliquet augue litora lobortis blandit luctus" Name="Sed"
+        RoleType="Architect" />
+    <Model:OrderCardModel
+        Description="Dolor elit sed magnis nascetur mattis mauris mollis fames felis commodo pharetra montes placerat conubia"
+        Name="Nunc" RoleType="Architect" />
+    <Model:OrderCardModel
+        Description="Nostra sem cubilia enim ornare pulvinar dapibus sagittis egestas ipsum erat eros sit nibh"
+        Name="Maecenas" RoleType="Laborer" />
+    <Model:OrderCardModel
+        Description="Platea nisi vel primis nam euismod rutrum justo senectus sociosqu lacus lorem suscipit"
+        Name="Aliquam" RoleType="Laborer" />
+    <Model:OrderCardModel Description="Torquent sed magna massa dis metus sapien nisl morbi feugiat semper" Name="Dis"
+                          RoleType="Legionnaire" />
+    <Model:OrderCardModel Description="Nunc sociis gravida odio orci pede iaculis quam neque netus lacinia est taciti"
+                          Name="Est" RoleType="Merchant" />
 </Model:Pool>

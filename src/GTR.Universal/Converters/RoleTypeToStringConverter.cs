@@ -1,7 +1,6 @@
 ﻿#region
 
 using System;
-using System.Globalization;
 using Windows.UI.Xaml.Data;
 using GTR.Core.Game;
 

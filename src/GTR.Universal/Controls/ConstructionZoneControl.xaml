@@ -10,37 +10,44 @@
     d:DesignWidth="400">
     <UserControl.Resources>
         <DataTemplate x:Key="BuildingSiteTemplate">
-            <StackPanel Height="110" Margin="10" Width="480" >
+            <StackPanel Height="110" Margin="10" Width="480">
                 <StackPanel Margin="0" Height="110">
-                    <TextBlock Text="{Binding BuildingFoundation.Building.Name}" Style="{StaticResource TitleTextBlockStyle}"/>
-                    <TextBlock Text="{Binding MaterialType}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap"/>
+                    <TextBlock Text="{Binding BuildingFoundation.Building.Name}"
+                               Style="{StaticResource TitleTextBlockStyle}" />
+                    <TextBlock Text="{Binding MaterialType}" Style="{StaticResource CaptionTextBlockStyle}"
+                               TextWrapping="NoWrap" />
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding Materials.Count, Mode=OneWay}" d:LayoutOverrides="TopPosition, BottomPosition"/>
-                        <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text=" of "/>
-                        <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Text="{Binding Materials.MaxCapacity}"/>
+                        <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding Materials.Count, Mode=OneWay}"
+                                   d:LayoutOverrides="TopPosition, BottomPosition" />
+                        <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text=" of " />
+                        <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Text="{Binding Materials.MaxCapacity}" />
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
         </DataTemplate>
         <DataTemplate x:Key="BuildingSiteTemplate1">
-            <Grid Height="110" Width="480" Margin="10" >
+            <Grid Height="110" Width="480" Margin="10">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="110" Height="110">
-                    <Image Height="110" Width="110"/>
+                <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="110"
+                        Height="110">
+                    <Image Height="110" Width="110" />
                 </Border>
                 <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                    <TextBlock Text="{Binding Name}" Style="{StaticResource TitleTextBlockStyle}"/>
-                    <TextBlock Text="Subtitle" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap"/>
+                    <TextBlock Text="{Binding Name}" Style="{StaticResource TitleTextBlockStyle}" />
+                    <TextBlock Text="Subtitle" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap" />
                 </StackPanel>
             </Grid>
         </DataTemplate>
     </UserControl.Resources>
 
     <Grid d:DataContext="{d:DesignData /SampleData/ConstructionZoneSampleData.xaml}">
-        <ListView x:Name="listView" Margin="0" Header="CONSTRUCTION ZONE" SelectionMode="None" ItemTemplate="{StaticResource BuildingSiteTemplate}" ItemsSource="{Binding}" ItemsPanel="{StaticResource HorizontalItemsPanelTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+        <ListView x:Name="listView" Margin="0" Header="CONSTRUCTION ZONE" SelectionMode="None"
+                  ItemTemplate="{StaticResource BuildingSiteTemplate}" ItemsSource="{Binding}"
+                  ItemsPanel="{StaticResource HorizontalItemsPanelTemplate}"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto" />
 
     </Grid>
 </UserControl>

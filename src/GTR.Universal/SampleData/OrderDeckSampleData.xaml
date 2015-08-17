@@ -1,14 +1,25 @@
 ﻿<Model:OrderDeck xmlns:Model="using:GTR.Core.Model" LocationName="Elementum lectus nibh">
     <Model:OrderDeck.Cards>
-        <Model:OrderCardModel Description="Aliquam aenean cras maecenas mauris nullam nam aptent" Name="Maecenas" RoleType="Patron"/>
-        <Model:OrderCardModel Description="Class integer curae donec sed praesent auctor" Name="Class" RoleType="Craftsman"/>
-        <Model:OrderCardModel Description="Accumsan duis bibendum nunc amet congue ante" Name="Curae" RoleType="Legionnaire"/>
-        <Model:OrderCardModel Description="Arcu dis quisque vivamus aliquam aliquet cursus blandit dictumst etiam" Name="Donec" RoleType="Patron"/>
-        <Model:OrderCardModel Description="Diam dictum est lectus fusce commodo libero hac eget" Name="Nam" RoleType="Patron"/>
-        <Model:OrderCardModel Description="Lorem morbi conubia ligula litora nulla luctus eleifend elit enim magnis facilisi" Name="Aenean" RoleType="Laborer"/>
-        <Model:OrderCardModel Description="Cubilia dapibus proin augue leo mus egestas" Name="Mauris" RoleType="Legionnaire"/>
-        <Model:OrderCardModel Description="Euismod erat nec mattis feugiat non per mauris gravida faucibus dolor mollis" Name="Cras" RoleType="Merchant"/>
-        <Model:OrderCardModel Description="Eros sed sem nibh habitant montes fames nisi felis sit" Name="Praesent" RoleType="Patron"/>
-        <Model:OrderCardModel Description="Inceptos ipsum justo lacus lorem nostra" Name="Etiam" RoleType="Craftsman"/>
+        <Model:OrderCardModel Description="Aliquam aenean cras maecenas mauris nullam nam aptent" Name="Maecenas"
+                              RoleType="Patron" />
+        <Model:OrderCardModel Description="Class integer curae donec sed praesent auctor" Name="Class"
+                              RoleType="Craftsman" />
+        <Model:OrderCardModel Description="Accumsan duis bibendum nunc amet congue ante" Name="Curae"
+                              RoleType="Legionnaire" />
+        <Model:OrderCardModel Description="Arcu dis quisque vivamus aliquam aliquet cursus blandit dictumst etiam"
+                              Name="Donec" RoleType="Patron" />
+        <Model:OrderCardModel Description="Diam dictum est lectus fusce commodo libero hac eget" Name="Nam"
+                              RoleType="Patron" />
+        <Model:OrderCardModel
+            Description="Lorem morbi conubia ligula litora nulla luctus eleifend elit enim magnis facilisi"
+            Name="Aenean" RoleType="Laborer" />
+        <Model:OrderCardModel Description="Cubilia dapibus proin augue leo mus egestas" Name="Mauris"
+                              RoleType="Legionnaire" />
+        <Model:OrderCardModel
+            Description="Euismod erat nec mattis feugiat non per mauris gravida faucibus dolor mollis" Name="Cras"
+            RoleType="Merchant" />
+        <Model:OrderCardModel Description="Eros sed sem nibh habitant montes fames nisi felis sit" Name="Praesent"
+                              RoleType="Patron" />
+        <Model:OrderCardModel Description="Inceptos ipsum justo lacus lorem nostra" Name="Etiam" RoleType="Craftsman" />
     </Model:OrderDeck.Cards>
 </Model:OrderDeck>

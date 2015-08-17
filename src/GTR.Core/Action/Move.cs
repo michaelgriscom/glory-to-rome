@@ -13,7 +13,6 @@ namespace GTR.Core.Action
 {
     public class Move<T> : IMove<T> where T : CardModelBase
     {
-        private readonly T _card;
         private readonly Func<ICardTarget<T>> _destinationFunction;
         private readonly ICardSource<T> _source;
         // this member should be treated as readonly after its initial assignment,
@@ -24,7 +23,7 @@ namespace GTR.Core.Action
 
         public Move(T card, ICardSource<T> source, ICardTarget<T> destination)
         {
-            _card = card;
+            Card = card;
             _source = source;
             _destination = destination;
         }
@@ -40,15 +39,12 @@ namespace GTR.Core.Action
 
         public Move(T card, ICardSource<T> source, Func<ICardTarget<T>> destinationFunction)
         {
-            _card = card;
+            Card = card;
             _source = source;
             _destinationFunction = destinationFunction;
         }
 
-        public T Card
-        {
-            get { return _card; }
-        }
+        public T Card { get; }
 
         public ICardLocation<T> Destination
         {
@@ -70,12 +66,12 @@ namespace GTR.Core.Action
         public bool Perform()
         {
             bool success;
-            success = _source.Remove(_card);
+            success = _source.Remove(Card);
             if (success)
             {
-                _destination.Add(_card);
+                _destination.Add(Card);
                 // TODO: add in dependency injection or something to avoid doing this
-                Game.Game.MessageProvider.Display(string.Format("Card [{0}] moved from [{1}] to [{2}]", _card.Name,
+                Game.Game.MessageProvider.Display(string.Format("Card [{0}] moved from [{1}] to [{2}]", Card.Name,
                     _source.LocationName, _destination.LocationName));
             }
             return success;
@@ -102,7 +98,7 @@ namespace GTR.Core.Action
             {
                 return true;
             }
-            bool sameCard = move2._card == _card;
+            bool sameCard = move2.Card == Card;
             bool sameDest = move2.Destination == Destination;
             return sameCard && sameDest;
         }
@@ -113,7 +109,7 @@ namespace GTR.Core.Action
             const int primeHash = 397;
             unchecked // prevent overflows
             {
-                int result = _card.GetHashCode();
+                int result = Card.GetHashCode();
                 result = (result*primeHash) ^ Destination.GetHashCode();
                 return result;
             }

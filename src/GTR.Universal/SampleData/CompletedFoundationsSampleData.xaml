@@ -3,210 +3,298 @@
         <Model:BuildingSite.BuildingFoundation>
             <Model:BuildingFoundation LocationName="Bibendum dolor fames non felis" MaxCapacity="93">
                 <Model:BuildingFoundation.Building>
-                    <Model:OrderCardModel Description="Accumsan parturient aliquet blandit commodo" Name="Augue conubia" RoleType="Patron"/>
+                    <Model:OrderCardModel Description="Accumsan parturient aliquet blandit commodo"
+                                          Name="Augue conubia" RoleType="Patron" />
                 </Model:BuildingFoundation.Building>
-                <Model:OrderCardModel Description="Dictumst cubilia" Name="Dignissim ipsum elementum vestibulum" RoleType="Craftsman"/>
-                <Model:OrderCardModel Description="Elit enim erat eros" Name="Eleifend facilisi per justo" RoleType="Legionnaire"/>
-                <Model:OrderCardModel Description="Facilisis auctor nibh faucibus fermentum" Name="Congue cursus sed habitant nisi" RoleType="Merchant"/>
-                <Model:OrderCardModel Description="Dictum lectus fringilla inceptos" Name="Dapibus lacus sem interdum lorem" RoleType="Patron"/>
-                <Model:OrderCardModel Description="Nisl sit egestas libero" Name="Lobortis magna" RoleType="Craftsman"/>
+                <Model:OrderCardModel Description="Dictumst cubilia" Name="Dignissim ipsum elementum vestibulum"
+                                      RoleType="Craftsman" />
+                <Model:OrderCardModel Description="Elit enim erat eros" Name="Eleifend facilisi per justo"
+                                      RoleType="Legionnaire" />
+                <Model:OrderCardModel Description="Facilisis auctor nibh faucibus fermentum"
+                                      Name="Congue cursus sed habitant nisi" RoleType="Merchant" />
+                <Model:OrderCardModel Description="Dictum lectus fringilla inceptos"
+                                      Name="Dapibus lacus sem interdum lorem" RoleType="Patron" />
+                <Model:OrderCardModel Description="Nisl sit egestas libero" Name="Lobortis magna" RoleType="Craftsman" />
             </Model:BuildingFoundation>
         </Model:BuildingSite.BuildingFoundation>
         <Model:BuildingSite.Materials>
-            <Model:OrderCardModel Description="Vestibulum curae curabitur donec duis" Name="Etiam nunc" RoleType="Legionnaire"/>
-            <Model:OrderCardModel Description="Aliquam integer dis" Name="Quisque est adipiscing maecenas" RoleType="Merchant"/>
-            <Model:OrderCardModel Description="Amet phasellus ante hac" Name="Consequat vivamus mauris" RoleType="Legionnaire"/>
-            <Model:OrderCardModel Description="Arcu parturient leo fusce vestibulum" Name="Diam mus lorem vestibulum nullam" RoleType="Laborer"/>
-            <Model:OrderCardModel Description="Aliquam convallis eget morbi adipiscing" Name="Nec nulla praesent proin aptent" RoleType="Laborer"/>
+            <Model:OrderCardModel Description="Vestibulum curae curabitur donec duis" Name="Etiam nunc"
+                                  RoleType="Legionnaire" />
+            <Model:OrderCardModel Description="Aliquam integer dis" Name="Quisque est adipiscing maecenas"
+                                  RoleType="Merchant" />
+            <Model:OrderCardModel Description="Amet phasellus ante hac" Name="Consequat vivamus mauris"
+                                  RoleType="Legionnaire" />
+            <Model:OrderCardModel Description="Arcu parturient leo fusce vestibulum"
+                                  Name="Diam mus lorem vestibulum nullam" RoleType="Laborer" />
+            <Model:OrderCardModel Description="Aliquam convallis eget morbi adipiscing"
+                                  Name="Nec nulla praesent proin aptent" RoleType="Laborer" />
         </Model:BuildingSite.Materials>
     </Model:BuildingSite>
     <Model:BuildingSite MaterialType="Marble" Name="Nam" SiteType="InsideRome">
         <Model:BuildingSite.BuildingFoundation>
             <Model:BuildingFoundation LocationName="Platea urna posuere primis" MaxCapacity="98">
                 <Model:BuildingFoundation.Building>
-                    <Model:OrderCardModel Description="Penatibus natoque porttitor nostra quis" Name="Ornare pulvinar" RoleType="Legionnaire"/>
+                    <Model:OrderCardModel Description="Penatibus natoque porttitor nostra quis" Name="Ornare pulvinar"
+                                          RoleType="Legionnaire" />
                 </Model:BuildingFoundation.Building>
-                <Model:OrderCardModel Description="Rutrum tincidunt sagittis senectus vestibulum" Name="Porta adipiscing sociosqu purus risus" RoleType="Legionnaire"/>
-                <Model:OrderCardModel Description="Velit sapien tristique sed" Name="Cras duis dis est" RoleType="Architect"/>
-                <Model:OrderCardModel Description="Hac suscipit potenti ultricies pretium" Name="Parturient semper" RoleType="Patron"/>
-                <Model:OrderCardModel Description="Rhoncus sodales" Name="Vitae leo nunc torquent" RoleType="Laborer"/>
-                <Model:OrderCardModel Description="Venenatis vulputate sociis curabitur" Name="Taciti class phasellus viverra mus" RoleType="Patron"/>
+                <Model:OrderCardModel Description="Rutrum tincidunt sagittis senectus vestibulum"
+                                      Name="Porta adipiscing sociosqu purus risus" RoleType="Legionnaire" />
+                <Model:OrderCardModel Description="Velit sapien tristique sed" Name="Cras duis dis est"
+                                      RoleType="Architect" />
+                <Model:OrderCardModel Description="Hac suscipit potenti ultricies pretium" Name="Parturient semper"
+                                      RoleType="Patron" />
+                <Model:OrderCardModel Description="Rhoncus sodales" Name="Vitae leo nunc torquent" RoleType="Laborer" />
+                <Model:OrderCardModel Description="Venenatis vulputate sociis curabitur"
+                                      Name="Taciti class phasellus viverra mus" RoleType="Patron" />
             </Model:BuildingFoundation>
         </Model:BuildingSite.BuildingFoundation>
         <Model:BuildingSite.Materials>
-            <Model:OrderCardModel Description="Luctus metus" Name="Habitasse euismod morbi magnis odio" RoleType="Craftsman"/>
-            <Model:OrderCardModel Description="Feugiat gravida" Name="Mattis nascetur hendrerit pharetra himenaeos" RoleType="Craftsman"/>
-            <Model:OrderCardModel Description="Placerat vestibulum neque" Name="Vel iaculis" RoleType="Merchant"/>
-            <Model:OrderCardModel Description="Lacinia adipiscing orci nam mauris" Name="Imperdiet pede netus parturient" RoleType="Architect"/>
-            <Model:OrderCardModel Description="Laoreet mollis montes" Name="Vestibulum nulla malesuada quam" RoleType="Architect"/>
+            <Model:OrderCardModel Description="Luctus metus" Name="Habitasse euismod morbi magnis odio"
+                                  RoleType="Craftsman" />
+            <Model:OrderCardModel Description="Feugiat gravida" Name="Mattis nascetur hendrerit pharetra himenaeos"
+                                  RoleType="Craftsman" />
+            <Model:OrderCardModel Description="Placerat vestibulum neque" Name="Vel iaculis" RoleType="Merchant" />
+            <Model:OrderCardModel Description="Lacinia adipiscing orci nam mauris"
+                                  Name="Imperdiet pede netus parturient" RoleType="Architect" />
+            <Model:OrderCardModel Description="Laoreet mollis montes" Name="Vestibulum nulla malesuada quam"
+                                  RoleType="Architect" />
         </Model:BuildingSite.Materials>
     </Model:BuildingSite>
     <Model:BuildingSite MaterialType="Concrete" Name="Sed" SiteType="OutOfTown">
         <Model:BuildingSite.BuildingFoundation>
             <Model:BuildingFoundation LocationName="Dolor fames dapibus" MaxCapacity="19">
                 <Model:BuildingFoundation.Building>
-                    <Model:OrderCardModel Description="Eget proin facilisis varius" Name="Augue conubia sem cubilia" RoleType="Architect"/>
+                    <Model:OrderCardModel Description="Eget proin facilisis varius" Name="Augue conubia sem cubilia"
+                                          RoleType="Architect" />
                 </Model:BuildingFoundation.Building>
-                <Model:OrderCardModel Description="Egestas elit felis aenean sit" Name="Enim ipsum vel" RoleType="Patron"/>
-                <Model:OrderCardModel Description="Euismod bibendum erat justo" Name="Mauris nullam" RoleType="Legionnaire"/>
-                <Model:OrderCardModel Description="Parturient lacus" Name="Nam vestibulum eros feugiat" RoleType="Craftsman"/>
-                <Model:OrderCardModel Description="Lorem sed vestibulum" Name="Gravida magna dictumst" RoleType="Merchant"/>
-                <Model:OrderCardModel Description="Eleifend massa adipiscing iaculis" Name="Fermentum parturient aptent metus facilisi" RoleType="Laborer"/>
+                <Model:OrderCardModel Description="Egestas elit felis aenean sit" Name="Enim ipsum vel"
+                                      RoleType="Patron" />
+                <Model:OrderCardModel Description="Euismod bibendum erat justo" Name="Mauris nullam"
+                                      RoleType="Legionnaire" />
+                <Model:OrderCardModel Description="Parturient lacus" Name="Nam vestibulum eros feugiat"
+                                      RoleType="Craftsman" />
+                <Model:OrderCardModel Description="Lorem sed vestibulum" Name="Gravida magna dictumst"
+                                      RoleType="Merchant" />
+                <Model:OrderCardModel Description="Eleifend massa adipiscing iaculis"
+                                      Name="Fermentum parturient aptent metus facilisi" RoleType="Laborer" />
             </Model:BuildingFoundation>
         </Model:BuildingSite.BuildingFoundation>
         <Model:BuildingSite.Materials>
-            <Model:OrderCardModel Description="Non per tempor" Name="Sed curae ultrices tempus amet" RoleType="Craftsman"/>
-            <Model:OrderCardModel Description="Consequat convallis quisque ante" Name="Dignissim donec etiam vehicula" RoleType="Legionnaire"/>
-            <Model:OrderCardModel Description="Volutpat vivamus arcu aliquam aliquet" Name="Blandit fusce lorem maecenas" RoleType="Craftsman"/>
-            <Model:OrderCardModel Description="Elementum diam" Name="Commodo vestibulum praesent" RoleType="Merchant"/>
-            <Model:OrderCardModel Description="Adipiscing morbi" Name="Accumsan tortor nulla turpis" RoleType="Architect"/>
+            <Model:OrderCardModel Description="Non per tempor" Name="Sed curae ultrices tempus amet"
+                                  RoleType="Craftsman" />
+            <Model:OrderCardModel Description="Consequat convallis quisque ante" Name="Dignissim donec etiam vehicula"
+                                  RoleType="Legionnaire" />
+            <Model:OrderCardModel Description="Volutpat vivamus arcu aliquam aliquet"
+                                  Name="Blandit fusce lorem maecenas" RoleType="Craftsman" />
+            <Model:OrderCardModel Description="Elementum diam" Name="Commodo vestibulum praesent" RoleType="Merchant" />
+            <Model:OrderCardModel Description="Adipiscing morbi" Name="Accumsan tortor nulla turpis"
+                                  RoleType="Architect" />
         </Model:BuildingSite.Materials>
     </Model:BuildingSite>
     <Model:BuildingSite MaterialType="Brick" Name="Aenean" SiteType="OutOfTown">
         <Model:BuildingSite.BuildingFoundation>
             <Model:BuildingFoundation LocationName="Orci vestibulum pharetra sed" MaxCapacity="33">
                 <Model:BuildingFoundation.Building>
-                    <Model:OrderCardModel Description="Odio lectus velit vitae" Name="Lobortis parturient nascetur potenti" RoleType="Architect"/>
+                    <Model:OrderCardModel Description="Odio lectus velit vitae"
+                                          Name="Lobortis parturient nascetur potenti" RoleType="Architect" />
                 </Model:BuildingFoundation.Building>
-                <Model:OrderCardModel Description="Pede sem" Name="Placerat class pulvinar pretium" RoleType="Legionnaire"/>
-                <Model:OrderCardModel Description="Curae donec imperdiet malesuada vestibulum" Name="Quam etiam fusce" RoleType="Merchant"/>
-                <Model:OrderCardModel Description="Penatibus rhoncus quis sagittis" Name="Sit sodales" RoleType="Merchant"/>
-                <Model:OrderCardModel Description="Lorem urna" Name="Vel libero senectus" RoleType="Architect"/>
-                <Model:OrderCardModel Description="Adipiscing porttitor nam" Name="Morbi nulla sociosqu" RoleType="Patron"/>
+                <Model:OrderCardModel Description="Pede sem" Name="Placerat class pulvinar pretium"
+                                      RoleType="Legionnaire" />
+                <Model:OrderCardModel Description="Curae donec imperdiet malesuada vestibulum" Name="Quam etiam fusce"
+                                      RoleType="Merchant" />
+                <Model:OrderCardModel Description="Penatibus rhoncus quis sagittis" Name="Sit sodales"
+                                      RoleType="Merchant" />
+                <Model:OrderCardModel Description="Lorem urna" Name="Vel libero senectus" RoleType="Architect" />
+                <Model:OrderCardModel Description="Adipiscing porttitor nam" Name="Morbi nulla sociosqu"
+                                      RoleType="Patron" />
             </Model:BuildingFoundation>
         </Model:BuildingSite.BuildingFoundation>
         <Model:BuildingSite.Materials>
-            <Model:OrderCardModel Description="Netus auctor faucibus habitant dis" Name="Est congue" RoleType="Laborer"/>
-            <Model:OrderCardModel Description="Hac cursus" Name="Nulla vestibulum laoreet leo fringilla" RoleType="Merchant"/>
-            <Model:OrderCardModel Description="Nisi dictum porta habitasse" Name="Mus purus natoque adipiscing nec" RoleType="Architect"/>
-            <Model:OrderCardModel Description="Parturient vestibulum nisl hendrerit non" Name="Inceptos posuere interdum himenaeos" RoleType="Craftsman"/>
-            <Model:OrderCardModel Description="Vestibulum per" Name="Nunc adipiscing risus" RoleType="Legionnaire"/>
+            <Model:OrderCardModel Description="Netus auctor faucibus habitant dis" Name="Est congue" RoleType="Laborer" />
+            <Model:OrderCardModel Description="Hac cursus" Name="Nulla vestibulum laoreet leo fringilla"
+                                  RoleType="Merchant" />
+            <Model:OrderCardModel Description="Nisi dictum porta habitasse" Name="Mus purus natoque adipiscing nec"
+                                  RoleType="Architect" />
+            <Model:OrderCardModel Description="Parturient vestibulum nisl hendrerit non"
+                                  Name="Inceptos posuere interdum himenaeos" RoleType="Craftsman" />
+            <Model:OrderCardModel Description="Vestibulum per" Name="Nunc adipiscing risus" RoleType="Legionnaire" />
         </Model:BuildingSite.Materials>
     </Model:BuildingSite>
     <Model:BuildingSite MaterialType="Wood" Name="Aliquam" SiteType="OutOfTown">
         <Model:BuildingSite.BuildingFoundation>
             <Model:BuildingFoundation LocationName="Parturient diam vestibulum eget" MaxCapacity="71">
                 <Model:BuildingFoundation.Building>
-                    <Model:OrderCardModel Description="Ipsum aliquet blandit ultrices vehicula" Name="Commodo vestibulum conubia adipiscing nostra" RoleType="Patron"/>
+                    <Model:OrderCardModel Description="Ipsum aliquet blandit ultrices vehicula"
+                                          Name="Commodo vestibulum conubia adipiscing nostra" RoleType="Patron" />
                 </Model:BuildingFoundation.Building>
-                <Model:OrderCardModel Description="Justo leo" Name="Mus ornare platea volutpat vestibulum" RoleType="Patron"/>
-                <Model:OrderCardModel Description="Maecenas praesent" Name="Accumsan cubilia elit primis" RoleType="Architect"/>
-                <Model:OrderCardModel Description="Bibendum enim" Name="Dictumst dapibus adipiscing eleifend" RoleType="Architect"/>
-                <Model:OrderCardModel Description="Facilisi lacus" Name="Lorem egestas erat" RoleType="Architect"/>
-                <Model:OrderCardModel Description="Rutrum euismod magna nec vulputate" Name="Sapien massa" RoleType="Legionnaire"/>
+                <Model:OrderCardModel Description="Justo leo" Name="Mus ornare platea volutpat vestibulum"
+                                      RoleType="Patron" />
+                <Model:OrderCardModel Description="Maecenas praesent" Name="Accumsan cubilia elit primis"
+                                      RoleType="Architect" />
+                <Model:OrderCardModel Description="Bibendum enim" Name="Dictumst dapibus adipiscing eleifend"
+                                      RoleType="Architect" />
+                <Model:OrderCardModel Description="Facilisi lacus" Name="Lorem egestas erat" RoleType="Architect" />
+                <Model:OrderCardModel Description="Rutrum euismod magna nec vulputate" Name="Sapien massa"
+                                      RoleType="Legionnaire" />
             </Model:BuildingFoundation>
         </Model:BuildingSite.BuildingFoundation>
         <Model:BuildingSite.Materials>
-            <Model:OrderCardModel Description="Viverra vestibulum litora" Name="Proin luctus vestibulum" RoleType="Architect"/>
-            <Model:OrderCardModel Description="Aliquam integer" Name="Magnis mattis nunc" RoleType="Merchant"/>
-            <Model:OrderCardModel Description="Sed mauris amet ante mollis" Name="Quisque adipiscing arcu tincidunt" RoleType="Patron"/>
-            <Model:OrderCardModel Description="Dis est augue" Name="Vivamus suscipit tristique dolor parturient" RoleType="Architect"/>
-            <Model:OrderCardModel Description="Montes hac ultricies vestibulum fames" Name="Venenatis felis aliquam torquent" RoleType="Patron"/>
+            <Model:OrderCardModel Description="Viverra vestibulum litora" Name="Proin luctus vestibulum"
+                                  RoleType="Architect" />
+            <Model:OrderCardModel Description="Aliquam integer" Name="Magnis mattis nunc" RoleType="Merchant" />
+            <Model:OrderCardModel Description="Sed mauris amet ante mollis" Name="Quisque adipiscing arcu tincidunt"
+                                  RoleType="Patron" />
+            <Model:OrderCardModel Description="Dis est augue" Name="Vivamus suscipit tristique dolor parturient"
+                                  RoleType="Architect" />
+            <Model:OrderCardModel Description="Montes hac ultricies vestibulum fames"
+                                  Name="Venenatis felis aliquam torquent" RoleType="Patron" />
         </Model:BuildingSite.Materials>
     </Model:BuildingSite>
     <Model:BuildingSite MaterialType="Stone" Name="Maecenas" SiteType="InsideRome">
         <Model:BuildingSite.BuildingFoundation>
             <Model:BuildingFoundation LocationName="Natoque risus quam quis" MaxCapacity="65">
                 <Model:BuildingFoundation.Building>
-                    <Model:OrderCardModel Description="Pede fringilla purus sit" Name="Inceptos laoreet" RoleType="Architect"/>
+                    <Model:OrderCardModel Description="Pede fringilla purus sit" Name="Inceptos laoreet"
+                                          RoleType="Architect" />
                 </Model:BuildingFoundation.Building>
-                <Model:OrderCardModel Description="Vel posuere tortor velit" Name="Vitae habitasse turpis hendrerit" RoleType="Legionnaire"/>
-                <Model:OrderCardModel Description="Interdum lobortis nascetur" Name="Urna himenaeos pharetra nam vestibulum" RoleType="Craftsman"/>
-                <Model:OrderCardModel Description="Placerat potenti adipiscing imperdiet class" Name="Cras varius malesuada pulvinar" RoleType="Laborer"/>
-                <Model:OrderCardModel Description="Duis sagittis curae nunc donec" Name="Senectus parturient sociosqu" RoleType="Architect"/>
-                <Model:OrderCardModel Description="Pretium etiam suscipit penatibus amet" Name="Vestibulum fusce lorem" RoleType="Merchant"/>
+                <Model:OrderCardModel Description="Vel posuere tortor velit" Name="Vitae habitasse turpis hendrerit"
+                                      RoleType="Legionnaire" />
+                <Model:OrderCardModel Description="Interdum lobortis nascetur"
+                                      Name="Urna himenaeos pharetra nam vestibulum" RoleType="Craftsman" />
+                <Model:OrderCardModel Description="Placerat potenti adipiscing imperdiet class"
+                                      Name="Cras varius malesuada pulvinar" RoleType="Laborer" />
+                <Model:OrderCardModel Description="Duis sagittis curae nunc donec" Name="Senectus parturient sociosqu"
+                                      RoleType="Architect" />
+                <Model:OrderCardModel Description="Pretium etiam suscipit penatibus amet" Name="Vestibulum fusce lorem"
+                                      RoleType="Merchant" />
             </Model:BuildingFoundation>
         </Model:BuildingSite.BuildingFoundation>
         <Model:BuildingSite.Materials>
-            <Model:OrderCardModel Description="Eros metus phasellus consequat" Name="Convallis feugiat vestibulum adipiscing non" RoleType="Legionnaire"/>
-            <Model:OrderCardModel Description="Gravida nibh morbi neque nisi" Name="Dignissim per iaculis nisl elementum" RoleType="Patron"/>
-            <Model:OrderCardModel Description="Parturient taciti vestibulum" Name="Sed vestibulum netus adipiscing parturient" RoleType="Architect"/>
-            <Model:OrderCardModel Description="Nunc nulla facilisis" Name="Faucibus tellus odio porta" RoleType="Merchant"/>
-            <Model:OrderCardModel Description="Tempor orci sem fermentum vestibulum" Name="Habitant tempus lacinia" RoleType="Laborer"/>
+            <Model:OrderCardModel Description="Eros metus phasellus consequat"
+                                  Name="Convallis feugiat vestibulum adipiscing non" RoleType="Legionnaire" />
+            <Model:OrderCardModel Description="Gravida nibh morbi neque nisi"
+                                  Name="Dignissim per iaculis nisl elementum" RoleType="Patron" />
+            <Model:OrderCardModel Description="Parturient taciti vestibulum"
+                                  Name="Sed vestibulum netus adipiscing parturient" RoleType="Architect" />
+            <Model:OrderCardModel Description="Nunc nulla facilisis" Name="Faucibus tellus odio porta"
+                                  RoleType="Merchant" />
+            <Model:OrderCardModel Description="Tempor orci sem fermentum vestibulum" Name="Habitant tempus lacinia"
+                                  RoleType="Laborer" />
         </Model:BuildingSite.Materials>
     </Model:BuildingSite>
     <Model:BuildingSite MaterialType="Marble" Name="Dis" SiteType="OutOfTown">
         <Model:BuildingSite.BuildingFoundation>
             <Model:BuildingFoundation LocationName="Accumsan dictum erat bibendum lectus" MaxCapacity="49">
                 <Model:BuildingFoundation.Building>
-                    <Model:OrderCardModel Description="Vestibulum venenatis elit mus enim" Name="Quisque cursus" RoleType="Laborer"/>
+                    <Model:OrderCardModel Description="Vestibulum venenatis elit mus enim" Name="Quisque cursus"
+                                          RoleType="Laborer" />
                 </Model:BuildingFoundation.Building>
-                <Model:OrderCardModel Description="Libero augue vivamus vulputate" Name="Nec eros ligula" RoleType="Merchant"/>
-                <Model:OrderCardModel Description="Aliquam dictumst" Name="Nibh litora eleifend" RoleType="Architect"/>
-                <Model:OrderCardModel Description="Nisi facilisi aliquet" Name="Dolor fames curabitur non blandit" RoleType="Craftsman"/>
-                <Model:OrderCardModel Description="Commodo luctus" Name="Faucibus phasellus per nisl" RoleType="Patron"/>
-                <Model:OrderCardModel Description="Adipiscing nunc parturient felis" Name="Ipsum justo habitant vestibulum" RoleType="Patron"/>
+                <Model:OrderCardModel Description="Libero augue vivamus vulputate" Name="Nec eros ligula"
+                                      RoleType="Merchant" />
+                <Model:OrderCardModel Description="Aliquam dictumst" Name="Nibh litora eleifend" RoleType="Architect" />
+                <Model:OrderCardModel Description="Nisi facilisi aliquet" Name="Dolor fames curabitur non blandit"
+                                      RoleType="Craftsman" />
+                <Model:OrderCardModel Description="Commodo luctus" Name="Faucibus phasellus per nisl" RoleType="Patron" />
+                <Model:OrderCardModel Description="Adipiscing nunc parturient felis"
+                                      Name="Ipsum justo habitant vestibulum" RoleType="Patron" />
             </Model:BuildingFoundation>
         </Model:BuildingSite.BuildingFoundation>
         <Model:BuildingSite.Materials>
-            <Model:OrderCardModel Description="Adipiscing parturient dis rhoncus" Name="Est ultrices porttitor vestibulum aenean" RoleType="Laborer"/>
-            <Model:OrderCardModel Description="Mauris tincidunt tristique" Name="Ante sodales viverra" RoleType="Craftsman"/>
-            <Model:OrderCardModel Description="Arcu diam eget vehicula" Name="Nullam hac" RoleType="Patron"/>
-            <Model:OrderCardModel Description="Ultricies aliquam morbi" Name="Aptent auctor leo integer" RoleType="Craftsman"/>
-            <Model:OrderCardModel Description="Volutpat maecenas congue" Name="Nulla proin praesent" RoleType="Patron"/>
+            <Model:OrderCardModel Description="Adipiscing parturient dis rhoncus"
+                                  Name="Est ultrices porttitor vestibulum aenean" RoleType="Laborer" />
+            <Model:OrderCardModel Description="Mauris tincidunt tristique" Name="Ante sodales viverra"
+                                  RoleType="Craftsman" />
+            <Model:OrderCardModel Description="Arcu diam eget vehicula" Name="Nullam hac" RoleType="Patron" />
+            <Model:OrderCardModel Description="Ultricies aliquam morbi" Name="Aptent auctor leo integer"
+                                  RoleType="Craftsman" />
+            <Model:OrderCardModel Description="Volutpat maecenas congue" Name="Nulla proin praesent" RoleType="Patron" />
         </Model:BuildingSite.Materials>
     </Model:BuildingSite>
     <Model:BuildingSite MaterialType="Brick" Name="Mauris" SiteType="OutOfTown">
         <Model:BuildingSite.BuildingFoundation>
             <Model:BuildingFoundation LocationName="Quis morbi urna hendrerit" MaxCapacity="89">
                 <Model:BuildingFoundation.Building>
-                    <Model:OrderCardModel Description="Fermentum quam" Name="Vel metus fringilla habitasse" RoleType="Laborer"/>
+                    <Model:OrderCardModel Description="Fermentum quam" Name="Vel metus fringilla habitasse"
+                                          RoleType="Laborer" />
                 </Model:BuildingFoundation.Building>
-                <Model:OrderCardModel Description="Himenaeos imperdiet" Name="Mauris malesuada" RoleType="Craftsman"/>
-                <Model:OrderCardModel Description="Egestas euismod neque mollis" Name="Cras pharetra" RoleType="Laborer"/>
-                <Model:OrderCardModel Description="Parturient feugiat nam placerat vestibulum" Name="Penatibus duis netus nunc" RoleType="Craftsman"/>
-                <Model:OrderCardModel Description="Pulvinar sed" Name="Gravida amet iaculis vestibulum dis" RoleType="Patron"/>
-                <Model:OrderCardModel Description="Montes nostra porttitor" Name="Est hac leo ornare" RoleType="Laborer"/>
+                <Model:OrderCardModel Description="Himenaeos imperdiet" Name="Mauris malesuada" RoleType="Craftsman" />
+                <Model:OrderCardModel Description="Egestas euismod neque mollis" Name="Cras pharetra"
+                                      RoleType="Laborer" />
+                <Model:OrderCardModel Description="Parturient feugiat nam placerat vestibulum"
+                                      Name="Penatibus duis netus nunc" RoleType="Craftsman" />
+                <Model:OrderCardModel Description="Pulvinar sed" Name="Gravida amet iaculis vestibulum dis"
+                                      RoleType="Patron" />
+                <Model:OrderCardModel Description="Montes nostra porttitor" Name="Est hac leo ornare"
+                                      RoleType="Laborer" />
             </Model:BuildingFoundation>
         </Model:BuildingSite.BuildingFoundation>
         <Model:BuildingSite.Materials>
-            <Model:OrderCardModel Description="Sed adipiscing conubia" Name="Lacus convallis dignissim" RoleType="Architect"/>
-            <Model:OrderCardModel Description="Parturient elementum" Name="Lorem magnis facilisis" RoleType="Architect"/>
-            <Model:OrderCardModel Description="Cubilia vestibulum" Name="Odio mattis" RoleType="Merchant"/>
-            <Model:OrderCardModel Description="Inceptos orci sem" Name="Vestibulum sit interdum lobortis" RoleType="Architect"/>
-            <Model:OrderCardModel Description="Nascetur adipiscing pede" Name="Magna dapibus massa" RoleType="Laborer"/>
+            <Model:OrderCardModel Description="Sed adipiscing conubia" Name="Lacus convallis dignissim"
+                                  RoleType="Architect" />
+            <Model:OrderCardModel Description="Parturient elementum" Name="Lorem magnis facilisis" RoleType="Architect" />
+            <Model:OrderCardModel Description="Cubilia vestibulum" Name="Odio mattis" RoleType="Merchant" />
+            <Model:OrderCardModel Description="Inceptos orci sem" Name="Vestibulum sit interdum lobortis"
+                                  RoleType="Architect" />
+            <Model:OrderCardModel Description="Nascetur adipiscing pede" Name="Magna dapibus massa" RoleType="Laborer" />
         </Model:BuildingSite.Materials>
     </Model:BuildingSite>
     <Model:BuildingSite MaterialType="Marble" Name="Curae" SiteType="InsideRome">
         <Model:BuildingSite.BuildingFoundation>
             <Model:BuildingFoundation LocationName="Semper eros nibh suscipit vestibulum" MaxCapacity="89">
                 <Model:BuildingFoundation.Building>
-                    <Model:OrderCardModel Description="Sapien parturient velit vitae sed" Name="Sem sit erat" RoleType="Patron"/>
+                    <Model:OrderCardModel Description="Sapien parturient velit vitae sed" Name="Sem sit erat"
+                                          RoleType="Patron" />
                 </Model:BuildingFoundation.Building>
-                <Model:OrderCardModel Description="Vel nam vestibulum sociis sed" Name="Adipiscing parturient vulputate vestibulum" RoleType="Patron"/>
-                <Model:OrderCardModel Description="Taciti torquent vestibulum" Name="Ultrices dis vehicula nisi adipiscing" RoleType="Merchant"/>
-                <Model:OrderCardModel Description="Class volutpat" Name="Nisl rhoncus curabitur tellus" RoleType="Legionnaire"/>
-                <Model:OrderCardModel Description="Sodales curae phasellus" Name="Est tempor tempus consequat" RoleType="Architect"/>
-                <Model:OrderCardModel Description="Tortor maecenas donec viverra hac" Name="Convallis praesent accumsan aliquam" RoleType="Patron"/>
+                <Model:OrderCardModel Description="Vel nam vestibulum sociis sed"
+                                      Name="Adipiscing parturient vulputate vestibulum" RoleType="Patron" />
+                <Model:OrderCardModel Description="Taciti torquent vestibulum"
+                                      Name="Ultrices dis vehicula nisi adipiscing" RoleType="Merchant" />
+                <Model:OrderCardModel Description="Class volutpat" Name="Nisl rhoncus curabitur tellus"
+                                      RoleType="Legionnaire" />
+                <Model:OrderCardModel Description="Sodales curae phasellus" Name="Est tempor tempus consequat"
+                                      RoleType="Architect" />
+                <Model:OrderCardModel Description="Tortor maecenas donec viverra hac"
+                                      Name="Convallis praesent accumsan aliquam" RoleType="Patron" />
             </Model:BuildingFoundation>
         </Model:BuildingSite.BuildingFoundation>
         <Model:BuildingSite.Materials>
-            <Model:OrderCardModel Description="Mus lacinia tincidunt" Name="Arcu diam laoreet tristique" RoleType="Craftsman"/>
-            <Model:OrderCardModel Description="Nec adipiscing primis nulla" Name="Eget porta" RoleType="Architect"/>
-            <Model:OrderCardModel Description="Purus parturient sagittis vestibulum elit" Name="Natoque senectus" RoleType="Merchant"/>
-            <Model:OrderCardModel Description="Risus posuere ultricies vestibulum rutrum" Name="Enim adipiscing" RoleType="Laborer"/>
-            <Model:OrderCardModel Description="Potenti non sociosqu" Name="Venenatis per pretium" RoleType="Legionnaire"/>
+            <Model:OrderCardModel Description="Mus lacinia tincidunt" Name="Arcu diam laoreet tristique"
+                                  RoleType="Craftsman" />
+            <Model:OrderCardModel Description="Nec adipiscing primis nulla" Name="Eget porta" RoleType="Architect" />
+            <Model:OrderCardModel Description="Purus parturient sagittis vestibulum elit" Name="Natoque senectus"
+                                  RoleType="Merchant" />
+            <Model:OrderCardModel Description="Risus posuere ultricies vestibulum rutrum" Name="Enim adipiscing"
+                                  RoleType="Laborer" />
+            <Model:OrderCardModel Description="Potenti non sociosqu" Name="Venenatis per pretium"
+                                  RoleType="Legionnaire" />
         </Model:BuildingSite.Materials>
     </Model:BuildingSite>
     <Model:BuildingSite MaterialType="Stone" Name="Praesent" SiteType="OutOfTown">
         <Model:BuildingSite.BuildingFoundation>
             <Model:BuildingFoundation LocationName="Sit vel adipiscing" MaxCapacity="93">
                 <Model:BuildingFoundation.Building>
-                    <Model:OrderCardModel Description="Eleifend fermentum" Name="Sem fringilla proin" RoleType="Merchant"/>
+                    <Model:OrderCardModel Description="Eleifend fermentum" Name="Sem fringilla proin"
+                                          RoleType="Merchant" />
                 </Model:BuildingFoundation.Building>
-                <Model:OrderCardModel Description="Auctor nam sed" Name="Congue augue cursus pede habitasse" RoleType="Legionnaire"/>
-                <Model:OrderCardModel Description="Quam hendrerit dis" Name="Dictum blandit lectus parturient" RoleType="Craftsman"/>
-                <Model:OrderCardModel Description="Commodo conubia" Name="Libero dolor" RoleType="Craftsman"/>
-                <Model:OrderCardModel Description="Cubilia himenaeos" Name="Quis est ligula" RoleType="Merchant"/>
-                <Model:OrderCardModel Description="Dapibus urna fames facilisi" Name="Litora egestas vestibulum euismod" RoleType="Laborer"/>
+                <Model:OrderCardModel Description="Auctor nam sed" Name="Congue augue cursus pede habitasse"
+                                      RoleType="Legionnaire" />
+                <Model:OrderCardModel Description="Quam hendrerit dis" Name="Dictum blandit lectus parturient"
+                                      RoleType="Craftsman" />
+                <Model:OrderCardModel Description="Commodo conubia" Name="Libero dolor" RoleType="Craftsman" />
+                <Model:OrderCardModel Description="Cubilia himenaeos" Name="Quis est ligula" RoleType="Merchant" />
+                <Model:OrderCardModel Description="Dapibus urna fames facilisi"
+                                      Name="Litora egestas vestibulum euismod" RoleType="Laborer" />
             </Model:BuildingFoundation>
         </Model:BuildingSite.BuildingFoundation>
         <Model:BuildingSite.Materials>
-            <Model:OrderCardModel Description="Elementum integer turpis" Name="Quisque varius aenean" RoleType="Craftsman"/>
-            <Model:OrderCardModel Description="Leo mauris" Name="Mus vivamus parturient aliquam" RoleType="Craftsman"/>
-            <Model:OrderCardModel Description="Nullam etiam fusce bibendum lorem" Name="Nec odio facilisis" RoleType="Architect"/>
-            <Model:OrderCardModel Description="Aliquet morbi non" Name="Per sed" RoleType="Legionnaire"/>
-            <Model:OrderCardModel Description="Dictumst orci vestibulum vestibulum" Name="Aptent nulla" RoleType="Craftsman"/>
+            <Model:OrderCardModel Description="Elementum integer turpis" Name="Quisque varius aenean"
+                                  RoleType="Craftsman" />
+            <Model:OrderCardModel Description="Leo mauris" Name="Mus vivamus parturient aliquam" RoleType="Craftsman" />
+            <Model:OrderCardModel Description="Nullam etiam fusce bibendum lorem" Name="Nec odio facilisis"
+                                  RoleType="Architect" />
+            <Model:OrderCardModel Description="Aliquet morbi non" Name="Per sed" RoleType="Legionnaire" />
+            <Model:OrderCardModel Description="Dictumst orci vestibulum vestibulum" Name="Aptent nulla"
+                                  RoleType="Craftsman" />
         </Model:BuildingSite.Materials>
     </Model:BuildingSite>
 </Model:CompletedFoundations>

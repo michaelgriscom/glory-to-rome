@@ -9,11 +9,13 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <StackPanel d:DataContext="{d:DesignData /SampleData/VaultSampleData.xaml}" HorizontalAlignment="Left" VerticalAlignment="Top">
-        <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Text="VAULT"/>
+    <StackPanel d:DataContext="{d:DesignData /SampleData/VaultSampleData.xaml}" HorizontalAlignment="Left"
+                VerticalAlignment="Top">
+        <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Text="VAULT" />
         <StackPanel Width="100" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Count, Mode=OneWay}" d:LayoutOverrides="HorizontalAlignment" Height="300"/>
-            <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="x Cards" HorizontalAlignment="Left" Height="300"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap"
+                       Text="{Binding Count, Mode=OneWay}" d:LayoutOverrides="HorizontalAlignment" Height="300" />
+            <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="x Cards" HorizontalAlignment="Left" Height="300" />
         </StackPanel>
 
     </StackPanel>

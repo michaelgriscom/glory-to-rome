@@ -24,7 +24,7 @@ namespace GTR.Core.DeckManagement
             CardSet = CardSetSerializer.Deserialize(resourceProvider.CardXml);
         }
 
-        public CardSet CardSet { get; private set; }
+        public CardSet CardSet { get; }
 
         private HashSet<DeckType> GetCustomDecks()
         {

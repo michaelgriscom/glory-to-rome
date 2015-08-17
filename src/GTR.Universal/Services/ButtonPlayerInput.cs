@@ -1,7 +1,6 @@
-﻿using System;
+﻿#region
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using GTR.Core.Action;
 using GTR.Core.AIController;
@@ -11,32 +10,22 @@ using GTR.Core.Model;
 using GTR.Core.Services;
 using GTR.Core.Util;
 
+#endregion
+
 namespace GTR.Universal.Services
 {
     public class ButtonPlayerInput : IPlayerInput
     {
+        private readonly AiPlayerInput _aiInput;
+        private TaskCompletionSource<bool> ReadyToLeadTask;
+
         public ButtonPlayerInput()
         {
             LeadCommand = new RelayCommand<object>(Execute, CanExecute);
             _aiInput = new AiPlayerInput();
         }
 
-        public void Execute(object o)
-        {
-            if (ReadyToLeadTask != null)
-            {
-            ReadyToLeadTask.SetResult(true);
-                ReadyToLeadTask = null;
-            }
-        }
-
-        private TaskCompletionSource<bool> ReadyToLeadTask;
-        private AiPlayerInput _aiInput;
-
-        private bool CanExecute(object o)
-        {
-            return ReadyToLeadTask != null;
-        }
+        public RelayCommand<object> LeadCommand { get; private set; }
 
         public async Task<RoleType> GetLeadRole(ICollection<RoleType> availableLeads)
         {
@@ -86,6 +75,18 @@ namespace GTR.Universal.Services
             return await _aiInput.GetMove(moveSpace);
         }
 
-        public RelayCommand<object> LeadCommand { get; private set; }
+        public void Execute(object o)
+        {
+            if (ReadyToLeadTask != null)
+            {
+                ReadyToLeadTask.SetResult(true);
+                ReadyToLeadTask = null;
+            }
+        }
+
+        private bool CanExecute(object o)
+        {
+            return ReadyToLeadTask != null;
+        }
     }
 }

@@ -8,12 +8,7 @@ namespace GTR.Windows.Services
 {
     public class ResourceProvider : IResourceProvider
     {
-        public string CardXml
-        {
-            get { return cardXml; }
-        }
-
-        private string cardXml = @"<?xml version=""1.0"" encoding=""utf-8""?>
+        public string CardXml { get; } = @"<?xml version=""1.0"" encoding=""utf-8""?>
 
 <cards xmlns = ""http://tempuri.org/CardsSchema.xsd""
        xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance""

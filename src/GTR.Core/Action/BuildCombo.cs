@@ -16,8 +16,8 @@ namespace GTR.Core.Action
             SiteMove = siteMove;
         }
 
-        public IMove<OrderCardModel> BuildMove { get; private set; }
-        public IMove<BuildingSite> SiteMove { get; private set; }
+        public IMove<OrderCardModel> BuildMove { get; }
+        public IMove<BuildingSite> SiteMove { get; }
 
         public bool Perform()
         {

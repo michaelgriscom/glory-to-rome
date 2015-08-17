@@ -11,14 +11,13 @@ namespace GTR.Core.Model
 {
     public class BuildingSite : CardModelBase
     {
-        private readonly SiteType _siteType;
         private BuildingFoundation _building;
         private BoundedCardTarget<OrderCardModel> _materials;
 
         public BuildingSite(MaterialType materialType, SiteType siteType = SiteType.InsideRome)
         {
             MaterialType = materialType;
-            _siteType = siteType;
+            SiteType = siteType;
 
             Materials = new BoundedCardTarget<OrderCardModel>(MaterialType.MaterialWorth());
             Materials.CollectionChanged += MaterialsOnCollectionChanged;
@@ -47,12 +46,8 @@ namespace GTR.Core.Model
             }
         }
 
-        public MaterialType MaterialType { get; private set; }
-
-        public SiteType SiteType
-        {
-            get { return _siteType; }
-        }
+        public MaterialType MaterialType { get; }
+        public SiteType SiteType { get; }
 
         public override string Name
         {

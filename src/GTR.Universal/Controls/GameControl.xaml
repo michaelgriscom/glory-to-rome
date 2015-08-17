@@ -9,8 +9,9 @@
     d:DesignHeight="1198"
     d:DesignWidth="1635" Width="1280" Height="720">
 
-    <StackPanel Margin="0,0,0,10" d:DataContext="{d:DesignData /SampleData/GameViewModelSampleData.xaml}" Orientation="Horizontal" >
-        <local:GameTableControl Margin="0" DataContext="{Binding GameTable}" Height="710"/>
+    <StackPanel Margin="0,0,0,10" d:DataContext="{d:DesignData /SampleData/GameViewModelSampleData.xaml}"
+                Orientation="Horizontal">
+        <local:GameTableControl Margin="0" DataContext="{Binding GameTable}" Height="710" />
 
     </StackPanel>
 </UserControl>

@@ -6,7 +6,6 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using GTR.Core.Action;
-using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.Util;
 

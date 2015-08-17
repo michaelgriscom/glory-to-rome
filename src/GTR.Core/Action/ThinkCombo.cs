@@ -21,7 +21,7 @@ namespace GTR.Core.Action
             ThinkMoves = new List<IMove<OrderCardModel>>(moves);
         }
 
-        public IList<IMove<OrderCardModel>> ThinkMoves { get; private set; }
+        public IList<IMove<OrderCardModel>> ThinkMoves { get; }
 
         public bool Perform()
         {

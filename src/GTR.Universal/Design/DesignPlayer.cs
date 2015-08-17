@@ -1,4 +1,8 @@
-﻿using GTR.Core.Game;
+﻿#region
+
+using GTR.Core.Game;
+
+#endregion
 
 namespace GTR.Universal.Design
 {
@@ -6,7 +10,7 @@ namespace GTR.Universal.Design
     {
         public DesignPlayer() : base("DesignPlayer", null, null)
         {
-            this.Board = new DesignBoard();
+            Board = new DesignBoard();
         }
     }
 }

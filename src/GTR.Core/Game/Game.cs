@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GTR.Core.Action;
-using GTR.Core.AIController;
-using GTR.Core.CardCollections;
 using GTR.Core.DeckManagement;
 using GTR.Core.Model;
 using GTR.Core.Services;
@@ -22,15 +20,12 @@ namespace GTR.Core.Game
     {
         private readonly IDeckIo _deckIo;
         private readonly GameOptions _gameOptions;
-        private readonly GameTable _gameTable;
+        private readonly Func<IPlayerInput> _inputMaker;
         private readonly IResourceProvider _resourceProvider;
         private Player _actionPlayer; // player who has an action pending
         private bool _isGameOver;
         private Player _leadPlayer; // player whose turn it is to lead
         private int _turnNumber;
-        private Func<IPlayerInput> _inputMaker;
-
-        public GameTable GameTable { get{return _gameTable;}}
 
         static Game()
         {
@@ -39,6 +34,7 @@ namespace GTR.Core.Game
                 MessageProvider = new NullMessageProvider();
             }
         }
+
         public Game(
             int playerCount,
             GameOptions gameOptions,
@@ -53,24 +49,25 @@ namespace GTR.Core.Game
             _deckIo = deckIo;
             _resourceProvider = resourceProvider;
 
-            _gameTable = CreateGameTable();
+            GameTable = CreateGameTable();
             var players = CreatePlayers(playerCount);
-            _gameTable.AddPlayers(players);
+            GameTable.AddPlayers(players);
 
-            _gameTable.OrderDeck.Cards.CollectionChanged += OrderDeckOnCollectionChanged;
-            foreach (var siteDeck in _gameTable.SiteDecks)
+            GameTable.OrderDeck.Cards.CollectionChanged += OrderDeckOnCollectionChanged;
+            foreach (var siteDeck in GameTable.SiteDecks)
             {
                 siteDeck.Cards.CollectionChanged += SiteDeckOnCollectionChanged;
             }
             GameOver += OnGameOver;
         }
 
+        public GameTable GameTable { get; }
         public static IMessageProvider MessageProvider { get; private set; }
 
         private void OnGameOver(object sender, GameOverEventArgs args)
         {
             _isGameOver = true;
-            var gameScore = GameScorer.Score(_gameTable.Players);
+            var gameScore = GameScorer.Score(GameTable.Players);
             var winners = GameScorer.CalculateWinners(gameScore);
 
             if (GameWon != null)
@@ -92,7 +89,7 @@ namespace GTR.Core.Game
                 return;
             }
 
-            bool areAvailableSites = _gameTable.SiteDecks.Any(deck => deck.Top.SiteType == SiteType.InsideRome);
+            bool areAvailableSites = GameTable.SiteDecks.Any(deck => deck.Top.SiteType == SiteType.InsideRome);
             if (areAvailableSites)
             {
                 return;
@@ -114,7 +111,7 @@ namespace GTR.Core.Game
             {
                 return;
             }
-            if (_gameTable.OrderDeck.Cards.Count != 0)
+            if (GameTable.OrderDeck.Cards.Count != 0)
             {
                 return;
             }
@@ -140,11 +137,11 @@ namespace GTR.Core.Game
         public async Task PlayGame()
         {
             DealCards();
-            _leadPlayer = DetermineGoesFirst(_gameTable);
+            _leadPlayer = DetermineGoesFirst(GameTable);
             _turnNumber = 1;
             while (!_isGameOver)
             {
-               await HandleTurn();
+                await HandleTurn();
                 _turnNumber++;
             }
         }
@@ -156,16 +153,16 @@ namespace GTR.Core.Game
             stringBuilder.AppendLine(string.Concat("Lead player: ", _leadPlayer.PlayerName));
             stringBuilder.AppendLine(string.Concat("Action player: ", _actionPlayer.PlayerName));
 
-            stringBuilder.AppendLine(string.Concat("Remaining order deck: ", _gameTable.OrderDeck.Count));
-            stringBuilder.AppendLine(string.Concat("Remaining jack deck: ", _gameTable.JackDeck.Count));
-            foreach (var siteDeck in _gameTable.SiteDecks)
+            stringBuilder.AppendLine(string.Concat("Remaining order deck: ", GameTable.OrderDeck.Count));
+            stringBuilder.AppendLine(string.Concat("Remaining jack deck: ", GameTable.JackDeck.Count));
+            foreach (var siteDeck in GameTable.SiteDecks)
             {
                 stringBuilder.AppendLine(string.Format("Remaining sites for {0} : {1} within Rome, {2} outside Rome",
                     siteDeck.MaterialType,
                     siteDeck.Cards.Count(site => site.SiteType == SiteType.InsideRome),
                     siteDeck.Cards.Count(site => site.SiteType == SiteType.OutOfTown)));
             }
-            foreach (var player in _gameTable.Players)
+            foreach (var player in GameTable.Players)
             {
                 DumpPlayerState(player, stringBuilder);
             }
@@ -206,16 +203,16 @@ namespace GTR.Core.Game
 
         private void DealCards()
         {
-            foreach (var player in _gameTable.Players)
+            foreach (var player in GameTable.Players)
             {
                 for (int i = 0; i < player.Board.Hand.RefillCapacity; i++)
                 {
-                    var topDeckCard = _gameTable.OrderDeck.Top;
-                    var move = new Move<OrderCardModel>(topDeckCard, _gameTable.OrderDeck, player.Board.Hand.OrderCards);
+                    var topDeckCard = GameTable.OrderDeck.Top;
+                    var move = new Move<OrderCardModel>(topDeckCard, GameTable.OrderDeck, player.Board.Hand.OrderCards);
                     move.Perform();
                 }
-                var topJackCard = _gameTable.JackDeck.ElementAt(0);
-                var jackMove = new Move<JackCardModel>(topJackCard, _gameTable.JackDeck, player.Board.Hand.JackCards);
+                var topJackCard = GameTable.JackDeck.ElementAt(0);
+                var jackMove = new Move<JackCardModel>(topJackCard, GameTable.JackDeck, player.Board.Hand.JackCards);
                 jackMove.Perform();
             }
         }
@@ -223,7 +220,7 @@ namespace GTR.Core.Game
         private async Task HandleTurn()
         {
             MessageProvider.Display(string.Format("Turn {0} lead phase", _turnNumber));
-           await HandleLeadFollow();
+            await HandleLeadFollow();
             MessageProvider.Display(string.Format("Turn {0} action phase", _turnNumber));
             await HandleActions();
             CompleteTurn();
@@ -232,7 +229,7 @@ namespace GTR.Core.Game
 
         private void CompleteTurn()
         {
-            foreach (Player player in _gameTable.Players)
+            foreach (Player player in GameTable.Players)
             {
                 player.ClearPlayArea();
             }
@@ -242,9 +239,9 @@ namespace GTR.Core.Game
         private async Task HandleActions()
         {
             _actionPlayer = _leadPlayer;
-            for (int playerNumber = 0; playerNumber < _gameTable.Players.Count - 1; playerNumber++)
+            for (int playerNumber = 0; playerNumber < GameTable.Players.Count - 1; playerNumber++)
             {
-               await _actionPlayer.TakeActions();
+                await _actionPlayer.TakeActions();
                 _actionPlayer = _actionPlayer.PlayerToRight;
             }
         }
@@ -254,14 +251,14 @@ namespace GTR.Core.Game
             _actionPlayer = _leadPlayer;
 
             var leadRole = await _leadPlayer.Lead();
-            
+
             if (leadRole == null)
             {
                 return;
             }
             RoleType lead = (RoleType) leadRole;
 
-            for (int playerNumber = 0; playerNumber < _gameTable.Players.Count - 1; playerNumber++)
+            for (int playerNumber = 0; playerNumber < GameTable.Players.Count - 1; playerNumber++)
             {
                 _actionPlayer = _actionPlayer.PlayerToRight;
                 await _actionPlayer.Follow(lead);
@@ -272,7 +269,7 @@ namespace GTR.Core.Game
         {
             if (_leadPlayer != null)
             {
-                var leaderMove = new Move<LeaderCardModel>(_gameTable.LeaderCard,
+                var leaderMove = new Move<LeaderCardModel>(GameTable.LeaderCard,
                     _leadPlayer.Board.LeaderCardLocation,
                     player.Board.LeaderCardLocation);
                 leaderMove.Perform();

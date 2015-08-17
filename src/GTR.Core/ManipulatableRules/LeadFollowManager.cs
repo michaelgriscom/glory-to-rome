@@ -60,7 +60,7 @@ namespace GTR.Core.ManipulatableRules
             return isValid;
         }
 
-        public async Task< RoleType> GetLeadRole(ICollection<HandCardModel> leadCards)
+        public async Task<RoleType> GetLeadRole(ICollection<HandCardModel> leadCards)
         {
             ICollection<RoleType> availableLeads = GetAvailableLeads(leadCards);
             RoleType role = await _inputService.GetLeadRole(availableLeads);
@@ -131,7 +131,7 @@ namespace GTR.Core.ManipulatableRules
             return true;
         }
 
-        internal async Task< ICollection<HandCardModel>> GetLeadCards(Hand hand)
+        internal async Task<ICollection<HandCardModel>> GetLeadCards(Hand hand)
         {
             var cardOptions = hand.OrderCards.Cast<HandCardModel>().ToList();
             cardOptions.AddRange(hand.JackCards.Cast<HandCardModel>());

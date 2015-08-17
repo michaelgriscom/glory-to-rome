@@ -16,31 +16,12 @@ namespace GTR.Core.Game
 {
     public class Player : ObservableObject
     {
-        private PlayerBoard _board;
-
-        public PlayerBoard Board
-        {
-            get { return _board; }
-            set { _board = value; }
-        }
-
-        private Player _playerToLeft;
-        private Player _playerToRight;
-        private string _playerName;
         private readonly Queue<MoveSpace> _availableMoves;
         private readonly LeadFollowManager _lfManager;
+        private string _playerName;
+        private Player _playerToLeft;
+        private Player _playerToRight;
         internal OrderActions PlayerActions;
-
-
-        public string PlayerName
-        {
-            get { return _playerName; }
-            set
-            {
-                _playerName = value;
-                RaisePropertyChanged();
-            }
-        }
 
         public Player(string playerName, IPlayerInput inputService, IMessageProvider messageProvider = null)
         {
@@ -54,6 +35,17 @@ namespace GTR.Core.Game
             _lfManager = new LeadFollowManager(inputService);
         }
 
+        public PlayerBoard Board { get; set; }
+
+        public string PlayerName
+        {
+            get { return _playerName; }
+            set
+            {
+                _playerName = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public Player PlayerToLeft
         {
@@ -75,16 +67,14 @@ namespace GTR.Core.Game
             }
         }
 
-        public Multiset<RoleType> OutstandingActions { get; private set; }
+        public Multiset<RoleType> OutstandingActions { get; }
 
         internal ThinkerAction Thinker
         {
             get { return PlayerActions.Thinker; }
         }
 
-        public IPlayerInput InputService { get; private set; }
-
-
+        public IPlayerInput InputService { get; }
 
         public void SitAt(GameTable gameTable)
         {
@@ -233,7 +223,7 @@ namespace GTR.Core.Game
             while (OutstandingActions.TotalCount > 0)
             {
                 var action = await InputService.GetRole(OutstandingActions.UniqueItems);
-                OrderActionBase orderAction =  GetAction(action);
+                OrderActionBase orderAction = GetAction(action);
                 ExecuteAction(orderAction);
                 OutstandingActions.Remove(action);
             }
@@ -244,7 +234,7 @@ namespace GTR.Core.Game
             var preMoves = action.Begin();
             foreach (var moveSpace in preMoves)
             {
-               await EvaluateMoveSpace(moveSpace);
+                await EvaluateMoveSpace(moveSpace);
             }
 
             var moves = action.Execute();

@@ -1,12 +1,20 @@
 ﻿<Model:Vault xmlns:Model="using:GTR.Core.Model" LocationName="Aenean vestibulum adipiscing cras" MaxCapacity="65">
-	<Model:OrderCardModel Description="Parturient vestibulum vestibulum class mauris" Name="Adipiscing aliquam curabitur integer" RoleType="Patron"/>
-	<Model:OrderCardModel Description="Curae nullam parturient quisque aptent" Name="Maecenas donec duis" RoleType="Craftsman"/>
-	<Model:OrderCardModel Description="Vivamus etiam phasellus nam sed" Name="Dis vestibulum aliquam" RoleType="Laborer"/>
-	<Model:OrderCardModel Description="Praesent est vestibulum consequat hac" Name="Auctor nunc congue accumsan" RoleType="Architect"/>
-	<Model:OrderCardModel Description="Adipiscing convallis dignissim cursus" Name="Dictum elementum" RoleType="Architect"/>
-	<Model:OrderCardModel Description="Amet leo mus" Name="Fusce bibendum" RoleType="Legionnaire"/>
-	<Model:OrderCardModel Description="Parturient lorem dictumst vestibulum" Name="Vestibulum nec adipiscing aliquet" RoleType="Architect"/>
-	<Model:OrderCardModel Description="Ante non facilisis" Name="Fermentum per eleifend" RoleType="Craftsman"/>
-	<Model:OrderCardModel Description="Facilisi fringilla blandit parturient lectus" Name="Vestibulum morbi libero" RoleType="Architect"/>
-	<Model:OrderCardModel Description="Habitasse ligula vestibulum" Name="Commodo hendrerit arcu conubia faucibus" RoleType="Legionnaire"/>
+    <Model:OrderCardModel Description="Parturient vestibulum vestibulum class mauris"
+                          Name="Adipiscing aliquam curabitur integer" RoleType="Patron" />
+    <Model:OrderCardModel Description="Curae nullam parturient quisque aptent" Name="Maecenas donec duis"
+                          RoleType="Craftsman" />
+    <Model:OrderCardModel Description="Vivamus etiam phasellus nam sed" Name="Dis vestibulum aliquam"
+                          RoleType="Laborer" />
+    <Model:OrderCardModel Description="Praesent est vestibulum consequat hac" Name="Auctor nunc congue accumsan"
+                          RoleType="Architect" />
+    <Model:OrderCardModel Description="Adipiscing convallis dignissim cursus" Name="Dictum elementum"
+                          RoleType="Architect" />
+    <Model:OrderCardModel Description="Amet leo mus" Name="Fusce bibendum" RoleType="Legionnaire" />
+    <Model:OrderCardModel Description="Parturient lorem dictumst vestibulum" Name="Vestibulum nec adipiscing aliquet"
+                          RoleType="Architect" />
+    <Model:OrderCardModel Description="Ante non facilisis" Name="Fermentum per eleifend" RoleType="Craftsman" />
+    <Model:OrderCardModel Description="Facilisi fringilla blandit parturient lectus" Name="Vestibulum morbi libero"
+                          RoleType="Architect" />
+    <Model:OrderCardModel Description="Habitasse ligula vestibulum" Name="Commodo hendrerit arcu conubia faucibus"
+                          RoleType="Legionnaire" />
 </Model:Vault>

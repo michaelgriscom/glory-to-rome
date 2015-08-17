@@ -1,4 +1,8 @@
-﻿using GTR.Core.Model;
+﻿#region
+
+using GTR.Core.Model;
+
+#endregion
 
 namespace GTR.Core.Services
 {
@@ -13,6 +17,4 @@ namespace GTR.Core.Services
     {
         void Display(UserMessage message);
     }
-
-
 }

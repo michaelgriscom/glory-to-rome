@@ -23,13 +23,13 @@ namespace GTR.Core.Buildings
 
         public override void CompleteBuilding(Player player, GameTable gameTable)
         {
-            
         }
 
         public override void DeactivateBuilding(Player player, GameTable gameTable)
         {
         }
     }
+
     internal class BarEffect : BuildingEffectBase
     {
         private OrderDeck _deck;
@@ -95,7 +95,6 @@ namespace GTR.Core.Buildings
 
         public override void CompleteBuilding(Player player, GameTable gameTable)
         {
-            
         }
 
         public override void DeactivateBuilding(Player player, GameTable gameTable)
@@ -140,7 +139,6 @@ namespace GTR.Core.Buildings
 
         public override void CompleteBuilding(Player player, GameTable gameTable)
         {
-            
         }
 
         public override void DeactivateBuilding(Player player, GameTable gameTable)
@@ -177,7 +175,6 @@ namespace GTR.Core.Buildings
 
         public override void CompleteBuilding(Player player, GameTable gameTable)
         {
-            
         }
 
         public override void DeactivateBuilding(Player player, GameTable gameTable)

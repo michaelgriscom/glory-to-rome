@@ -1,7 +1,10 @@
-﻿using System.Collections.ObjectModel;
-using GTR.Core.CardCollections;
+﻿#region
+
+using System.Collections.ObjectModel;
 using GTR.Core.Game;
 using GTR.Core.Model;
+
+#endregion
 
 namespace GTR.Universal.Design
 {
@@ -9,7 +12,7 @@ namespace GTR.Universal.Design
     {
         public DesignGameTable() : base(new OrderDeck(), new JackDeck())
         {
-            this.Players = new ObservableCollection<Player>() {new DesignPlayer()};
+            Players = new ObservableCollection<Player> {new DesignPlayer()};
             for (int i = 0; i < 50; i++)
             {
                 string cardName = string.Format("Card #{0}", i);
@@ -21,16 +24,16 @@ namespace GTR.Universal.Design
                         role = RoleType.Architect;
                         break;
                     case 1:
-                        role=RoleType.Craftsman;
+                        role = RoleType.Craftsman;
                         break;
                     case 2:
-                        role=RoleType.Laborer;
+                        role = RoleType.Laborer;
                         break;
                     default:
-                        role= RoleType.Legionnaire;
+                        role = RoleType.Legionnaire;
                         break;
                 }
-                this.OrderDeck.Cards.Add(new OrderCardModel(cardName, description, role));
+                OrderDeck.Cards.Add(new OrderCardModel(cardName, description, role));
             }
 
             for (int i = 0; i < 5; i++)

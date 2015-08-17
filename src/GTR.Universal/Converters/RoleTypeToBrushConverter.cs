@@ -1,9 +1,7 @@
 ﻿#region
 
 using System;
-using System.Globalization;
 using Windows.UI;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
 using GTR.Core.Game;
@@ -27,17 +25,17 @@ namespace GTR.Universal.Converters
             }
             switch (role)
             {
-                    case RoleType.Architect:
+                case RoleType.Architect:
                     return new SolidColorBrush(Colors.Gray);
-                    case RoleType.Craftsman:
+                case RoleType.Craftsman:
                     return new SolidColorBrush(Colors.Green);
-                    case RoleType.Laborer:
+                case RoleType.Laborer:
                     return new SolidColorBrush(Colors.Yellow);
-                    case RoleType.Legionnaire:
+                case RoleType.Legionnaire:
                     return new SolidColorBrush(Colors.Red);
-                    case RoleType.Merchant:
+                case RoleType.Merchant:
                     return new SolidColorBrush(Colors.Blue);
-                    case RoleType.Patron:
+                case RoleType.Patron:
                     return new SolidColorBrush(Colors.Purple);
             }
             return null;

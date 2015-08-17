@@ -1,12 +1,20 @@
-﻿<Model:Clientele xmlns:Model="using:GTR.Core.Model" IsFull="True" LocationName="Maecenas aliquam curabitur" MaxCapacity="50">
-	<Model:OrderCardModel Description="Praesent accumsan phasellus integer quisque" Name="Bibendum nam consequat" RoleType="Architect"/>
-	<Model:OrderCardModel Description="Convallis aenean mauris dignissim" Name="Vivamus dictumst elementum facilisis" RoleType="Craftsman"/>
-	<Model:OrderCardModel Description="Eleifend nullam vestibulum aliquam" Name="Class cras aptent" RoleType="Laborer"/>
-	<Model:OrderCardModel Description="Duis auctor nunc fermentum sed" Name="Congue adipiscing" RoleType="Legionnaire"/>
-	<Model:OrderCardModel Description="Aliquet facilisi parturient fringilla habitasse" Name="Dis amet vestibulum" RoleType="Legionnaire"/>
-	<Model:OrderCardModel Description="Vestibulum ante cursus dictum" Name="Curae donec lectus est adipiscing" RoleType="Architect"/>
-	<Model:OrderCardModel Description="Etiam hac libero hendrerit" Name="Blandit himenaeos leo commodo ligula" RoleType="Patron"/>
-	<Model:OrderCardModel Description="Arcu faucibus diam" Name="Fusce imperdiet mus litora malesuada" RoleType="Legionnaire"/>
-	<Model:OrderCardModel Description="Penatibus habitant porttitor inceptos tincidunt" Name="Tristique interdum ultricies conubia lobortis" RoleType="Legionnaire"/>
-	<Model:OrderCardModel Description="Eget parturient venenatis" Name="Elit nascetur lorem morbi" RoleType="Architect"/>
+﻿<Model:Clientele xmlns:Model="using:GTR.Core.Model" IsFull="True" LocationName="Maecenas aliquam curabitur"
+                 MaxCapacity="50">
+    <Model:OrderCardModel Description="Praesent accumsan phasellus integer quisque" Name="Bibendum nam consequat"
+                          RoleType="Architect" />
+    <Model:OrderCardModel Description="Convallis aenean mauris dignissim" Name="Vivamus dictumst elementum facilisis"
+                          RoleType="Craftsman" />
+    <Model:OrderCardModel Description="Eleifend nullam vestibulum aliquam" Name="Class cras aptent" RoleType="Laborer" />
+    <Model:OrderCardModel Description="Duis auctor nunc fermentum sed" Name="Congue adipiscing" RoleType="Legionnaire" />
+    <Model:OrderCardModel Description="Aliquet facilisi parturient fringilla habitasse" Name="Dis amet vestibulum"
+                          RoleType="Legionnaire" />
+    <Model:OrderCardModel Description="Vestibulum ante cursus dictum" Name="Curae donec lectus est adipiscing"
+                          RoleType="Architect" />
+    <Model:OrderCardModel Description="Etiam hac libero hendrerit" Name="Blandit himenaeos leo commodo ligula"
+                          RoleType="Patron" />
+    <Model:OrderCardModel Description="Arcu faucibus diam" Name="Fusce imperdiet mus litora malesuada"
+                          RoleType="Legionnaire" />
+    <Model:OrderCardModel Description="Penatibus habitant porttitor inceptos tincidunt"
+                          Name="Tristique interdum ultricies conubia lobortis" RoleType="Legionnaire" />
+    <Model:OrderCardModel Description="Eget parturient venenatis" Name="Elit nascetur lorem morbi" RoleType="Architect" />
 </Model:Clientele>

@@ -1,7 +1,6 @@
 ﻿#region
 
 using System.Collections.Specialized;
-using System.Linq;
 using GTR.Core.Action;
 using GTR.Core.Buildings;
 using GTR.Core.Game;
@@ -70,7 +69,8 @@ namespace GTR.Core.ManipulatableRules
             // move building into completed building zone
             var buildingCard = args.BuildingSite.BuildingFoundation.Building;
             var completedBuildings = _player.Board.CompletedBuildings;
-            var buildingMove = new Move<OrderCardModel>(buildingCard, buildingSite.BuildingFoundation, completedBuildings);
+            var buildingMove = new Move<OrderCardModel>(buildingCard, buildingSite.BuildingFoundation,
+                completedBuildings);
             buildingMove.Perform();
 
             // material cards no longer needed,

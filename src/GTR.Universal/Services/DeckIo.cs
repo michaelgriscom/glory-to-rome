@@ -1,9 +1,7 @@
 ﻿#region
 
-using System;
 using System.Collections.Generic;
 using System.IO;
-using Windows.ApplicationModel.Resources;
 using GTR.Core.Services;
 
 #endregion
@@ -28,12 +26,7 @@ namespace GTR.Universal.Services
             return DeckFileExists(deckName);
         }
 
-        public string RepublicDeckSerialization
-        {
-            get { return republicDeck; }
-        }
-
-        private string republicDeck = @"Republic
+        public string RepublicDeckSerialization { get; } = @"Republic
 Academy,4
 Atrium,4
 Bath,4
@@ -73,13 +66,7 @@ Circus,4
 Dock,4
 Market,4
 Palisade,4";
-
-        public string ImperiumDeckSerialization
-        {
-            get { return imperialDeck; }
-        }
-
-        private string imperialDeck = @"Imperial
+        public string ImperiumDeckSerialization { get; } = @"Imperial
 Academy,4
 Atrium,4
 Bath,4

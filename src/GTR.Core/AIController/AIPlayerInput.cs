@@ -20,7 +20,7 @@ namespace GTR.Core.AIController
             return availableLeads.ElementAt(0);
         }
 
-        public async Task< ICollection<HandCardModel> > SelectCards(ICollection<HandCardModel> cards)
+        public async Task<ICollection<HandCardModel>> SelectCards(ICollection<HandCardModel> cards)
         {
             var selection = new List<HandCardModel>();
             if (cards != null && cards.Count > 0)
