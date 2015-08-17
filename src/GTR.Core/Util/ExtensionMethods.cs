@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.Model;
+using GTR.Core.Services;
 
 #endregion
 
@@ -36,6 +37,18 @@ namespace GTR.Core.Util
                 await task;
             else
                 throw new TimeoutException();
+        }
+
+        public static void Display(this IMessageProvider messageProvider, string messageText)
+        {
+            var message = new UserMessage(messageText);
+            messageProvider.Display(message);
+        }
+
+        public static void Display(this IMessageProvider messageProvider, string messageText, MessageType messageType)
+        {
+            UserMessage message = new UserMessage(messageText, messageType);
+            messageProvider.Display(message);
         }
     }
 }

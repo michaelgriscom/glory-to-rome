@@ -10,7 +10,7 @@ using GTR.Core.Services;
 
 namespace GTR.Universal.Services
 {
-    internal class UniversalDeckIo : IDeckIo
+    internal class DeckIo : IDeckIo
     {
         public IEnumerable<string> GetCustomDeckNames()
         {

@@ -6,7 +6,7 @@ using GTR.Core.Services;
 
 namespace GTR.Windows.Services
 {
-    public class UniversalResourceProvider : IResourceProvider
+    public class ResourceProvider : IResourceProvider
     {
         public string CardXml
         {

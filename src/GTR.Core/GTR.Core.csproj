@@ -67,6 +67,7 @@
     <Compile Include="Action\ThinkCombo.cs" />
     <Compile Include="Model\BuildingFoundation.cs" />
     <Compile Include="Model\PlayArea.cs" />
+    <Compile Include="Model\UserMessage.cs" />
     <Compile Include="Services\NullMessageProvider.cs" />
     <Compile Include="Util\RelayCommand.cs" />
     <Compile Include="Util\WrappedFunc.cs" />

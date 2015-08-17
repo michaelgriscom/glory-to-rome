@@ -1,4 +1,6 @@
-﻿namespace GTR.Core.Services
+﻿using GTR.Core.Model;
+
+namespace GTR.Core.Services
 {
     public enum MessageType
     {
@@ -9,6 +11,8 @@
 
     public interface IMessageProvider
     {
-        void Display(string message, MessageType messageType = MessageType.Information);
+        void Display(UserMessage message);
     }
+
+
 }

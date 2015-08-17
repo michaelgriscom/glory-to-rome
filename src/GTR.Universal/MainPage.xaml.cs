@@ -40,9 +40,9 @@ namespace GTR.Universal
             //this.DataContext = vm;
             int playerCount = 3;
             GameOptions gameOptions = new GameOptions("republic");
-            var deckIo = new UniversalDeckIo();
-            var resourceProvider = new UniversalResourceProvider();
-            var messageProvider = new NullMessageProvider();
+            var deckIo = new DeckIo();
+            var resourceProvider = new ResourceProvider();
+            var messageProvider = new MessageProvider();
 
             buttonPlayerInput = new ButtonPlayerInput();
             game = new Game(playerCount, gameOptions, deckIo, resourceProvider, messageProvider, () => buttonPlayerInput);
