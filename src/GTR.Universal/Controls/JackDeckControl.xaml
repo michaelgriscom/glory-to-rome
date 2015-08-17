@@ -26,15 +26,15 @@
         </DataTemplate>
     </UserControl.Resources>
 
-    <Grid d:DataContext="{d:DesignData /SampleData/JackDeckSampleData.xaml}" HorizontalAlignment="Left" Height="135" VerticalAlignment="Top" Width="112">
-        <StackPanel HorizontalAlignment="Left" Height="26" Margin="19,10,0,0" Orientation="Horizontal" VerticalAlignment="Top" Width="88">
+    <StackPanel HorizontalAlignment="Left" Height="135" VerticalAlignment="Top" Width="112" d:DataContext="{d:DesignData /SampleData/JackDeckSampleData.xaml}" >
+        <StackPanel HorizontalAlignment="Left" Height="26" Margin="19,0,0,0" Orientation="Horizontal" Width="88" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition">
             <TextBlock x:Name="textBlock1" Margin="0" TextWrapping="Wrap" Text="Count: " d:LayoutOverrides="Height" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
             <TextBlock x:Name="textBlock" Margin="0" TextWrapping="Wrap" Text="{Binding Count, Mode=OneWay}" d:LayoutOverrides="Height" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         </StackPanel>
-        <Grid HorizontalAlignment="Left" Margin="19,47,0,0" Background="Black" Width="75" Height="75" VerticalAlignment="Top" d:LayoutOverrides="Height">
+        <Grid HorizontalAlignment="Left" Margin="19,0,0,0" Background="Black" Width="75" Height="75" VerticalAlignment="Top" d:LayoutOverrides="Height, LeftPosition, RightPosition">
             <TextBlock x:Name="textBlock2" Margin="10" TextWrapping="Wrap" Text="J" VerticalAlignment="Center" d:LayoutOverrides="Width" Foreground="White" FontSize="48" HorizontalAlignment="Center"/>
         </Grid>
 
-    </Grid>
+    </StackPanel>
 </UserControl>

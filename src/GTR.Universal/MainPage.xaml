@@ -41,7 +41,13 @@
         </DataTemplate>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" d:DataContext="{d:DesignData /SampleData/GameViewModelSampleData.xaml}" >
-        <Controls:GameControl Margin="0" d:LayoutOverrides="Width" DataContext="{Binding Path=GameTable}"/>
-    </Grid>
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" d:DataContext="{d:DesignData /SampleData/GameViewModelSampleData.xaml}" >
+ <StackPanel Orientation="Horizontal">
+            <Button Name="StartButton" Content="StartGame" VerticalAlignment="Top" HorizontalAlignment="Right" Click="Button_Click"></Button>
+            <Button Content="NextTurn" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonBase_OnClick"></Button>
+
+        </StackPanel>       
+        <Controls:GameTableControl Margin="0" d:LayoutOverrides="Width" DataContext="{Binding Path=GameTable}"/>
+    </StackPanel>
+    
 </Page>

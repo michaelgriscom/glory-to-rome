@@ -1,9 +1,11 @@
 ﻿#region
 
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using GTR.Core.Action;
 using GTR.Core.AIController;
 using GTR.Core.CardCollections;
@@ -26,6 +28,9 @@ namespace GTR.Core.Game
         private bool _isGameOver;
         private Player _leadPlayer; // player whose turn it is to lead
         private int _turnNumber;
+        private Func<IPlayerInput> _inputMaker;
+
+        public GameTable GameTable { get{return _gameTable;}}
 
         static Game()
         {
@@ -39,16 +44,17 @@ namespace GTR.Core.Game
             GameOptions gameOptions,
             IDeckIo deckIo,
             IResourceProvider resourceProvider,
-            IMessageProvider messageProvider)
+            IMessageProvider messageProvider,
+            Func<IPlayerInput> inputMaker)
         {
             MessageProvider = messageProvider;
-
+            _inputMaker = inputMaker;
             _gameOptions = gameOptions;
             _deckIo = deckIo;
             _resourceProvider = resourceProvider;
 
             _gameTable = CreateGameTable();
-            var players = CreatePlayers(playerCount, _gameTable);
+            var players = CreatePlayers(playerCount);
             _gameTable.AddPlayers(players);
 
             _gameTable.OrderDeck.Cards.CollectionChanged += OrderDeckOnCollectionChanged;
@@ -131,14 +137,14 @@ namespace GTR.Core.Game
             return table;
         }
 
-        public void PlayGame()
+        public async Task PlayGame()
         {
             DealCards();
             _leadPlayer = DetermineGoesFirst(_gameTable);
             _turnNumber = 1;
             while (!_isGameOver)
             {
-                HandleTurn();
+               await HandleTurn();
                 _turnNumber++;
             }
         }
@@ -214,12 +220,12 @@ namespace GTR.Core.Game
             }
         }
 
-        private void HandleTurn()
+        private async Task HandleTurn()
         {
             MessageProvider.Display(string.Format("Turn {0} lead phase", _turnNumber));
-            HandleLeadFollow();
+           await HandleLeadFollow();
             MessageProvider.Display(string.Format("Turn {0} action phase", _turnNumber));
-            HandleActions();
+            await HandleActions();
             CompleteTurn();
             MessageProvider.Display(string.Format("Turn {0} complete", _turnNumber));
         }
@@ -233,21 +239,22 @@ namespace GTR.Core.Game
             TransferLeaderCard(_leadPlayer.PlayerToRight);
         }
 
-        private void HandleActions()
+        private async Task HandleActions()
         {
             _actionPlayer = _leadPlayer;
             for (int playerNumber = 0; playerNumber < _gameTable.Players.Count - 1; playerNumber++)
             {
-                _actionPlayer.TakeActions();
+               await _actionPlayer.TakeActions();
                 _actionPlayer = _actionPlayer.PlayerToRight;
             }
         }
 
-        private void HandleLeadFollow()
+        private async Task HandleLeadFollow()
         {
             _actionPlayer = _leadPlayer;
 
-            var leadRole = _leadPlayer.Lead();
+            var leadRole = await _leadPlayer.Lead();
+            
             if (leadRole == null)
             {
                 return;
@@ -257,7 +264,7 @@ namespace GTR.Core.Game
             for (int playerNumber = 0; playerNumber < _gameTable.Players.Count - 1; playerNumber++)
             {
                 _actionPlayer = _actionPlayer.PlayerToRight;
-                _actionPlayer.Follow(lead);
+                await _actionPlayer.Follow(lead);
             }
         }
 
@@ -285,9 +292,9 @@ namespace GTR.Core.Game
             return new JackDeck(cards);
         }
 
-        private List<Player> CreatePlayers(int playerCount, GameTable gameTable)
+        private List<Player> CreatePlayers(int playerCount)
         {
-            IPlayerInput playerInput = new AiPlayerInput();
+            IPlayerInput playerInput = _inputMaker();
             var players = new List<Player>(playerCount);
             for (int i = 0; i < playerCount; i++)
             {

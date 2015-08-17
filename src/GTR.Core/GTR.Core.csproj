@@ -68,6 +68,7 @@
     <Compile Include="Model\BuildingFoundation.cs" />
     <Compile Include="Model\PlayArea.cs" />
     <Compile Include="Services\NullMessageProvider.cs" />
+    <Compile Include="Util\RelayCommand.cs" />
     <Compile Include="Util\WrappedFunc.cs" />
     <Compile Include="ManipulatableRules\ConstructionManager.cs" />
     <Compile Include="Model\ConstructionZone.cs" />

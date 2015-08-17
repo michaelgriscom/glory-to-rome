@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GTR.Core.Game;
 using GTR.Core.Model;
 using GTR.Core.Util;
 
@@ -16,6 +17,19 @@ namespace GTR.Core.ViewModel
         {
             get { return gameTable; }
             set { gameTable = value; RaisePropertyChanged(); }
+        }
+
+        private Player player;
+
+        public GameViewModel(Game.Game game)
+        {
+            this.GameTable = game.GameTable;
+        }
+
+        public Player Player
+        {
+            get { return player; }
+            set { player = value; RaisePropertyChanged();}
         }
 
     }

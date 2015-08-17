@@ -91,6 +91,7 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="project.json" />
+    <PRIResource Include="Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -111,6 +112,9 @@
     <Compile Include="Controls\GameControl.xaml.cs">
       <DependentUpon>GameControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\GameTableControl.xaml.cs">
+      <DependentUpon>GameTableControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\HandControl.xaml.cs">
       <DependentUpon>HandControl.xaml</DependentUpon>
     </Compile>
@@ -120,11 +124,11 @@
     <Compile Include="Controls\OrderDeckControl.xaml.cs">
       <DependentUpon>OrderDeckControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\PlayerBoardControl.xaml.cs">
-      <DependentUpon>PlayerBoardControl.xaml</DependentUpon>
+    <Compile Include="Controls\PlayerBoardDetailControl.xaml.cs">
+      <DependentUpon>PlayerBoardDetailControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\PlayerSummaryControl.xaml.cs">
-      <DependentUpon>PlayerSummaryControl.xaml</DependentUpon>
+    <Compile Include="Controls\PlayerBoardSummaryControl.xaml.cs">
+      <DependentUpon>PlayerBoardSummaryControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\PoolControl.xaml.cs">
       <DependentUpon>PoolControl.xaml</DependentUpon>
@@ -148,6 +152,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ButtonPlayerInput.cs" />
+    <Compile Include="Services\UniversalDeckIo.cs" />
+    <Compile Include="Services\UniversalResourceProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -156,6 +163,10 @@
     <None Include="GTR.Universal_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\SharedResources\Cards.xml">
+      <Link>Resources\Cards.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\logo.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -191,6 +202,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\GameTableControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\HandControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -203,11 +218,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\PlayerBoardControl.xaml">
+    <Page Include="Controls\PlayerBoardDetailControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\PlayerSummaryControl.xaml">
+    <Page Include="Controls\PlayerBoardSummaryControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -289,9 +304,7 @@
       <Name>GTR.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

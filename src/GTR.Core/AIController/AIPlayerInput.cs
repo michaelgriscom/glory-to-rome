@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using GTR.Core.Action;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
@@ -12,14 +13,14 @@ using GTR.Core.Services;
 
 namespace GTR.Core.AIController
 {
-    internal class AiPlayerInput : IPlayerInput
+    public class AiPlayerInput : IPlayerInput
     {
-        public RoleType GetLeadRole(ICollection<RoleType> availableLeads)
+        public async Task<RoleType> GetLeadRole(ICollection<RoleType> availableLeads)
         {
             return availableLeads.ElementAt(0);
         }
 
-        public ICollection<HandCardModel> SelectCards(ICollection<HandCardModel> cards)
+        public async Task< ICollection<HandCardModel> > SelectCards(ICollection<HandCardModel> cards)
         {
             var selection = new List<HandCardModel>();
             if (cards != null && cards.Count > 0)
@@ -29,39 +30,39 @@ namespace GTR.Core.AIController
             return selection;
         }
 
-        public RoleType GetRole(ICollection<RoleType> collection)
+        public async Task<RoleType> GetRole(ICollection<RoleType> collection)
         {
             return collection.ElementAt(0);
         }
 
-        public ICardSource<HandCardModel> GetSource(List<ICardSource<HandCardModel>> availableSources)
+        public async Task<ICardSource<HandCardModel>> GetSource(List<ICardSource<HandCardModel>> availableSources)
         {
             return availableSources.ElementAt(0);
         }
 
-        public ActionType GetLead()
+        public async Task<ActionType> GetLead()
         {
             return ActionType.HandPlay;
         }
 
-        public ActionType GetFollow()
+        public async Task<ActionType> GetFollow()
         {
             return ActionType.Thinker;
         }
 
-        public ICollection<HandCardModel> SelectLeadCards(List<HandCardModel> cardOptions)
+        public async Task<ICollection<HandCardModel>> SelectLeadCards(List<HandCardModel> cardOptions)
         {
             var cards = new List<HandCardModel> {cardOptions.ElementAt(0)};
             return cards;
         }
 
-        public ICollection<HandCardModel> SelectFollowCards(List<HandCardModel> cardOptions, RoleType role)
+        public async Task<ICollection<HandCardModel>> SelectFollowCards(List<HandCardModel> cardOptions, RoleType role)
         {
             var cards = new List<HandCardModel> {cardOptions.ElementAt(0)};
             return cards;
         }
 
-        public IAction GetMove(MoveSpace moveSpace)
+        public async Task<IAction> GetMove(MoveSpace moveSpace)
         {
             return moveSpace.Any() ? moveSpace.ElementAt(0) : null;
         }

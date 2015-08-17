@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using GTR.Core.Action;
 using GTR.Core.ManipulatableRules;
 using GTR.Core.ManipulatableRules.Actions;
@@ -121,27 +122,27 @@ namespace GTR.Core.Game
 
         #region lead follow
 
-        internal RoleType? Lead()
+        internal async Task<RoleType?> Lead()
         {
             if (Board.Hand.Count == 0)
             {
                 DisplayAction("thought");
-                ExecuteAction(Thinker);
+                await ExecuteAction(Thinker);
                 return null;
             }
-            ActionType action = InputService.GetLead();
+            ActionType action = await InputService.GetLead();
             if (action == ActionType.HandPlay)
             {
-                var leadCards = _lfManager.GetLeadCards(Board.Hand);
+                var leadCards = await _lfManager.GetLeadCards(Board.Hand);
                 PlayCards(leadCards);
-                var lead = _lfManager.GetLeadRole(leadCards);
+                var lead = await _lfManager.GetLeadRole(leadCards);
                 DisplayAction(string.Concat("performed ", lead));
                 AddActionLead(lead);
                 return lead;
             }
             DisplayAction("thought");
 
-            ExecuteAction(Thinker);
+            await ExecuteAction(Thinker);
             return null;
         }
 
@@ -150,7 +151,7 @@ namespace GTR.Core.Game
             Game.MessageProvider.Display(string.Format("Player {0} {1}", PlayerName, action));
         }
 
-        internal void Follow(RoleType leadRole)
+        internal async Task Follow(RoleType leadRole)
         {
             if (Board.Hand.Count == 0)
             {
@@ -159,7 +160,7 @@ namespace GTR.Core.Game
 
                 return;
             }
-            var action = InputService.GetFollow();
+            var action = await InputService.GetFollow();
             if (action == ActionType.Thinker)
             {
                 DisplayAction("thought");
@@ -168,7 +169,7 @@ namespace GTR.Core.Game
             }
             else
             {
-                var followCards = _lfManager.GetFollowCards(Board.Hand, leadRole);
+                var followCards = await _lfManager.GetFollowCards(Board.Hand, leadRole);
                 bool followed = (followCards.Count == 0);
                 DisplayAction(string.Concat("followed ", leadRole));
 
@@ -227,33 +228,33 @@ namespace GTR.Core.Game
 
         #region action
 
-        internal void TakeActions()
+        internal async Task TakeActions()
         {
             while (OutstandingActions.TotalCount > 0)
             {
-                var action = InputService.GetRole(OutstandingActions.UniqueItems);
-                OrderActionBase orderAction = GetAction(action);
+                var action = await InputService.GetRole(OutstandingActions.UniqueItems);
+                OrderActionBase orderAction =  GetAction(action);
                 ExecuteAction(orderAction);
                 OutstandingActions.Remove(action);
             }
         }
 
-        private void ExecuteAction(OrderActionBase action)
+        private async Task ExecuteAction(OrderActionBase action)
         {
             var preMoves = action.Begin();
             foreach (var moveSpace in preMoves)
             {
-                EvaluateMoveSpace(moveSpace);
+               await EvaluateMoveSpace(moveSpace);
             }
 
             var moves = action.Execute();
-            var move = EvaluateMoveSpace(moves);
+            var move = await EvaluateMoveSpace(moves);
             if (move != null)
             {
                 var postMoves = action.Complete(move);
                 foreach (var moveSpace in postMoves)
                 {
-                    EvaluateMoveSpace(moveSpace);
+                    await EvaluateMoveSpace(moveSpace);
                 }
             }
         }
@@ -261,9 +262,9 @@ namespace GTR.Core.Game
         private GameTable _gameTable;
 
 
-        private IAction EvaluateMoveSpace(MoveSpace moveSpace)
+        private async Task<IAction> EvaluateMoveSpace(MoveSpace moveSpace)
         {
-            var move = InputService.GetMove(moveSpace);
+            var move = await InputService.GetMove(moveSpace);
 
             Debug.Assert(!(move == null && moveSpace.IsRequired), "player must choose a move");
             if (move != null)

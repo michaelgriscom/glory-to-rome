@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using GTR.Core.Game;
 using GTR.Core.Model;
 using GTR.Core.Services;
@@ -25,7 +26,7 @@ namespace GTR.Core.ManipulatableRules
             _inputService = inputService;
         }
 
-        public ICollection<HandCardModel> GetFollowCards(Hand hand, RoleType role)
+        public async Task<ICollection<HandCardModel>> GetFollowCards(Hand hand, RoleType role)
         {
             var cardOptions = hand.OrderCards.Cast<HandCardModel>().ToList();
             cardOptions.AddRange(hand.JackCards.Cast<HandCardModel>());
@@ -33,7 +34,7 @@ namespace GTR.Core.ManipulatableRules
             ICollection<HandCardModel> cards;
             do
             {
-                cards = _inputService.SelectFollowCards(cardOptions, role);
+                cards = await _inputService.SelectFollowCards(cardOptions, role);
             } while (!IsValidFollow(cards, role));
 
             return cards;
@@ -59,10 +60,10 @@ namespace GTR.Core.ManipulatableRules
             return isValid;
         }
 
-        public RoleType GetLeadRole(ICollection<HandCardModel> leadCards)
+        public async Task< RoleType> GetLeadRole(ICollection<HandCardModel> leadCards)
         {
             ICollection<RoleType> availableLeads = GetAvailableLeads(leadCards);
-            RoleType role = _inputService.GetLeadRole(availableLeads);
+            RoleType role = await _inputService.GetLeadRole(availableLeads);
             return role;
         }
 
@@ -130,7 +131,7 @@ namespace GTR.Core.ManipulatableRules
             return true;
         }
 
-        internal ICollection<HandCardModel> GetLeadCards(Hand hand)
+        internal async Task< ICollection<HandCardModel>> GetLeadCards(Hand hand)
         {
             var cardOptions = hand.OrderCards.Cast<HandCardModel>().ToList();
             cardOptions.AddRange(hand.JackCards.Cast<HandCardModel>());
@@ -138,7 +139,7 @@ namespace GTR.Core.ManipulatableRules
             ICollection<HandCardModel> cards;
             do
             {
-                cards = _inputService.SelectLeadCards(cardOptions);
+                cards = await _inputService.SelectLeadCards(cardOptions);
             } while (!IsValidLead(cards));
 
             return cards;

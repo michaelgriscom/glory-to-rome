@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using GTR.Core.Action;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
@@ -17,54 +18,55 @@ namespace GTR.Core.UnitTests.Services
     {
         public delegate void OnMove(object sender, OnMoveEventArgs eventArgs);
 
-        public RoleType GetLeadRole(ICollection<RoleType> availableLeads)
+        public Task<RoleType> GetLeadRole(ICollection<RoleType> availableLeads)
         {
-            return RoleType.Patron;
+            return Task.FromResult(RoleType.Patron);
         }
 
-        public ICollection<HandCardModel> SelectCards(ICollection<HandCardModel> cards)
-        {
-            throw new NotImplementedException();
-        }
-
-        public RoleType GetRole(ICollection<RoleType> collection)
+        public Task<ICollection<HandCardModel>> SelectCards(ICollection<HandCardModel> cards)
         {
             throw new NotImplementedException();
         }
 
-        public ICardSource<HandCardModel> GetSource(List<ICardSource<HandCardModel>> availableSources)
+        public Task<RoleType> GetRole(ICollection<RoleType> collection)
         {
             throw new NotImplementedException();
         }
 
-        public ActionType GetLead()
+        public Task<ICardSource<HandCardModel>> GetSource(List<ICardSource<HandCardModel>> availableSources)
         {
             throw new NotImplementedException();
         }
 
-        public ActionType GetFollow()
+        public Task<ActionType> GetLead()
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<HandCardModel> SelectLeadCards(List<HandCardModel> cardOptions)
+        public Task<ActionType> GetFollow()
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<HandCardModel> SelectFollowCards(List<HandCardModel> cardOptions, RoleType role)
+        public Task<ICollection<HandCardModel>> SelectLeadCards(List<HandCardModel> cardOptions)
         {
             throw new NotImplementedException();
         }
 
-        public IAction GetMove(MoveSpace moveSpace)
+        public Task<ICollection<HandCardModel>> SelectFollowCards(List<HandCardModel> cardOptions, RoleType role)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IAction> GetMove(MoveSpace moveSpace)
         {
             if (OnMoveEventHandler != null)
             {
                 var eventArgs = new OnMoveEventArgs {MoveSpace = moveSpace};
                 OnMoveEventHandler(this, eventArgs);
             }
-            return !moveSpace.Any() ? null : moveSpace.ElementAt(0);
+            var returnVal = !moveSpace.Any() ? null : moveSpace.ElementAt(0);
+            return Task.FromResult(returnVal);
         }
 
         public event OnMove OnMoveEventHandler;

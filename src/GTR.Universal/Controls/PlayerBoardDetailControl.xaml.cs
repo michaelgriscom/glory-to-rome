@@ -17,9 +17,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace GTR.Universal.Controls
 {
-    public sealed partial class PlayerSummaryControl : UserControl
+    public sealed partial class PlayerBoardDetailControl : UserControl
     {
-        public PlayerSummaryControl()
+        public PlayerBoardDetailControl()
         {
             this.InitializeComponent();
         }

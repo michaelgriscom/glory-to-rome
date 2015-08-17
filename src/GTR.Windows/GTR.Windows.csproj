@@ -200,12 +200,12 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="..\SharedResources\imperialdeck.csv">
+    <Resource Include="..\SharedResources\imperialdeck.csv">
       <Link>Resources\imperialdeck.csv</Link>
-    </None>
-    <None Include="..\SharedResources\republicdeck.csv">
+    </Resource>
+    <Resource Include="..\SharedResources\republicdeck.csv">
       <Link>Resources\republicdeck.csv</Link>
-    </None>
+    </Resource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

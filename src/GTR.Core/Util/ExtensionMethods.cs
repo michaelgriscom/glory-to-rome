@@ -1,5 +1,7 @@
 ﻿#region
 
+using System;
+using System.Threading.Tasks;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.Model;
@@ -26,6 +28,14 @@ namespace GTR.Core.Util
                 }
             }
             return false;
+        }
+
+        public static async Task TimeoutAfter(this Task task, int millisecondsTimeout)
+        {
+            if (task == await Task.WhenAny(task, Task.Delay(millisecondsTimeout)))
+                await task;
+            else
+                throw new TimeoutException();
         }
     }
 }

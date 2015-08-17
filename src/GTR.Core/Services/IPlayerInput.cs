@@ -1,6 +1,7 @@
 ﻿#region
 
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using GTR.Core.Action;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
@@ -12,14 +13,14 @@ namespace GTR.Core.Services
 {
     public interface IPlayerInput
     {
-        RoleType GetLeadRole(ICollection<RoleType> availableLeads);
-        ICollection<HandCardModel> SelectCards(ICollection<HandCardModel> cards);
-        RoleType GetRole(ICollection<RoleType> collection);
-        ICardSource<HandCardModel> GetSource(List<ICardSource<HandCardModel>> availableSources);
-        ActionType GetLead();
-        ActionType GetFollow();
-        ICollection<HandCardModel> SelectLeadCards(List<HandCardModel> cardOptions);
-        ICollection<HandCardModel> SelectFollowCards(List<HandCardModel> cardOptions, RoleType role);
-        IAction GetMove(MoveSpace moveSpace);
+        Task<RoleType> GetLeadRole(ICollection<RoleType> availableLeads);
+        Task<ICollection<HandCardModel>> SelectCards(ICollection<HandCardModel> cards);
+        Task<RoleType> GetRole(ICollection<RoleType> collection);
+        Task<ICardSource<HandCardModel>> GetSource(List<ICardSource<HandCardModel>> availableSources);
+        Task<ActionType> GetLead();
+        Task<ActionType> GetFollow();
+        Task<ICollection<HandCardModel>> SelectLeadCards(List<HandCardModel> cardOptions);
+        Task<ICollection<HandCardModel>> SelectFollowCards(List<HandCardModel> cardOptions, RoleType role);
+        Task<IAction> GetMove(MoveSpace moveSpace);
     }
 }

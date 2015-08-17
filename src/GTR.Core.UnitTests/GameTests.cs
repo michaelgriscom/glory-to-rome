@@ -1,5 +1,7 @@
 ﻿#region
 
+using System.Threading.Tasks;
+using GTR.Core.AIController;
 using GTR.Core.Game;
 using GTR.Core.Services;
 using GTR.Core.UnitTests.Services;
@@ -13,17 +15,17 @@ namespace GTR.Core.UnitTests
     public class GameTests
     {
         [TestMethod]
-        public void DefaultGame()
+        public async Task DefaultGame()
         {
             // placeholder for debugging until the UI is further along
             GameOptions options = new GameOptions("Republic");
             DeckIoForTest deckIo = new DeckIoForTest();
             ResourceProviderForTest rp = new ResourceProviderForTest();
             InMemoryMessageProvider mp = new InMemoryMessageProvider();
-            Game.Game game = new Game.Game(2, options, deckIo, rp, mp);
+            Game.Game game = new Game.Game(2, options, deckIo, rp, mp, () => new AiPlayerInput());
             try
             {
-                game.PlayGame();
+                await game.PlayGame();
             }
             catch
             {
