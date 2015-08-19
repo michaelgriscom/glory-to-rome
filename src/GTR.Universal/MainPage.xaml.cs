@@ -18,7 +18,7 @@ namespace GTR.Universal
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private readonly ButtonPlayerInput buttonPlayerInput;
+        private readonly DelayedPlayerInput _delayedPlayerInput;
         private readonly Game game;
 
         public MainPage()
@@ -34,8 +34,8 @@ namespace GTR.Universal
             var resourceProvider = new ResourceProvider();
             var messageProvider = new MessageProvider();
 
-            buttonPlayerInput = new ButtonPlayerInput();
-            game = new Game(playerCount, gameOptions, deckIo, resourceProvider, messageProvider, () => buttonPlayerInput);
+            _delayedPlayerInput = new DelayedPlayerInput();
+            game = new Game(playerCount, gameOptions, deckIo, resourceProvider, messageProvider, () => _delayedPlayerInput);
             var gameViewModel = new GameViewModel(game);
             DataContext = gameViewModel;
             //PlayerBoardDetailControl.DataContext = board;
@@ -50,7 +50,7 @@ namespace GTR.Universal
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            buttonPlayerInput.Execute(null);
+            _delayedPlayerInput.Execute(null);
         }
     }
 }

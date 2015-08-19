@@ -14,12 +14,13 @@ using GTR.Core.Util;
 
 namespace GTR.Universal.Services
 {
-    public class ButtonPlayerInput : IPlayerInput
+    public class DelayedPlayerInput : IPlayerInput
     {
+        private const int moveDelay = 400;
         private readonly AiPlayerInput _aiInput;
         private TaskCompletionSource<bool> ReadyToLeadTask;
 
-        public ButtonPlayerInput()
+        public DelayedPlayerInput()
         {
             LeadCommand = new RelayCommand<object>(Execute, CanExecute);
             _aiInput = new AiPlayerInput();
@@ -29,49 +30,64 @@ namespace GTR.Universal.Services
 
         public async Task<RoleType> GetLeadRole(ICollection<RoleType> availableLeads)
         {
+            await Task.Delay(moveDelay);
+
             return await _aiInput.GetLeadRole(availableLeads);
         }
 
         public async Task<ICollection<HandCardModel>> SelectCards(ICollection<HandCardModel> cards)
         {
+            await Task.Delay(moveDelay);
+
             return await _aiInput.SelectCards(cards);
         }
 
         public async Task<RoleType> GetRole(ICollection<RoleType> collection)
         {
+            await Task.Delay(moveDelay);
+
             return await _aiInput.GetRole(collection);
         }
 
         public async Task<ICardSource<HandCardModel>> GetSource(List<ICardSource<HandCardModel>> availableSources)
         {
+            await Task.Delay(moveDelay);
+
             return await _aiInput.GetSource(availableSources);
         }
 
         public async Task<ActionType> GetLead()
         {
-            ReadyToLeadTask = new TaskCompletionSource<bool>();
             //await ReadyToLeadTask.Task;
-            await Task.Delay(1000);
+            await Task.Delay(moveDelay);
             return await _aiInput.GetLead();
         }
 
         public async Task<ActionType> GetFollow()
         {
+            await Task.Delay(moveDelay);
+
             return await _aiInput.GetFollow();
         }
 
         public async Task<ICollection<HandCardModel>> SelectLeadCards(List<HandCardModel> cardOptions)
         {
+            await Task.Delay(moveDelay);
+
             return await _aiInput.SelectLeadCards(cardOptions);
         }
 
         public async Task<ICollection<HandCardModel>> SelectFollowCards(List<HandCardModel> cardOptions, RoleType role)
         {
+            await Task.Delay(moveDelay);
+
             return await _aiInput.SelectFollowCards(cardOptions, role);
         }
 
         public async Task<IAction> GetMove(MoveSpace moveSpace)
         {
+            await Task.Delay(moveDelay);
+
             return await _aiInput.GetMove(moveSpace);
         }
 

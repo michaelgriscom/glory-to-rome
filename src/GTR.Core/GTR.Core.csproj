@@ -58,6 +58,11 @@
     <Compile Include="Action\IAction.cs" />
     <Compile Include="Game\GameOverEventArgs.cs" />
     <Compile Include="Action\IMove.cs" />
+    <Compile Include="Serialization\CardLocations.cs" />
+    <Compile Include="Serialization\Cards.cs" />
+    <Compile Include="Serialization\Game.cs" />
+    <Compile Include="Serialization\Matchmaking.cs" />
+    <Compile Include="Serialization\Move.cs" />
     <Compile Include="Model\JackDeck.cs" />
     <Compile Include="Model\OrderDeck.cs" />
     <Compile Include="Model\PlayerBoard.cs" />
@@ -68,7 +73,12 @@
     <Compile Include="Model\BuildingFoundation.cs" />
     <Compile Include="Model\PlayArea.cs" />
     <Compile Include="Model\UserMessage.cs" />
+    <Compile Include="Serialization\Request.cs" />
+    <Compile Include="Serialization\Responses.cs" />
+    <Compile Include="Services\IGameService.cs" />
+    <Compile Include="Services\IMatchmakingService.cs" />
     <Compile Include="Services\NullMessageProvider.cs" />
+    <Compile Include="Util\JsonNetConfiguration.cs" />
     <Compile Include="Util\RelayCommand.cs" />
     <Compile Include="Util\WrappedFunc.cs" />
     <Compile Include="ManipulatableRules\ConstructionManager.cs" />
@@ -148,6 +158,15 @@
     <Compile Include="Util\Globals.cs" />
     <Compile Include="ViewModel\GameViewModel.cs" />
     <Compile Include="ViewModel\MenuOptionViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
