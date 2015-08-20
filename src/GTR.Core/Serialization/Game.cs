@@ -16,6 +16,23 @@
     public class PlayerSerialization
     {
         public int Id;
-        public string Name;
+    }
+
+    public class LeaveGameResponseSerialization : ResponseSerialization
+    {
+    }
+
+    public class LeaveGameRequest : Request
+    {
+        public int GameId;
+    }
+
+    public class EndGameResponseSerialization : ResponseSerialization
+    {
+    }
+
+    public class EndGameRequest : Request
+    {
+        public int GameId;
     }
 }

@@ -155,7 +155,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ButtonPlayerInput.cs" />
+    <Compile Include="Services\DelayedPlayerInput.cs" />
     <Compile Include="Services\TimestampMessage.cs" />
     <Compile Include="Services\DeckIo.cs" />
     <Compile Include="Services\MessageProvider.cs" />

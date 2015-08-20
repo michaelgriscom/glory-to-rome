@@ -20,7 +20,6 @@ namespace GTR.Core.Game
     {
         private readonly IDeckIo _deckIo;
         private readonly GameOptions _gameOptions;
-        private readonly Func<IPlayerInput> _inputMaker;
         private readonly IResourceProvider _resourceProvider;
         private Player _actionPlayer; // player who has an action pending
         private bool _isGameOver;
@@ -36,21 +35,19 @@ namespace GTR.Core.Game
         }
 
         public Game(
-            int playerCount,
+            Dictionary<string, IPlayerInput> playerInputs,
             GameOptions gameOptions,
             IDeckIo deckIo,
             IResourceProvider resourceProvider,
-            IMessageProvider messageProvider,
-            Func<IPlayerInput> inputMaker)
+            IMessageProvider messageProvider)
         {
             MessageProvider = messageProvider;
-            _inputMaker = inputMaker;
             _gameOptions = gameOptions;
             _deckIo = deckIo;
             _resourceProvider = resourceProvider;
 
             GameTable = CreateGameTable();
-            var players = CreatePlayers(playerCount);
+            var players = CreatePlayers(playerInputs);
             GameTable.AddPlayers(players);
 
             GameTable.OrderDeck.Cards.CollectionChanged += OrderDeckOnCollectionChanged;
@@ -289,15 +286,11 @@ namespace GTR.Core.Game
             return new JackDeck(cards);
         }
 
-        private List<Player> CreatePlayers(int playerCount)
+        private List<Player> CreatePlayers(Dictionary<string, IPlayerInput> playerNames)
         {
-            IPlayerInput playerInput = _inputMaker();
-            var players = new List<Player>(playerCount);
-            for (int i = 0; i < playerCount; i++)
-            {
-                string playerName = (i + 1).ToString();
-                players.Add(new Player(playerName, playerInput, MessageProvider));
-            }
+            var players = playerNames.Select(p => new Player(p.Key, 
+                p.Value,
+                 MessageProvider)).ToList();
             return players;
         }
 

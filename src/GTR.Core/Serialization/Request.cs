@@ -14,4 +14,11 @@
     {
         public int GameId;
     }
+
+    public class MoveSetRequest : Request
+    {
+        public int GameId;
+
+        public MoveSetSerialization MoveSet;
+    }
 }

@@ -1,8 +1,11 @@
 ﻿#region
 
+using System.Collections.Generic;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using GTR.Core.AIController;
 using GTR.Core.Game;
+using GTR.Core.Services;
 using GTR.Core.ViewModel;
 using GTR.Universal.Services;
 using GTR.Windows.Services;
@@ -29,13 +32,17 @@ namespace GTR.Universal
             //vm.GameTable = dgt;
             //this.DataContext = vm;
             int playerCount = 3;
-            GameOptions gameOptions = new GameOptions("republic");
+            GameOptions gameOptions = new GameOptions("republic", 2);
             var deckIo = new DeckIo();
             var resourceProvider = new ResourceProvider();
             var messageProvider = new MessageProvider();
 
             _delayedPlayerInput = new DelayedPlayerInput();
-            game = new Game(playerCount, gameOptions, deckIo, resourceProvider, messageProvider, () => _delayedPlayerInput);
+
+            var playerInputs = new Dictionary<string, IPlayerInput>();
+            playerInputs.Add("player1", _delayedPlayerInput);
+
+            game = new Game(playerInputs, gameOptions, deckIo, resourceProvider, messageProvider);
             var gameViewModel = new GameViewModel(game);
             DataContext = gameViewModel;
             //PlayerBoardDetailControl.DataContext = board;
