@@ -16,6 +16,11 @@ namespace GTR.Core.Services
         Task<LeaveGameResponseSerialization> LeaveGameAsync(LeaveGameRequest request);
         event MoveRequestedHandler OnMoveRequested;
         event OpponentMoveReceivedHandler OnOpponentMove;
+
+        Task<CreateGameResponseSerialization> CreateGameAsync();
+        Task<JoinGameResponseSerialization> JoinGameAsync(JoinGameRequest request);
+        Task<ListGamesResponseSerialization> ListGamesAsync();
+        Task<StartGameResponseSerialization> StartGameAsync(StartGameRequest request);
     }
 
     public delegate void MoveRequestedHandler(object sender, MoveRequestedHandlerArgs args);

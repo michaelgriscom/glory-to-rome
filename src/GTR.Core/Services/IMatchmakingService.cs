@@ -8,14 +8,6 @@ using GTR.Core.Serialization;
 
 namespace GTR.Core.Services
 {
-    public interface IMatchmakingService
-    {
-        Task<CreateGameResponseSerialization> CreateGameAsync();
-        Task<JoinGameResponseSerialization> JoinGameAsync(JoinGameRequest request);
-        Task<ListGamesResponseSerialization> ListGamesAsync();
-        Task<StartGameResponseSerialization> StartGameAsync(StartGameRequest request);
-    }
-
     public class StartGameRequest : Request
     {
         public int GameId;

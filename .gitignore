@@ -8,3 +8,5 @@ src/GTR.AzureMobileApp/Properties/PublishProfiles/tiberdev.pubxml
 src/GTR.AzureMobileApp/Properties/PublishProfiles/tiberdev.pubxml.user
 src/GTR.AzureMobileApp/Properties/PublishProfiles/GTR.AzureApp(Default-Web-SouthCentralUS).pubxml
 src/GTR.Database/GTR.Database.publish-prod.xml
+src/.vs/config/applicationhost.config
+src/.vs/config/applicationhost.config
