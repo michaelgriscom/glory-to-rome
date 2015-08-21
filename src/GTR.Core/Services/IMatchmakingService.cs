@@ -10,7 +10,7 @@ namespace GTR.Core.Services
 {
     public class StartGameRequest : Request
     {
-        public int GameId;
+        public string GameId;
     }
 
     public class StartGameResponseSerialization : ResponseSerialization

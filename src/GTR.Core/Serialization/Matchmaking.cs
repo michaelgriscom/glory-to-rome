@@ -2,7 +2,7 @@
 {
     public class CreateGameResponseSerialization : ResponseSerialization
     {
-        public int GameId;
+        public string GameId;
     }
 
     public class JoinGameResponseSerialization : ResponseSerialization
@@ -17,13 +17,13 @@
 
     public class LobbyGameSerialization : ResponseSerialization
     {
-        public int GameId;
+        public string GameId;
         public int[] PlayerIds;
     }
 
     public class JoinGameRequest : Request
     {
-        public int GameId;
+        public string GameId;
     }
 
 }

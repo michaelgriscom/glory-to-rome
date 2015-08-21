@@ -14,24 +14,35 @@ using GTR.Core.Serialization;
 using GTR.Core.Services;
 using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.Config;
+using GTR.Tiber.DataObjects;
 
 namespace GTR.Tiber.Controllers
 {
     [MobileAppController]
     public class MatchmakingController : ApiController
     {
+        public MatchmakingController()
+        {
+            lobbyTable = new LobbyTable();
+        }
+        private LobbyTable lobbyTable;
+
         public async Task<CreateGameResponseSerialization> PostCreate(CreateGameRequest request)
         {
             CreateGameResponseSerialization response = new CreateGameResponseSerialization();
-            GameInfo gameInfo = new GameInfo()
+            var playerId = GetPlayerId(request.AuthorizationToken);
+
+            LobbyGame game = new LobbyGame()
             {
-                GameId = GetNewGameId(),
+                Players = new List<int>() { playerId },
                 GameOptions = request.GameOptions,
-                HostPlayerId = GetPlayerId(request.AuthorizationToken)
+                HostId = playerId
             };
 
             response.Success = true;
-            response.GameId = gameInfo.GameId;
+            game = await lobbyTable.AddLobbyGame(game, Request);
+
+            response.GameId = game.Id;
 
             return response;
         }
@@ -41,7 +52,10 @@ namespace GTR.Tiber.Controllers
             var response = new JoinGameResponseSerialization();
             response.Success = false;
 
-            var gameInfo = LobbyGames.First(gi => gi.GameId == request.GameId);
+            // TODO: query
+            var allGames = lobbyTable.GetAllLobbyGames(Request);
+            var gameInfo = allGames.First(g => g.Id == request.GameId);
+
             if (gameInfo == null)
             {
                 response.Message = ErrorMessages.NonexistentGame;
@@ -69,21 +83,23 @@ namespace GTR.Tiber.Controllers
             var response = new StartGameResponseSerialization();
             response.Success = false;
 
-            var gameInfo = LobbyGames.First(gi => gi.GameId == request.GameId);
+            // TODO: query
+            var allGames = lobbyTable.GetAllLobbyGames(Request);
+            var gameInfo = allGames.First(g => g.Id == request.GameId);
+
             if (gameInfo == null)
             {
                 response.Message = ErrorMessages.NonexistentGame;
                 return response;
             }
             int playerId = GetPlayerId(request.AuthorizationToken);
-            if (playerId != gameInfo.HostPlayerId)
+            if (playerId != gameInfo.HostId)
             {
                 response.Message = ErrorMessages.NotGameHost;
                 return response;
             }
 
             StartGame(gameInfo);
-            LobbyGames.Remove(gameInfo);
             response.Success = true;
             return response;
         }
@@ -91,7 +107,7 @@ namespace GTR.Tiber.Controllers
         private IDeckIo deckIo = new DeckIo();
         private IResourceProvider resourceProvider = new ResourceProvider();
 
-        private void StartGame(GameInfo gameInfo)
+        private void StartGame(LobbyGame gameInfo)
         {
             Dictionary<string, IPlayerInput> playerInputs =
                 gameInfo.Players.ToDictionary<int, string, IPlayerInput>
@@ -99,28 +115,13 @@ namespace GTR.Tiber.Controllers
 
             Game game = new Game(playerInputs, gameInfo.GameOptions, deckIo, resourceProvider, new NullMessageProvider());
             game.PlayGame();
+            // TODO: update lobby game table
         }
 
 
         private int GetPlayerId(int authorizationToken)
         {
             throw new NotImplementedException();
-        }
-
-        private int GetNewGameId()
-        {
-            throw new NotImplementedException();
-        }
-
-
-        // TODO: put this in a db
-        private HashSet<GameInfo> LobbyGames; 
-        class GameInfo
-        {
-            public GameOptions GameOptions;
-            public int HostPlayerId;
-            public int GameId;
-            public List<int> Players;
         }
     }
 
