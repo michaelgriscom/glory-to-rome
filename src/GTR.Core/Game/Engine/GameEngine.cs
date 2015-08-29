@@ -36,13 +36,11 @@ namespace GTR.Core.Game
 
             WireEvents();
 
-            ConstructionManager constructionManager = new ConstructionManager(gameModel.GameTable);
             playerEngines = new Dictionary<Player, PlayerEngine>();
             foreach (var player in GameTable.Players)
             {
                 var playerEngine = new PlayerEngine(player, playerInputService, gameModel.GameTable);
                 playerEngines.Add(player, playerEngine);
-                constructionManager.Attach(playerEngine);
             }
         }
 

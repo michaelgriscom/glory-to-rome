@@ -120,22 +120,22 @@
   <data name="AlreadyJoined" xml:space="preserve">
     <value>You've already joined the game!</value>
   </data>
-  <data name="GameFull" xml:space="preserve">
+  <data id="GameFull" xml:space="preserve">
     <value>This game is at max capacity.</value>
   </data>
-  <data name="IllegalMove" xml:space="preserve">
+  <data id="IllegalMove" xml:space="preserve">
     <value>That move was not valid.</value>
   </data>
-  <data name="InvalidAuth" xml:space="preserve">
+  <data id="InvalidAuth" xml:space="preserve">
     <value>The authorization was not valid.</value>
   </data>
-  <data name="NonexistentGame" xml:space="preserve">
+  <data id="NonexistentGame" xml:space="preserve">
     <value>No matching game was found.</value>
   </data>
-  <data name="NotGameHost" xml:space="preserve">
+  <data id="NotGameHost" xml:space="preserve">
     <value>Since you're not the host, you can't do that.</value>
   </data>
-  <data name="NotPlayerTurn" xml:space="preserve">
+  <data id="NotPlayerTurn" xml:space="preserve">
     <value>It is not currently the player's turn, or the player did not submit a turn in time.</value>
   </data>
 </root>

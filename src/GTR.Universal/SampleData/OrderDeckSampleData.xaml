@@ -1,4 +1,4 @@
-﻿<Model:OrderDeck xmlns:Model="using:GTR.Core.Model" LocationName="Elementum lectus nibh">
+﻿<Model:OrderDeck xmlns:Model="using:GTR.Core.Model" Id="Elementum lectus nibh">
     <Model:OrderDeck.Cards>
         <Model:OrderCardModel Description="Aliquam aenean cras maecenas mauris nullam nam aptent" Name="Maecenas"
                               RoleType="Patron" />

@@ -9,8 +9,6 @@ namespace GTR.Core.CardCollections
 {
     public interface ICardLocation<out T> : IEnumerable<T> where T : CardModelBase
     {
-        string LocationName { get; }
-
-        int Id { get; }
+        string Id { get; }
     }
 }

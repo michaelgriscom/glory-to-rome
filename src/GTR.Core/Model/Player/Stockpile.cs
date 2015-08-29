@@ -8,16 +8,8 @@ namespace GTR.Core.Model
 {
     public class Stockpile : CardSourceTarget<OrderCardModel>
     {
-        private readonly string _locationName;
-
-        public Stockpile(string playerName = "")
+        public Stockpile(string id = "") : base(id)
         {
-            _locationName = string.Format("Player {0} stockpile", playerName);
-        }
-
-        public override string LocationName
-        {
-            get { return _locationName; }
         }
     }
 }

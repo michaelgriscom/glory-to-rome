@@ -11,7 +11,7 @@ namespace GTR.Core.CardCollections
     {
         public CardTarget(string name = "")
         {
-            LocationName = name;
+            Id = name;
         }
 
         public virtual bool CanAdd(T card)
@@ -19,6 +19,6 @@ namespace GTR.Core.CardCollections
             return true;
         }
 
-        public string LocationName { get; set; }
+        public string Id { get; set; }
     }
 }

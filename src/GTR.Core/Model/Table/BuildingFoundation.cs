@@ -9,8 +9,6 @@ namespace GTR.Core.Model
 {
     public class BuildingFoundation : BoundedSourceTarget<OrderCardModel>
     {
-        private string _overridenName;
-
         public BuildingFoundation() : base(1)
         {
         }
@@ -36,23 +34,6 @@ namespace GTR.Core.Model
                     Items[0] = value;
                 }
             }
-        }
-
-        public override string LocationName
-        {
-            get
-            {
-                if (_overridenName != null)
-                {
-                    return _overridenName;
-                }
-                if (Items.Count == 0)
-                {
-                    return "Empty foundation";
-                }
-                return string.Concat("Foundation for ", Building.Name);
-            }
-            set { _overridenName = value; }
         }
     }
 }

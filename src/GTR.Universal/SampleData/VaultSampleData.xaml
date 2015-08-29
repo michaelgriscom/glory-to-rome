@@ -1,4 +1,4 @@
-﻿<Model:Vault xmlns:Model="using:GTR.Core.Model" LocationName="Aenean vestibulum adipiscing cras" MaxCapacity="65">
+﻿<Model:Vault xmlns:Model="using:GTR.Core.Model" Id="Aenean vestibulum adipiscing cras" MaxCapacity="65">
     <Model:OrderCardModel Description="Parturient vestibulum vestibulum class mauris"
                           Name="Adipiscing aliquam curabitur integer" RoleType="Patron" />
     <Model:OrderCardModel Description="Curae nullam parturient quisque aptent" Name="Maecenas donec duis"

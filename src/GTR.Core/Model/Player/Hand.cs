@@ -53,7 +53,7 @@ namespace GTR.Core.Model
         {
             private readonly Hand _hand;
 
-            public JackCardGroup(Hand hand, string locationName) : base(locationName)
+            public JackCardGroup(Hand hand, string locationId) : base(locationId)
             {
                 _hand = hand;
             }
@@ -63,8 +63,8 @@ namespace GTR.Core.Model
         {
             private readonly Hand _hand;
 
-            public OrderCardGroup(Hand hand, string locationName)
-                : base(locationName)
+            public OrderCardGroup(Hand hand, string locationId)
+                : base(locationId)
             {
                 _hand = hand;
             }

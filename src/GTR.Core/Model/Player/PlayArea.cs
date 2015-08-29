@@ -44,8 +44,8 @@ namespace GTR.Core.Model
         {
             private readonly PlayArea _playArea;
 
-            public JackCardGroup(PlayArea playArea, string locationName)
-                : base(locationName)
+            public JackCardGroup(PlayArea playArea, string locationId)
+                : base(locationId)
             {
                 _playArea = playArea;
             }
@@ -55,7 +55,7 @@ namespace GTR.Core.Model
         {
             private readonly PlayArea _playArea;
 
-            internal OrderCardGroup(PlayArea PlayArea, string locationName) : base(locationName)
+            internal OrderCardGroup(PlayArea PlayArea, string locationId) : base(locationId)
             {
                 _playArea = PlayArea;
             }

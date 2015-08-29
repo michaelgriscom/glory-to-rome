@@ -2,10 +2,12 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using GTR.Core.Action;
+using GTR.Core.Buildings;
 using GTR.Core.Game;
 using GTR.Core.ManipulatableRules;
 using GTR.Core.ManipulatableRules.Actions;
@@ -30,7 +32,73 @@ namespace GTR.Core.Engine
             this._player = player;
             this._inputService = inputService;
             _playerActions = new OrderActions(player, gameTable);
+
+            WireEvents();
         }
+
+        private void WireEvents()
+        {
+            var constructionZone = Player.ConstructionZone;
+            constructionZone.CollectionChanged += ConstructionZoneOnCollectionChanged;
+
+            var completedFoundations = Player.Camp.CompletedFoundations;
+            completedFoundations.CollectionChanged += CompletedFoundationsOnCollectionChanged;
+        }
+
+#region building construction
+        private void CompletedFoundationsOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
+        {
+            if (notifyCollectionChangedEventArgs.Action != NotifyCollectionChangedAction.Add)
+            {
+                return;
+            }
+
+            foreach (BuildingSite buildingSite in notifyCollectionChangedEventArgs.NewItems)
+            {
+                Player.Camp.InfluencePoints += buildingSite.MaterialType.MaterialWorth();
+            }
+        }
+
+        private void ConstructionZoneOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
+        {
+            if (notifyCollectionChangedEventArgs.Action != NotifyCollectionChangedAction.Add)
+            {
+                return;
+            }
+            foreach (BuildingSite newSite in notifyCollectionChangedEventArgs.NewItems)
+            {
+                newSite.Complete += BuildingOnComplete;
+                BuildingEffectFactory effectService = new BuildingEffectFactory();
+                var buildingEffect = effectService.Create(newSite.BuildingFoundation.Building.Name);
+                buildingEffect.CompleteBuilding(this, _gameTable);
+                buildingEffect.ActivateBuilding(this, _gameTable);
+            }
+        }
+
+        private void BuildingOnComplete(object sender, BuildingCompletedEventArgs args)
+        {
+            // move foundation into influence area
+            var buildingSite = args.BuildingSite;
+            var completedFoundations = Player.Camp.CompletedFoundations;
+            var constructionZone = Player.ConstructionZone;
+            var siteMove = new Move<BuildingSite>(buildingSite, constructionZone, completedFoundations);
+            siteMove.Perform();
+
+            // move building into completed building zone
+            var buildingCard = args.BuildingSite.BuildingFoundation.Building;
+            var completedBuildings = Player.CompletedBuildings;
+            var buildingMove = new Move<OrderCardModel>(buildingCard, buildingSite.BuildingFoundation,
+                completedBuildings);
+            buildingMove.Perform();
+
+            // material cards no longer needed,
+            // let the garbage collector get rid of them
+            buildingSite.Materials = null;
+
+            // TODO, we need to remove these event listeners but that will require rearchitecting
+            buildingSite.Complete -= BuildingOnComplete;
+        }
+        #endregion
 
         public Player Player {  get { return _player;} }
 

@@ -21,7 +21,7 @@ namespace GTR.Core.Model
 
             Materials = new BoundedCardTarget<OrderCardModel>(MaterialType.MaterialWorth());
             Materials.CollectionChanged += MaterialsOnCollectionChanged;
-            Materials.LocationName = "Building materials";
+            Materials.Id = "Building materials";
 
             BuildingFoundation = new BuildingFoundation();
         }

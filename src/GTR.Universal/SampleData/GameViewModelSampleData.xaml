@@ -4,7 +4,7 @@
     <ViewModel:GameViewModel.GameTable>
         <Model:GameTable>
             <Model:GameTable.JackDeck>
-                <Model:JackDeck LocationName="Sem netus taciti sit">
+                <Model:JackDeck Id="Sem netus taciti sit">
                     <Model:JackCardModel Name="Nulla diam bibendum" />
                     <Model:JackCardModel Name="Dictumst phasellus adipiscing consequat" />
                     <Model:JackCardModel Name="Porta eleifend facilisi" />
@@ -21,7 +21,7 @@
                 <Model:LeaderCardModel Name="Vestibulum tempus" />
             </Model:GameTable.LeaderCard>
             <Model:GameTable.OrderDeck>
-                <Model:OrderDeck LocationName="Pede suscipit torquent hendrerit">
+                <Model:OrderDeck Id="Pede suscipit torquent hendrerit">
                     <Model:OrderDeck.Cards>
                         <Model:OrderCardModel Description="Curae adipiscing habitant parturient dis"
                                               Name="Lacinia donec" RoleType="Architect" />
@@ -47,7 +47,7 @@
                 </Model:OrderDeck>
             </Model:GameTable.OrderDeck>
             <Model:GameTable.Pool>
-                <Model:Pool LocationName="Justo interdum">
+                <Model:Pool Id="Justo interdum">
                     <Model:OrderCardModel Description="Facilisis lacus hac" Name="Leo nisl lobortis vestibulum nunc"
                                           RoleType="Laborer" />
                     <Model:OrderCardModel Description="Nascetur vestibulum pharetra" Name="Odio tempor tempus"
@@ -180,7 +180,7 @@
                 </engine:Player>
             </Model:GameTable.Players>
             <Model:GameTable.SiteDecks>
-                <Model:SiteDeck LocationName="Etiam quisque" MaterialType="Brick">
+                <Model:SiteDeck Id="Etiam quisque" MaterialType="Brick">
                     <Model:SiteDeck.Cards>
                         <Model:BuildingSite MaterialType="Concrete" Name="Curabitur class aenean" SiteType="OutOfTown" />
                         <Model:BuildingSite MaterialType="Stone" Name="Mauris cras" SiteType="InsideRome" />
@@ -190,7 +190,7 @@
                                             SiteType="OutOfTown" />
                     </Model:SiteDeck.Cards>
                 </Model:SiteDeck>
-                <Model:SiteDeck LocationName="Commodo dolor conubia adipiscing congue" MaterialType="Brick">
+                <Model:SiteDeck Id="Commodo dolor conubia adipiscing congue" MaterialType="Brick">
                     <Model:SiteDeck.Cards>
                         <Model:BuildingSite MaterialType="Brick" Name="Sed fusce accumsan vivamus"
                                             SiteType="InsideRome" />
@@ -203,7 +203,7 @@
                                             SiteType="OutOfTown" />
                     </Model:SiteDeck.Cards>
                 </Model:SiteDeck>
-                <Model:SiteDeck LocationName="Fermentum iaculis parturient eget eleifend" MaterialType="Rubble">
+                <Model:SiteDeck Id="Fermentum iaculis parturient eget eleifend" MaterialType="Rubble">
                     <Model:SiteDeck.Cards>
                         <Model:BuildingSite MaterialType="Rubble" Name="Cursus cubilia hac ante dapibus"
                                             SiteType="InsideRome" />
@@ -215,7 +215,7 @@
                                             SiteType="InsideRome" />
                     </Model:SiteDeck.Cards>
                 </Model:SiteDeck>
-                <Model:SiteDeck LocationName="Eros vestibulum natoque habitant inceptos" MaterialType="Brick">
+                <Model:SiteDeck Id="Eros vestibulum natoque habitant inceptos" MaterialType="Brick">
                     <Model:SiteDeck.Cards>
                         <Model:BuildingSite MaterialType="Stone" Name="Vestibulum vestibulum" SiteType="InsideRome" />
                         <Model:BuildingSite MaterialType="Rubble" Name="Adipiscing elit lacinia non enim"
@@ -226,7 +226,7 @@
                         <Model:BuildingSite MaterialType="Brick" Name="Fringilla laoreet per sed" SiteType="OutOfTown" />
                     </Model:SiteDeck.Cards>
                 </Model:SiteDeck>
-                <Model:SiteDeck LocationName="Justo pharetra nam lacus" MaterialType="Concrete">
+                <Model:SiteDeck Id="Justo pharetra nam lacus" MaterialType="Concrete">
                     <Model:SiteDeck.Cards>
                         <Model:BuildingSite MaterialType="Concrete" Name="Ipsum interdum" SiteType="OutOfTown" />
                         <Model:BuildingSite MaterialType="Stone" Name="Vestibulum nibh habitasse sem posuere"
@@ -237,7 +237,7 @@
                         <Model:BuildingSite MaterialType="Rubble" Name="Vel pretium ligula" SiteType="OutOfTown" />
                     </Model:SiteDeck.Cards>
                 </Model:SiteDeck>
-                <Model:SiteDeck LocationName="Adipiscing sed" MaterialType="Stone">
+                <Model:SiteDeck Id="Adipiscing sed" MaterialType="Stone">
                     <Model:SiteDeck.Cards>
                         <Model:BuildingSite MaterialType="Stone" Name="Litora nisi luctus placerat vestibulum"
                                             SiteType="InsideRome" />
@@ -249,7 +249,7 @@
                         <Model:BuildingSite MaterialType="Wood" Name="Vestibulum magnis aliquam" SiteType="OutOfTown" />
                     </Model:SiteDeck.Cards>
                 </Model:SiteDeck>
-                <Model:SiteDeck LocationName="Aliquet montes" MaterialType="Concrete">
+                <Model:SiteDeck Id="Aliquet montes" MaterialType="Concrete">
                     <Model:SiteDeck.Cards>
                         <Model:BuildingSite MaterialType="Wood" Name="Dis integer" SiteType="InsideRome" />
                         <Model:BuildingSite MaterialType="Concrete" Name="Quisque senectus parturient mattis"
@@ -260,7 +260,7 @@
                                             SiteType="OutOfTown" />
                     </Model:SiteDeck.Cards>
                 </Model:SiteDeck>
-                <Model:SiteDeck LocationName="Conubia vestibulum" MaterialType="Concrete">
+                <Model:SiteDeck Id="Conubia vestibulum" MaterialType="Concrete">
                     <Model:SiteDeck.Cards>
                         <Model:BuildingSite MaterialType="Concrete" Name="Nostra penatibus porttitor"
                                             SiteType="InsideRome" />
@@ -272,7 +272,7 @@
                         <Model:BuildingSite MaterialType="Brick" Name="Pede quam quis massa" SiteType="OutOfTown" />
                     </Model:SiteDeck.Cards>
                 </Model:SiteDeck>
-                <Model:SiteDeck LocationName="Amet ante nec" MaterialType="Brick">
+                <Model:SiteDeck Id="Amet ante nec" MaterialType="Brick">
                     <Model:SiteDeck.Cards>
                         <Model:BuildingSite MaterialType="Wood" Name="Hac leo tincidunt tristique" SiteType="OutOfTown" />
                         <Model:BuildingSite MaterialType="Wood" Name="Urna vestibulum ultrices metus"
@@ -284,7 +284,7 @@
                         <Model:BuildingSite MaterialType="Brick" Name="Duis parturient nunc" SiteType="OutOfTown" />
                     </Model:SiteDeck.Cards>
                 </Model:SiteDeck>
-                <Model:SiteDeck LocationName="Vestibulum sed accumsan sociis vestibulum" MaterialType="Wood">
+                <Model:SiteDeck Id="Vestibulum sed accumsan sociis vestibulum" MaterialType="Wood">
                     <Model:SiteDeck.Cards>
                         <Model:BuildingSite MaterialType="Brick" Name="Egestas sapien arcu" SiteType="OutOfTown" />
                         <Model:BuildingSite MaterialType="Stone" Name="Maecenas praesent" SiteType="InsideRome" />

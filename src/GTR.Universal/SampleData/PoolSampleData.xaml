@@ -1,4 +1,4 @@
-﻿<Model:Pool xmlns:Model="using:GTR.Core.Model" LocationName="Curabitur cras maecenas">
+﻿<Model:Pool xmlns:Model="using:GTR.Core.Model" Id="Curabitur cras maecenas">
     <Model:OrderCardModel
         Description="Maecenas cras nam class sed curae aliquam dis duis praesent est accumsan aenean mauris"
         Name="Cras" RoleType="Legionnaire" />

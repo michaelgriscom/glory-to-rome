@@ -2,7 +2,7 @@
     <Model:PlayerBoard.Camp>
         <Model:Camp InfluencePoints="12">
             <Model:Camp.Clientele>
-                <Model:Clientele IsFull="True" LocationName="Sodales vestibulum" MaxCapacity="51">
+                <Model:Clientele IsFull="True" Id="Sodales vestibulum" MaxCapacity="51">
                     <Model:OrderCardModel Description="Sagittis elementum fusce"
                                           Name="Vestibulum facilisis aptent fermentum" RoleType="Legionnaire" />
                     <Model:OrderCardModel Description="Auctor nec" Name="Senectus lorem fringilla sociosqu"
@@ -23,7 +23,7 @@
                 </Model:Clientele>
             </Model:Camp.Clientele>
             <Model:Camp.CompletedFoundations>
-                <Model:CompletedFoundations LocationName="Tempus tortor">
+                <Model:CompletedFoundations Id="Tempus tortor">
                     <Model:BuildingSite MaterialType="Marble" Name="Velit mus vitae" SiteType="OutOfTown" />
                     <Model:BuildingSite MaterialType="Wood" Name="Iaculis lacinia" SiteType="InsideRome" />
                     <Model:BuildingSite MaterialType="Wood" Name="Parturient vestibulum" SiteType="InsideRome" />
@@ -41,7 +41,7 @@
                 </Model:CompletedFoundations>
             </Model:Camp.CompletedFoundations>
             <Model:Camp.Stockpile>
-                <Model:Stockpile LocationName="Accumsan aliquet bibendum">
+                <Model:Stockpile Id="Accumsan aliquet bibendum">
                     <Model:OrderCardModel Description="Eget fames magnis" Name="Elit leo mattis enim"
                                           RoleType="Craftsman" />
                     <Model:OrderCardModel Description="Erat mauris dictumst" Name="Mus felis blandit"
@@ -64,7 +64,7 @@
                 </Model:Stockpile>
             </Model:Camp.Stockpile>
             <Model:Camp.Vault>
-                <Model:Vault LocationName="Sit vel sociosqu" MaxCapacity="79">
+                <Model:Vault Id="Sit vel sociosqu" MaxCapacity="79">
                     <Model:OrderCardModel Description="Rutrum suscipit gravida iaculis"
                                           Name="Curabitur parturient vestibulum" RoleType="Architect" />
                     <Model:OrderCardModel Description="Lacinia sapien" Name="Nam torquent risus quis"
@@ -90,10 +90,10 @@
         </Model:Camp>
     </Model:PlayerBoard.Camp>
     <Model:PlayerBoard.ConstructionZone>
-        <Model:ConstructionZone LocationName="Fringilla erat">
+        <Model:ConstructionZone Id="Fringilla erat">
             <Model:BuildingSite MaterialType="Marble" Name="Leo torquent semper cras" SiteType="InsideRome">
                 <Model:BuildingSite.BuildingFoundation>
-                    <Model:BuildingFoundation LocationName="Vel placerat venenatis montes dapibus" MaxCapacity="82">
+                    <Model:BuildingFoundation Id="Vel placerat venenatis montes dapibus" MaxCapacity="82">
                         <Model:OrderCardModel Description="Orci vestibulum adipiscing nostra pulvinar"
                                               Name="Lacus egestas vulputate nam sagittis" RoleType="Architect" />
                         <Model:OrderCardModel Description="Curabitur euismod lorem magna ornare"
@@ -121,7 +121,7 @@
             </Model:BuildingSite>
             <Model:BuildingSite MaterialType="Brick" Name="Class nascetur porttitor turpis curae" SiteType="OutOfTown">
                 <Model:BuildingSite.BuildingFoundation>
-                    <Model:BuildingFoundation LocationName="Rhoncus adipiscing porta parturient vestibulum"
+                    <Model:BuildingFoundation Id="Rhoncus adipiscing porta parturient vestibulum"
                                               MaxCapacity="97">
                         <Model:OrderCardModel Description="Eget purus tempus fringilla bibendum"
                                               Name="Risus vestibulum dictumst elit adipiscing" RoleType="Laborer" />
@@ -149,7 +149,7 @@
             <Model:BuildingSite MaterialType="Rubble" Name="Lectus fames cubilia elementum facilisis"
                                 SiteType="InsideRome">
                 <Model:BuildingSite.BuildingFoundation>
-                    <Model:BuildingFoundation LocationName="Nec venenatis" MaxCapacity="98">
+                    <Model:BuildingFoundation Id="Nec venenatis" MaxCapacity="98">
                         <Model:OrderCardModel Description="Sagittis quisque non per" Name="Vestibulum senectus"
                                               RoleType="Patron" />
                         <Model:OrderCardModel Description="Vestibulum augue sociosqu aptent"
@@ -176,7 +176,7 @@
             <Model:BuildingSite MaterialType="Concrete" Name="Adipiscing accumsan morbi neque natoque"
                                 SiteType="OutOfTown">
                 <Model:BuildingSite.BuildingFoundation>
-                    <Model:BuildingFoundation LocationName="Adipiscing cras mus parturient lorem" MaxCapacity="90">
+                    <Model:BuildingFoundation Id="Adipiscing cras mus parturient lorem" MaxCapacity="90">
                         <Model:OrderCardModel Description="Imperdiet magnis malesuada"
                                               Name="Maecenas penatibus porttitor duis tincidunt" RoleType="Merchant" />
                         <Model:OrderCardModel Description="Tristique mattis" Name="Mauris nunc nec" RoleType="Merchant" />
@@ -204,7 +204,7 @@
             </Model:BuildingSite>
             <Model:BuildingSite MaterialType="Brick" Name="Parturient facilisis fermentum" SiteType="OutOfTown">
                 <Model:BuildingSite.BuildingFoundation>
-                    <Model:BuildingFoundation LocationName="Eros rutrum leo" MaxCapacity="41">
+                    <Model:BuildingFoundation Id="Eros rutrum leo" MaxCapacity="41">
                         <Model:OrderCardModel Description="Vestibulum mus sapien" Name="Velit vitae nibh"
                                               RoleType="Laborer" />
                         <Model:OrderCardModel Description="Nisi vestibulum viverra nisl nunc"
@@ -231,7 +231,7 @@
             </Model:BuildingSite>
             <Model:BuildingSite MaterialType="Wood" Name="Mauris nec" SiteType="InsideRome">
                 <Model:BuildingSite.BuildingFoundation>
-                    <Model:BuildingFoundation LocationName="Duis penatibus parturient turpis interdum" MaxCapacity="52">
+                    <Model:BuildingFoundation Id="Duis penatibus parturient turpis interdum" MaxCapacity="52">
                         <Model:OrderCardModel Description="Lobortis lorem dapibus" Name="Nascetur egestas"
                                               RoleType="Merchant" />
                         <Model:OrderCardModel Description="Vestibulum dis porttitor pharetra"
@@ -259,7 +259,7 @@
             </Model:BuildingSite>
             <Model:BuildingSite MaterialType="Concrete" Name="Sed interdum libero" SiteType="OutOfTown">
                 <Model:BuildingSite.BuildingFoundation>
-                    <Model:BuildingFoundation LocationName="Dis adipiscing volutpat vulputate" MaxCapacity="15">
+                    <Model:BuildingFoundation Id="Dis adipiscing volutpat vulputate" MaxCapacity="15">
                         <Model:OrderCardModel Description="Est aptent maecenas" Name="Parturient auctor eros"
                                               RoleType="Architect" />
                         <Model:OrderCardModel Description="Praesent curabitur accumsan"
@@ -287,7 +287,7 @@
             </Model:BuildingSite>
             <Model:BuildingSite MaterialType="Stone" Name="Diam porta primis torquent porttitor" SiteType="OutOfTown">
                 <Model:BuildingSite.BuildingFoundation>
-                    <Model:BuildingFoundation LocationName="Dis est hac mattis" MaxCapacity="47">
+                    <Model:BuildingFoundation Id="Dis est hac mattis" MaxCapacity="47">
                         <Model:OrderCardModel Description="Mauris vestibulum pharetra habitasse adipiscing"
                                               Name="Hendrerit leo himenaeos placerat parturient" RoleType="Craftsman" />
                         <Model:OrderCardModel Description="Duis mollis" Name="Metus imperdiet pulvinar montes mus"
@@ -314,7 +314,7 @@
             </Model:BuildingSite>
             <Model:BuildingSite MaterialType="Wood" Name="Consequat lobortis" SiteType="InsideRome">
                 <Model:BuildingSite.BuildingFoundation>
-                    <Model:BuildingFoundation LocationName="Sed accumsan dis est" MaxCapacity="98">
+                    <Model:BuildingFoundation Id="Sed accumsan dis est" MaxCapacity="98">
                         <Model:OrderCardModel Description="Hac velit feugiat" Name="Leo nibh gravida bibendum nisi"
                                               RoleType="Architect" />
                         <Model:OrderCardModel Description="Nisl curabitur taciti dictumst vitae"
@@ -342,7 +342,7 @@
             <Model:BuildingSite MaterialType="Rubble" Name="Ultrices vehicula vestibulum vestibulum"
                                 SiteType="InsideRome">
                 <Model:BuildingSite.BuildingFoundation>
-                    <Model:BuildingFoundation LocationName="Sed vestibulum dis" MaxCapacity="27">
+                    <Model:BuildingFoundation Id="Sed vestibulum dis" MaxCapacity="27">
                         <Model:OrderCardModel Description="Senectus fringilla adipiscing pretium est"
                                               Name="Ligula proin" RoleType="Patron" />
                         <Model:OrderCardModel Description="Habitasse parturient vestibulum augue hac"
@@ -371,7 +371,7 @@
         </Model:ConstructionZone>
     </Model:PlayerBoard.ConstructionZone>
     <Model:PlayerBoard.CompletedBuildings>
-        <Model:CompletedBuildings LocationName="Aenean mauris nullam vestibulum aliquam">
+        <Model:CompletedBuildings Id="Aenean mauris nullam vestibulum aliquam">
             <Model:OrderCardModel Description="Curabitur class" Name="Adipiscing integer nam cras parturient"
                                   RoleType="Legionnaire" />
             <Model:OrderCardModel Description="Duis curae quisque donec" Name="Vestibulum etiam" RoleType="Legionnaire" />
@@ -393,7 +393,7 @@
         </Model:CompletedBuildings>
     </Model:PlayerBoard.CompletedBuildings>
     <Model:PlayerBoard.DemandArea>
-        <Model:DemandArea LocationName="Bibendum lacus ultricies dis">
+        <Model:DemandArea Id="Bibendum lacus ultricies dis">
             <Model:OrderCardModel Description="Venenatis dictumst eleifend eget vulputate"
                                   Name="Lorem aliquam magna aliquet" RoleType="Architect" />
             <Model:OrderCardModel Description="Elit nostra massa metus morbi" Name="Blandit neque vestibulum est"

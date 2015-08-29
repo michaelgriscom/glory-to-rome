@@ -72,7 +72,7 @@ namespace GTR.Core.Model
             _cards.RemoveAt(0);
         }
 
-        public string LocationName
+        public string Id
         {
             get { return "Deck"; }
         }

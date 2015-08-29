@@ -1,4 +1,4 @@
-﻿<Model:JackDeck xmlns:Model="using:GTR.Core.Model" LocationName="Nam maecenas sed">
+﻿<Model:JackDeck xmlns:Model="using:GTR.Core.Model" Id="Nam maecenas sed">
     <Model:JackCardModel Name="Nam" />
     <Model:JackCardModel Name="Duis" />
     <Model:JackCardModel Name="Nunc" />

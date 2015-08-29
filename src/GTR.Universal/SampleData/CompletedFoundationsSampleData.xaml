@@ -1,7 +1,7 @@
-﻿<Model:CompletedFoundations xmlns:Model="using:GTR.Core.Model" LocationName="Aenean cras nam class sed">
+﻿<Model:CompletedFoundations xmlns:Model="using:GTR.Core.Model" Id="Aenean cras nam class sed">
     <Model:BuildingSite MaterialType="Marble" Name="Class" SiteType="OutOfTown">
         <Model:BuildingSite.BuildingFoundation>
-            <Model:BuildingFoundation LocationName="Bibendum dolor fames non felis" MaxCapacity="93">
+            <Model:BuildingFoundation Id="Bibendum dolor fames non felis" MaxCapacity="93">
                 <Model:BuildingFoundation.Building>
                     <Model:OrderCardModel Description="Accumsan parturient aliquet blandit commodo"
                                           Name="Augue conubia" RoleType="Patron" />
@@ -32,7 +32,7 @@
     </Model:BuildingSite>
     <Model:BuildingSite MaterialType="Marble" Name="Nam" SiteType="InsideRome">
         <Model:BuildingSite.BuildingFoundation>
-            <Model:BuildingFoundation LocationName="Platea urna posuere primis" MaxCapacity="98">
+            <Model:BuildingFoundation Id="Platea urna posuere primis" MaxCapacity="98">
                 <Model:BuildingFoundation.Building>
                     <Model:OrderCardModel Description="Penatibus natoque porttitor nostra quis" Name="Ornare pulvinar"
                                           RoleType="Legionnaire" />
@@ -62,7 +62,7 @@
     </Model:BuildingSite>
     <Model:BuildingSite MaterialType="Concrete" Name="Sed" SiteType="OutOfTown">
         <Model:BuildingSite.BuildingFoundation>
-            <Model:BuildingFoundation LocationName="Dolor fames dapibus" MaxCapacity="19">
+            <Model:BuildingFoundation Id="Dolor fames dapibus" MaxCapacity="19">
                 <Model:BuildingFoundation.Building>
                     <Model:OrderCardModel Description="Eget proin facilisis varius" Name="Augue conubia sem cubilia"
                                           RoleType="Architect" />
@@ -93,7 +93,7 @@
     </Model:BuildingSite>
     <Model:BuildingSite MaterialType="Brick" Name="Aenean" SiteType="OutOfTown">
         <Model:BuildingSite.BuildingFoundation>
-            <Model:BuildingFoundation LocationName="Orci vestibulum pharetra sed" MaxCapacity="33">
+            <Model:BuildingFoundation Id="Orci vestibulum pharetra sed" MaxCapacity="33">
                 <Model:BuildingFoundation.Building>
                     <Model:OrderCardModel Description="Odio lectus velit vitae"
                                           Name="Lobortis parturient nascetur potenti" RoleType="Architect" />
@@ -122,7 +122,7 @@
     </Model:BuildingSite>
     <Model:BuildingSite MaterialType="Wood" Name="Aliquam" SiteType="OutOfTown">
         <Model:BuildingSite.BuildingFoundation>
-            <Model:BuildingFoundation LocationName="Parturient diam vestibulum eget" MaxCapacity="71">
+            <Model:BuildingFoundation Id="Parturient diam vestibulum eget" MaxCapacity="71">
                 <Model:BuildingFoundation.Building>
                     <Model:OrderCardModel Description="Ipsum aliquet blandit ultrices vehicula"
                                           Name="Commodo vestibulum conubia adipiscing nostra" RoleType="Patron" />
@@ -152,7 +152,7 @@
     </Model:BuildingSite>
     <Model:BuildingSite MaterialType="Stone" Name="Maecenas" SiteType="InsideRome">
         <Model:BuildingSite.BuildingFoundation>
-            <Model:BuildingFoundation LocationName="Natoque risus quam quis" MaxCapacity="65">
+            <Model:BuildingFoundation Id="Natoque risus quam quis" MaxCapacity="65">
                 <Model:BuildingFoundation.Building>
                     <Model:OrderCardModel Description="Pede fringilla purus sit" Name="Inceptos laoreet"
                                           RoleType="Architect" />
@@ -184,7 +184,7 @@
     </Model:BuildingSite>
     <Model:BuildingSite MaterialType="Marble" Name="Dis" SiteType="OutOfTown">
         <Model:BuildingSite.BuildingFoundation>
-            <Model:BuildingFoundation LocationName="Accumsan dictum erat bibendum lectus" MaxCapacity="49">
+            <Model:BuildingFoundation Id="Accumsan dictum erat bibendum lectus" MaxCapacity="49">
                 <Model:BuildingFoundation.Building>
                     <Model:OrderCardModel Description="Vestibulum venenatis elit mus enim" Name="Quisque cursus"
                                           RoleType="Laborer" />
@@ -212,7 +212,7 @@
     </Model:BuildingSite>
     <Model:BuildingSite MaterialType="Brick" Name="Mauris" SiteType="OutOfTown">
         <Model:BuildingSite.BuildingFoundation>
-            <Model:BuildingFoundation LocationName="Quis morbi urna hendrerit" MaxCapacity="89">
+            <Model:BuildingFoundation Id="Quis morbi urna hendrerit" MaxCapacity="89">
                 <Model:BuildingFoundation.Building>
                     <Model:OrderCardModel Description="Fermentum quam" Name="Vel metus fringilla habitasse"
                                           RoleType="Laborer" />
@@ -240,7 +240,7 @@
     </Model:BuildingSite>
     <Model:BuildingSite MaterialType="Marble" Name="Curae" SiteType="InsideRome">
         <Model:BuildingSite.BuildingFoundation>
-            <Model:BuildingFoundation LocationName="Semper eros nibh suscipit vestibulum" MaxCapacity="89">
+            <Model:BuildingFoundation Id="Semper eros nibh suscipit vestibulum" MaxCapacity="89">
                 <Model:BuildingFoundation.Building>
                     <Model:OrderCardModel Description="Sapien parturient velit vitae sed" Name="Sem sit erat"
                                           RoleType="Patron" />
@@ -271,7 +271,7 @@
     </Model:BuildingSite>
     <Model:BuildingSite MaterialType="Stone" Name="Praesent" SiteType="OutOfTown">
         <Model:BuildingSite.BuildingFoundation>
-            <Model:BuildingFoundation LocationName="Sit vel adipiscing" MaxCapacity="93">
+            <Model:BuildingFoundation Id="Sit vel adipiscing" MaxCapacity="93">
                 <Model:BuildingFoundation.Building>
                     <Model:OrderCardModel Description="Eleifend fermentum" Name="Sem fringilla proin"
                                           RoleType="Merchant" />

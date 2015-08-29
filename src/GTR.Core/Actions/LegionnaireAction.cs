@@ -58,7 +58,8 @@ namespace GTR.Core.ManipulatableRules.Actions
                     moveSpace.Add(demandMove);
                 }
             }
-            demandee.InputService.GetMove(moveSpace);
+            // TODO: implement
+            //demandee.InputService.GetMove(moveSpace);
         }
 
         protected override MoveSpace GetMoveSpace()

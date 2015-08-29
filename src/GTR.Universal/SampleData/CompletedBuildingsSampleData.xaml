@@ -1,4 +1,4 @@
-﻿<Model:CompletedBuildings xmlns:Model="using:GTR.Core.Model" LocationName="Aliquam class aenean vestibulum adipiscing">
+﻿<Model:CompletedBuildings xmlns:Model="using:GTR.Core.Model" Id="Aliquam class aenean vestibulum adipiscing">
     <Model:OrderCardModel Description="Nam curabitur phasellus" Name="Aliquam" RoleType="Craftsman" />
     <Model:OrderCardModel Description="Consequat cras maecenas duis mauris" Name="Cras" RoleType="Craftsman" />
     <Model:OrderCardModel Description="Nunc etiam praesent" Name="Aenean" RoleType="Craftsman" />

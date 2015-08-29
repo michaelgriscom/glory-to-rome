@@ -8,12 +8,10 @@ namespace GTR.Core.CardCollections
 {
     public class BoundedCardTarget<T> : CardLocation<T>, ICardTarget<T> where T : CardModelBase
     {
-        private string _locationName;
         private int _maxCapacity;
 
-        public BoundedCardTarget(string name = "")
+        public BoundedCardTarget(string id = "") : base(id)
         {
-            _locationName = name;
         }
 
         public BoundedCardTarget(int maxCapacity)
@@ -30,12 +28,6 @@ namespace GTR.Core.CardCollections
         public virtual bool CanAdd(T card)
         {
             return Count < MaxCapacity;
-        }
-
-        public override string LocationName
-        {
-            get { return _locationName; }
-            set { _locationName = value; }
         }
     }
 }

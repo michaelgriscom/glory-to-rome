@@ -1,4 +1,4 @@
-﻿<Model:Stockpile xmlns:Model="using:GTR.Core.Model" LocationName="Nam sed curabitur cras aliquam">
+﻿<Model:Stockpile xmlns:Model="using:GTR.Core.Model" Id="Nam sed curabitur cras aliquam">
     <Model:OrderCardModel Description="Class curae vestibulum phasellus" Name="Adipiscing aenean integer donec"
                           RoleType="Merchant" />
     <Model:OrderCardModel Description="Quisque dis est maecenas praesent" Name="Accumsan hac vivamus" RoleType="Patron" />

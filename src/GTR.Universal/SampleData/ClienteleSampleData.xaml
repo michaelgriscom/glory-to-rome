@@ -1,4 +1,4 @@
-﻿<Model:Clientele xmlns:Model="using:GTR.Core.Model" IsFull="True" LocationName="Maecenas aliquam curabitur"
+﻿<Model:Clientele xmlns:Model="using:GTR.Core.Model" IsFull="True" Id="Maecenas aliquam curabitur"
                  MaxCapacity="50">
     <Model:OrderCardModel Description="Praesent accumsan phasellus integer quisque" Name="Bibendum nam consequat"
                           RoleType="Architect" />

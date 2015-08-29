@@ -11,32 +11,28 @@ namespace GTR.Core.CardCollections
 {
     public abstract class CardLocation<T> : ObservableCollection<T>, ICardLocation<T> where T : CardModelBase
     {
-        private string _locationName;
-
-        public int Id { get; private set; }
+        private string _id;
 
         static int nextId;
 
         internal CardLocation()
         {
-            Id = Interlocked.Increment(ref nextId);
         }
 
-        internal CardLocation(string name) : this()
+        internal CardLocation(string id) : this()
         {
-            _locationName = name;
+            _id = id;
         }
 
         internal CardLocation(IEnumerable<T> cards)
             : base(cards)
         {
-            Id = Interlocked.Increment(ref nextId);
         }
 
-        public virtual string LocationName
+        public string Id
         {
-            get { return _locationName; }
-            set { _locationName = value; }
+            get { return _id; }
+            set { _id = value; }
         }
     }
 }

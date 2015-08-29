@@ -28,7 +28,7 @@ namespace GTR.Core.Model
         {
             OrderDeck = orderDeck;
             JackDeck = jackDeck;
-            JackDeck.LocationName = "Jack Deck";
+            JackDeck.Id = "Jack Deck";
             Pool = new Pool();
         }
 

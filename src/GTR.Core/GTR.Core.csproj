@@ -39,27 +39,32 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Messages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game\AIController\AIPlayerInput.cs" />
     <Compile Include="Buildings\BuildingEffectBase.cs" />
     <Compile Include="Buildings\BuildingEffectFactory.cs" />
+    <Compile Include="Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
     <Compile Include="Model\CardCollections\BoundedSourceTarget.cs" />
     <Compile Include="Model\CardCollections\CardTarget.cs" />
     <Compile Include="DeckManagement\CardSet.cs" />
-    <Compile Include="Action\IAction.cs" />
+    <Compile Include="Moves\IAction.cs" />
     <Compile Include="Game\Engine\GameEngine.cs" />
     <Compile Include="Game\GameFactory.cs" />
     <Compile Include="Game\Scoring\GameOverEventArgs.cs" />
-    <Compile Include="Action\IMove.cs" />
+    <Compile Include="Moves\IMove.cs" />
     <Compile Include="Model\Game.cs" />
     <Compile Include="Game\Engine\PlayerEngine.cs" />
     <Compile Include="Marshalling\DTO\CardLocations.cs" />
@@ -77,7 +82,7 @@
     <Compile Include="Game\Scoring\PlayerScores.cs" />
     <Compile Include="Game\Scoring\GameScorer.cs" />
     <Compile Include="Game\Scoring\GameWonEventArgs.cs" />
-    <Compile Include="Action\ThinkCombo.cs" />
+    <Compile Include="Moves\ThinkCombo.cs" />
     <Compile Include="Model\Table\BuildingFoundation.cs" />
     <Compile Include="Model\Player\PlayArea.cs" />
     <Compile Include="Game\UserMessage.cs" />
@@ -91,7 +96,6 @@
     <Compile Include="Util\ObservableObject.cs" />
     <Compile Include="Util\RelayCommand.cs" />
     <Compile Include="Util\WrappedFunc.cs" />
-    <Compile Include="ManipulatableRules\ConstructionManager.cs" />
     <Compile Include="Model\Player\ConstructionZone.cs" />
     <Compile Include="Model\Player\CompletedBuildings.cs" />
     <Compile Include="Model\Player\CompletedStructures.cs" />
@@ -100,22 +104,21 @@
     <Compile Include="DeckManagement\DeckTypeSerializer.cs" />
     <Compile Include="Design\DesignResourceProvider.cs" />
     <Compile Include="Model\GameOptions.cs" />
-    <Compile Include="Action\BuildCombo.cs" />
-    <Compile Include="ManipulatableRules\LeadFollowManager.cs" />
-    <Compile Include="ManipulatableRules\Actions\ArchitectAction.cs" />
+    <Compile Include="Moves\BuildCombo.cs" />
+    <Compile Include="Actions\ArchitectAction.cs" />
     <Compile Include="Buildings\BuildOrderActionBase.cs" />
-    <Compile Include="ManipulatableRules\Actions\CraftsmanAction.cs" />
+    <Compile Include="Actions\CraftsmanAction.cs" />
     <Compile Include="Model\Player\DemandArea.cs" />
-    <Compile Include="Action\Move.cs" />
-    <Compile Include="Action\MoveSpace.cs" />
-    <Compile Include="ManipulatableRules\Actions\OrderActions.cs" />
-    <Compile Include="ManipulatableRules\Actions\ITriAction.cs" />
-    <Compile Include="ManipulatableRules\Actions\LaborerAction.cs" />
-    <Compile Include="ManipulatableRules\Actions\LegionnaireAction.cs" />
-    <Compile Include="ManipulatableRules\Actions\MerchantAction.cs" />
-    <Compile Include="ManipulatableRules\Actions\OrderActionBase.cs" />
-    <Compile Include="ManipulatableRules\Actions\PatronAction.cs" />
-    <Compile Include="ManipulatableRules\Actions\ThinkerAction.cs" />
+    <Compile Include="Moves\Move.cs" />
+    <Compile Include="Moves\MoveSpace.cs" />
+    <Compile Include="Actions\OrderActions.cs" />
+    <Compile Include="Actions\ITriAction.cs" />
+    <Compile Include="Actions\LaborerAction.cs" />
+    <Compile Include="Actions\LegionnaireAction.cs" />
+    <Compile Include="Actions\MerchantAction.cs" />
+    <Compile Include="Actions\OrderActionBase.cs" />
+    <Compile Include="Actions\PatronAction.cs" />
+    <Compile Include="Actions\ThinkerAction.cs" />
     <Compile Include="Model\CardCollections\BoundedCardTarget.cs" />
     <Compile Include="Model\CardCollections\ICardLocation.cs" />
     <Compile Include="Model\CardCollections\ICardTarget.cs" />
@@ -135,11 +138,6 @@
     <Compile Include="Model\Card\JackCardModel.cs" />
     <Compile Include="Model\Card\OrderCardModel.cs" />
     <Compile Include="Services\IPlayerInput.cs" />
-    <Compile Include="Messages.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Messages.resx</DependentUpon>
-    </Compile>
     <Compile Include="Util\Multiset.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
