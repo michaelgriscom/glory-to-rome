@@ -1,24 +1,26 @@
-﻿using System.Web.Http.Controllers;
+﻿#region
+
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Web.Http;
 using System.Web.Http.OData;
+using GTR.Tiber.DataObjects;
 using Microsoft.Azure.Mobile.Server;
 using tiberService.Models;
-using GTR.Tiber.DataObjects;
-using System.Linq;
-using System.Web.Http;
-using System.Threading.Tasks;
-using System.Net.Http;
+
+#endregion
 
 namespace GTR.Tiber.Controllers
 {
     public class LobbyTable
     {
+        private readonly TiberContext context;
+
         public LobbyTable()
         {
             context = new TiberContext();
         }
-
-        private TiberContext context;
-
 
         public IQueryable<LobbyGame> GetAllLobbyGames(HttpRequestMessage request)
         {

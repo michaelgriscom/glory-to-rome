@@ -1,6 +1,8 @@
 ﻿#region
 
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 #endregion
 
@@ -13,6 +15,15 @@ namespace GTR.Core.Util
         public Multiset()
         {
             _itemCounts = new Dictionary<T, int>();
+        }
+
+        public T First()
+        {
+            if (_itemCounts == null || TotalCount == 0)
+            {
+                throw new IndexOutOfRangeException("No items");
+            }
+            return _itemCounts.First().Key;
         }
 
         public ICollection<T> UniqueItems

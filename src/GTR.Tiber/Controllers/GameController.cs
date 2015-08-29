@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using GTR.Core.Serialization;
+using GTR.Tiber.DataObjects;
 using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.Config;
 
@@ -14,61 +15,44 @@ namespace GTR.Tiber.Controllers
     [MobileAppController]
     public class GameController : ApiController
     {
-        public async Task<MoveResponseSerialization> PostMove(MoveSetRequest request)
+        private GameManager gameManager = GameManager.Instance;
+
+        public async Task<MoveResponseSerialization> PostMove(MoveSetRequest moveSetRequest)
         {
             MoveResponseSerialization response = new MoveResponseSerialization {Success = false};
 
-            if (!IsValidToken(request.AuthorizationToken, request.GameId))
+            if (!IsValidToken(moveSetRequest.AuthorizationToken, moveSetRequest.GameId))
             {
                 response.Message = ErrorMessages.InvalidAuth;
                 return response;
             }
 
-            int playerId = GetPlayerId(request.AuthorizationToken, request.GameId);
-            if (!WaitingForMove(playerId))
-            {
-                response.Message = ErrorMessages.NotPlayerTurn;
-                return response;
-            }
+            string playerId = GetPlayerId(moveSetRequest.AuthorizationToken, moveSetRequest.GameId);
 
-            if (!ValidateMove(request.MoveSet))
+            bool moveSuccess = gameManager.MakeMove(playerId, moveSetRequest);
+
+            if (!PerformMove(moveSetRequest))
             {
                 response.Message = ErrorMessages.IllegalMove;
                 return response;
             }
-
-            PerformMove(request.MoveSet);
-            await RecordMove(request.MoveSet);
             response.Success = true;
             return response;
         }
 
-        private async Task RecordMove(MoveSetSerialization moveSet)
+
+        private bool PerformMove(MoveSetRequest moveSetRequest)
+        {
+            return gameManager.MakeMove(moveSetRequest.GameId, moveSetRequest.MoveSet);
+        }
+
+
+        private bool IsValidToken(int authorizationToken, string gameId)
         {
             throw new NotImplementedException();
         }
 
-        private void PerformMove(MoveSetSerialization moveSet)
-        {
-            throw new NotImplementedException();
-        }
-
-        private bool ValidateMove(MoveSetSerialization moveSet)
-        {
-            throw new NotImplementedException();
-        }
-
-        private bool WaitingForMove(int playerId)
-        {
-            throw new NotImplementedException();
-        }
-
-        private bool IsValidToken(int authorizationToken, int gameId)
-        {
-            throw new NotImplementedException();
-        }
-
-        private int GetPlayerId(int authorizationToken, int gameId)
+        private string GetPlayerId(int authorizationToken, string gameId)
         {
             throw new NotImplementedException();
         }

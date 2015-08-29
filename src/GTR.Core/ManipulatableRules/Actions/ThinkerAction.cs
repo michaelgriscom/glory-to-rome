@@ -2,6 +2,7 @@
 
 using System;
 using GTR.Core.Action;
+using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.Model;
 
@@ -20,7 +21,7 @@ namespace GTR.Core.ManipulatableRules.Actions
         {
             _jackDeck = gameTable.JackDeck;
             _orderDeck = gameTable.OrderDeck;
-            _playerHand = player.Board.Hand;
+            _playerHand = Player.Hand;
         }
 
         protected override MoveSpace GetMoveSpace()

@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using GTR.Core.Action;
 using GTR.Core.Buildings;
+using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.Model;
 
@@ -19,9 +20,9 @@ namespace GTR.Core.ManipulatableRules.Actions
         public ArchitectAction(Player player, GameTable gameTable)
             : base(player, gameTable)
         {
-            _buildingSites = player.Board.ConstructionZone;
-            _playerHand = player.Board.Hand.OrderCards;
-            _playerStockpile = player.Board.Camp.Stockpile;
+            _buildingSites = Player.ConstructionZone;
+            _playerHand = Player.Hand.OrderCards;
+            _playerStockpile = Player.Camp.Stockpile;
         }
 
         public override RoleType Role

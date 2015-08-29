@@ -1,6 +1,7 @@
 ﻿#region
 
 using GTR.Core.Action;
+using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.Model;
 
@@ -16,8 +17,8 @@ namespace GTR.Core.ManipulatableRules.Actions
         public MerchantAction(Player player, GameTable gameTable)
             : base(player, gameTable)
         {
-            _playerStockpile = player.Board.Camp.Stockpile;
-            _playerVault = player.Board.Camp.Vault;
+            _playerStockpile = Player.Camp.Stockpile;
+            _playerVault = Player.Camp.Vault;
         }
 
         protected override MoveSpace GetMoveSpace()

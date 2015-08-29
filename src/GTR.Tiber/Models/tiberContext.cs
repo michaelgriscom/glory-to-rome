@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
+using GTR.Tiber.DataObjects;
 using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.Tables;
 
@@ -25,6 +26,7 @@ namespace tiberService.Models
         } 
 
         //public DbSet<TodoItem> TodoItems { get; set; }
+        public DbSet<MoveEntity> ActiveMoves { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

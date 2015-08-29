@@ -1,6 +1,7 @@
 ﻿#region
 
 using GTR.Core.Action;
+using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.ManipulatableRules.Actions;
 using GTR.Core.Model;
@@ -22,7 +23,7 @@ namespace GTR.Core.Buildings
         protected virtual void PopulateBuildMoves(OrderCardModel handCard, MoveSpace moveSpace)
         {
             int buildCost = GameTable.GetSiteCost(handCard.GetMaterialType());
-            int outstandingActions = Player.GetActions(Role);
+            int outstandingActions = Player.OutstandingActions.Count(Role);
 
             if (outstandingActions >= buildCost)
             {
@@ -44,11 +45,11 @@ namespace GTR.Core.Buildings
             BuildingSite site = siteDeck.Top;
 
             // move building card on top of site foundation
-            IMove<OrderCardModel> buildAction = new Move<OrderCardModel>(handCard, Player.Board.Hand.OrderCards,
+            IMove<OrderCardModel> buildAction = new Move<OrderCardModel>(handCard, Player.Hand.OrderCards,
                 site.BuildingFoundation);
 
             // move site foundation card from deck to player's camp
-            IMove<BuildingSite> siteMove = new Move<BuildingSite>(site, siteDeck, Player.Board.ConstructionZone);
+            IMove<BuildingSite> siteMove = new Move<BuildingSite>(site, siteDeck, Player.ConstructionZone);
 
             BuildCombo buildCombo = new BuildCombo(siteMove, buildAction);
             return buildCombo;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using GTR.Core.Action;
 using GTR.Core.CardCollections;
+using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.Model;
 
@@ -19,9 +20,9 @@ namespace GTR.Core.ManipulatableRules.Actions
         public LegionnaireAction(Player player, GameTable gameTable)
             : base(player, gameTable)
         {
-            _playerHand = player.Board.Hand.OrderCards;
-            _demandArea = player.Board.DemandArea;
-            player.Board.DemandArea.CollectionChanged += DemandAreaOnCollectionChanged;
+            _playerHand = Player.Hand.OrderCards;
+            _demandArea = Player.DemandArea;
+            Player.DemandArea.CollectionChanged += DemandAreaOnCollectionChanged;
         }
 
         private void DemandAreaOnCollectionChanged(object sender,
@@ -48,12 +49,12 @@ namespace GTR.Core.ManipulatableRules.Actions
         private void DemandCard(RoleType demandedRoleType, Player demandee)
         {
             MoveSpace moveSpace = new MoveSpace(true);
-            foreach (var handCard in demandee.Board.Hand.OrderCards)
+            foreach (var handCard in demandee.Hand.OrderCards)
             {
                 if (handCard.RoleType == demandedRoleType)
                 {
-                    IMove<OrderCardModel> demandMove = new Move<OrderCardModel>(handCard, demandee.Board.Hand.OrderCards,
-                        Player.Board.Camp.Stockpile);
+                    IMove<OrderCardModel> demandMove = new Move<OrderCardModel>(handCard, demandee.Hand.OrderCards,
+                        Player.Camp.Stockpile);
                     moveSpace.Add(demandMove);
                 }
             }

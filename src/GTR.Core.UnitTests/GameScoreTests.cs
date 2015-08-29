@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using GTR.Core.CardCollections;
+using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.Model;
 using GTR.Core.Util;
@@ -61,12 +62,12 @@ namespace GTR.Core.UnitTests
             var woodFoundation = new BuildingSite(MaterialType.Wood);
             var rubbleFoundation = new BuildingSite(MaterialType.Rubble);
 
-            player.Board.Camp.CompletedFoundations.Add(brickFoundation);
-            player.Board.Camp.CompletedFoundations.Add(concreteFoundation);
-            player.Board.Camp.CompletedFoundations.Add(marbleFoundation);
-            player.Board.Camp.CompletedFoundations.Add(stoneFoundation);
-            player.Board.Camp.CompletedFoundations.Add(woodFoundation);
-            player.Board.Camp.CompletedFoundations.Add(rubbleFoundation);
+            player.Camp.CompletedFoundations.Add(brickFoundation);
+            player.Camp.CompletedFoundations.Add(concreteFoundation);
+            player.Camp.CompletedFoundations.Add(marbleFoundation);
+            player.Camp.CompletedFoundations.Add(stoneFoundation);
+            player.Camp.CompletedFoundations.Add(woodFoundation);
+            player.Camp.CompletedFoundations.Add(rubbleFoundation);
 
             var gameScore = GameScorer.Score(players);
             int playerScore = gameScore.GetScoreBreakdown(player).Total;

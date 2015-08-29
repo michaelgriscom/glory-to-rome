@@ -63,10 +63,6 @@
       <Project>{15b839af-a44e-4676-b7db-9555ece3101a}</Project>
       <Name>GTR.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GTR.Windows\GTR.Windows.csproj">
-      <Project>{3eff9233-3602-4e9d-b263-274553537946}</Project>
-      <Name>GTR.Windows</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

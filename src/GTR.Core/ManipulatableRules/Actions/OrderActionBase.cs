@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using GTR.Core.Action;
 using GTR.Core.Buildings;
+using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.Model;
 using GTR.Core.Util;
@@ -89,14 +90,6 @@ namespace GTR.Core.ManipulatableRules.Actions
                 Player = Player
             };
             return args;
-        }
-
-        private void AddMoves(IEnumerable<MoveSpace> moveSpaces, Player player)
-        {
-            foreach (var moveSpace in moveSpaces)
-            {
-                player.AddMoveSpace(moveSpace);
-            }
         }
 
         protected abstract MoveSpace GetMoveSpace();

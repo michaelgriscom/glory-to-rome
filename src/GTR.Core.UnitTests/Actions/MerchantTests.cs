@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using GTR.Core.Action;
 using GTR.Core.CardCollections;
+using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.ManipulatableRules.Actions;
 using GTR.Core.Model;
@@ -38,11 +39,11 @@ namespace GTR.Core.UnitTests.Actions
         [TestMethod]
         public void VanillaMerchant()
         {
-            _player.Board.Camp.Vault.MaxCapacity = 1;
+            _player.Camp.Vault.MaxCapacity = 1;
             var action = new MerchantAction(_player, _gameTable);
 
             OrderCardModel stockpileCard = new OrderCardModel("pool card", "test", RoleType.Architect);
-            _player.Board.Camp.Stockpile.Add(stockpileCard);
+            _player.Camp.Stockpile.Add(stockpileCard);
             var moveSpace = action.Execute();
 
             var enumerator = moveSpace.GetEnumerator();
@@ -55,8 +56,8 @@ namespace GTR.Core.UnitTests.Actions
 
             // ReSharper disable once PossibleNullReferenceException
             Assert.AreEqual(move.Card, stockpileCard);
-            Assert.AreEqual(move.Source, _player.Board.Camp.Stockpile);
-            Assert.AreEqual(move.Destination, _player.Board.Camp.Vault);
+            Assert.AreEqual(move.Source, _player.Camp.Stockpile);
+            Assert.AreEqual(move.Destination, _player.Camp.Vault);
 
             Assert.IsFalse(enumerator.MoveNext());
         }
@@ -64,10 +65,10 @@ namespace GTR.Core.UnitTests.Actions
         [TestMethod]
         public void FullVaultMerchant()
         {
-            _player.Board.Camp.Vault.MaxCapacity = 0;
+            _player.Camp.Vault.MaxCapacity = 0;
 
             OrderCardModel stockpileCard = new OrderCardModel("pool card", "test", RoleType.Architect);
-            _player.Board.Camp.Stockpile.Add(stockpileCard);
+            _player.Camp.Stockpile.Add(stockpileCard);
             var moveSpace = _action.Execute();
 
             var enumerator = moveSpace.GetEnumerator();
@@ -77,7 +78,7 @@ namespace GTR.Core.UnitTests.Actions
         [TestMethod]
         public void EmptyStockpileMerchant()
         {
-            _player.Board.Camp.Vault.MaxCapacity = 1;
+            _player.Camp.Vault.MaxCapacity = 1;
             var moveSpace = _action.Execute();
 
             var enumerator = moveSpace.GetEnumerator();
@@ -87,14 +88,14 @@ namespace GTR.Core.UnitTests.Actions
         [TestMethod]
         public void MultipleOptionsMerchant()
         {
-            _player.Board.Camp.Vault.MaxCapacity = 1;
+            _player.Camp.Vault.MaxCapacity = 1;
 
             const int stockpileCount = 5;
             HashSet<OrderCardModel> stockpileCards = new HashSet<OrderCardModel>();
             for (int i = 0; i < stockpileCount; i++)
             {
                 OrderCardModel stockpileCard = new OrderCardModel("pool card", "test", RoleType.Craftsman);
-                _player.Board.Camp.Stockpile.Add(stockpileCard);
+                _player.Camp.Stockpile.Add(stockpileCard);
                 stockpileCards.Add(stockpileCard);
             }
 
@@ -110,8 +111,8 @@ namespace GTR.Core.UnitTests.Actions
 
                 // ReSharper disable once PossibleNullReferenceException
                 Assert.IsTrue(stockpileCards.Contains(move.Card));
-                Assert.AreEqual(move.Source, _player.Board.Camp.Stockpile);
-                Assert.AreEqual(move.Destination, _player.Board.Camp.Vault);
+                Assert.AreEqual(move.Source, _player.Camp.Stockpile);
+                Assert.AreEqual(move.Destination, _player.Camp.Vault);
             }
 
             Assert.AreEqual(stockpileCount, moveCount);

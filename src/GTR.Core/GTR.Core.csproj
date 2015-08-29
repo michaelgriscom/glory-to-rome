@@ -43,60 +43,69 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Util\Messages.resx">
+    <EmbeddedResource Include="Messages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Messages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AIController\AIPlayerInput.cs" />
+    <Compile Include="Game\AIController\AIPlayerInput.cs" />
     <Compile Include="Buildings\BuildingEffectBase.cs" />
     <Compile Include="Buildings\BuildingEffectFactory.cs" />
-    <Compile Include="CardCollections\BoundedSourceTarget.cs" />
-    <Compile Include="CardCollections\CardTarget.cs" />
+    <Compile Include="Model\CardCollections\BoundedSourceTarget.cs" />
+    <Compile Include="Model\CardCollections\CardTarget.cs" />
     <Compile Include="DeckManagement\CardSet.cs" />
     <Compile Include="Action\IAction.cs" />
-    <Compile Include="Game\GameOverEventArgs.cs" />
+    <Compile Include="Game\Engine\GameEngine.cs" />
+    <Compile Include="Game\GameFactory.cs" />
+    <Compile Include="Game\Scoring\GameOverEventArgs.cs" />
     <Compile Include="Action\IMove.cs" />
-    <Compile Include="Serialization\CardLocations.cs" />
-    <Compile Include="Serialization\Cards.cs" />
-    <Compile Include="Serialization\Game.cs" />
-    <Compile Include="Serialization\Matchmaking.cs" />
-    <Compile Include="Serialization\Move.cs" />
-    <Compile Include="Model\JackDeck.cs" />
-    <Compile Include="Model\OrderDeck.cs" />
-    <Compile Include="Model\PlayerBoard.cs" />
-    <Compile Include="Game\PlayerScores.cs" />
-    <Compile Include="Game\GameScorer.cs" />
-    <Compile Include="Game\GameWonEventArgs.cs" />
+    <Compile Include="Model\Game.cs" />
+    <Compile Include="Game\Engine\PlayerEngine.cs" />
+    <Compile Include="Marshalling\DTO\CardLocations.cs" />
+    <Compile Include="Marshalling\DTO\Cards.cs" />
+    <Compile Include="Marshalling\DTO\Game.cs" />
+    <Compile Include="Marshalling\GameMarshaller.cs" />
+    <Compile Include="Marshalling\DTO\IDto.cs" />
+    <Compile Include="Marshalling\IMarshaller.cs" />
+    <Compile Include="Model\IModel.cs" />
+    <Compile Include="Marshalling\MoveMarshaller.cs" />
+    <Compile Include="Marshalling\DTO\Matchmaking.cs" />
+    <Compile Include="Marshalling\DTO\Move.cs" />
+    <Compile Include="Model\Deck\JackDeck.cs" />
+    <Compile Include="Model\Deck\OrderDeck.cs" />
+    <Compile Include="Game\Scoring\PlayerScores.cs" />
+    <Compile Include="Game\Scoring\GameScorer.cs" />
+    <Compile Include="Game\Scoring\GameWonEventArgs.cs" />
     <Compile Include="Action\ThinkCombo.cs" />
-    <Compile Include="Model\BuildingFoundation.cs" />
-    <Compile Include="Model\PlayArea.cs" />
-    <Compile Include="Model\UserMessage.cs" />
-    <Compile Include="Serialization\Request.cs" />
-    <Compile Include="Serialization\Responses.cs" />
+    <Compile Include="Model\Table\BuildingFoundation.cs" />
+    <Compile Include="Model\Player\PlayArea.cs" />
+    <Compile Include="Game\UserMessage.cs" />
+    <Compile Include="Marshalling\DTO\Request.cs" />
+    <Compile Include="Marshalling\DTO\Responses.cs" />
     <Compile Include="Services\IGameService.cs" />
     <Compile Include="Services\IMatchmakingService.cs" />
+    <Compile Include="Services\IPlayerInputService.cs" />
     <Compile Include="Services\NullMessageProvider.cs" />
     <Compile Include="Util\JsonNetConfiguration.cs" />
+    <Compile Include="Util\ObservableObject.cs" />
     <Compile Include="Util\RelayCommand.cs" />
     <Compile Include="Util\WrappedFunc.cs" />
     <Compile Include="ManipulatableRules\ConstructionManager.cs" />
-    <Compile Include="Model\ConstructionZone.cs" />
-    <Compile Include="Model\CompletedBuildings.cs" />
-    <Compile Include="Model\CompletedStructures.cs" />
-    <Compile Include="CardCollections\ICardSource.cs" />
+    <Compile Include="Model\Player\ConstructionZone.cs" />
+    <Compile Include="Model\Player\CompletedBuildings.cs" />
+    <Compile Include="Model\Player\CompletedStructures.cs" />
+    <Compile Include="Model\CardCollections\ICardSource.cs" />
     <Compile Include="DeckManagement\CardManager.cs" />
     <Compile Include="DeckManagement\DeckTypeSerializer.cs" />
     <Compile Include="Design\DesignResourceProvider.cs" />
-    <Compile Include="Game\GameOptions.cs" />
+    <Compile Include="Model\GameOptions.cs" />
     <Compile Include="Action\BuildCombo.cs" />
     <Compile Include="ManipulatableRules\LeadFollowManager.cs" />
     <Compile Include="ManipulatableRules\Actions\ArchitectAction.cs" />
     <Compile Include="Buildings\BuildOrderActionBase.cs" />
     <Compile Include="ManipulatableRules\Actions\CraftsmanAction.cs" />
-    <Compile Include="Model\DemandArea.cs" />
-    <Compile Include="Model\LeaderCardLocation.cs" />
+    <Compile Include="Model\Player\DemandArea.cs" />
     <Compile Include="Action\Move.cs" />
     <Compile Include="Action\MoveSpace.cs" />
     <Compile Include="ManipulatableRules\Actions\OrderActions.cs" />
@@ -107,33 +116,31 @@
     <Compile Include="ManipulatableRules\Actions\OrderActionBase.cs" />
     <Compile Include="ManipulatableRules\Actions\PatronAction.cs" />
     <Compile Include="ManipulatableRules\Actions\ThinkerAction.cs" />
-    <Compile Include="CardCollections\BoundedCardTarget.cs" />
-    <Compile Include="CardCollections\ICardLocation.cs" />
-    <Compile Include="CardCollections\ICardTarget.cs" />
-    <Compile Include="CardCollections\CardLocation.cs" />
-    <Compile Include="Model\BuildingSite.cs" />
-    <Compile Include="Model\Clientele.cs" />
-    <Compile Include="Model\Deck.cs" />
-    <Compile Include="Model\Hand.cs" />
-    <Compile Include="Model\Pool.cs" />
-    <Compile Include="Model\SiteDeck.cs" />
-    <Compile Include="Model\Stockpile.cs" />
-    <Compile Include="CardCollections\CardSourceTarget.cs" />
+    <Compile Include="Model\CardCollections\BoundedCardTarget.cs" />
+    <Compile Include="Model\CardCollections\ICardLocation.cs" />
+    <Compile Include="Model\CardCollections\ICardTarget.cs" />
+    <Compile Include="Model\CardCollections\CardLocation.cs" />
+    <Compile Include="Model\Table\BuildingSite.cs" />
+    <Compile Include="Model\Player\Clientele.cs" />
+    <Compile Include="Model\Deck\Deck.cs" />
+    <Compile Include="Model\Player\Hand.cs" />
+    <Compile Include="Model\Table\Pool.cs" />
+    <Compile Include="Model\Deck\SiteDeck.cs" />
+    <Compile Include="Model\Player\Stockpile.cs" />
+    <Compile Include="Model\CardCollections\CardSourceTarget.cs" />
     <Compile Include="DeckManagement\DeckType.cs" />
-    <Compile Include="Model\CardModelBase.cs" />
+    <Compile Include="Model\Card\CardModelBase.cs" />
     <Compile Include="DeckManagement\CardSetSerializer.cs" />
-    <Compile Include="Model\HandCardModel.cs" />
-    <Compile Include="Model\JackCardModel.cs" />
-    <Compile Include="Model\LeaderCardModel.cs" />
-    <Compile Include="Model\OrderCardModel.cs" />
+    <Compile Include="Model\Card\HandCardModel.cs" />
+    <Compile Include="Model\Card\JackCardModel.cs" />
+    <Compile Include="Model\Card\OrderCardModel.cs" />
     <Compile Include="Services\IPlayerInput.cs" />
-    <Compile Include="Util\Messages.Designer.cs">
+    <Compile Include="Messages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Messages.resx</DependentUpon>
     </Compile>
     <Compile Include="Util\Multiset.cs" />
-    <Compile Include="Util\ObservableObject.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -143,21 +150,16 @@
     <Compile Include="Services\IMessageProvider.cs" />
     <Compile Include="Services\IResourceProvider.cs" />
     <Compile Include="Util\ExtensionMethods.cs" />
-    <Compile Include="Model\Vault.cs" />
+    <Compile Include="Model\Player\Vault.cs" />
     <Compile Include="Buildings\BuildingCompletedEventArgs.cs" />
     <Compile Include="Buildings\RubbleBuildingEffects.cs" />
-    <Compile Include="Model\Camp.cs" />
-    <Compile Include="Game\Constants.cs" />
+    <Compile Include="Model\Player\Camp.cs" />
     <Compile Include="Game\Enumerations.cs" />
-    <Compile Include="Game\Game.cs" />
-    <Compile Include="Game\GameHistory.cs" />
-    <Compile Include="Game\Player.cs" />
-    <Compile Include="Model\GameTable.cs" />
+    <Compile Include="Model\Player\Player.cs" />
+    <Compile Include="Model\Table\GameTable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\Globals.cs" />
-    <Compile Include="ViewModel\GameViewModel.cs" />
-    <Compile Include="ViewModel\MenuOptionViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">

@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using GTR.Core.Action;
 using GTR.Core.Buildings;
+using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.Model;
 using GTR.Core.Util;
@@ -19,8 +20,8 @@ namespace GTR.Core.ManipulatableRules.Actions
         internal CraftsmanAction(Player player, GameTable gameTable)
             : base(player, gameTable)
         {
-            _playerHand = player.Board.Hand.OrderCards;
-            _buildingSites = player.Board.ConstructionZone;
+            _playerHand = Player.Hand.OrderCards;
+            _buildingSites = Player.ConstructionZone;
         }
 
         public override RoleType Role

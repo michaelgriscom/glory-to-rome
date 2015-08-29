@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using GTR.Core.Action;
+using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.Model;
 using GTR.Core.Util;
@@ -17,15 +18,15 @@ namespace GTR.Core.Buildings
             get { return MaterialType.Rubble; }
         }
 
-        public override void ActivateBuilding(Player player, GameTable gameTable)
+        public override void ActivateBuilding(PlayerEngine playerEngine, GameTable gameTable)
         {
         }
 
-        public override void CompleteBuilding(Player player, GameTable gameTable)
+        public override void CompleteBuilding(PlayerEngine playerEngine, GameTable gameTable)
         {
         }
 
-        public override void DeactivateBuilding(Player player, GameTable gameTable)
+        public override void DeactivateBuilding(PlayerEngine playerEngine, GameTable gameTable)
         {
         }
     }
@@ -40,21 +41,20 @@ namespace GTR.Core.Buildings
             get { return MaterialType.Rubble; }
         }
 
-        public override void ActivateBuilding(Player player, GameTable gameTable)
+        public override void ActivateBuilding(PlayerEngine playerEngine, GameTable gameTable)
         {
-            Game.Game.MessageProvider.Display("Bar activated");
-            player.PlayerActions.Patron.PostActionMoves.Wrap(DeckPatron);
+            playerEngine.PlayerActions.Patron.PostActionMoves.Wrap(DeckPatron);
             _deck = gameTable.OrderDeck;
-            _playerClientele = player.Board.Camp.Clientele;
+            _playerClientele = playerEngine.Player.Camp.Clientele;
         }
 
-        public override void CompleteBuilding(Player player, GameTable gameTable)
+        public override void CompleteBuilding(PlayerEngine playerEngine, GameTable gameTable)
         {
         }
 
-        public override void DeactivateBuilding(Player player, GameTable gameTable)
+        public override void DeactivateBuilding(PlayerEngine playerEngine, GameTable gameTable)
         {
-            player.PlayerActions.Patron.PostActionMoves.Unwrap(DeckPatron);
+            playerEngine.PlayerActions.Patron.PostActionMoves.Unwrap(DeckPatron);
         }
 
         private IEnumerable<MoveSpace> DeckPatron(IAction action, IEnumerable<MoveSpace> arg)
@@ -84,22 +84,20 @@ namespace GTR.Core.Buildings
             get { return MaterialType.Wood; }
         }
 
-        public override void ActivateBuilding(Player player, GameTable gameTable)
+        public override void ActivateBuilding(PlayerEngine playerEngine, GameTable gameTable)
         {
-            Game.Game.MessageProvider.Display("Dock activated");
-
-            player.PlayerActions.Laborer.PostActionMoves.Wrap(HandLabor);
-            _playerHand = player.Board.Hand.OrderCards;
-            _playerStockpile = player.Board.Camp.Stockpile;
+            playerEngine.PlayerActions.Laborer.PostActionMoves.Wrap(HandLabor);
+            _playerHand = playerEngine.Player.Hand.OrderCards;
+            _playerStockpile = playerEngine.Player.Camp.Stockpile;
         }
 
-        public override void CompleteBuilding(Player player, GameTable gameTable)
+        public override void CompleteBuilding(PlayerEngine playerEngine, GameTable gameTable)
         {
         }
 
-        public override void DeactivateBuilding(Player player, GameTable gameTable)
+        public override void DeactivateBuilding(PlayerEngine playerEngine, GameTable gameTable)
         {
-            player.PlayerActions.Laborer.PostActionMoves.Unwrap(HandLabor);
+            playerEngine.PlayerActions.Laborer.PostActionMoves.Unwrap(HandLabor);
         }
 
         private IEnumerable<MoveSpace> HandLabor(IAction action, IEnumerable<MoveSpace> arg)
@@ -127,23 +125,21 @@ namespace GTR.Core.Buildings
             get { return MaterialType.Marble; }
         }
 
-        public override void ActivateBuilding(Player player, GameTable gameTable)
+        public override void ActivateBuilding(PlayerEngine playerEngine, GameTable gameTable)
         {
-            Game.Game.MessageProvider.Display("Fountain activated");
-
             _deck = gameTable.OrderDeck;
-            _playerHand = player.Board.Hand.OrderCards;
+            _playerHand = playerEngine.Player.Hand.OrderCards;
 
-            player.PlayerActions.Craftsman.PreActionMoves.Wrap(HandCard);
+            playerEngine.PlayerActions.Craftsman.PreActionMoves.Wrap(HandCard);
         }
 
-        public override void CompleteBuilding(Player player, GameTable gameTable)
+        public override void CompleteBuilding(PlayerEngine playerEngine, GameTable gameTable)
         {
         }
 
-        public override void DeactivateBuilding(Player player, GameTable gameTable)
+        public override void DeactivateBuilding(PlayerEngine playerEngine, GameTable gameTable)
         {
-            player.PlayerActions.Craftsman.PreActionMoves.Unwrap(HandCard);
+            playerEngine.PlayerActions.Craftsman.PreActionMoves.Unwrap(HandCard);
         }
 
         private IEnumerable<MoveSpace> HandCard(IEnumerable<MoveSpace> arg)
@@ -166,20 +162,18 @@ namespace GTR.Core.Buildings
             get { return MaterialType.Marble; }
         }
 
-        public override void ActivateBuilding(Player player, GameTable gameTable)
+        public override void ActivateBuilding(PlayerEngine playerEngine, GameTable gameTable)
         {
-            Game.Game.MessageProvider.Display("Temple activated");
-
-            player.Board.Hand.RefillCapacity += 4;
+            playerEngine.Player.Hand.RefillCapacity += 4;
         }
 
-        public override void CompleteBuilding(Player player, GameTable gameTable)
+        public override void CompleteBuilding(PlayerEngine playerEngine, GameTable gameTable)
         {
         }
 
-        public override void DeactivateBuilding(Player player, GameTable gameTable)
+        public override void DeactivateBuilding(PlayerEngine playerEngine, GameTable gameTable)
         {
-            player.Board.Hand.RefillCapacity -= 4;
+            playerEngine.Player.Hand.RefillCapacity -= 4;
         }
     }
 }

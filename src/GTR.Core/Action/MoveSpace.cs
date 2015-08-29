@@ -2,6 +2,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using GTR.Core.Model;
 
 #endregion
 
@@ -12,6 +13,20 @@ namespace GTR.Core.Action
     {
         public MoveSpace(bool isRequired = false) : base(isRequired)
         {
+        }
+    }
+
+    public class MoveSet : List<Move<CardModelBase>>, IAction
+    {
+        public IEnumerator<IMove<CardModelBase>> GetEnumerator()
+        {
+            return base.GetEnumerator();
+        }
+
+        public bool Perform()
+        {
+            bool success = this.TrueForAll(move => move.Perform());
+            return success;
         }
     }
 

@@ -9,13 +9,9 @@ namespace GTR.Tiber.DataObjects
 {
     public class LobbyGame : EntityData
     {
-        public bool IsStarted { get; set; }
+        public string HostId { get; set; }
 
-        public int HostId { get; set; }
-
-        public List<int> Players { get; set; }
-
-        public int MaxPlayers { get; set; }
+        public List<string> Players { get; set; }
 
         public GameOptions GameOptions { get; set; }
     }

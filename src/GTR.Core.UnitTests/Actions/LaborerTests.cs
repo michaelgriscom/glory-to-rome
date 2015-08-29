@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using GTR.Core.Action;
 using GTR.Core.CardCollections;
+using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.ManipulatableRules.Actions;
 using GTR.Core.Model;
@@ -53,7 +54,7 @@ namespace GTR.Core.UnitTests.Actions
             // ReSharper disable once PossibleNullReferenceException
             Assert.AreEqual(move.Card, poolCard);
             Assert.AreEqual(move.Source, _gameTable.Pool);
-            Assert.AreEqual(move.Destination, _player.Board.Camp.Stockpile);
+            Assert.AreEqual(move.Destination, _player.Camp.Stockpile);
 
             Assert.IsFalse(enumerator.MoveNext());
         }
@@ -84,7 +85,7 @@ namespace GTR.Core.UnitTests.Actions
                 // ReSharper disable once PossibleNullReferenceException
                 Assert.IsTrue(poolCards.Contains(move.Card));
                 Assert.AreEqual(move.Source, _gameTable.Pool);
-                Assert.AreEqual(move.Destination, _player.Board.Camp.Stockpile);
+                Assert.AreEqual(move.Destination, _player.Camp.Stockpile);
             }
 
             Assert.AreEqual(poolCount, moveCount);

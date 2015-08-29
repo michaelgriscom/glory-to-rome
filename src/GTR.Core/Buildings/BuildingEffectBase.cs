@@ -1,5 +1,6 @@
 ﻿#region
 
+using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.Model;
 
@@ -10,8 +11,8 @@ namespace GTR.Core.Buildings
     public abstract class BuildingEffectBase
     {
         public abstract MaterialType Material { get; }
-        public abstract void ActivateBuilding(Player player, GameTable gameTable);
-        public abstract void CompleteBuilding(Player player, GameTable gameTable);
-        public abstract void DeactivateBuilding(Player player, GameTable gameTable);
+        public abstract void ActivateBuilding(PlayerEngine playerEngine, GameTable gameTable);
+        public abstract void CompleteBuilding(PlayerEngine playerEngine, GameTable gameTable);
+        public abstract void DeactivateBuilding(PlayerEngine playerEngine, GameTable gameTable);
     }
 }

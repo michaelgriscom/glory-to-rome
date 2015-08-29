@@ -1,5 +1,6 @@
 ﻿<ViewModel:GameViewModel xmlns:ViewModel="using:GTR.Core.ViewModel" xmlns:Model="using:GTR.Core.Model"
-                         xmlns:Game="using:GTR.Core.Game">
+                         xmlns:Game="using:GTR.Core.Game"
+                         xmlns:engine="using:GTR.Core.Engine">
     <ViewModel:GameViewModel.GameTable>
         <Model:GameTable>
             <Model:GameTable.JackDeck>
@@ -67,116 +68,116 @@
                 </Model:Pool>
             </Model:GameTable.Pool>
             <Model:GameTable.Players>
-                <Game:Player PlayerName="Blandit commodo adipiscing">
-                    <Game:Player.Board>
+                <engine:Player PlayerName="Blandit commodo adipiscing">
+                    <engine:Player.Board>
                         <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Himenaeos non imperdiet" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Malesuada penatibus" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-                <Game:Player PlayerName="Parturient per conubia porttitor">
-                    <Game:Player.Board>
+                    </engine:Player.Board>
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Himenaeos non imperdiet" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Malesuada penatibus" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+                <engine:Player PlayerName="Parturient per conubia porttitor">
+                    <engine:Player.Board>
                         <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Quam quis cubilia tincidunt urna" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Vestibulum cras duis" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-                <Game:Player PlayerName="Nunc lorem ultrices amet vehicula">
-                    <Game:Player.Board>
+                    </engine:Player.Board>
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Quam quis cubilia tincidunt urna" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Vestibulum cras duis" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+                <engine:Player PlayerName="Nunc lorem ultrices amet vehicula">
+                    <engine:Player.Board>
                         <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Ligula morbi" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Litora volutpat" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-                <Game:Player PlayerName="Maecenas luctus nulla tristique">
-                    <Game:Player.Board>
+                    </engine:Player.Board>
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Ligula morbi" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Litora volutpat" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+                <engine:Player PlayerName="Maecenas luctus nulla tristique">
+                    <engine:Player.Board>
                         <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Proin praesent magnis" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Accumsan ultricies mattis bibendum" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-                <Game:Player PlayerName="Venenatis dapibus ante sed">
-                    <Game:Player.Board>
+                    </engine:Player.Board>
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Proin praesent magnis" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Accumsan ultricies mattis bibendum" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+                <engine:Player PlayerName="Venenatis dapibus ante sed">
+                    <engine:Player.Board>
                         <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Sem mauris" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Vestibulum mollis adipiscing" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-                <Game:Player PlayerName="Augue dictumst arcu montes egestas">
-                    <Game:Player.Board>
+                    </engine:Player.Board>
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Sem mauris" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Vestibulum mollis adipiscing" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+                <engine:Player PlayerName="Augue dictumst arcu montes egestas">
+                    <engine:Player.Board>
                         <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Eleifend diam vulputate curabitur eget" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Euismod feugiat" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-                <Game:Player PlayerName="Nostra sit">
-                    <Game:Player.Board>
+                    </engine:Player.Board>
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Eleifend diam vulputate curabitur eget" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Euismod feugiat" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+                <engine:Player PlayerName="Nostra sit">
+                    <engine:Player.Board>
                         <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Elit facilisi dolor parturient" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Phasellus ornare enim" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-                <Game:Player PlayerName="Vel fames platea gravida">
-                    <Game:Player.Board>
+                    </engine:Player.Board>
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Elit facilisi dolor parturient" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Phasellus ornare enim" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+                <engine:Player PlayerName="Vel fames platea gravida">
+                    <engine:Player.Board>
                         <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Felis iaculis nam" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Faucibus sed erat" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-                <Game:Player PlayerName="Primis consequat rutrum sapien dis">
-                    <Game:Player.Board>
+                    </engine:Player.Board>
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Felis iaculis nam" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Faucibus sed erat" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+                <engine:Player PlayerName="Primis consequat rutrum sapien dis">
+                    <engine:Player.Board>
                         <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Eros convallis ipsum habitant" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Lacinia laoreet vestibulum inceptos vestibulum" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-                <Game:Player PlayerName="Nibh semper sociis adipiscing">
-                    <Game:Player.Board>
+                    </engine:Player.Board>
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Eros convallis ipsum habitant" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Lacinia laoreet vestibulum inceptos vestibulum" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+                <engine:Player PlayerName="Nibh semper sociis adipiscing">
+                    <engine:Player.Board>
                         <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Taciti dignissim tellus est" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Parturient elementum nisi" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
+                    </engine:Player.Board>
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Taciti dignissim tellus est" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Parturient elementum nisi" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
             </Model:GameTable.Players>
             <Model:GameTable.SiteDecks>
                 <Model:SiteDeck LocationName="Etiam quisque" MaterialType="Brick">

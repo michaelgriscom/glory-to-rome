@@ -7,6 +7,9 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Windows.Networking.PushNotifications;
+using Microsoft.WindowsAzure.Messaging;
+using Windows.UI.Popups;
 
 #endregion
 
@@ -27,6 +30,11 @@ namespace GTR.Universal
             Suspending += OnSuspending;
         }
 
+        private async void InitNotificationsAsync()
+        {
+        
+        }
+
         /// <summary>
         ///     Invoked when the application is launched normally by the end user.  Other entry points
         ///     will be used such as when the application is launched to open a specific file.
@@ -34,6 +42,7 @@ namespace GTR.Universal
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            InitNotificationsAsync();
 #if DEBUG
             if (Debugger.IsAttached)
             {

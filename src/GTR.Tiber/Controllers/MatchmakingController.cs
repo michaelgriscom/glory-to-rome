@@ -6,15 +6,13 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using GTR.Tiber.Services;
-using GTR.Core.Action;
-using GTR.Core.CardCollections;
 using GTR.Core.Game;
-using GTR.Core.Model;
 using GTR.Core.Serialization;
 using GTR.Core.Services;
 using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.Config;
 using GTR.Tiber.DataObjects;
+using tiberService.Models;
 
 namespace GTR.Tiber.Controllers
 {
@@ -100,81 +98,20 @@ namespace GTR.Tiber.Controllers
             }
 
             StartGame(gameInfo);
+            await lobbyTable.DeleteLobbyGame(request.GameId, Request);
+
             response.Success = true;
             return response;
         }
 
-        private IDeckIo deckIo = new DeckIo();
-        private IResourceProvider resourceProvider = new ResourceProvider();
+        private GameManager gameManager = GameManager.Instance;
 
         private void StartGame(LobbyGame gameInfo)
         {
-            Dictionary<string, IPlayerInput> playerInputs =
-                gameInfo.Players.ToDictionary<int, string, IPlayerInput>
-                (playerId => playerId.ToString(), playerId => new PlayerInput(playerId));
-
-            Game game = new Game(playerInputs, gameInfo.GameOptions, deckIo, resourceProvider, new NullMessageProvider());
-            game.PlayGame();
-            // TODO: update lobby game table
+            gameManager.StartGame(gameInfo);
         }
-
 
         private int GetPlayerId(int authorizationToken)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    internal class PlayerInput : IPlayerInput
-    {
-        private int _id;
-
-        public PlayerInput(int id)
-        {
-            this._id = id;
-        }
-
-        public Task<RoleType> GetLeadRole(ICollection<RoleType> availableLeads)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ICollection<HandCardModel>> SelectCards(ICollection<HandCardModel> cards)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<RoleType> GetRole(ICollection<RoleType> collection)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ICardSource<HandCardModel>> GetSource(List<ICardSource<HandCardModel>> availableSources)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ActionType> GetLead()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ActionType> GetFollow()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ICollection<HandCardModel>> SelectLeadCards(List<HandCardModel> cardOptions)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ICollection<HandCardModel>> SelectFollowCards(List<HandCardModel> cardOptions, RoleType role)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IAction> GetMove(MoveSpace moveSpace)
         {
             throw new NotImplementedException();
         }

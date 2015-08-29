@@ -14,7 +14,7 @@ using GTR.Core.Util;
 
 namespace GTR.Universal.Services
 {
-    public class DelayedPlayerInput : IPlayerInput
+    public class DelayedPlayerInput
     {
         private const int moveDelay = 400;
         private readonly AiPlayerInput _aiInput;

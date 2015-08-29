@@ -1,6 +1,7 @@
 ﻿#region
 
 using GTR.Core.Action;
+using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.Model;
 
@@ -17,7 +18,7 @@ namespace GTR.Core.ManipulatableRules.Actions
             : base(player, gameTable)
         {
             _pool = gameTable.Pool;
-            _playerStockpile = player.Board.Camp.Stockpile;
+            _playerStockpile = Player.Camp.Stockpile;
         }
 
         protected override MoveSpace GetMoveSpace()

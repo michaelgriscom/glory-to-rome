@@ -14,7 +14,7 @@ using GTR.Core.Services;
 
 namespace GTR.Core.UnitTests.Services
 {
-    internal class PlayerInputForTest : IPlayerInput
+    internal class PlayerInputForTest
     {
         public delegate void OnMove(object sender, OnMoveEventArgs eventArgs);
 

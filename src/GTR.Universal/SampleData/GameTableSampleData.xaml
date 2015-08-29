@@ -1,4 +1,5 @@
-﻿<Model:GameTable xmlns:Model="using:GTR.Core.Model" xmlns:Game="using:GTR.Core.Game">
+﻿<Model:GameTable xmlns:Model="using:GTR.Core.Model" xmlns:Game="using:GTR.Core.Game"
+                 xmlns:engine="using:GTR.Core.Engine">
     <Model:GameTable.JackDeck>
         <Model:JackDeck LocationName="Vestibulum rhoncus sodales viverra">
             <Model:JackCardModel Name="Aliquam vestibulum integer" />
@@ -13,9 +14,6 @@
             <Model:JackCardModel Name="Urna cras" />
         </Model:JackDeck>
     </Model:GameTable.JackDeck>
-    <Model:GameTable.LeaderCard>
-        <Model:LeaderCardModel Name="Massa cubilia hendrerit metus" />
-    </Model:GameTable.LeaderCard>
     <Model:GameTable.OrderDeck>
         <Model:OrderDeck LocationName="Pulvinar enim rhoncus">
             <Model:OrderDeck.Cards>
@@ -63,13 +61,11 @@
         </Model:Pool>
     </Model:GameTable.Pool>
     <Model:GameTable.Players>
-        <Game:Player PlayerName="Venenatis hac vulputate conubia curabitur">
-            <Game:Player.Board>
-                <Model:PlayerBoard>
-                    <Model:PlayerBoard.Camp>
+        <engine:Player PlayerName="Venenatis hac vulputate conubia curabitur">
+                    <engine:Player.Camp>
                         <Model:Camp InfluencePoints="19" />
-                    </Model:PlayerBoard.Camp>
-                    <Model:PlayerBoard.ConstructionZone>
+                    </engine:Player.Camp>
+                    <engine:Player.ConstructionZone>
                         <Model:ConstructionZone LocationName="Nunc integer fringilla">
                             <Model:BuildingSite MaterialType="Stone" Name="Magnis habitasse" SiteType="OutOfTown" />
                             <Model:BuildingSite MaterialType="Wood" Name="Odio suscipit hendrerit morbi mattis"
@@ -79,8 +75,8 @@
                             <Model:BuildingSite MaterialType="Concrete" Name="Mollis parturient" SiteType="InsideRome" />
                             <Model:BuildingSite MaterialType="Wood" Name="Nulla ultrices" SiteType="OutOfTown" />
                         </Model:ConstructionZone>
-                    </Model:PlayerBoard.ConstructionZone>
-                    <Model:PlayerBoard.CompletedBuildings>
+                    </engine:Player.ConstructionZone>
+                    <engine:Player.CompletedBuildings>
                         <Model:CompletedBuildings LocationName="Hac leo">
                             <Model:OrderCardModel Description="Vestibulum sagittis" Name="Vestibulum adipiscing erat"
                                                   RoleType="Craftsman" />
@@ -93,8 +89,8 @@
                             <Model:OrderCardModel Description="Etiam fusce nec vestibulum nisi"
                                                   Name="Facilisis lorem nisl fermentum" RoleType="Architect" />
                         </Model:CompletedBuildings>
-                    </Model:PlayerBoard.CompletedBuildings>
-                    <Model:PlayerBoard.DemandArea>
+                    </engine:Player.CompletedBuildings>
+                    <engine:Player.DemandArea>
                         <Model:DemandArea LocationName="Sit vel vestibulum">
                             <Model:OrderCardModel Description="Pede nam" Name="Penatibus sed platea vestibulum"
                                                   RoleType="Legionnaire" />
@@ -107,58 +103,43 @@
                             <Model:OrderCardModel Description="Rutrum sapien cras fames"
                                                   Name="Vestibulum felis accumsan" RoleType="Architect" />
                         </Model:DemandArea>
-                    </Model:PlayerBoard.DemandArea>
-                    <Model:PlayerBoard.Hand>
+                    </engine:Player.DemandArea>
+                    <engine:Player.Hand>
                         <Model:Hand Count="21" RefillCapacity="13" />
-                    </Model:PlayerBoard.Hand>
-                    <Model:PlayerBoard.LeaderCardLocation>
-                        <Model:LeaderCardLocation LocationName="Vestibulum vestibulum non">
-                            <Model:LeaderCardModel Name="Vehicula volutpat" />
-                            <Model:LeaderCardModel Name="Montes quisque maecenas" />
-                            <Model:LeaderCardModel Name="Himenaeos nostra" />
-                            <Model:LeaderCardModel Name="Imperdiet malesuada vivamus per aliquam" />
-                            <Model:LeaderCardModel Name="Adipiscing ornare sed parturient sem" />
-                        </Model:LeaderCardLocation>
-                    </Model:PlayerBoard.LeaderCardLocation>
-                    <Model:PlayerBoard.PlayArea>
+                    </engine:Player.Hand>
+                
+                    <engine:Player.PlayArea>
                         <Model:PlayArea />
-                    </Model:PlayerBoard.PlayArea>
-                </Model:PlayerBoard>
-            </Game:Player.Board>
-            <Game:Player.PlayerToLeft>
-                <Game:Player PlayerName="Semper duis bibendum ipsum phasellus">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Consequat leo" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Cubilia dapibus nunc amet vestibulum" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToLeft>
-            <Game:Player.PlayerToRight>
-                <Game:Player PlayerName="Mus egestas">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Ante adipiscing" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Dictumst eleifend" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToRight>
-        </Game:Player>
-        <Game:Player PlayerName="Vestibulum ligula">
-            <Game:Player.Board>
-                <Model:PlayerBoard>
-                    <Model:PlayerBoard.Camp>
+                    </engine:Player.PlayArea>
+            </engine:Player>
+            <engine:Player.PlayerToLeft>
+                <engine:Player PlayerName="Semper duis bibendum ipsum phasellus">
+                    <engine:Player>
+           
+                    </engine:Player>
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Consequat leo" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Cubilia dapibus nunc amet vestibulum" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToLeft>
+            <engine:Player.PlayerToRight>
+                <engine:Player PlayerName="Mus egestas">
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Ante adipiscing" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Dictumst eleifend" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToRight>
+        <engine:Player PlayerName="Vestibulum ligula">
+                    <engine:Player.Camp>
                         <Model:Camp InfluencePoints="82" />
-                    </Model:PlayerBoard.Camp>
-                    <Model:PlayerBoard.ConstructionZone>
+                    </engine:Player.Camp>
+                    <engine:Player.ConstructionZone>
                         <Model:ConstructionZone LocationName="Habitant posuere vel">
                             <Model:BuildingSite MaterialType="Marble" Name="Nam parturient" SiteType="OutOfTown" />
                             <Model:BuildingSite MaterialType="Marble" Name="Nisi vestibulum" SiteType="OutOfTown" />
@@ -167,8 +148,8 @@
                             <Model:BuildingSite MaterialType="Marble" Name="Interdum neque sed dis lobortis"
                                                 SiteType="OutOfTown" />
                         </Model:ConstructionZone>
-                    </Model:PlayerBoard.ConstructionZone>
-                    <Model:PlayerBoard.CompletedBuildings>
+                    </engine:Player.ConstructionZone>
+                    <engine:Player.CompletedBuildings>
                         <Model:CompletedBuildings LocationName="Arcu euismod nec parturient non">
                             <Model:OrderCardModel Description="Feugiat sociis justo per gravida" Name="Taciti iaculis"
                                                   RoleType="Merchant" />
@@ -181,8 +162,8 @@
                             <Model:OrderCardModel Description="Morbi laoreet sit convallis tortor"
                                                   Name="Eros nibh dignissim natoque" RoleType="Legionnaire" />
                         </Model:CompletedBuildings>
-                    </Model:PlayerBoard.CompletedBuildings>
-                    <Model:PlayerBoard.DemandArea>
+                    </engine:Player.CompletedBuildings>
+                    <engine:Player.DemandArea>
                         <Model:DemandArea LocationName="Est vitae class placerat">
                             <Model:OrderCardModel Description="Auctor curae" Name="Congue hac rhoncus leo mus"
                                                   RoleType="Merchant" />
@@ -194,58 +175,39 @@
                             <Model:OrderCardModel Description="Libero habitasse vivamus donec hendrerit"
                                                   Name="Sagittis per" RoleType="Craftsman" />
                         </Model:DemandArea>
-                    </Model:PlayerBoard.DemandArea>
-                    <Model:PlayerBoard.Hand>
+                    </engine:Player.DemandArea>
+                    <engine:Player.Hand>
                         <Model:Hand Count="38" RefillCapacity="68" />
-                    </Model:PlayerBoard.Hand>
-                    <Model:PlayerBoard.LeaderCardLocation>
-                        <Model:LeaderCardLocation LocationName="Netus elementum nulla">
-                            <Model:LeaderCardModel Name="Nisl adipiscing nascetur varius" />
-                            <Model:LeaderCardModel Name="Pharetra aenean parturient porta" />
-                            <Model:LeaderCardModel Name="Vestibulum purus mauris" />
-                            <Model:LeaderCardModel Name="Nullam risus nunc facilisis" />
-                            <Model:LeaderCardModel Name="Aptent vestibulum odio pretium velit" />
-                        </Model:LeaderCardLocation>
-                    </Model:PlayerBoard.LeaderCardLocation>
-                    <Model:PlayerBoard.PlayArea>
+                    </engine:Player.Hand>
+                    <engine:Player.PlayArea>
                         <Model:PlayArea />
-                    </Model:PlayerBoard.PlayArea>
-                </Model:PlayerBoard>
-            </Game:Player.Board>
-            <Game:Player.PlayerToLeft>
-                <Game:Player PlayerName="Adipiscing parturient">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Himenaeos vestibulum urna etiam sed" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Litora luctus fusce aliquam vestibulum" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToLeft>
-            <Game:Player.PlayerToRight>
-                <Game:Player PlayerName="Imperdiet adipiscing magnis cras lorem">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Senectus aliquet morbi sem parturient" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Blandit vestibulum vestibulum" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToRight>
-        </Game:Player>
-        <Game:Player PlayerName="Sed erat rhoncus">
-            <Game:Player.Board>
-                <Model:PlayerBoard>
-                    <Model:PlayerBoard.Camp>
+                    </engine:Player.PlayArea>
+            <engine:Player.PlayerToLeft>
+                <engine:Player PlayerName="Adipiscing parturient">
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Himenaeos vestibulum urna etiam sed" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Litora luctus fusce aliquam vestibulum" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToLeft>
+            <engine:Player.PlayerToRight>
+                <engine:Player PlayerName="Imperdiet adipiscing magnis cras lorem">
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Senectus aliquet morbi sem parturient" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Blandit vestibulum vestibulum" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToRight>
+        </engine:Player>
+        <engine:Player PlayerName="Sed erat rhoncus">
+                    <engine:Player.Camp>
                         <Model:Camp InfluencePoints="60" />
-                    </Model:PlayerBoard.Camp>
-                    <Model:PlayerBoard.ConstructionZone>
+                    </engine:Player.Camp>
+                    <engine:Player.ConstructionZone>
                         <Model:ConstructionZone LocationName="Adipiscing amet parturient">
                             <Model:BuildingSite MaterialType="Rubble" Name="Dapibus proin egestas porttitor"
                                                 SiteType="InsideRome" />
@@ -257,8 +219,8 @@
                             <Model:BuildingSite MaterialType="Rubble" Name="Ultricies vestibulum feugiat"
                                                 SiteType="OutOfTown" />
                         </Model:ConstructionZone>
-                    </Model:PlayerBoard.ConstructionZone>
-                    <Model:PlayerBoard.CompletedBuildings>
+                    </engine:Player.ConstructionZone>
+                    <engine:Player.CompletedBuildings>
                         <Model:CompletedBuildings LocationName="Sociosqu mattis">
                             <Model:OrderCardModel Description="Adipiscing commodo parturient vestibulum vestibulum"
                                                   Name="Sit adipiscing conubia" RoleType="Merchant" />
@@ -270,8 +232,8 @@
                             <Model:OrderCardModel Description="Nulla mus" Name="Nostra penatibus nec cubilia"
                                                   RoleType="Architect" />
                         </Model:CompletedBuildings>
-                    </Model:PlayerBoard.CompletedBuildings>
-                    <Model:PlayerBoard.DemandArea>
+                    </engine:Player.CompletedBuildings>
+                    <engine:Player.DemandArea>
                         <Model:DemandArea LocationName="Vestibulum posuere volutpat vestibulum">
                             <Model:OrderCardModel Description="Sed maecenas adipiscing semper"
                                                   Name="Parturient justo sem" RoleType="Legionnaire" />
@@ -284,58 +246,39 @@
                             <Model:OrderCardModel Description="Enim accumsan massa pretium tempus" Name="Tortor nam"
                                                   RoleType="Craftsman" />
                         </Model:DemandArea>
-                    </Model:PlayerBoard.DemandArea>
-                    <Model:PlayerBoard.Hand>
+                    </engine:Player.DemandArea>
+                    <engine:Player.Hand>
                         <Model:Hand Count="43" RefillCapacity="18" />
-                    </Model:PlayerBoard.Hand>
-                    <Model:PlayerBoard.LeaderCardLocation>
-                        <Model:LeaderCardLocation LocationName="Venenatis primis">
-                            <Model:LeaderCardModel Name="Gravida adipiscing rutrum sapien" />
-                            <Model:LeaderCardModel Name="Vehicula iaculis" />
-                            <Model:LeaderCardModel Name="Lacinia diam non vulputate per" />
-                            <Model:LeaderCardModel Name="Parturient curabitur" />
-                            <Model:LeaderCardModel Name="Laoreet phasellus natoque ipsum" />
-                        </Model:LeaderCardLocation>
-                    </Model:PlayerBoard.LeaderCardLocation>
-                    <Model:PlayerBoard.PlayArea>
+                    </engine:Player.Hand>
+                    <engine:Player.PlayArea>
                         <Model:PlayArea />
-                    </Model:PlayerBoard.PlayArea>
-                </Model:PlayerBoard>
-            </Game:Player.Board>
-            <Game:Player.PlayerToLeft>
-                <Game:Player PlayerName="Turpis metus sodales parturient">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Bibendum morbi viverra neque" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Convallis eros" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToLeft>
-            <Game:Player.PlayerToRight>
-                <Game:Player PlayerName="Dictumst aliquam">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Netus integer varius" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Aenean vestibulum dignissim eleifend" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToRight>
-        </Game:Player>
-        <Game:Player PlayerName="Nostra placerat sit vestibulum ornare">
-            <Game:Player.Board>
-                <Model:PlayerBoard>
-                    <Model:PlayerBoard.Camp>
+                    </engine:Player.PlayArea>
+            <engine:Player.PlayerToLeft>
+                <engine:Player PlayerName="Turpis metus sodales parturient">
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Bibendum morbi viverra neque" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Convallis eros" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToLeft>
+            <engine:Player.PlayerToRight>
+                <engine:Player PlayerName="Dictumst aliquam">
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Netus integer varius" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Aenean vestibulum dignissim eleifend" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToRight>
+        </engine:Player>
+        <engine:Player PlayerName="Nostra placerat sit vestibulum ornare">
+                    <engine:Player.Camp>
                         <Model:Camp InfluencePoints="39" />
-                    </Model:PlayerBoard.Camp>
-                    <Model:PlayerBoard.ConstructionZone>
+                    </engine:Player.Camp>
+                    <engine:Player.ConstructionZone>
                         <Model:ConstructionZone LocationName="Class est">
                             <Model:BuildingSite MaterialType="Marble" Name="Habitasse hac dapibus dictum"
                                                 SiteType="OutOfTown" />
@@ -346,8 +289,8 @@
                             <Model:BuildingSite MaterialType="Rubble" Name="Etiam fusce quis adipiscing litora"
                                                 SiteType="InsideRome" />
                         </Model:ConstructionZone>
-                    </Model:PlayerBoard.ConstructionZone>
-                    <Model:PlayerBoard.CompletedBuildings>
+                    </engine:Player.ConstructionZone>
+                    <engine:Player.CompletedBuildings>
                         <Model:CompletedBuildings LocationName="Facilisi vestibulum elementum nibh nulla">
                             <Model:OrderCardModel Description="Nisi porta adipiscing"
                                                   Name="Mauris quisque facilisis faucibus purus" RoleType="Legionnaire" />
@@ -360,8 +303,8 @@
                             <Model:OrderCardModel Description="Odio vitae congue cubilia"
                                                   Name="Inceptos orci pede interdum cursus" RoleType="Merchant" />
                         </Model:CompletedBuildings>
-                    </Model:PlayerBoard.CompletedBuildings>
-                    <Model:PlayerBoard.DemandArea>
+                    </engine:Player.CompletedBuildings>
+                    <engine:Player.DemandArea>
                         <Model:DemandArea LocationName="Adipiscing porttitor">
                             <Model:OrderCardModel Description="Tincidunt nunc" Name="Amet tristique nec"
                                                   RoleType="Craftsman" />
@@ -373,58 +316,39 @@
                             <Model:OrderCardModel Description="Feugiat pharetra" Name="Justo parturient vestibulum"
                                                   RoleType="Merchant" />
                         </Model:DemandArea>
-                    </Model:PlayerBoard.DemandArea>
-                    <Model:PlayerBoard.Hand>
+                    </engine:Player.DemandArea>
+                    <engine:Player.Hand>
                         <Model:Hand Count="86" RefillCapacity="20" />
-                    </Model:PlayerBoard.Hand>
-                    <Model:PlayerBoard.LeaderCardLocation>
-                        <Model:LeaderCardLocation LocationName="Lobortis parturient urna lorem egestas">
-                            <Model:LeaderCardModel Name="Cras luctus leo himenaeos" />
-                            <Model:LeaderCardModel Name="Morbi vestibulum vestibulum" />
-                            <Model:LeaderCardModel Name="Nulla imperdiet" />
-                            <Model:LeaderCardModel Name="Mus proin magnis malesuada mattis" />
-                            <Model:LeaderCardModel Name="Penatibus mauris duis" />
-                        </Model:LeaderCardLocation>
-                    </Model:PlayerBoard.LeaderCardLocation>
-                    <Model:PlayerBoard.PlayArea>
+                    </engine:Player.Hand>
+                    <engine:Player.PlayArea>
                         <Model:PlayArea />
-                    </Model:PlayerBoard.PlayArea>
-                </Model:PlayerBoard>
-            </Game:Player.Board>
-            <Game:Player.PlayerToLeft>
-                <Game:Player PlayerName="Vel platea primis lacus">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Nam gravida sed pulvinar adipiscing" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Rutrum sagittis" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToLeft>
-            <Game:Player.PlayerToRight>
-                <Game:Player PlayerName="Iaculis senectus lacinia diam">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Sociosqu laoreet" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Suscipit torquent eget natoque" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToRight>
-        </Game:Player>
-        <Game:Player PlayerName="Sit aptent">
-            <Game:Player.Board>
-                <Model:PlayerBoard>
-                    <Model:PlayerBoard.Camp>
+                    </engine:Player.PlayArea>
+            <engine:Player.PlayerToLeft>
+                <engine:Player PlayerName="Vel platea primis lacus">
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Nam gravida sed pulvinar adipiscing" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Rutrum sagittis" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToLeft>
+            <engine:Player.PlayerToRight>
+                <engine:Player PlayerName="Iaculis senectus lacinia diam">
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Sociosqu laoreet" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Suscipit torquent eget natoque" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToRight>
+        </engine:Player>
+        <engine:Player PlayerName="Sit aptent">
+                    <engine:Player.Camp>
                         <Model:Camp InfluencePoints="62" />
-                    </Model:PlayerBoard.Camp>
-                    <Model:PlayerBoard.ConstructionZone>
+                    </engine:Player.Camp>
+                    <engine:Player.ConstructionZone>
                         <Model:ConstructionZone LocationName="Leo vestibulum taciti">
                             <Model:BuildingSite MaterialType="Wood" Name="Mus elementum aliquam facilisis nec"
                                                 SiteType="OutOfTown" />
@@ -437,8 +361,8 @@
                             <Model:BuildingSite MaterialType="Stone" Name="Metus adipiscing parturient aliquam"
                                                 SiteType="InsideRome" />
                         </Model:ConstructionZone>
-                    </Model:PlayerBoard.ConstructionZone>
-                    <Model:PlayerBoard.CompletedBuildings>
+                    </engine:Player.ConstructionZone>
+                    <engine:Player.CompletedBuildings>
                         <Model:CompletedBuildings LocationName="Ultrices vehicula sapien posuere potenti">
                             <Model:OrderCardModel Description="Pretium dis elit vulputate"
                                                   Name="Volutpat enim curabitur maecenas" RoleType="Architect" />
@@ -452,8 +376,8 @@
                             <Model:OrderCardModel Description="Semper consequat convallis massa dictumst"
                                                   Name="Hac dignissim sociis" RoleType="Laborer" />
                         </Model:CompletedBuildings>
-                    </Model:PlayerBoard.CompletedBuildings>
-                    <Model:PlayerBoard.DemandArea>
+                    </engine:Player.CompletedBuildings>
+                    <engine:Player.DemandArea>
                         <Model:DemandArea LocationName="Penatibus inceptos urna">
                             <Model:OrderCardModel Description="Cras porttitor nulla commodo tortor" Name="Duis nunc"
                                                   RoleType="Craftsman" />
@@ -466,58 +390,39 @@
                             <Model:OrderCardModel Description="Nascetur nullam purus parturient"
                                                   Name="Venenatis erat eros vestibulum" RoleType="Craftsman" />
                         </Model:DemandArea>
-                    </Model:PlayerBoard.DemandArea>
-                    <Model:PlayerBoard.Hand>
+                    </engine:Player.DemandArea>
+                    <engine:Player.Hand>
                         <Model:Hand Count="98" RefillCapacity="57" />
-                    </Model:PlayerBoard.Hand>
-                    <Model:PlayerBoard.LeaderCardLocation>
-                        <Model:LeaderCardLocation LocationName="Habitant vestibulum vestibulum">
-                            <Model:LeaderCardModel Name="Per hendrerit nunc" />
-                            <Model:LeaderCardModel Name="Odio morbi tempor tempus aliquet" />
-                            <Model:LeaderCardModel Name="Sed himenaeos orci pede" />
-                            <Model:LeaderCardModel Name="Imperdiet blandit quam malesuada" />
-                            <Model:LeaderCardModel Name="Neque quis netus adipiscing sem" />
-                        </Model:LeaderCardLocation>
-                    </Model:PlayerBoard.LeaderCardLocation>
-                    <Model:PlayerBoard.PlayArea>
+                    </engine:Player.Hand>
+                    <engine:Player.PlayArea>
                         <Model:PlayArea />
-                    </Model:PlayerBoard.PlayArea>
-                </Model:PlayerBoard>
-            </Game:Player.Board>
-            <Game:Player.PlayerToLeft>
-                <Game:Player PlayerName="Nibh vulputate">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Vel vestibulum pharetra auctor" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Risus placerat" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToLeft>
-            <Game:Player.PlayerToRight>
-                <Game:Player PlayerName="Velit congue dapibus curabitur egestas">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Pulvinar cursus adipiscing" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Vitae dictum sagittis senectus" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToRight>
-        </Game:Player>
-        <Game:Player PlayerName="Magna integer diam">
-            <Game:Player.Board>
-                <Model:PlayerBoard>
-                    <Model:PlayerBoard.Camp>
+                    </engine:Player.PlayArea>
+            <engine:Player.PlayerToLeft>
+                <engine:Player PlayerName="Nibh vulputate">
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Vel vestibulum pharetra auctor" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Risus placerat" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToLeft>
+            <engine:Player.PlayerToRight>
+                <engine:Player PlayerName="Velit congue dapibus curabitur egestas">
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Pulvinar cursus adipiscing" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Vitae dictum sagittis senectus" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToRight>
+        </engine:Player>
+        <engine:Player PlayerName="Magna integer diam">
+                    <engine:Player.Camp>
                         <Model:Camp InfluencePoints="77" />
-                    </Model:PlayerBoard.Camp>
-                    <Model:PlayerBoard.ConstructionZone>
+                    </engine:Player.Camp>
+                    <engine:Player.ConstructionZone>
                         <Model:ConstructionZone LocationName="Fermentum proin mauris">
                             <Model:BuildingSite MaterialType="Marble" Name="Mollis pede" SiteType="OutOfTown" />
                             <Model:BuildingSite MaterialType="Marble"
@@ -529,8 +434,8 @@
                                                 SiteType="OutOfTown" />
                             <Model:BuildingSite MaterialType="Brick" Name="Nostra posuere" SiteType="OutOfTown" />
                         </Model:ConstructionZone>
-                    </Model:PlayerBoard.ConstructionZone>
-                    <Model:PlayerBoard.CompletedBuildings>
+                    </engine:Player.ConstructionZone>
+                    <engine:Player.CompletedBuildings>
                         <Model:CompletedBuildings LocationName="Nam sed class">
                             <Model:OrderCardModel Description="Curae euismod sociosqu lectus parturient"
                                                   Name="Donec vestibulum feugiat nisi" RoleType="Laborer" />
@@ -543,8 +448,8 @@
                             <Model:OrderCardModel Description="Facilisis magnis parturient"
                                                   Name="Vestibulum mattis morbi nulla" RoleType="Legionnaire" />
                         </Model:CompletedBuildings>
-                    </Model:PlayerBoard.CompletedBuildings>
-                    <Model:PlayerBoard.DemandArea>
+                    </engine:Player.CompletedBuildings>
+                    <engine:Player.DemandArea>
                         <Model:DemandArea LocationName="Imperdiet per malesuada bibendum penatibus">
                             <Model:OrderCardModel Description="Fames duis" Name="Vestibulum sed dictumst sem nunc"
                                                   RoleType="Craftsman" />
@@ -557,58 +462,39 @@
                             <Model:OrderCardModel Description="Faucibus habitant" Name="Nam parturient arcu"
                                                   RoleType="Craftsman" />
                         </Model:DemandArea>
-                    </Model:PlayerBoard.DemandArea>
-                    <Model:PlayerBoard.Hand>
+                    </engine:Player.DemandArea>
+                    <engine:Player.Hand>
                         <Model:Hand Count="32" RefillCapacity="71" />
-                    </Model:PlayerBoard.Hand>
-                    <Model:PlayerBoard.LeaderCardLocation>
-                        <Model:LeaderCardLocation LocationName="Mus hendrerit vestibulum">
-                            <Model:LeaderCardModel Name="Nec himenaeos" />
-                            <Model:LeaderCardModel Name="Augue quam dolor quis potenti" />
-                            <Model:LeaderCardModel Name="Urna maecenas praesent" />
-                            <Model:LeaderCardModel Name="Pretium non cras ornare platea" />
-                            <Model:LeaderCardModel Name="Rhoncus accumsan" />
-                        </Model:LeaderCardLocation>
-                    </Model:PlayerBoard.LeaderCardLocation>
-                    <Model:PlayerBoard.PlayArea>
+                    </engine:Player.Hand>
+                    <engine:Player.PlayArea>
                         <Model:PlayArea />
-                    </Model:PlayerBoard.PlayArea>
-                </Model:PlayerBoard>
-            </Game:Player.Board>
-            <Game:Player.PlayerToLeft>
-                <Game:Player PlayerName="Eget elit sociis quisque">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Vestibulum inceptos" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Vestibulum taciti adipiscing tristique" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToLeft>
-            <Game:Player.PlayerToRight>
-                <Game:Player PlayerName="Enim ultricies vivamus">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Sed erat tellus aliquam tempor" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Parturient vestibulum interdum aliquet" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToRight>
-        </Game:Player>
-        <Game:Player PlayerName="Laoreet magnis est natoque hac">
-            <Game:Player.Board>
-                <Model:PlayerBoard>
-                    <Model:PlayerBoard.Camp>
+                    </engine:Player.PlayArea>
+                </engine:Player>
+            <engine:Player.PlayerToLeft>
+                <engine:Player PlayerName="Eget elit sociis quisque">
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Vestibulum inceptos" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Vestibulum taciti adipiscing tristique" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToLeft>
+            <engine:Player.PlayerToRight>
+                <engine:Player PlayerName="Enim ultricies vivamus">
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Sed erat tellus aliquam tempor" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Parturient vestibulum interdum aliquet" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToRight>
+        <engine:Player PlayerName="Laoreet magnis est natoque hac">
+                    <engine:Player.Camp>
                         <Model:Camp InfluencePoints="17" />
-                    </Model:PlayerBoard.Camp>
-                    <Model:PlayerBoard.ConstructionZone>
+                    </engine:Player.Camp>
+                    <engine:Player.ConstructionZone>
                         <Model:ConstructionZone LocationName="Nunc consequat pulvinar non">
                             <Model:BuildingSite MaterialType="Stone" Name="Convallis dignissim sagittis elementum"
                                                 SiteType="InsideRome" />
@@ -620,8 +506,8 @@
                             <Model:BuildingSite MaterialType="Marble" Name="Sociosqu suscipit torquent habitasse"
                                                 SiteType="InsideRome" />
                         </Model:ConstructionZone>
-                    </Model:PlayerBoard.ConstructionZone>
-                    <Model:PlayerBoard.CompletedBuildings>
+                    </engine:Player.ConstructionZone>
+                    <engine:Player.CompletedBuildings>
                         <Model:CompletedBuildings LocationName="Blandit tempus tortor dis">
                             <Model:OrderCardModel Description="Massa est eros hac" Name="Nibh leo"
                                                   RoleType="Legionnaire" />
@@ -634,8 +520,8 @@
                             <Model:OrderCardModel Description="Aptent pharetra placerat adipiscing"
                                                   Name="Nec parturient auctor phasellus" RoleType="Laborer" />
                         </Model:CompletedBuildings>
-                    </Model:PlayerBoard.CompletedBuildings>
-                    <Model:PlayerBoard.DemandArea>
+                    </engine:Player.CompletedBuildings>
+                    <engine:Player.DemandArea>
                         <Model:DemandArea LocationName="Malesuada libero orci penatibus">
                             <Model:OrderCardModel Description="Accumsan bibendum" Name="Feugiat vitae gravida"
                                                   RoleType="Patron" />
@@ -647,58 +533,36 @@
                                                   RoleType="Craftsman" />
                             <Model:OrderCardModel Description="Tristique adipiscing" Name="Quis urna" RoleType="Patron" />
                         </Model:DemandArea>
-                    </Model:PlayerBoard.DemandArea>
-                    <Model:PlayerBoard.Hand>
+                    </engine:Player.DemandArea>
+                    <engine:Player.Hand>
                         <Model:Hand Count="68" RefillCapacity="46" />
-                    </Model:PlayerBoard.Hand>
-                    <Model:PlayerBoard.LeaderCardLocation>
-                        <Model:LeaderCardLocation LocationName="Porta hendrerit purus risus">
-                            <Model:LeaderCardModel Name="Ultrices himenaeos velit vehicula" />
-                            <Model:LeaderCardModel Name="Dictum volutpat egestas vestibulum maecenas" />
-                            <Model:LeaderCardModel Name="Adipiscing sem" />
-                            <Model:LeaderCardModel Name="Parturient imperdiet" />
-                            <Model:LeaderCardModel Name="Vestibulum praesent lectus euismod" />
-                        </Model:LeaderCardLocation>
-                    </Model:PlayerBoard.LeaderCardLocation>
-                    <Model:PlayerBoard.PlayArea>
-                        <Model:PlayArea />
-                    </Model:PlayerBoard.PlayArea>
-                </Model:PlayerBoard>
-            </Game:Player.Board>
-            <Game:Player.PlayerToLeft>
-                <Game:Player PlayerName="Leo habitant mattis">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Parturient mus mauris mollis posuere" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Potenti inceptos montes donec ultricies" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToLeft>
-            <Game:Player.PlayerToRight>
-                <Game:Player PlayerName="Pretium interdum nostra">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Nec etiam fusce non" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Lorem rhoncus morbi" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToRight>
-        </Game:Player>
-        <Game:Player PlayerName="Sed sem">
-            <Game:Player.Board>
-                <Model:PlayerBoard>
-                    <Model:PlayerBoard.Camp>
+                    </engine:Player.Hand>
+            <engine:Player.PlayerToLeft>
+                <engine:Player PlayerName="Leo habitant mattis">
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Parturient mus mauris mollis posuere" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Potenti inceptos montes donec ultricies" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToLeft>
+            <engine:Player.PlayerToRight>
+                <engine:Player PlayerName="Pretium interdum nostra">
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Nec etiam fusce non" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Lorem rhoncus morbi" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToRight>
+        </engine:Player>
+        <engine:Player PlayerName="Sed sem">
+                    <engine:Player.Camp>
                         <Model:Camp InfluencePoints="98" />
-                    </Model:PlayerBoard.Camp>
-                    <Model:PlayerBoard.ConstructionZone>
+                    </engine:Player.Camp>
+                    <engine:Player.ConstructionZone>
                         <Model:ConstructionZone LocationName="Tellus elementum sagittis quisque">
                             <Model:BuildingSite MaterialType="Rubble" Name="Facilisis dolor amet fermentum senectus"
                                                 SiteType="OutOfTown" />
@@ -710,8 +574,8 @@
                             <Model:BuildingSite MaterialType="Stone" Name="Fames himenaeos aliquam tempus"
                                                 SiteType="InsideRome" />
                         </Model:ConstructionZone>
-                    </Model:PlayerBoard.ConstructionZone>
-                    <Model:PlayerBoard.CompletedBuildings>
+                    </engine:Player.ConstructionZone>
+                    <engine:Player.CompletedBuildings>
                         <Model:CompletedBuildings LocationName="Ornare venenatis vulputate cras nulla">
                             <Model:OrderCardModel Description="Vestibulum curabitur vestibulum"
                                                   Name="Platea adipiscing per parturient" RoleType="Architect" />
@@ -724,8 +588,8 @@
                             <Model:OrderCardModel Description="Vestibulum vel duis nunc"
                                                   Name="Nam placerat pulvinar dignissim sed" RoleType="Craftsman" />
                         </Model:CompletedBuildings>
-                    </Model:PlayerBoard.CompletedBuildings>
-                    <Model:PlayerBoard.DemandArea>
+                    </engine:Player.CompletedBuildings>
+                    <engine:Player.DemandArea>
                         <Model:DemandArea LocationName="Eget vestibulum">
                             <Model:OrderCardModel Description="Adipiscing tincidunt lacus varius"
                                                   Name="Aliquet parturient aenean lorem" RoleType="Patron" />
@@ -738,58 +602,41 @@
                             <Model:OrderCardModel Description="Adipiscing dapibus egestas parturient per"
                                                   Name="Nibh venenatis morbi euismod" RoleType="Patron" />
                         </Model:DemandArea>
-                    </Model:PlayerBoard.DemandArea>
-                    <Model:PlayerBoard.Hand>
+                    </engine:Player.DemandArea>
+                    <engine:Player.Hand>
                         <Model:Hand Count="24" RefillCapacity="54" />
-                    </Model:PlayerBoard.Hand>
-                    <Model:PlayerBoard.LeaderCardLocation>
-                        <Model:LeaderCardLocation LocationName="Felis tortor">
-                            <Model:LeaderCardModel Name="Sociosqu suscipit imperdiet" />
-                            <Model:LeaderCardModel Name="Malesuada ipsum justo arcu" />
-                            <Model:LeaderCardModel Name="Penatibus porttitor" />
-                            <Model:LeaderCardModel Name="Turpis parturient" />
-                            <Model:LeaderCardModel Name="Diam torquent hac vestibulum" />
-                        </Model:LeaderCardLocation>
-                    </Model:PlayerBoard.LeaderCardLocation>
-                    <Model:PlayerBoard.PlayArea>
+                    </engine:Player.Hand>
+                   
+                    <engine:Player.PlayArea>
                         <Model:PlayArea />
-                    </Model:PlayerBoard.PlayArea>
-                </Model:PlayerBoard>
-            </Game:Player.Board>
-            <Game:Player.PlayerToLeft>
-                <Game:Player PlayerName="Vulputate cursus curabitur sit vestibulum">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Feugiat gravida neque vestibulum vehicula" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Iaculis lacinia dictum nisi" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToLeft>
-            <Game:Player.PlayerToRight>
-                <Game:Player PlayerName="Nisl laoreet lectus">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Phasellus libero nunc natoque netus" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Nulla vel consequat porta" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToRight>
-        </Game:Player>
-        <Game:Player PlayerName="Inceptos interdum lobortis nisl">
-            <Game:Player.Board>
-                <Model:PlayerBoard>
-                    <Model:PlayerBoard.Camp>
+                    </engine:Player.PlayArea>
+                </engine:Player>
+            <engine:Player.PlayerToLeft>
+                <engine:Player PlayerName="Vulputate cursus curabitur sit vestibulum">
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Feugiat gravida neque vestibulum vehicula" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Iaculis lacinia dictum nisi" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToLeft>
+            <engine:Player.PlayerToRight>
+                <engine:Player PlayerName="Nisl laoreet lectus">
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Phasellus libero nunc natoque netus" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Nulla vel consequat porta" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToRight>
+        </engine:Player>
+        <engine:Player PlayerName="Inceptos interdum lobortis nisl">
+                    <engine:Player.Camp>
                         <Model:Camp InfluencePoints="84" />
-                    </Model:PlayerBoard.Camp>
-                    <Model:PlayerBoard.ConstructionZone>
+                    </engine:Player.Camp>
+                    <engine:Player.ConstructionZone>
                         <Model:ConstructionZone LocationName="Viverra aliquam ornare habitasse hac">
                             <Model:BuildingSite MaterialType="Stone" Name="Leo praesent class platea adipiscing"
                                                 SiteType="OutOfTown" />
@@ -801,8 +648,8 @@
                             <Model:BuildingSite MaterialType="Rubble" Name="Nunc vestibulum hendrerit facilisi"
                                                 SiteType="InsideRome" />
                         </Model:ConstructionZone>
-                    </Model:PlayerBoard.ConstructionZone>
-                    <Model:PlayerBoard.CompletedBuildings>
+                    </engine:Player.ConstructionZone>
+                    <engine:Player.CompletedBuildings>
                         <Model:CompletedBuildings LocationName="Posuere odio volutpat">
                             <Model:OrderCardModel Description="Purus orci convallis ligula risus"
                                                   Name="Litora dignissim" RoleType="Patron" />
@@ -815,8 +662,8 @@
                             <Model:OrderCardModel Description="Mollis montes dis"
                                                   Name="Fringilla urna sodales est nostra" RoleType="Craftsman" />
                         </Model:CompletedBuildings>
-                    </Model:PlayerBoard.CompletedBuildings>
-                    <Model:PlayerBoard.DemandArea>
+                    </engine:Player.CompletedBuildings>
+                    <engine:Player.DemandArea>
                         <Model:DemandArea LocationName="Imperdiet eget semper vivamus">
                             <Model:OrderCardModel Description="Elit sem aliquam sociis"
                                                   Name="Taciti sit tellus aliquet" RoleType="Patron" />
@@ -829,58 +676,39 @@
                             <Model:OrderCardModel Description="Vestibulum turpis varius aenean" Name="Habitant lorem"
                                                   RoleType="Merchant" />
                         </Model:DemandArea>
-                    </Model:PlayerBoard.DemandArea>
-                    <Model:PlayerBoard.Hand>
+                    </engine:Player.DemandArea>
+                    <engine:Player.Hand>
                         <Model:Hand Count="10" RefillCapacity="36" />
-                    </Model:PlayerBoard.Hand>
-                    <Model:PlayerBoard.LeaderCardLocation>
-                        <Model:LeaderCardLocation LocationName="Integer adipiscing">
-                            <Model:LeaderCardModel Name="Parturient himenaeos" />
-                            <Model:LeaderCardModel Name="Primis etiam nec non amet" />
-                            <Model:LeaderCardModel Name="Vestibulum faucibus per quisque" />
-                            <Model:LeaderCardModel Name="Vestibulum ante" />
-                            <Model:LeaderCardModel Name="Sed rutrum arcu sapien diam" />
-                        </Model:LeaderCardLocation>
-                    </Model:PlayerBoard.LeaderCardLocation>
-                    <Model:PlayerBoard.PlayArea>
+                    </engine:Player.Hand>
+                    <engine:Player.PlayArea>
                         <Model:PlayArea />
-                    </Model:PlayerBoard.PlayArea>
-                </Model:PlayerBoard>
-            </Game:Player.Board>
-            <Game:Player.PlayerToLeft>
-                <Game:Player PlayerName="Mauris sed">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Nullam aptent auctor dis" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Morbi adipiscing nunc parturient" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToLeft>
-            <Game:Player.PlayerToRight>
-                <Game:Player PlayerName="Est congue tincidunt">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Odio nulla proin" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Hac tristique" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToRight>
-        </Game:Player>
-        <Game:Player PlayerName="Viverra eros vitae aliquam">
-            <Game:Player.Board>
-                <Model:PlayerBoard>
-                    <Model:PlayerBoard.Camp>
+                    </engine:Player.PlayArea>
+                </engine:Player>
+            <engine:Player.PlayerToLeft>
+                <engine:Player PlayerName="Mauris sed">
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Nullam aptent auctor dis" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Morbi adipiscing nunc parturient" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToLeft>
+            <engine:Player.PlayerToRight>
+                <engine:Player PlayerName="Est congue tincidunt">
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Odio nulla proin" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Hac tristique" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToRight>
+        <engine:Player PlayerName="Viverra eros vitae aliquam">
+                    <engine:Player.Camp>
                         <Model:Camp InfluencePoints="56" />
-                    </Model:PlayerBoard.Camp>
-                    <Model:PlayerBoard.ConstructionZone>
+                    </engine:Player.Camp>
+                    <engine:Player.ConstructionZone>
                         <Model:ConstructionZone LocationName="Adipiscing magna">
                             <Model:BuildingSite MaterialType="Wood" Name="Parturient sed vestibulum vestibulum litora"
                                                 SiteType="InsideRome" />
@@ -891,8 +719,8 @@
                             <Model:BuildingSite MaterialType="Rubble" Name="Mattis urna vestibulum"
                                                 SiteType="InsideRome" />
                         </Model:ConstructionZone>
-                    </Model:PlayerBoard.ConstructionZone>
-                    <Model:PlayerBoard.CompletedBuildings>
+                    </engine:Player.ConstructionZone>
+                    <engine:Player.CompletedBuildings>
                         <Model:CompletedBuildings LocationName="Cursus ultricies leo dictum orci">
                             <Model:OrderCardModel Description="Mus pede nec nascetur"
                                                   Name="Augue vestibulum egestas venenatis" RoleType="Laborer" />
@@ -905,8 +733,8 @@
                             <Model:OrderCardModel Description="Pharetra justo" Name="Quam lacus lorem"
                                                   RoleType="Patron" />
                         </Model:CompletedBuildings>
-                    </Model:PlayerBoard.CompletedBuildings>
-                    <Model:PlayerBoard.DemandArea>
+                    </engine:Player.CompletedBuildings>
+                    <engine:Player.DemandArea>
                         <Model:DemandArea LocationName="Vestibulum vel potenti vestibulum">
                             <Model:OrderCardModel Description="Primis arcu" Name="Convallis nam" RoleType="Laborer" />
                             <Model:OrderCardModel Description="Neque dignissim rutrum elementum sapien"
@@ -918,51 +746,34 @@
                             <Model:OrderCardModel Description="Dis rhoncus fermentum enim erat"
                                                   Name="Sodales parturient sociosqu risus velit" RoleType="Legionnaire" />
                         </Model:DemandArea>
-                    </Model:PlayerBoard.DemandArea>
-                    <Model:PlayerBoard.Hand>
+                    </engine:Player.DemandArea>
+                    <engine:Player.Hand>
                         <Model:Hand Count="63" RefillCapacity="26" />
-                    </Model:PlayerBoard.Hand>
-                    <Model:PlayerBoard.LeaderCardLocation>
-                        <Model:LeaderCardLocation LocationName="Mauris mollis montes lacinia cras">
-                            <Model:LeaderCardModel Name="Pulvinar laoreet natoque phasellus" />
-                            <Model:LeaderCardModel Name="Nostra ornare duis posuere metus" />
-                            <Model:LeaderCardModel Name="Vestibulum nunc sagittis amet" />
-                            <Model:LeaderCardModel Name="Consequat ante adipiscing platea parturient" />
-                            <Model:LeaderCardModel Name="Senectus morbi" />
-                        </Model:LeaderCardLocation>
-                    </Model:PlayerBoard.LeaderCardLocation>
-                    <Model:PlayerBoard.PlayArea>
+                    </engine:Player.Hand>
+                    <engine:Player.PlayArea>
                         <Model:PlayArea />
-                    </Model:PlayerBoard.PlayArea>
-                </Model:PlayerBoard>
-            </Game:Player.Board>
-            <Game:Player.PlayerToLeft>
-                <Game:Player PlayerName="Taciti tellus class curae">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Suscipit fringilla" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Est hac vestibulum torquent" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToLeft>
-            <Game:Player.PlayerToRight>
-                <Game:Player PlayerName="Tempor tempus habitasse tortor integer">
-                    <Game:Player.Board>
-                        <Model:PlayerBoard />
-                    </Game:Player.Board>
-                    <Game:Player.PlayerToLeft>
-                        <Game:Player PlayerName="Nibh vestibulum nisi leo" />
-                    </Game:Player.PlayerToLeft>
-                    <Game:Player.PlayerToRight>
-                        <Game:Player PlayerName="Donec ultrices" />
-                    </Game:Player.PlayerToRight>
-                </Game:Player>
-            </Game:Player.PlayerToRight>
-        </Game:Player>
+                    </engine:Player.PlayArea>
+                </engine:Player>
+            <engine:Player.PlayerToLeft>
+                <engine:Player PlayerName="Taciti tellus class curae">
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Suscipit fringilla" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Est hac vestibulum torquent" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToLeft>
+            <engine:Player.PlayerToRight>
+                <engine:Player PlayerName="Tempor tempus habitasse tortor integer">
+                    <engine:Player.PlayerToLeft>
+                        <engine:Player PlayerName="Nibh vestibulum nisi leo" />
+                    </engine:Player.PlayerToLeft>
+                    <engine:Player.PlayerToRight>
+                        <engine:Player PlayerName="Donec ultrices" />
+                    </engine:Player.PlayerToRight>
+                </engine:Player>
+            </engine:Player.PlayerToRight>
     </Model:GameTable.Players>
     <Model:GameTable.SiteDecks>
         <Model:SiteDeck LocationName="Accumsan bibendum" MaterialType="Brick">

@@ -5,13 +5,14 @@ using System.Collections;
 using System.Collections.Generic;
 using GTR.Core.CardCollections;
 using GTR.Core.Model;
+using GTR.Core.Serialization;
 using GTR.Core.Util;
 
 #endregion
 
 namespace GTR.Core.Action
 {
-    public class Move<T> : IMove<T> where T : CardModelBase
+    public class Move<T> : IMove<T>, IModel where T : CardModelBase
     {
         private readonly Func<ICardTarget<T>> _destinationFunction;
         private readonly ICardSource<T> _source;
@@ -70,9 +71,6 @@ namespace GTR.Core.Action
             if (success)
             {
                 _destination.Add(Card);
-                // TODO: add in dependency injection or something to avoid doing this
-                Game.Game.MessageProvider.Display(string.Format("Card [{0}] moved from [{1}] to [{2}]", Card.Name,
-                    _source.LocationName, _destination.LocationName));
             }
             return success;
         }

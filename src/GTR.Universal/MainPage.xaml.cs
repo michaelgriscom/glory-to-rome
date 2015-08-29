@@ -6,7 +6,6 @@ using Windows.UI.Xaml.Controls;
 using GTR.Core.AIController;
 using GTR.Core.Game;
 using GTR.Core.Services;
-using GTR.Core.ViewModel;
 using GTR.Universal.Services;
 using GTR.Windows.Services;
 
@@ -39,20 +38,13 @@ namespace GTR.Universal
 
             _delayedPlayerInput = new DelayedPlayerInput();
 
-            var playerInputs = new Dictionary<string, IPlayerInput>();
-            playerInputs.Add("player1", _delayedPlayerInput);
-
-            game = new Game(playerInputs, gameOptions, deckIo, resourceProvider, messageProvider);
-            var gameViewModel = new GameViewModel(game);
-            DataContext = gameViewModel;
-            //PlayerBoardDetailControl.DataContext = board;
+       
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             StartButton.IsEnabled = false;
             StartButton.Visibility = Visibility.Collapsed;
-            await game.PlayGame();
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)

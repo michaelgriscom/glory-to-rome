@@ -1,6 +1,7 @@
 ﻿#region
 
 using GTR.Core.Action;
+using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.Model;
 
@@ -16,7 +17,7 @@ namespace GTR.Core.ManipulatableRules.Actions
         public PatronAction(Player player, GameTable gameTable)
             : base(player, gameTable)
         {
-            _playerClientele = player.Board.Camp.Clientele;
+            _playerClientele = Player.Camp.Clientele;
             _pool = gameTable.Pool;
         }
 
