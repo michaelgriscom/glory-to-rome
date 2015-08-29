@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿#region
+
+using System;
 using GTR.Core.Action;
 using GTR.Core.Model;
+
+#endregion
 
 namespace GTR.Core.Serialization
 {
@@ -16,6 +16,7 @@ namespace GTR.Core.Serialization
         {
             this.game = game;
         }
+
         public Move<CardModelBase> UnMarshall(MoveSerialization slimRepresentation)
         {
             throw new NotImplementedException();

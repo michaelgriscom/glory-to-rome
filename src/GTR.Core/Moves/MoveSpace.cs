@@ -25,7 +25,7 @@ namespace GTR.Core.Action
 
         public bool Perform()
         {
-            bool success = this.TrueForAll(move => move.Perform());
+            bool success = TrueForAll(move => move.Perform());
             return success;
         }
     }

@@ -4,13 +4,12 @@ using System.Collections.Generic;
 using GTR.Core.Action;
 using GTR.Core.Buildings;
 using GTR.Core.Engine;
-using GTR.Core.Game;
 using GTR.Core.Model;
 using GTR.Core.Util;
 
 #endregion
 
-namespace GTR.Core.ManipulatableRules.Actions
+namespace GTR.Core.Actions
 {
     public abstract class OrderActionBase : ITriAction
     {

@@ -2,12 +2,11 @@
 
 using GTR.Core.Action;
 using GTR.Core.Engine;
-using GTR.Core.Game;
 using GTR.Core.Model;
 
 #endregion
 
-namespace GTR.Core.ManipulatableRules.Actions
+namespace GTR.Core.Actions
 {
     internal sealed class LaborerAction : OrderActionBase
     {

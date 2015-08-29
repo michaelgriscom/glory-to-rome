@@ -17,7 +17,6 @@ namespace GTR.Core.Model
 
         public OrderCardModel()
         {
-            
         }
 
         public RoleType RoleType { get; set; }

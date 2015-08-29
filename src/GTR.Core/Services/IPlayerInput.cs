@@ -31,10 +31,9 @@ namespace GTR.Core.Services
     public class Lead
     {
         public ICollection<HandCardModel> Cards;
-        public RoleType Role;
         public bool IsThink;
+        public RoleType Role;
         public MoveSpace MoveSpace { get; private set; }
-
     }
 
     public class LeadEventArgs : ResponseEventArgs

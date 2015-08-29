@@ -7,10 +7,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using GTR.Core.Action;
+using GTR.Core.Actions;
 using GTR.Core.Buildings;
 using GTR.Core.Game;
-using GTR.Core.ManipulatableRules;
-using GTR.Core.ManipulatableRules.Actions;
 using GTR.Core.Model;
 using GTR.Core.Services;
 
@@ -22,18 +21,24 @@ namespace GTR.Core.Engine
     {
         private const int CardsToActAsJack = 3;
         private readonly IPlayerInputService _inputService;
-        private readonly Player _player;
-        private IPlayerInput _playerInput;
         private GameTable _gameTable;
         private OrderActions _playerActions;
+        private IPlayerInput _playerInput;
 
         public PlayerEngine(Player player, IPlayerInputService inputService, GameTable gameTable)
         {
-            this._player = player;
-            this._inputService = inputService;
+            Player = player;
+            _inputService = inputService;
             _playerActions = new OrderActions(player, gameTable);
 
             WireEvents();
+        }
+
+        public Player Player { get; }
+
+        internal OrderActions PlayerActions
+        {
+            get { return PlayerActions; }
         }
 
         private void WireEvents()
@@ -45,8 +50,26 @@ namespace GTR.Core.Engine
             completedFoundations.CollectionChanged += CompletedFoundationsOnCollectionChanged;
         }
 
-#region building construction
-        private void CompletedFoundationsOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
+        internal void ClearPlayArea()
+        {
+            while (Player.PlayArea.JackCards.Count > 0)
+            {
+                var card = Player.PlayArea.JackCards.ElementAt(0);
+                var move = new Move<JackCardModel>(card, Player.PlayArea.JackCards, _gameTable.JackDeck);
+                move.Perform();
+            }
+            while (Player.PlayArea.OrderCards.Count > 0)
+            {
+                var card = Player.PlayArea.OrderCards.ElementAt(0);
+                var move = new Move<OrderCardModel>(card, Player.PlayArea.OrderCards, _gameTable.Pool);
+                move.Perform();
+            }
+        }
+
+        #region building construction
+
+        private void CompletedFoundationsOnCollectionChanged(object sender,
+            NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
         {
             if (notifyCollectionChangedEventArgs.Action != NotifyCollectionChangedAction.Add)
             {
@@ -59,7 +82,8 @@ namespace GTR.Core.Engine
             }
         }
 
-        private void ConstructionZoneOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
+        private void ConstructionZoneOnCollectionChanged(object sender,
+            NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
         {
             if (notifyCollectionChangedEventArgs.Action != NotifyCollectionChangedAction.Add)
             {
@@ -98,29 +122,11 @@ namespace GTR.Core.Engine
             // TODO, we need to remove these event listeners but that will require rearchitecting
             buildingSite.Complete -= BuildingOnComplete;
         }
+
         #endregion
 
-        public Player Player {  get { return _player;} }
-
-        internal OrderActions PlayerActions {  get { return PlayerActions; } }
-
-        internal void ClearPlayArea()
-        {
-            while (_player.PlayArea.JackCards.Count > 0)
-            {
-                var card = _player.PlayArea.JackCards.ElementAt(0);
-                var move = new Move<JackCardModel>(card, _player.PlayArea.JackCards, _gameTable.JackDeck);
-                move.Perform();
-            }
-            while (_player.PlayArea.OrderCards.Count > 0)
-            {
-                var card = _player.PlayArea.OrderCards.ElementAt(0);
-                var move = new Move<OrderCardModel>(card, _player.PlayArea.OrderCards, _gameTable.Pool);
-                move.Perform();
-            }
-        }
-
         #region validation
+
         private ICollection<RoleType> GetAvailableLeads(ICollection<HandCardModel> leadCards)
         {
             IList<RoleType> availableLeads = new List<RoleType>();
@@ -211,7 +217,7 @@ namespace GTR.Core.Engine
 
         internal async Task<RoleType?> LeadAsync()
         {
-            if (_player.Hand.Count == 0)
+            if (Player.Hand.Count == 0)
             {
                 await ExecuteActionAsync(Thinker);
                 return null;
@@ -219,7 +225,7 @@ namespace GTR.Core.Engine
 
             var leadRequest = new LeadRequest
             {
-                Player = _player
+                Player = Player
             };
 
             var lead = await _inputService.RequestLeadAsync(leadRequest);
@@ -230,14 +236,14 @@ namespace GTR.Core.Engine
                 return null;
             }
             PlayCards(lead.Cards);
-            _player.OutstandingActions.Add(lead.Role);
+            Player.OutstandingActions.Add(lead.Role);
             AddClienteleActions(lead.Role);
             return lead.Role;
         }
 
         internal async Task FollowAsync(RoleType leadRole)
         {
-            if (_player.Hand.Count == 0)
+            if (Player.Hand.Count == 0)
             {
                 await ExecuteActionAsync(Thinker);
                 return;
@@ -245,7 +251,7 @@ namespace GTR.Core.Engine
 
             var followRequest = new FollowRequest
             {
-                Player = _player,
+                Player = Player,
                 RoleType = leadRole
             };
 
@@ -261,7 +267,7 @@ namespace GTR.Core.Engine
                 PlayCards(follow.Cards);
                 if (follow.Cards.Count > 0)
                 {
-                    _player.OutstandingActions.Add(leadRole);
+                    Player.OutstandingActions.Add(leadRole);
                 }
                 AddClienteleActions(leadRole);
             }
@@ -269,11 +275,11 @@ namespace GTR.Core.Engine
 
         private void AddClienteleActions(RoleType role)
         {
-            foreach (OrderCardModel client in _player.Camp.Clientele)
+            foreach (OrderCardModel client in Player.Camp.Clientele)
             {
                 if (client.RoleType == role)
                 {
-                    _player.OutstandingActions.Add(role);
+                    Player.OutstandingActions.Add(role);
                 }
             }
         }
@@ -285,13 +291,13 @@ namespace GTR.Core.Engine
                 if (card is JackCardModel)
                 {
                     var jack = card as JackCardModel;
-                    var move = new Move<JackCardModel>(jack, _player.Hand.JackCards, _player.PlayArea.JackCards);
+                    var move = new Move<JackCardModel>(jack, Player.Hand.JackCards, Player.PlayArea.JackCards);
                     move.Perform();
                 }
                 else
                 {
                     var order = card as OrderCardModel;
-                    var move = new Move<OrderCardModel>(order, _player.Hand.OrderCards, _player.PlayArea.OrderCards);
+                    var move = new Move<OrderCardModel>(order, Player.Hand.OrderCards, Player.PlayArea.OrderCards);
                     move.Perform();
                 }
             }
@@ -308,12 +314,12 @@ namespace GTR.Core.Engine
 
         internal async Task TakeActionsAsync()
         {
-            while (_player.OutstandingActions.TotalCount > 0)
+            while (Player.OutstandingActions.TotalCount > 0)
             {
-                var action = _player.OutstandingActions.First();
+                var action = Player.OutstandingActions.First();
                 OrderActionBase orderAction = PlayerActions.GetAction(action);
                 await ExecuteActionAsync(orderAction);
-                _player.OutstandingActions.Remove(action);
+                Player.OutstandingActions.Remove(action);
             }
         }
 
@@ -341,7 +347,7 @@ namespace GTR.Core.Engine
         {
             var moveRequest = new MoveRequest
             {
-                Player = _player,
+                Player = Player,
                 MoveSpace = moveSpace
             };
 

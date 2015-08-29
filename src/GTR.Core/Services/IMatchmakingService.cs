@@ -1,6 +1,5 @@
 ﻿#region
 
-using System.Threading.Tasks;
 using GTR.Core.Game;
 using GTR.Core.Serialization;
 
@@ -15,12 +14,10 @@ namespace GTR.Core.Services
 
     public class StartGameResponseSerialization : ResponseSerialization
     {
-
     }
 
     public class CreateGameRequest : Request
     {
         public GameOptions GameOptions;
     }
-
 }

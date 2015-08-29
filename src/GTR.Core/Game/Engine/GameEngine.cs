@@ -6,7 +6,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using GTR.Core.Action;
 using GTR.Core.Engine;
-using GTR.Core.ManipulatableRules;
 using GTR.Core.Model;
 using GTR.Core.Services;
 using GTR.Core.Util;
@@ -17,20 +16,18 @@ namespace GTR.Core.Game
 {
     public class GameEngine
     {
-        private readonly Game gameModel;
         private readonly Dictionary<Player, PlayerEngine> playerEngines;
         private GameOptions _gameOptions;
         private bool _isGameOver;
         private CompletedGame completedGame;
         private IPlayerInputService playerInputService;
-        internal event GameOverHandler GameOver = delegate { };
 
         public GameEngine(
             Game gameModel,
             IMessageProvider messageProvider,
             IPlayerInputService playerInputService)
         {
-            this.gameModel = gameModel;
+            Game = gameModel;
             MessageProvider = messageProvider;
             this.playerInputService = playerInputService;
 
@@ -44,7 +41,15 @@ namespace GTR.Core.Game
             }
         }
 
-        public Game Game { get { return gameModel; } }
+        public Game Game { get; }
+        public IMessageProvider MessageProvider { get; set; }
+
+        private GameTable GameTable
+        {
+            get { return Game?.GameTable; }
+        }
+
+        internal event GameOverHandler GameOver = delegate { };
 
         private void WireEvents()
         {
@@ -56,28 +61,22 @@ namespace GTR.Core.Game
             GameOver += OnGameOver;
         }
 
-        public IMessageProvider MessageProvider { get; set; }
-
-        private GameTable GameTable
-        {
-            get { return gameModel?.GameTable; }
-        }
-
         public async Task<CompletedGame> PlayGame()
         {
             DealCards();
-            gameModel.LeadPlayer = DetermineGoesFirst(GameTable);
-            gameModel.TurnNumber = 1;
+            Game.LeadPlayer = DetermineGoesFirst(GameTable);
+            Game.TurnNumber = 1;
 
             while (!_isGameOver)
             {
                 await HandleTurn();
-                gameModel.TurnNumber++;
+                Game.TurnNumber++;
             }
             return completedGame;
         }
 
         #region game start
+
         private void DealCards()
         {
             foreach (var player in GameTable.Players)
@@ -114,23 +113,25 @@ namespace GTR.Core.Game
             // TODO: implement once buildings are done
             return players.ElementAt(0);
         }
+
         #endregion
 
         #region game mid
+
         private async Task HandleTurn()
         {
-            MessageProvider.Display(string.Format("Turn {0} lead phase", gameModel.TurnNumber));
+            MessageProvider.Display(string.Format("Turn {0} lead phase", Game.TurnNumber));
             await HandleLeadFollowAsync();
-            MessageProvider.Display(string.Format("Turn {0} action phase", gameModel.TurnNumber));
+            MessageProvider.Display(string.Format("Turn {0} action phase", Game.TurnNumber));
             await HandleActionsAsync();
             CompleteTurn();
-            MessageProvider.Display(string.Format("Turn {0} complete", gameModel.TurnNumber));
+            MessageProvider.Display(string.Format("Turn {0} complete", Game.TurnNumber));
         }
 
         private async Task HandleLeadFollowAsync()
         {
-            gameModel.ActionPlayer = gameModel.LeadPlayer;
-            var leaderEngine = playerEngines[gameModel.LeadPlayer];
+            Game.ActionPlayer = Game.LeadPlayer;
+            var leaderEngine = playerEngines[Game.LeadPlayer];
             var lead = await leaderEngine.LeadAsync();
             if (lead == null)
             {
@@ -138,40 +139,42 @@ namespace GTR.Core.Game
             }
 
             var leadRole = (RoleType) lead;
-            for (int playerNumber = 0; playerNumber < gameModel.GameTable.Players.Count - 1; playerNumber++)
+            for (int playerNumber = 0; playerNumber < Game.GameTable.Players.Count - 1; playerNumber++)
             {
-                gameModel.ActionPlayer = gameModel.ActionPlayer.PlayerToRight;
-                var actionEngine = playerEngines[gameModel.ActionPlayer];
+                Game.ActionPlayer = Game.ActionPlayer.PlayerToRight;
+                var actionEngine = playerEngines[Game.ActionPlayer];
                 await actionEngine.FollowAsync(leadRole);
             }
         }
 
         private async Task HandleActionsAsync()
         {
-            gameModel.ActionPlayer = gameModel.LeadPlayer;
-            for (int playerNumber = 0; playerNumber < gameModel.GameTable.Players.Count - 1; playerNumber++)
+            Game.ActionPlayer = Game.LeadPlayer;
+            for (int playerNumber = 0; playerNumber < Game.GameTable.Players.Count - 1; playerNumber++)
             {
-                var actionEngine = playerEngines[gameModel.ActionPlayer];
+                var actionEngine = playerEngines[Game.ActionPlayer];
                 await actionEngine.TakeActionsAsync();
-                gameModel.ActionPlayer = gameModel.ActionPlayer.PlayerToRight;
+                Game.ActionPlayer = Game.ActionPlayer.PlayerToRight;
             }
         }
 
         private void CompleteTurn()
         {
-            foreach (Player player in gameModel.GameTable.Players)
+            foreach (Player player in Game.GameTable.Players)
             {
                 var playerEngine = playerEngines[player];
 
                 playerEngine.ClearPlayArea();
             }
-            gameModel.LeadPlayer = gameModel.LeadPlayer.PlayerToRight;
+            Game.LeadPlayer = Game.LeadPlayer.PlayerToRight;
         }
+
         #endregion
 
         #region end game
+
         private void SiteDeckOnCollectionChanged(object sender,
-         NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
+            NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
         {
             if (notifyCollectionChangedEventArgs.Action != NotifyCollectionChangedAction.Remove)
             {
@@ -185,7 +188,7 @@ namespace GTR.Core.Game
             }
             if (GameOver != null)
             {
-                GameOverEventArgs gameOverEventArgs = new GameOverEventArgs { Reason = Messages.ZeroSitesGameOver };
+                GameOverEventArgs gameOverEventArgs = new GameOverEventArgs {Reason = Messages.ZeroSitesGameOver};
                 GameOver(this, gameOverEventArgs);
             }
         }
@@ -203,7 +206,7 @@ namespace GTR.Core.Game
             }
             if (GameOver != null)
             {
-                GameOverEventArgs gameOverEventArgs = new GameOverEventArgs { Reason = Messages.DeckEmptyGameOver };
+                GameOverEventArgs gameOverEventArgs = new GameOverEventArgs {Reason = Messages.DeckEmptyGameOver};
                 GameOver(this, gameOverEventArgs);
             }
         }
@@ -220,6 +223,7 @@ namespace GTR.Core.Game
             };
             _isGameOver = true;
         }
+
         #endregion
     }
 }

@@ -7,7 +7,7 @@ using GTR.Core.Util;
 
 #endregion
 
-namespace GTR.Core.ManipulatableRules.Actions
+namespace GTR.Core.Actions
 {
     public interface ITriAction
     {

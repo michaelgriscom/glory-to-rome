@@ -9,7 +9,6 @@ using GTR.Core.Action;
 using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.Serialization;
-using GTR.Core.Util;
 
 #endregion
 

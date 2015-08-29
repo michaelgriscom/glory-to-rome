@@ -1,16 +1,19 @@
+#region
+
 using System.Collections.Generic;
 using GTR.Core.DeckManagement;
 using GTR.Core.Engine;
-using GTR.Core.ManipulatableRules;
-using GTR.Core.ManipulatableRules.Actions;
 using GTR.Core.Model;
 using GTR.Core.Services;
+
+#endregion
 
 namespace GTR.Core.Game
 {
     public class GameFactory
     {
-        private static OrderDeck CreateOrderDeck(IDeckIo deckIo, IResourceProvider resourceProvider, GameOptions gameOptions)
+        private static OrderDeck CreateOrderDeck(IDeckIo deckIo, IResourceProvider resourceProvider,
+            GameOptions gameOptions)
         {
             var deckSerialization = deckIo.GetBuiltinDeck(gameOptions.DeckName);
             var deckType = DeckTypeSerializer.Deserialize(deckSerialization);
@@ -20,7 +23,8 @@ namespace GTR.Core.Game
         }
 
         public static Game MakeGame(IEnumerable<string> playerInputs,
-            GameOptions gameOptions, IDeckIo deckIo, IResourceProvider resourceProvider, IMessageProvider messageProvider)
+            GameOptions gameOptions, IDeckIo deckIo, IResourceProvider resourceProvider,
+            IMessageProvider messageProvider)
         {
             var orderDeck = CreateOrderDeck(deckIo, resourceProvider, gameOptions);
             var jackDeck = CreateJackDeck();
@@ -28,7 +32,7 @@ namespace GTR.Core.Game
             var players = CreatePlayers(playerInputs, table);
             table.AddPlayers(players);
 
-            Game game = new Game()
+            Game game = new Game
             {
                 GameOptions = gameOptions,
                 GameTable = table,
@@ -43,10 +47,10 @@ namespace GTR.Core.Game
             foreach (var playerName in playerNames)
             {
                 var player = new Player(playerName);
-             
+
                 players.Add(player);
             }
-        
+
             return players;
         }
 

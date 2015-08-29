@@ -9,7 +9,7 @@ using GTR.Core.Model;
 
 #endregion
 
-namespace GTR.Core.ManipulatableRules.Actions
+namespace GTR.Core.Actions
 {
     internal sealed class ArchitectAction : BuildOrderActionBase
     {

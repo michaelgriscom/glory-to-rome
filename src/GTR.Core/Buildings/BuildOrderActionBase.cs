@@ -1,9 +1,9 @@
 ﻿#region
 
 using GTR.Core.Action;
+using GTR.Core.Actions;
 using GTR.Core.Engine;
 using GTR.Core.Game;
-using GTR.Core.ManipulatableRules.Actions;
 using GTR.Core.Model;
 using GTR.Core.Util;
 

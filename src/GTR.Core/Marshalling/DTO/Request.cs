@@ -18,7 +18,6 @@
     public class MoveSetRequest : Request
     {
         public string GameId;
-
         public MoveSetSerialization MoveSet;
     }
 }

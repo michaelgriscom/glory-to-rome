@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿#region
+
 using System.Threading.Tasks;
 using GTR.Core.Action;
 using GTR.Core.Engine;
 using GTR.Core.Game;
+
+#endregion
 
 namespace GTR.Core.Services
 {
@@ -18,9 +18,8 @@ namespace GTR.Core.Services
 
     public class MoveRequest
     {
-        public Player Player;
-
         public MoveSpace MoveSpace;
+        public Player Player;
     }
 
     public class LeadRequest : MoveRequest

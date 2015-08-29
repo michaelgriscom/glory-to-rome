@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using GTR.Core.CardCollections;
 using GTR.Core.Serialization;
-using GTR.Core.Util;
 
 #endregion
 

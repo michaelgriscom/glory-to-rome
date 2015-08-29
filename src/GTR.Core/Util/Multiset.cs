@@ -17,6 +17,13 @@ namespace GTR.Core.Util
             _itemCounts = new Dictionary<T, int>();
         }
 
+        public ICollection<T> UniqueItems
+        {
+            get { return _itemCounts.Keys; }
+        }
+
+        public int TotalCount { get; private set; }
+
         public T First()
         {
             if (_itemCounts == null || TotalCount == 0)
@@ -25,13 +32,6 @@ namespace GTR.Core.Util
             }
             return _itemCounts.First().Key;
         }
-
-        public ICollection<T> UniqueItems
-        {
-            get { return _itemCounts.Keys; }
-        }
-
-        public int TotalCount { get; private set; }
 
         public void Add(T item, int amount = 1)
         {

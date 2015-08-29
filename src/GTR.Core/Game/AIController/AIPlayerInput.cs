@@ -7,7 +7,6 @@ using GTR.Core.Action;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.Model;
-using GTR.Core.Services;
 
 #endregion
 

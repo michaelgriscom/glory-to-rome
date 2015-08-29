@@ -3,7 +3,6 @@
 using System;
 using System.Threading.Tasks;
 using GTR.Core.CardCollections;
-using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.Model;
 using GTR.Core.Services;
