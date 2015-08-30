@@ -11,8 +11,10 @@ namespace GTR.Universal.Design
 {
     public class DesignGameTable : GameTable
     {
-        public DesignGameTable() : base(new OrderDeck(), new JackDeck())
+        public DesignGameTable() : base()
         {
+            OrderDeck = new OrderDeck();
+            JackDeck = new JackDeck();
             Players = new ObservableCollection<Player> {new DesignPlayer()};
             for (int i = 0; i < 50; i++)
             {

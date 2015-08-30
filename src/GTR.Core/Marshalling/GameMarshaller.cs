@@ -31,6 +31,11 @@ namespace GTR.Core.Serialization
 
         public GameDto Marshall(Model.Game poco)
         {
+            if (poco == null)
+            {
+                return null;
+            }
+
             GameDto dto = new GameDto();
 
             var fatRepPlayers = poco.GameTable.Players;
@@ -61,23 +66,29 @@ namespace GTR.Core.Serialization
 
         public Model.Game UnMarshall(GameDto dto)
         {
+            if (dto == null)
+            {
+                return null;
+            }
+
             Model.Game poco = new Model.Game();
+            poco.GameTable = new GameTable();
             poco.GameOptions = dto.GameOptions;
 
             poco.Id = dto.Id;
-            var orderDeckDto = dto.CardLocations.First(cl => cl.LocationKind.Kind == CardLocationKind.OrderDeck);
+            var orderDeckDto = dto.CardLocations?.First(cl => cl.LocationKind.Kind == CardLocationKind.OrderDeck);
             if (orderDeckDto != null)
             {
                 poco.GameTable.OrderDeck = (OrderDeck)cardLocationMarshaller.UnMarshall(orderDeckDto);
             }
 
-            var jackDeckDto = dto.CardLocations.First(cl => cl.LocationKind.Kind == CardLocationKind.JackDeck);
+            var jackDeckDto = dto.CardLocations?.First(cl => cl.LocationKind.Kind == CardLocationKind.JackDeck);
             if (jackDeckDto != null)
             {
                 poco.GameTable.JackDeck = (JackDeck)cardLocationMarshaller.UnMarshall(jackDeckDto);
             }
 
-            var players = dto.Players.Select(p => playerMarshaller.UnMarshall(p));
+            var players = dto.Players?.Select(p => playerMarshaller.UnMarshall(p));
             poco.GameTable.Players = new ObservableCollection<Player>(players);
 
             return poco;

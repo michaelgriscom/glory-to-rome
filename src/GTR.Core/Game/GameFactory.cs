@@ -24,7 +24,7 @@ namespace GTR.Core.Game
             var orderDeck = cardManager.CreateOrderCardDeck(deckType);
 
             var jackDeck = CreateJackDeck();
-            var table = new GameTable(orderDeck, jackDeck);
+            var table = new GameTable() { OrderDeck = orderDeck, JackDeck = jackDeck};
             var players = CreatePlayers(playerIds);
             table.AddPlayers(players);
 

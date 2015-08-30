@@ -26,7 +26,7 @@ namespace GTR.Core.UnitTests
             OrderDeck orderDeck = new OrderDeck();
             JackDeck jackDeck = new JackDeck();
 
-            _gameTable = new GameTable(orderDeck, jackDeck);
+            _gameTable = new GameTable() { OrderDeck = orderDeck, JackDeck = jackDeck };
         }
 
         [TestMethod]

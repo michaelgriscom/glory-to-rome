@@ -23,12 +23,11 @@ namespace GTR.Core.Model
         private Pool _pool;
         private ObservableCollection<SiteDeck> _siteDecks;
 
-        public GameTable(OrderDeck orderDeck, JackDeck jackDeck)
+        public GameTable()
         {
-            OrderDeck = orderDeck;
-            JackDeck = jackDeck;
-            JackDeck.Id = "Jack Deck";
             Pool = new Pool();
+            OrderDeck = new OrderDeck();
+            JackDeck = new JackDeck();
         }
 
         public ObservableCollection<SiteDeck> SiteDecks

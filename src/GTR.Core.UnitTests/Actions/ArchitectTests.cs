@@ -28,7 +28,7 @@ namespace GTR.Core.UnitTests.Actions
             OrderDeck orderDeck = new OrderDeck();
             JackDeck jackDeck = new JackDeck();
 
-            _gameTable = new GameTable(orderDeck, jackDeck);
+            _gameTable = new GameTable() { OrderDeck = orderDeck, JackDeck = jackDeck };
 
             PlayerInputForTest input = new PlayerInputForTest();
 

@@ -52,7 +52,11 @@ namespace GTR.Universal
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             const string endpoint = "http://localhost:51291/";
-            GameOptions gameOptions = new GameOptions("republic", 2);
+            GameOptions gameOptions = new GameOptions
+            {
+                DeckName = "republic",
+                MaxPlayers = 2
+            };
 
             CreateGameRequest gr = new CreateGameRequest()
             {
@@ -69,6 +73,17 @@ namespace GTR.Universal
                 var response = await client.PostAsync(uri, stringContent);
                 var gameInfoJson = await response.Content.ReadAsStringAsync();
                 var gameInfo = JsonConvert.DeserializeObject<CreateGameResponseSerialization>(gameInfoJson);
+
+                 uri = new Uri(createGameUrl + "?GameId=" + gameInfo.GameId);
+                response = await client.GetAsync(uri);
+                var gameJson = await response.Content.ReadAsStringAsync();
+                var game = JsonConvert.DeserializeObject<StartGameResponseSerialization>(gameJson);
+
+                var deckIo = new DeckIo();
+                var resourceProvider = new ResourceProvider();
+
+                GameMarshaller marshaller = new GameMarshaller(deckIo, resourceProvider);
+                var gamePoco = marshaller.UnMarshall(game.Game);
             }
 
             StartButton.IsEnabled = false;
