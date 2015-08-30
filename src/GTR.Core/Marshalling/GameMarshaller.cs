@@ -4,10 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using GTR.Core.DeckManagement;
 using GTR.Core.Engine;
+using GTR.Core.Game;
 using GTR.Core.Marshalling;
 using GTR.Core.Marshalling.DTO;
 using GTR.Core.Model;
+using GTR.Core.Services;
 
 #endregion
 
@@ -15,8 +18,16 @@ namespace GTR.Core.Serialization
 {
     public class GameMarshaller : IMarshaller<Model.Game, GameDto>
     {
-        PlayerMarshaller playerMarshaller = new PlayerMarshaller();
-        CardLocationMarshaller cardLocationMarshaller = new CardLocationMarshaller();
+        private PlayerMarshaller playerMarshaller;
+        private CardLocationMarshaller cardLocationMarshaller;
+
+        public GameMarshaller(IDeckIo deckIo, IResourceProvider resourceProvider)
+        {
+            var cardManager = new CardManager(resourceProvider, deckIo);
+            var cardMarshaller = new CardMarshaller(cardManager.CardSet);
+            cardLocationMarshaller = new CardLocationMarshaller(cardMarshaller);
+            this.playerMarshaller = new PlayerMarshaller(cardLocationMarshaller);
+        }
 
         public GameDto Marshall(Model.Game poco)
         {
@@ -51,6 +62,7 @@ namespace GTR.Core.Serialization
         public Model.Game UnMarshall(GameDto dto)
         {
             Model.Game poco = new Model.Game();
+            poco.GameOptions = dto.GameOptions;
 
             poco.Id = dto.Id;
             var orderDeckDto = dto.CardLocations.First(cl => cl.LocationKind.Kind == CardLocationKind.OrderDeck);

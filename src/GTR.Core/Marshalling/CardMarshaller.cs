@@ -3,34 +3,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GTR.Core.DeckManagement;
+using GTR.Core.Game;
 using GTR.Core.Model;
 using GTR.Core.Serialization;
+using GTR.Core.Services;
 
 namespace GTR.Core.Marshalling
 {
     class CardMarshaller : IMarshaller<CardModelBase, CardSerialization>
     {
-        private Dictionary<int, CardModelBase> cardDictionary;
+        private CardSet cardSet;
 
-        public CardMarshaller(Dictionary<int, CardModelBase> cardDictionary)
+        public CardMarshaller(CardSet cardSet)
         {
-            this.cardDictionary = cardDictionary;
+            this.cardSet = cardSet;
         }
 
         public CardSerialization Marshall(CardModelBase poco)
         {
-            var dto = new CardSerialization();
-            dto.Id = poco.Id;
+            CardSerialization dto = poco.ToDto();
             return dto;
         }
 
-        public CardModelBase UnMarshall(CardSerialization slimRepresentation)
+        public CardModelBase UnMarshall(CardSerialization dto)
         {
-            if (!cardDictionary.ContainsKey(slimRepresentation.Id))
+            CardModelBase poco;
+            switch (dto.CardType)
             {
-                throw new ArgumentException("Invalid card id.");
+                case CardType.Order:
+                    poco = cardSet.MakeCard(dto.BuildingName);
+                    break;
+                case CardType.Jack:
+                    poco = new JackCardModel();
+                    break;
+                case CardType.BuildingSite:
+                    poco = new BuildingSite((MaterialType)dto.Material, (SiteType)dto.SiteType);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
-            return cardDictionary[slimRepresentation.Id];
+            poco.Id = dto.Id;
+            return poco;
         }
     }
 }

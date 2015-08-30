@@ -15,6 +15,11 @@ namespace GTR.Core.Marshalling
     {
         private CardLocationMarshaller cardLocationMarshaller;
 
+        public PlayerMarshaller(CardLocationMarshaller cardLocationMarshaller)
+        {
+            this.cardLocationMarshaller = cardLocationMarshaller;
+        }
+
         public PlayerDto Marshall(Player poco)
         {
             string id = poco.Id;
@@ -43,6 +48,11 @@ namespace GTR.Core.Marshalling
     class CardLocationMarshaller : IMarshaller<ICardLocation<CardModelBase>, CardLocationDto>
     {
         private CardMarshaller cardMarshaller;
+
+        public CardLocationMarshaller(CardMarshaller cardMarshaller)
+        {
+            this.cardMarshaller = cardMarshaller;
+        }
 
         public CardLocationDto Marshall(ICardLocation<CardModelBase> poco)
         {

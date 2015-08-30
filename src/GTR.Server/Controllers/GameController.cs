@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 using GTR.Core.Serialization;
+using GTR.Core.Services;
 using GTR.Server;
 using Microsoft.Azure.Mobile.Server.Config;
 
@@ -11,6 +12,25 @@ namespace GTR.Server.Controllers
     public class GameController : ApiController
     {
         private GameManager gameManager = GameManager.Instance;
+
+        public async Task<GameInfoResponseSerialization> GetGameState(string gameId)
+        {
+            var game = gameManager.GetGameDtoInfo(gameId);
+            var response = new GameInfoResponseSerialization()
+            {
+                Success = false
+            };
+
+            if (game == null)
+            {
+                response.Message = ErrorMessages.NonexistentGame;
+                return response;
+            }
+
+            response.Success = true;
+            response.Game = game;
+            return response;
+        }
 
         public async Task<MoveResponseSerialization> PostMove(MoveSetRequest moveSetRequest)
         {

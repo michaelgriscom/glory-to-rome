@@ -30,10 +30,10 @@ namespace GTR.Server.Controllers
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<CreateGameResponseSerialization> PostCreate(CreateGameRequest request)
+        public async Task<CreateGameResponseSerialization> PostHost(CreateGameRequest request)
         {
             CreateGameResponseSerialization response = new CreateGameResponseSerialization();
-            var playerId = GetPlayerId(request.AuthorizationToken);
+            var playerId = GetPlayerId();
 
             LobbyGame game = new LobbyGame()
             {
@@ -51,62 +51,25 @@ namespace GTR.Server.Controllers
         }
 
         /// <summary>
-        /// Joins a player into a game
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        public async Task<JoinGameResponseSerialization> PostJoin(JoinGameRequest request)
-        {
-            var response = new JoinGameResponseSerialization();
-            response.Success = false;
-
-            // TODO: query
-            var allGames = lobbyTable.GetAllLobbyGames(Request);
-            var gameInfo = allGames.First(g => g.Id == request.GameId);
-
-            if (gameInfo == null)
-            {
-                response.Message = ErrorMessages.NonexistentGame;
-                return response;
-            }
-            var playerId = GetPlayerId(request.AuthorizationToken);
-            if (gameInfo.Players.Any(pId => pId == playerId))
-            {
-                response.Message = ErrorMessages.AlreadyJoined;
-                return response;
-            }
-            if (gameInfo.Players.Count >= gameInfo.GameOptions.MaxPlayers)
-            {
-                response.Message = ErrorMessages.GameFull;
-                return response;
-            }
-
-            gameInfo.Players.Add(playerId);
-            response.Success = true;
-            return response;
-        }
-        private GameMarshaller gameMarshaller = new GameMarshaller();
-
-        /// <summary>
         /// Starts a game
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<StartGameResponseSerialization> PostStart(StartGameRequest request)
+        public async Task<StartGameResponseSerialization> GetCreate(string GameId)
         {
             var response = new StartGameResponseSerialization();
             response.Success = false;
 
             // TODO: query
             var allGames = lobbyTable.GetAllLobbyGames(Request);
-            var gameInfo = allGames.First(g => g.Id == request.GameId);
+            var gameInfo = allGames.First(g => g.Id == GameId);
 
             if (gameInfo == null)
             {
                 response.Message = ErrorMessages.NonexistentGame;
                 return response;
             }
-            string playerId = GetPlayerId(request.AuthorizationToken);
+            string playerId = GetPlayerId();
             if (playerId != gameInfo.HostId)
             {
                 response.Message = ErrorMessages.NotGameHost;
@@ -114,78 +77,19 @@ namespace GTR.Server.Controllers
             }
 
            var game = gameManager.CreateGame(gameInfo);
-            var gameDto = gameMarshaller.Marshall(game);
 
-            await lobbyTable.DeleteLobbyGame(request.GameId, Request);
-
-            response.Success = true;
-            response.Game = gameDto;
-            return response;
-        }
-
-        public async Task<GameInfoResponseSerialization> GetGameState(string gameId)
-        {
-            var game = gameManager.GetGameInfo(gameId);
-            var response = new GameInfoResponseSerialization()
-            {
-                Success = false
-            };
-
-            if (game == null)
-            {
-                response.Message = ErrorMessages.NonexistentGame;
-                return response;
-            }
+            await lobbyTable.DeleteLobbyGame(GameId, Request);
 
             response.Success = true;
-            response.Game = gameMarshaller.Marshall(game);
+            response.Game = game;
             return response;
         }
 
         private GameManager gameManager = GameManager.Instance;
 
-        private async Task StartGame(LobbyGame gameInfo)
+        private string GetPlayerId()
         {
-            gameManager.CreateGame(gameInfo);
-            /*
-            // Get the settings for the server project.
-            HttpConfiguration config = this.Configuration;
-            MobileAppSettingsDictionary settings =
-                this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
-
-            // Get the Notification Hubs credentials for the Mobile App.
-            string notificationHubName = settings.NotificationHubName;
-            string notificationHubConnection = settings
-                .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
-
-            // Create a new Notification Hub client.
-            NotificationHubClient hub = NotificationHubClient
-            .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
-
-            // Define a WNS payload
-            var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">"
-                                    + "testing!" + @"</text></binding></visual></toast>";
-
-            try
-            {
-                // Send the push notification and log the results.
-                var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
-
-                // Write the success result to the logs.
-                config.Services.GetTraceWriter().Info(result.State.ToString());
-            }
-            catch (System.Exception ex)
-            {
-                // Write the failure result to the logs.
-                config.Services.GetTraceWriter()
-                    .Error(ex.Message, null, "Push.SendAsync Error");
-            }
-            */
-        }
-
-        private string GetPlayerId(int authorizationToken)
-        {
-            throw new NotImplementedException();
+            return "1";
         }
     }
 }

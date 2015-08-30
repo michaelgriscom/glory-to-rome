@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using GTR.Core.Buildings;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
+using GTR.Core.Serialization;
 
 #endregion
 
@@ -52,6 +53,17 @@ namespace GTR.Core.Model
         public override string Name
         {
             get { return string.Concat(MaterialType, " building site"); }
+        }
+
+        public override CardSerialization ToDto()
+        {
+            return new BuildingFoundationSerialization()
+            {
+                CardType = CardType.BuildingSite,
+                Id = Id,
+                Material = MaterialType,
+                SiteType = SiteType
+            };
         }
 
         private void MaterialsOnCollectionChanged(object sender,

@@ -32,9 +32,10 @@ namespace GTR.Core.DeckManagement
             return GetEnumerator();
         }
 
-        public OrderCardModel GetCard(string cardName)
+        public OrderCardModel MakeCard(string cardName)
         {
-            return _cards[cardName];
+            var card = _cards[cardName];
+            return new OrderCardModel(card.Name, card.Description, card.RoleType);
         }
 
         internal void Add(OrderCardModel card)

@@ -1,4 +1,6 @@
-﻿namespace GTR.Core.Serialization
+﻿using GTR.Core.Marshalling.DTO;
+
+namespace GTR.Core.Serialization
 {
     public class GetReponseSerialization<T> : ResponseSerialization
     {

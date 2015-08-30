@@ -15,11 +15,11 @@ namespace GTR.Server.Controllers
 {
     public class LobbyTable
     {
-        private readonly TiberContext context;
+        private readonly GtrDbContext context;
 
         public LobbyTable()
         {
-            context = new TiberContext();
+            context = new GtrDbContext();
         }
 
         public IQueryable<LobbyGame> GetAllLobbyGames(HttpRequestMessage request)

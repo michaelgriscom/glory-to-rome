@@ -41,7 +41,7 @@ namespace GTR.Core.UnitTests
             CardSet cardSet = CardSetSerializer.Deserialize(fullXml);
 
             Assert.AreEqual(1, cardSet.Count);
-            OrderCardModel card = cardSet.GetCard(building);
+            OrderCardModel card = cardSet.MakeCard(building);
             Assert.AreEqual(building, card.Name);
             Assert.AreEqual(RoleType.Craftsman, card.RoleType);
             Assert.AreEqual(description, card.Description);

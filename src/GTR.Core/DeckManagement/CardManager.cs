@@ -59,8 +59,7 @@ namespace GTR.Core.DeckManagement
                 int cardCount = deckVersion.GetCount(cardName);
                 for (int i = 0; i < cardCount; i++)
                 {
-                    OrderCardModel cardModel = CardSet.GetCard(cardName);
-                    //OrderCard orderCard = ConvertToOrder(cardModel);
+                    OrderCardModel cardModel = CardSet.MakeCard(cardName);
                     orderDeck.AddToTop(cardModel);
                 }
             }

@@ -19,14 +19,14 @@ namespace GTR.Server.Controllers
 {
     public class MovesController : TableController<MoveEntity>
     {
-        private TiberContext context;
+        private GtrDbContext context;
 
         private GameManager gameManager = GameManager.Instance;
 
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
-            this.context = new TiberContext();
+            this.context = new GtrDbContext();
             DomainManager = new EntityDomainManager<MoveEntity>(context, Request);
         }
 

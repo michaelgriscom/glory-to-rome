@@ -9,22 +9,35 @@ namespace GTR.Core.Serialization
 {
     public class CardSerialization : IDto
     {
-        [JsonProperty("id")] public int Id;
+        public int Id;
+
+        public MaterialType? Material;
+
+        public string BuildingName;
+
+        public SiteType? SiteType;
+
+        public CardType CardType;
+    }
+
+
+    public enum CardType
+    {
+        Order,
+        Jack,
+        BuildingSite
     }
 
     public class MaterialCardSerialization : CardSerialization
     {
-        [JsonProperty("material")] public MaterialType Material;
     }
 
     public class OrderCardSerialization : MaterialCardSerialization
     {
-        [JsonProperty("building_name")] public string BuildingName;
     }
 
     public class BuildingFoundationSerialization : MaterialCardSerialization
     {
-        [JsonProperty("is_within_rome")] public bool IsWithinRome;
     }
 
     public class JackCardSerialization : CardSerialization

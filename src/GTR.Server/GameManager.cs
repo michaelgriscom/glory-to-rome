@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using GTR.Core.Game;
+using GTR.Core.Marshalling.DTO;
 using GTR.Core.Model;
 using GTR.Core.Serialization;
 using GTR.Core.Services;
@@ -26,13 +27,18 @@ namespace GTR.Server
          
         private GameManager()
         {
+            deckIo = new DeckIo();
+            resourceProvider = new ResourceProvider();
+            marshaller = new GameMarshaller(deckIo, resourceProvider);
+
             Games = new ConcurrentDictionary<string, GameEngine>();    
         }
 
-        private IDeckIo deckIo = new DeckIo();
-        private IResourceProvider resourceProvider = new ResourceProvider();
+        private IDeckIo deckIo;
+        private IResourceProvider resourceProvider;
+        private GameMarshaller marshaller;
 
-        public Game CreateGame(LobbyGame gameInfo)
+        public GameDto CreateGame(LobbyGame gameInfo)
         {
             Game game = GameFactory.MakeGame(gameInfo.Players, gameInfo.GameOptions, deckIo, resourceProvider);
             PlayerInputService inputService = new PlayerInputService();
@@ -45,7 +51,7 @@ namespace GTR.Server
                 throw new ArgumentException("Duplicated game");
             }
 
-            return game;
+            return marshaller.Marshall(game);
         }
 
         public Game GetGameInfo(string gameId)
@@ -58,6 +64,12 @@ namespace GTR.Server
             {
                 return Games[gameId].Game;
             }
+        }
+
+        public GameDto GetGameDtoInfo(string gameId)
+        {
+            var game = GetGameInfo(gameId);
+            return marshaller.Marshall(game);
         }
 
         public async Task<CompletedGame> RunGame(string gameId)
@@ -99,9 +111,9 @@ namespace GTR.Server
     internal class ServerGame
     {
         private GameEngine game;
-        private TiberContext context;
+        private GtrDbContext context;
 
-        public ServerGame(Game game, TiberContext context)
+        public ServerGame(Game game, GtrDbContext context)
         {
             this.game = new GameEngine(game, null, null);
             this.context = context;

@@ -7,7 +7,7 @@ using Microsoft.Azure.Mobile.Server.Tables;
 
 namespace tiberService.Models
 {
-    public class TiberContext : DbContext
+    public class GtrDbContext : DbContext
     {
         // You can add custom code to this file. Changes will not be overwritten.
         // 
@@ -21,7 +21,7 @@ namespace tiberService.Models
         // Web.config, is the same as the service name when hosted in Azure.
         private const string connectionStringName = "Name=MS_TableConnectionString";
 
-        public TiberContext() : base(connectionStringName)
+        public GtrDbContext() : base(connectionStringName)
         {
         } 
 
@@ -35,7 +35,7 @@ namespace tiberService.Models
             {
                 modelBuilder.HasDefaultSchema(schema);
             }
-
+            modelBuilder.Entity<LobbyGame>().ToTable("LobbyGame");
             modelBuilder.Conventions.Add(
                 new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));

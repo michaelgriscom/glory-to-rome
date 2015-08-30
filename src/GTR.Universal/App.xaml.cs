@@ -10,6 +10,7 @@ using Windows.UI.Xaml.Navigation;
 using Windows.Networking.PushNotifications;
 using Microsoft.WindowsAzure.Messaging;
 using Windows.UI.Popups;
+using GTR.Core.Util;
 
 #endregion
 
@@ -42,6 +43,8 @@ namespace GTR.Universal
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            JsonNetConfiguration.ConfigureJsonNet();
+
             InitNotificationsAsync();
 #if DEBUG
             if (Debugger.IsAttached)

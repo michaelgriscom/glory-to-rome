@@ -20,27 +20,13 @@ namespace tiberService
                 .ApplyTo(config);
 
             JsonNetConfiguration.ConfigureJsonNet();
-            //Database.SetInitializer(new tiberInitializer());
+            Database.SetInitializer(new DbInitializer());
         }
     }
 
-    //public class tiberInitializer : ClearDatabaseSchemaIfModelChanges<tiberContext>
-    //{
-    //    protected override void Seed(tiberContext context)
-    //    {
-    //        List<TodoItem> todoItems = new List<TodoItem>
-    //        {
-    //            new TodoItem { Id = Guid.NewGuid().ToString(), Text = "First item", Complete = false },
-    //            new TodoItem { Id = Guid.NewGuid().ToString(), Text = "Second item", Complete = false },
-    //        };
-
-    //        foreach (TodoItem todoItem in todoItems)
-    //        {
-    //            context.Set<TodoItem>().Add(todoItem);
-    //        }
-
-    //        base.Seed(context);
-    //    }
-    //}
+    public class DbInitializer : ClearDatabaseSchemaIfModelChanges<GtrDbContext>
+    {
+   
+    }
 }
 

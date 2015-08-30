@@ -45,7 +45,12 @@
         </DataTemplate>
     </Page.Resources>
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    <StackPanel Orientation="Horizontal">
+        <Button Name="StartButton" Content="StartGame" VerticalAlignment="Top" HorizontalAlignment="Right"
+                    Click="Button_Click" />
+    </StackPanel>
+
+    <!--<StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                 d:DataContext="{d:DesignData /SampleData/GameViewModelSampleData.xaml}">
         <StackPanel Orientation="Horizontal">
             <Button Name="StartButton" Content="StartGame" VerticalAlignment="Top" HorizontalAlignment="Right"
@@ -54,6 +59,6 @@
 
         </StackPanel>
         <Controls:GameControl/>
-    </StackPanel>
+    </StackPanel>-->
 
 </Page>

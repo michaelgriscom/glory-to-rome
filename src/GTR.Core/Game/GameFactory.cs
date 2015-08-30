@@ -12,45 +12,39 @@ namespace GTR.Core.Game
 {
     public class GameFactory
     {
-        private static OrderDeck CreateOrderDeck(IDeckIo deckIo, IResourceProvider resourceProvider,
-            GameOptions gameOptions)
-        {
-            var deckSerialization = deckIo.GetBuiltinDeck(gameOptions.DeckName);
-            var deckType = DeckTypeSerializer.Deserialize(deckSerialization);
-            var cardManager = new CardManager(resourceProvider, deckIo);
-            var orderDeck = cardManager.CreateOrderCardDeck(deckType);
-            return orderDeck;
-        }
-
         public static Model.Game MakeGame(
             IEnumerable<string> playerIds,
             GameOptions gameOptions,
             IDeckIo deckIo, 
             IResourceProvider resourceProvider)
         {
-            var orderDeck = CreateOrderDeck(deckIo, resourceProvider, gameOptions);
+            var deckSerialization = deckIo.GetBuiltinDeck(gameOptions.DeckName);
+            var deckType = DeckTypeSerializer.Deserialize(deckSerialization);
+            var cardManager = new CardManager(resourceProvider, deckIo);
+            var orderDeck = cardManager.CreateOrderCardDeck(deckType);
+
             var jackDeck = CreateJackDeck();
             var table = new GameTable(orderDeck, jackDeck);
-            var players = CreatePlayers(playerIds, table);
+            var players = CreatePlayers(playerIds);
             table.AddPlayers(players);
 
             Model.Game game = new Model.Game
             {
                 GameOptions = gameOptions,
                 GameTable = table,
-                TurnNumber = 1
+                TurnNumber = 1,
+                CardSet = cardManager.CardSet
             };
 
             return game;
         }
 
-        private static List<Player> CreatePlayers(IEnumerable<string> playerNames, GameTable gameTable)
+        private static List<Player> CreatePlayers(IEnumerable<string> playerNames)
         {
             var players = new List<Player>();
             foreach (var playerName in playerNames)
             {
                 var player = new Player(playerName);
-
                 players.Add(player);
             }
 

@@ -1,6 +1,7 @@
 #region
 
 using System.Collections.ObjectModel;
+using GTR.Core.DeckManagement;
 using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.Serialization;
@@ -74,5 +75,14 @@ namespace GTR.Core.Model
                 RaisePropertyChanged();
             }
         }
+
+        private CardSet _cardSet;
+
+        public CardSet CardSet
+        {
+            get { return _cardSet; }
+            set { _cardSet = value; RaisePropertyChanged(); }
+        }
+
     }
 }
