@@ -38,29 +38,23 @@ namespace GTR.Core.Model
             }
         }
 
-        public class JackCardGroup : CardSourceTarget<JackCardModel>
+        public class JackCardGroup : ObservableCardCollection<JackCardModel>
         {
             private readonly PlayArea _playArea;
 
             public JackCardGroup(PlayArea playArea)
-                : base()
             {
                 _playArea = playArea;
             }
         }
 
-        public class OrderCardGroup : BoundedCardTarget<OrderCardModel>, ICardSource<OrderCardModel>
+        public class OrderCardGroup : BoundedCardCollection<OrderCardModel>
         {
             private readonly PlayArea _playArea;
 
-            internal OrderCardGroup(PlayArea PlayArea) : base()
+            internal OrderCardGroup(PlayArea PlayArea)
             {
                 _playArea = PlayArea;
-            }
-
-            public OrderCardModel ElementAt(int index)
-            {
-                return this[index];
             }
         }
     }

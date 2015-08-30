@@ -10,10 +10,10 @@ using GTR.Core.CardCollections;
 
 namespace GTR.Core.Model
 {
-    public class CompletedFoundations : CardTarget<BuildingSite>
+    public class CompletedFoundations : ObservableCardCollection<BuildingSite>
     {
-        public CompletedFoundations(string player = "")
-            : base(string.Format("Player {0} completed foundations", player))
+        public CompletedFoundations()
+            : base()
         {
         }
     }

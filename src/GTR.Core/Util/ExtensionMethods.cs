@@ -18,7 +18,7 @@ namespace GTR.Core.Util
             return card.RoleType.ToMaterial();
         }
 
-        public static bool Remove<T>(this ICardSource<T> source, CardModelBase card) where T : CardModelBase
+        public static bool Remove<T>(this ICardLocation<T> source, CardModelBase card) where T : CardModelBase
         {
             for (int i = 0; i < source.Count; i++)
             {

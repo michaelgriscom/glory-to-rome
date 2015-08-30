@@ -9,24 +9,26 @@ using GTR.Core.Util;
 
 namespace GTR.Core.Model
 {
-    public class Clientele : BoundedCardTarget<OrderCardModel>
+    public class Clientele : ObservableCardCollection<OrderCardModel>, IBoundable
     {
         public Clientele()
         {
             CanFollow = new WrappedFunc<OrderCardModel, RoleType, bool>(CanFollowBase);
+            this.Capacity = 2;
+        }
+
+        public Clientele(ICardCollection<OrderCardModel> cards) : base(cards)
+        {
+            
         }
 
         internal WrappedFunc<OrderCardModel, RoleType, bool> CanFollow { get; private set; }
-
-        public bool IsFull
-        {
-            get { return false; // TODO: implement
-            }
-        }
 
         private bool CanFollowBase(OrderCardModel client, RoleType role)
         {
             return client.RoleType == role;
         }
+
+        public int Capacity { get; set; }
     }
 }

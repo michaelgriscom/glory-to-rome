@@ -7,7 +7,7 @@ using GTR.Core.CardCollections;
 
 namespace GTR.Core.Model
 {
-    public class JackDeck : CardSourceTarget<JackCardModel>
+    public class JackDeck : ObservableCardCollection<JackCardModel>
     {
         public JackDeck() : base()
         {

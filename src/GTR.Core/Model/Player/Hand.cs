@@ -57,22 +57,16 @@ namespace GTR.Core.Model
             }
         }
 
-        public class OrderCardGroup : BoundedCardTarget<OrderCardModel>, ICardSource<OrderCardModel>
+        public class OrderCardGroup : ObservableCardCollection<OrderCardModel>, IConditionalAddable<OrderCardModel>
         {
             private readonly Hand _hand;
 
             public OrderCardGroup(Hand hand)
-                : base()
             {
                 _hand = hand;
             }
 
-            public OrderCardModel ElementAt(int index)
-            {
-                return this[index];
-            }
-
-            public override bool CanAdd(OrderCardModel card)
+            public bool CanAdd(OrderCardModel card)
             {
                 return _hand.Count < _hand.RefillCapacity;
             }

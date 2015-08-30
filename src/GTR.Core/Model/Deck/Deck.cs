@@ -6,74 +6,91 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using GTR.Core.CardCollections;
 using GTR.Core.Serialization;
+using GTR.Core.Util;
 
 #endregion
 
 namespace GTR.Core.Model
 {
-    public class Deck<T> : ObservableModel, ICardSource<T> where T : CardModelBase
+    public class Deck<T> : ObservableCardCollection<CardModelBase> where T : CardModelBase
     {
-        private ObservableCollection<T> _cards;
+      private ObservableCardCollection<T> collection;
 
         internal Deck(IEnumerable<T> cards)
         {
-            Cards = new ObservableCollection<T>(cards);
+            collection = new ObservableCardCollection<T>(cards);
         }
 
         public Deck()
-            : this(new ObservableCollection<T>())
+            : this(new ObservableCardCollection<T>())
         {
             // empty deck
         }
 
-        public ObservableCollection<T> Cards
+        public Deck(ObservableCardCollection<T> collection)
         {
-            get { return _cards; }
+            this.collection = collection;
+        } 
+
+        public ObservableCardCollection<T> Cards
+        {
+            get { return collection; }
             private set
             {
-                _cards = value;
+                collection = value;
                 RaisePropertyChanged();
             }
         }
 
         internal int Count
         {
-            get { return _cards.Count; }
+            get { return collection.Count; }
         }
 
         internal T Top
         {
-            get { return ElementAt(0); }
-        }
-
-        int ICardSource<T>.Count
-        {
-            get { return _cards.Count; }
+            get { return collection.ElementAt(0); }
         }
 
         public IEnumerator<T> GetEnumerator()
         {
-            return _cards.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return _cards.GetEnumerator();
+            return collection.GetEnumerator();
         }
 
         public T ElementAt(int index)
         {
-            return _cards[0];
+            return collection.ElementAt(index);
         }
 
         public void RemoveAt(int index)
         {
-            _cards.RemoveAt(0);
+            collection.RemoveAt(0);
         }
 
         public string Id
         {
-            get { return "Deck"; }
+            get { return collection.Id; }
+            set { collection.Id = value; }
+        }
+
+        public void Add(T item)
+        {
+            collection.Add(item);
+        }
+
+        public void Clear()
+        {
+            collection.Clear();
+        }
+
+        public bool Contains(T item)
+        {
+            return collection.Contains(item);
+        }
+
+        public void CopyTo(T[] array, int arrayIndex)
+        {
+            collection.CopyTo(array, arrayIndex);
         }
 
         public bool Remove(T card)
@@ -87,15 +104,10 @@ namespace GTR.Core.Model
             return cardIsOnTop;
         }
 
-        internal void AddToTop(T card)
-        {
-            _cards.Insert(0, card);
-        }
-
         internal T Draw()
         {
             T topCard = Top;
-            _cards.RemoveAt(0);
+            collection.RemoveAt(0);
             return topCard;
         }
 
@@ -105,8 +117,8 @@ namespace GTR.Core.Model
         internal void Shuffle()
         {
             Random randGen = new Random();
-            List<T> cardList = new List<T>(_cards);
-            int numRemaining = _cards.Count;
+            List<T> cardList = new List<T>(collection);
+            int numRemaining = collection.Count;
             while (numRemaining > 1)
             {
                 numRemaining--;
@@ -115,10 +127,10 @@ namespace GTR.Core.Model
                 cardList[randIndex] = cardList[numRemaining];
                 cardList[numRemaining] = value;
             }
-            _cards.Clear();
+            collection.Clear();
             foreach (T card in cardList)
             {
-                _cards.Add(card);
+                collection.Add(card);
             }
         }
     }

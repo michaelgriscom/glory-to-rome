@@ -14,7 +14,7 @@ namespace GTR.Core.Actions
 {
     internal class LegionnaireAction : OrderActionBase
     {
-        private readonly CardSourceTarget<OrderCardModel> _demandArea;
+        private readonly ObservableCardCollection<OrderCardModel> _demandArea;
         private readonly Hand.OrderCardGroup _playerHand;
 
         public LegionnaireAction(Player player, GameTable gameTable)

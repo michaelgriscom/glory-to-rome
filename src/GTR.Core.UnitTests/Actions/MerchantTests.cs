@@ -39,7 +39,7 @@ namespace GTR.Core.UnitTests.Actions
         [TestMethod]
         public void VanillaMerchant()
         {
-            _player.Camp.Vault.MaxCapacity = 1;
+            _player.Camp.Vault.Capacity = 1;
             var action = new MerchantAction(_player, _gameTable);
 
             OrderCardModel stockpileCard = new OrderCardModel("pool card", "test", RoleType.Architect);
@@ -65,7 +65,7 @@ namespace GTR.Core.UnitTests.Actions
         [TestMethod]
         public void FullVaultMerchant()
         {
-            _player.Camp.Vault.MaxCapacity = 0;
+            _player.Camp.Vault.Capacity = 0;
 
             OrderCardModel stockpileCard = new OrderCardModel("pool card", "test", RoleType.Architect);
             _player.Camp.Stockpile.Add(stockpileCard);
@@ -78,7 +78,7 @@ namespace GTR.Core.UnitTests.Actions
         [TestMethod]
         public void EmptyStockpileMerchant()
         {
-            _player.Camp.Vault.MaxCapacity = 1;
+            _player.Camp.Vault.Capacity = 1;
             var moveSpace = _action.Execute();
 
             var enumerator = moveSpace.GetEnumerator();
@@ -88,7 +88,7 @@ namespace GTR.Core.UnitTests.Actions
         [TestMethod]
         public void MultipleOptionsMerchant()
         {
-            _player.Camp.Vault.MaxCapacity = 1;
+            _player.Camp.Vault.Capacity = 1;
 
             const int stockpileCount = 5;
             HashSet<OrderCardModel> stockpileCards = new HashSet<OrderCardModel>();

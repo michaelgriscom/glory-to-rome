@@ -62,8 +62,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Messages.resx</DependentUpon>
     </Compile>
-    <Compile Include="Model\CardCollections\BoundedSourceTarget.cs" />
-    <Compile Include="Model\CardCollections\CardTarget.cs" />
     <Compile Include="DeckManagement\CardSet.cs" />
     <Compile Include="Moves\IAction.cs" />
     <Compile Include="Game\Engine\GameEngine.cs" />
@@ -125,9 +123,6 @@
     <Compile Include="Actions\PatronAction.cs" />
     <Compile Include="Actions\ThinkerAction.cs" />
     <Compile Include="Model\CardCollections\BoundedCardTarget.cs" />
-    <Compile Include="Model\CardCollections\ICardLocation.cs" />
-    <Compile Include="Model\CardCollections\ICardTarget.cs" />
-    <Compile Include="Model\CardCollections\CardLocation.cs" />
     <Compile Include="Model\Table\BuildingSite.cs" />
     <Compile Include="Model\Player\Clientele.cs" />
     <Compile Include="Model\Deck\Deck.cs" />
@@ -135,7 +130,7 @@
     <Compile Include="Model\Table\Pool.cs" />
     <Compile Include="Model\Deck\SiteDeck.cs" />
     <Compile Include="Model\Player\Stockpile.cs" />
-    <Compile Include="Model\CardCollections\CardSourceTarget.cs" />
+    <Compile Include="Model\CardCollections\ObservableCardCollection.cs" />
     <Compile Include="DeckManagement\DeckType.cs" />
     <Compile Include="Model\Card\CardModelBase.cs" />
     <Compile Include="DeckManagement\CardSetSerializer.cs" />

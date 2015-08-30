@@ -22,7 +22,7 @@ namespace GTR.Core.UnitTests
             for (int i = 0; i < cardCount; i++)
             {
                 OrderCardModel orderCard = new OrderCardModel("card #" + i, "Test card", RoleType.Architect);
-                deck.AddToTop(orderCard);
+                deck.Add(orderCard);
                 deckCompare.Add(orderCard);
             }
 

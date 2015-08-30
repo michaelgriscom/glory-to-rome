@@ -34,7 +34,7 @@ namespace GTR.Core.AIController
             return collection.ElementAt(0);
         }
 
-        public async Task<ICardSource<HandCardModel>> GetSource(List<ICardSource<HandCardModel>> availableSources)
+        public async Task<ICardLocation<HandCardModel>> GetSource(List<ICardLocation<HandCardModel>> availableSources)
         {
             return availableSources.ElementAt(0);
         }

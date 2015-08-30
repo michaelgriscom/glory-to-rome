@@ -20,7 +20,7 @@
                         <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding Materials.Count, Mode=OneWay}"
                                    d:LayoutOverrides="TopPosition, BottomPosition" />
                         <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text=" of " />
-                        <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Text="{Binding Materials.MaxCapacity}" />
+                        <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Text="{Binding Materials.Capacity}" />
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

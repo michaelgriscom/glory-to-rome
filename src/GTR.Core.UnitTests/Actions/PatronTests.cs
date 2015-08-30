@@ -38,7 +38,7 @@ namespace GTR.Core.UnitTests.Actions
         [TestMethod]
         public void VanillaPatron()
         {
-            _player.Camp.Clientele.MaxCapacity = 1;
+            _player.Camp.Clientele.Capacity = 1;
 
             OrderCardModel poolCard = new OrderCardModel("pool card", "test", RoleType.Architect);
             _gameTable.Pool.Add(poolCard);
@@ -63,7 +63,7 @@ namespace GTR.Core.UnitTests.Actions
         [TestMethod]
         public void FullClientelePatron()
         {
-            _player.Camp.Clientele.MaxCapacity = 0;
+            _player.Camp.Clientele.Capacity = 0;
 
             OrderCardModel poolCard = new OrderCardModel("pool card", "test", RoleType.Architect);
             _gameTable.Pool.Add(poolCard);
@@ -76,7 +76,7 @@ namespace GTR.Core.UnitTests.Actions
         [TestMethod]
         public void EmptyPoolPatron()
         {
-            _player.Camp.Clientele.MaxCapacity = 1;
+            _player.Camp.Clientele.Capacity = 1;
 
             var moveSpace = _action.Execute();
 
@@ -87,7 +87,7 @@ namespace GTR.Core.UnitTests.Actions
         [TestMethod]
         public void MultipleOptionsPatron()
         {
-            _player.Camp.Clientele.MaxCapacity = 1;
+            _player.Camp.Clientele.Capacity = 1;
 
             const int poolCount = 5;
             HashSet<OrderCardModel> poolCards = new HashSet<OrderCardModel>();

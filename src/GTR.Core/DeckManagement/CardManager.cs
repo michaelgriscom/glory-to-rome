@@ -60,7 +60,7 @@ namespace GTR.Core.DeckManagement
                 for (int i = 0; i < cardCount; i++)
                 {
                     OrderCardModel cardModel = CardSet.MakeCard(cardName);
-                    orderDeck.AddToTop(cardModel);
+                    orderDeck.Add(cardModel);
                 }
             }
             return orderDeck;

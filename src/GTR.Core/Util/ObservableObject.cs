@@ -12,7 +12,7 @@ namespace GTR.Core.Util
         #region INotifyPropertyChanged Members
 
         // Check the attribute in the following line :
-        public void RaisePropertyChanged([CallerMemberName] string propertyName = null)
+        protected void RaisePropertyChanged([CallerMemberName] string propertyName = null)
         {
             var handler = PropertyChanged;
             if (handler != null)

@@ -49,7 +49,7 @@ namespace GTR.Universal.Services
             return await _aiInput.GetRole(collection);
         }
 
-        public async Task<ICardSource<HandCardModel>> GetSource(List<ICardSource<HandCardModel>> availableSources)
+        public async Task<ICardLocation<HandCardModel>> GetSource(List<ICardLocation<HandCardModel>> availableSources)
         {
             await Task.Delay(moveDelay);
 

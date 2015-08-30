@@ -13,21 +13,22 @@ namespace GTR.Core.Model
     public class BuildingSite : CardModelBase
     {
         private BuildingFoundation _building;
-        private BoundedCardTarget<OrderCardModel> _materials;
+        private BoundedCardCollection<OrderCardModel> _materials;
 
         public BuildingSite(MaterialType materialType, SiteType siteType = SiteType.InsideRome)
         {
             MaterialType = materialType;
             SiteType = siteType;
 
-            Materials = new BoundedCardTarget<OrderCardModel>(MaterialType.MaterialWorth());
+            Materials = new BoundedCardCollection<OrderCardModel>();
+            Materials.Capacity = MaterialType.MaterialWorth();
             Materials.CollectionChanged += MaterialsOnCollectionChanged;
             Materials.Id = "Building materials";
 
             BuildingFoundation = new BuildingFoundation();
         }
 
-        public BoundedCardTarget<OrderCardModel> Materials
+        public BoundedCardCollection<OrderCardModel> Materials
         {
             get { return _materials; }
             set
@@ -73,7 +74,7 @@ namespace GTR.Core.Model
             {
                 return;
             }
-            if (Materials.MaxCapacity != Materials.Count)
+            if (Materials.Capacity != Materials.Count)
             {
                 return;
             }

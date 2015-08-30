@@ -6,10 +6,17 @@ using GTR.Core.CardCollections;
 
 namespace GTR.Core.Model
 {
-    public class Vault : BoundedCardTarget<OrderCardModel>
+    public class Vault : ObservableCardCollection<OrderCardModel>, IBoundable
     {
-        public Vault() : base()
+        public Vault(ICardCollection<OrderCardModel> collection) : base(collection)
         {
         }
+
+        public Vault() : base()
+        {
+            
+        }
+
+        public int Capacity { get; set; }
     }
 }

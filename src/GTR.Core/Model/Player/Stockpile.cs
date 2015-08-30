@@ -6,7 +6,7 @@ using GTR.Core.CardCollections;
 
 namespace GTR.Core.Model
 {
-    public class Stockpile : CardSourceTarget<OrderCardModel>
+    public class Stockpile : ObservableCardCollection<OrderCardModel>
     {
         public Stockpile() : base()
         {

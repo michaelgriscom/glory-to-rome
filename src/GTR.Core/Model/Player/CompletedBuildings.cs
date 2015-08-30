@@ -6,7 +6,7 @@ using GTR.Core.CardCollections;
 
 namespace GTR.Core.Model
 {
-    public class CompletedBuildings : CardSourceTarget<OrderCardModel>
+    public class CompletedBuildings : ObservableCardCollection<OrderCardModel>
     {
         public CompletedBuildings() : base()
         {

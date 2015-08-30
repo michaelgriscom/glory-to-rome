@@ -7,32 +7,30 @@ using GTR.Core.CardCollections;
 
 namespace GTR.Core.Model
 {
-    public class BuildingFoundation : BoundedSourceTarget<OrderCardModel>
+    public class BuildingFoundation : BoundedCardCollection<OrderCardModel>
     {
-        public BuildingFoundation() : base(1)
+        public BuildingFoundation()
         {
+            this.Capacity = 1;
         }
 
         public OrderCardModel Building
         {
             get
             {
-                if (Items.Count == 0)
+                if (Count == 0)
                 {
                     return null;
                 }
-                return Items.ElementAt(0);
+                return ElementAt(0);
             }
             set
             {
-                if (Items.Count == 0)
+                if (Count > 0)
                 {
-                    Items.Add(value);
+                    RemoveAt(0);
                 }
-                else
-                {
-                    Items[0] = value;
-                }
+                Add(value);
             }
         }
     }

@@ -6,7 +6,7 @@ using GTR.Core.CardCollections;
 
 namespace GTR.Core.Model
 {
-    public class DemandArea : CardSourceTarget<OrderCardModel>
+    public class DemandArea : ObservableCardCollection<OrderCardModel>
     {
         public DemandArea()
             : base()

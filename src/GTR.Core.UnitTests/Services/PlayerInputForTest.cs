@@ -33,7 +33,7 @@ namespace GTR.Core.UnitTests.Services
             throw new NotImplementedException();
         }
 
-        public Task<ICardSource<HandCardModel>> GetSource(List<ICardSource<HandCardModel>> availableSources)
+        public Task<ICardLocation<HandCardModel>> GetSource(List<ICardLocation<HandCardModel>> availableSources)
         {
             throw new NotImplementedException();
         }

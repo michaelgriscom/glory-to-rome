@@ -58,7 +58,7 @@ namespace GTR.Core.Buildings
 
         private IEnumerable<MoveSpace> DeckPatron(IAction action, IEnumerable<MoveSpace> arg)
         {
-            if (_playerClientele.IsFull)
+            if (_playerClientele.Capacity > _playerClientele.Count)
             {
                 return arg;
             }

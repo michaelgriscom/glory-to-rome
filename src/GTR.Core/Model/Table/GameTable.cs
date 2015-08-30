@@ -147,13 +147,13 @@ namespace GTR.Core.Model
             for (int i = 0; i < outOfTownSiteCount; i++)
             {
                 BuildingSite siteCard = new BuildingSite(materialType, SiteType.OutOfTown);
-                siteDeck.AddToTop(siteCard);
+                siteDeck.Add(siteCard);
             }
             // place in town site cards on top
             for (int i = 0; i < inTownSiteCount; i++)
             {
                 BuildingSite siteCard = new BuildingSite(materialType, SiteType.InsideRome);
-                siteDeck.AddToTop(siteCard);
+                siteDeck.Add(siteCard);
             }
             return siteDeck;
         }
