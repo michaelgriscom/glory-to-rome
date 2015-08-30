@@ -10,9 +10,9 @@ namespace GTR.Core.Marshalling
 {
     class PlayerMarshaller : IMarshaller<Player, PlayerDto>
     {
-        private CardLocationMarshaller cardLocationMarshaller;
+        private OrderCardLocationMarshaller cardLocationMarshaller;
 
-        public PlayerMarshaller(CardLocationMarshaller cardLocationMarshaller)
+        public PlayerMarshaller(OrderCardLocationMarshaller cardLocationMarshaller)
         {
             this.cardLocationMarshaller = cardLocationMarshaller;
         }

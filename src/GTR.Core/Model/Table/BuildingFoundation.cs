@@ -1,13 +1,12 @@
 ﻿#region
 
-using System.Linq;
 using GTR.Core.CardCollections;
 
 #endregion
 
-namespace GTR.Core.Model
+namespace GTR.Core.Model.Table
 {
-    public class BuildingFoundation : BoundedCardCollection<OrderCardModel>
+    public class BuildingFoundation : ObservableCardCollection<OrderCardModel>
     {
         public BuildingFoundation()
         {
@@ -33,5 +32,14 @@ namespace GTR.Core.Model
                 Add(value);
             }
         }
+
+        private int _capacity;
+
+        public int Capacity
+        {
+            get { return _capacity; }
+            set { _capacity = value; RaisePropertyChanged(); }
+        }
+
     }
 }

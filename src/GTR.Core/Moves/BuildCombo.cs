@@ -23,16 +23,5 @@ namespace GTR.Core.Action
         {
             return BuildMove.Perform() && SiteMove.Perform();
         }
-
-        public IEnumerator<IMove<CardModelBase>> GetEnumerator()
-        {
-            yield return BuildMove;
-            yield return SiteMove;
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
     }
 }

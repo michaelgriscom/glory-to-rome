@@ -8,6 +8,7 @@ using GTR.Core.Action;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.Model;
+using GTR.Core.Model.CardCollections;
 using GTR.Core.Services;
 
 #endregion
@@ -33,7 +34,7 @@ namespace GTR.Core.UnitTests.Services
             throw new NotImplementedException();
         }
 
-        public Task<ICardLocation<HandCardModel>> GetSource(List<ICardLocation<HandCardModel>> availableSources)
+        public Task<ICardCollection<HandCardModel>> GetSource(List<ICardCollection<HandCardModel>> availableSources)
         {
             throw new NotImplementedException();
         }

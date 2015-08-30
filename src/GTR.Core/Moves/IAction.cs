@@ -7,7 +7,7 @@ using GTR.Core.Model;
 
 namespace GTR.Core.Action
 {
-    public interface IAction : IEnumerable<IMove<CardModelBase>>
+    public interface IAction
     {
         bool Perform();
     }

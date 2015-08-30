@@ -7,6 +7,7 @@ using GTR.Core.Action;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.Model;
+using GTR.Core.Model.CardCollections;
 
 #endregion
 
@@ -34,7 +35,7 @@ namespace GTR.Core.AIController
             return collection.ElementAt(0);
         }
 
-        public async Task<ICardLocation<HandCardModel>> GetSource(List<ICardLocation<HandCardModel>> availableSources)
+        public async Task<ICardCollection<HandCardModel>> GetSource(List<ICardCollection<HandCardModel>> availableSources)
         {
             return availableSources.ElementAt(0);
         }

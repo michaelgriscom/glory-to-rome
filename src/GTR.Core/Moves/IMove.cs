@@ -2,15 +2,16 @@
 
 using GTR.Core.CardCollections;
 using GTR.Core.Model;
+using GTR.Core.Model.CardCollections;
 
 #endregion
 
 namespace GTR.Core.Action
 {
-    public interface IMove<out T> : IAction where T : CardModelBase
+    public interface IMove<T> : IAction where T : CardModelBase
     {
         T Card { get; }
-        ICardLocation<T> Destination { get; }
-        ICardLocation<T> Source { get; }
+        ICardCollection<T> Destination { get; }
+        ICardCollection<T> Source { get; }
     }
 }

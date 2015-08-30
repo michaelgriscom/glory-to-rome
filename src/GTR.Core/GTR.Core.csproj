@@ -102,7 +102,7 @@
     <Compile Include="Model\Player\ConstructionZone.cs" />
     <Compile Include="Model\Player\CompletedBuildings.cs" />
     <Compile Include="Model\Player\CompletedStructures.cs" />
-    <Compile Include="Model\CardCollections\ICardSource.cs" />
+    <Compile Include="Model\CardCollections\ICardCollection.cs" />
     <Compile Include="DeckManagement\CardManager.cs" />
     <Compile Include="DeckManagement\DeckTypeSerializer.cs" />
     <Compile Include="Design\DesignResourceProvider.cs" />

@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using GTR.Core.CardCollections;
 using GTR.Core.Model;
+using GTR.Core.Model.CardCollections;
 using GTR.Core.Serialization;
 using GTR.Core.Util;
 
@@ -15,14 +16,14 @@ namespace GTR.Core.Action
     public class Move<T> : IMove<T>, IModel where T : CardModelBase
     {
         private readonly Func<ICardCollection<T>> _destinationFunction;
-        private readonly ICardLocation<T> _source;
+        private readonly ICardCollection<T> _source;
         // this member should be treated as readonly after its initial assignment,
         // however we want to allow it to be evaluated lazily through a Func, so
         // we have to rely on this class not to mutate it after evaluation. Otherwise,
         // the hashcode could change and we could lose the object in a collection.
         private ICardCollection<T> _destination;
 
-        public Move(T card, ICardLocation<T> source, ICardCollection<T> destination)
+        public Move(T card, ICardCollection<T> source, ICardCollection<T> destination)
         {
             Card = card;
             _source = source;
@@ -35,10 +36,10 @@ namespace GTR.Core.Action
         // so we'd need a messy Initialize method with a signature like below. The problem though is that we'd have to expose U and V
         // through the getters, so this type will become really ugly. Instead, the ugliness is currently isolated to two main places,
         // the player's play area and the player's hand, which both have a collection of jack cards and a collection of order cards.
-        // public void Initialize<T, U, V>(T card, ICardLocation<U> source, ICardCollection<V> destination ) where T:U,V where U : CardModelBase where V:CardModelBase
+        // public void Initialize<T, U, V>(T card, ICardCollection<U> source, ICardCollection<V> destination ) where T:U,V where U : CardModelBase where V:CardModelBase
 
 
-        public Move(T card, ICardLocation<T> source, Func<ICardCollection<T>> destinationFunction)
+        public Move(T card, ICardCollection<T> source, Func<ICardCollection<T>> destinationFunction)
         {
             Card = card;
             _source = source;
@@ -47,7 +48,7 @@ namespace GTR.Core.Action
 
         public T Card { get; }
 
-        public ICardLocation<T> Destination
+        public ICardCollection<T> Destination
         {
             get
             {
@@ -59,7 +60,7 @@ namespace GTR.Core.Action
             }
         }
 
-        public ICardLocation<T> Source
+        public ICardCollection<T> Source
         {
             get { return _source; }
         }
@@ -75,14 +76,19 @@ namespace GTR.Core.Action
             return success;
         }
 
+        //public IEnumerator<IMove<CardModelBase>> GetEnumerator()
+        //{
+        //    yield return this;
+        //}
+
+        //IEnumerator IEnumerable.GetEnumerator()
+        //{
+        //    return GetEnumerator();
+        //}
+
         public IEnumerator<IMove<CardModelBase>> GetEnumerator()
         {
-            yield return this;
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
+            throw new NotImplementedException();
         }
 
         public override bool Equals(object obj)

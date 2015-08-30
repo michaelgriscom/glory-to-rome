@@ -28,16 +28,6 @@ namespace GTR.Core.Action
             return ThinkMoves.Select(move => move.Perform()).All(success => success);
         }
 
-        public IEnumerator<IMove<CardModelBase>> GetEnumerator()
-        {
-            return ThinkMoves.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
         public void Add(IMove<OrderCardModel> thinkMove)
         {
             ThinkMoves.Add(thinkMove);

@@ -19,13 +19,13 @@ namespace GTR.Core.Serialization
     public class GameMarshaller : IMarshaller<Model.Game, GameDto>
     {
         private PlayerMarshaller playerMarshaller;
-        private CardLocationMarshaller cardLocationMarshaller;
+        private OrderCardLocationMarshaller cardLocationMarshaller;
 
         public GameMarshaller(IDeckIo deckIo, IResourceProvider resourceProvider)
         {
             var cardManager = new CardManager(resourceProvider, deckIo);
             var cardMarshaller = new CardMarshaller(cardManager.CardSet);
-            cardLocationMarshaller = new CardLocationMarshaller(cardMarshaller);
+            cardLocationMarshaller = new OrderCardLocationMarshaller(cardMarshaller);
             this.playerMarshaller = new PlayerMarshaller(cardLocationMarshaller);
         }
 
@@ -35,8 +35,6 @@ namespace GTR.Core.Serialization
             {
                 return null;
             }
-
-           
 
             var fatRepPlayers = poco.GameTable.Players;
 

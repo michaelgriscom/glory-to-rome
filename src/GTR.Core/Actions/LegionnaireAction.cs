@@ -81,7 +81,7 @@ namespace GTR.Core.Actions
             //var demandEnumeration = demandArea.GetEnumerator();
             //OrderCard demandCard = (OrderCard)demandEnumeration.Current;
             var demandedCard = ((IMove<OrderCardModel>) action).Card;
-            IMove<CardModelBase> undemandMove = new Move<OrderCardModel>(demandedCard, _demandArea,
+            var undemandMove = new Move<OrderCardModel>(demandedCard, _demandArea,
                 _playerHand);
 
             moveSpace.Add(undemandMove);

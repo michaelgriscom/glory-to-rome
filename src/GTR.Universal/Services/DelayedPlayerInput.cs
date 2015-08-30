@@ -7,6 +7,7 @@ using GTR.Core.AIController;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.Model;
+using GTR.Core.Model.CardCollections;
 using GTR.Core.Services;
 using GTR.Core.Util;
 
@@ -49,7 +50,7 @@ namespace GTR.Universal.Services
             return await _aiInput.GetRole(collection);
         }
 
-        public async Task<ICardLocation<HandCardModel>> GetSource(List<ICardLocation<HandCardModel>> availableSources)
+        public async Task<ICardCollection<HandCardModel>> GetSource(List<ICardCollection<HandCardModel>> availableSources)
         {
             await Task.Delay(moveDelay);
 

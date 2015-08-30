@@ -48,7 +48,7 @@ namespace GTR.Core.Model
             }
         }
 
-        public class OrderCardGroup : BoundedCardCollection<OrderCardModel>
+        public class OrderCardGroup : ObservableCardCollection<OrderCardModel>
         {
             private readonly PlayArea _playArea;
 

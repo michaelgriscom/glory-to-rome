@@ -3,13 +3,14 @@
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.Marshalling.DTO;
+using GTR.Core.Model.CardCollections;
 using GTR.Core.Util;
 
 #endregion
 
 namespace GTR.Core.Model
 {
-    public class Clientele : ObservableCardCollection<OrderCardModel>, IBoundable, IConditionalAddable<OrderCardModel>
+    public class Clientele : ObservableCardCollection<OrderCardModel>, IConditionalAddable<OrderCardModel>
     {
         public Clientele()
         {
@@ -29,7 +30,14 @@ namespace GTR.Core.Model
             return client.RoleType == role;
         }
 
-        public int Capacity { get; set; }
+        private int _capacity;
+
+        public int Capacity
+        {
+            get { return _capacity; }
+            set { _capacity = value; RaisePropertyChanged();}
+        }
+
         public bool CanAdd(OrderCardModel card)
         {
             return this.Count < Capacity;

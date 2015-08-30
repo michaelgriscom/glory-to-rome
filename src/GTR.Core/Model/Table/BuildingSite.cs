@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using GTR.Core.Buildings;
 using GTR.Core.CardCollections;
 using GTR.Core.Game;
+using GTR.Core.Model.Table;
 using GTR.Core.Serialization;
 
 #endregion
@@ -20,9 +21,10 @@ namespace GTR.Core.Model
             MaterialType = materialType;
             SiteType = siteType;
 
-            Materials = new BoundedCardCollection<OrderCardModel>();
+            var materials = new ObservableCardCollection<OrderCardModel>();
+            materials.CollectionChanged += MaterialsOnCollectionChanged;
+            Materials = new BoundedCardCollection<OrderCardModel>(materials);
             Materials.Capacity = MaterialType.MaterialWorth();
-            Materials.CollectionChanged += MaterialsOnCollectionChanged;
             Materials.Id = "Building materials";
 
             BuildingFoundation = new BuildingFoundation();
