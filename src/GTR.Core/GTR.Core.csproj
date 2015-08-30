@@ -52,6 +52,7 @@
     <Compile Include="Game\AIController\AIPlayerInput.cs" />
     <Compile Include="Buildings\BuildingEffectBase.cs" />
     <Compile Include="Buildings\BuildingEffectFactory.cs" />
+    <Compile Include="Marshalling\CardLocationMarshaller.cs" />
     <Compile Include="Marshalling\CardMarshaller.cs" />
     <Compile Include="Marshalling\DTO\GameDto.cs" />
     <Compile Include="Marshalling\DTO\PlayerDto.cs" />

@@ -10,7 +10,7 @@ namespace GTR.Core.Marshalling.DTO
     public class CardLocationKindSerialization
     {
         public CardLocationKind Kind;
-        public int PlayerId;
+        public string PlayerId;
         public LocationScope Scope;
     }
 
@@ -24,7 +24,8 @@ namespace GTR.Core.Marshalling.DTO
     public enum LocationScope
     {
         Global,
-        Player
+        Player,
+        Private
     }
 
     public class SiteDeck : CardLocationDto

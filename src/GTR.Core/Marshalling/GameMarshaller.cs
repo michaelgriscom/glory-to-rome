@@ -36,11 +36,11 @@ namespace GTR.Core.Serialization
                 return null;
             }
 
-            GameDto dto = new GameDto();
+           
 
             var fatRepPlayers = poco.GameTable.Players;
 
-            dto.Players = fatRepPlayers.Select(p => playerMarshaller.Marshall(p)).ToArray();
+            var players = fatRepPlayers.Select(p => playerMarshaller.Marshall(p)).ToArray();
 
             var cardLocDtos = new List<CardLocationDto>();
 
@@ -60,7 +60,13 @@ namespace GTR.Core.Serialization
             };
             cardLocDtos.Add(jackDeckDto);
 
-            dto.Id = poco.Id;
+            GameDto dto = new GameDto()
+            {
+                Players = players,
+                Id = poco.Id,
+                CardLocations = cardLocDtos.ToArray(),
+                GameOptions = poco.GameOptions
+            };
             return dto;
         }
 
