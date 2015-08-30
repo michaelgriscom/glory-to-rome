@@ -5,7 +5,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Design="clr-namespace:GTR.Universal.Design"
-    xmlns:ViewModel="using:GTR.Core.ViewModel"
     xmlns:design="using:GTR.Universal.Design"
     x:Class="GTR.Universal.Controls.GameTableControl"
     mc:Ignorable="d"
