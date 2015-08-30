@@ -18,17 +18,26 @@ namespace GTR.Core.Util
             return card.RoleType.ToMaterial();
         }
 
+        // this is pretty hacked, it's a result of trying to keep covariance; a refactor will be needed to change it
         public static bool Remove<T>(this ICardLocation<T> source, CardModelBase card) where T : CardModelBase
         {
-            for (int i = 0; i < source.Count; i++)
+            int index = -1;
+            bool success = false;
+            foreach (var existingCard in source)
             {
-                if (source.ElementAt(i) == card)
+                index++;
+                if (existingCard == card)
                 {
-                    source.RemoveAt(i);
-                    return true;
+                    success = true;
+                    break;
                 }
             }
-            return false;
+            if (success)
+            {
+                source.RemoveAt(index);
+            }
+            
+            return success;
         }
 
         public static async Task TimeoutAfter(this Task task, int millisecondsTimeout)

@@ -9,7 +9,7 @@ using GTR.Core.Util;
 
 namespace GTR.Core.Model
 {
-    public class Clientele : ObservableCardCollection<OrderCardModel>, IBoundable
+    public class Clientele : ObservableCardCollection<OrderCardModel>, IBoundable, IConditionalAddable<OrderCardModel>
     {
         public Clientele()
         {
@@ -30,5 +30,9 @@ namespace GTR.Core.Model
         }
 
         public int Capacity { get; set; }
+        public bool CanAdd(OrderCardModel card)
+        {
+            return this.Count < Capacity;
+        }
     }
 }

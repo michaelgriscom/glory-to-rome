@@ -12,7 +12,7 @@ using GTR.Core.Util;
 
 namespace GTR.Core.Model
 {
-    public class Deck<T> : ObservableCardCollection<CardModelBase> where T : CardModelBase
+    public class Deck<T> : ObservableCardCollection<T> where T : CardModelBase
     {
       private ObservableCardCollection<T> collection;
 

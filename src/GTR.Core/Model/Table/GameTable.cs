@@ -143,16 +143,16 @@ namespace GTR.Core.Model
         private SiteDeck CreateSiteDeck(MaterialType materialType, int inTownSiteCount, int outOfTownSiteCount)
         {
             SiteDeck siteDeck = new SiteDeck(materialType);
-            // place out of site cards on bottom
-            for (int i = 0; i < outOfTownSiteCount; i++)
-            {
-                BuildingSite siteCard = new BuildingSite(materialType, SiteType.OutOfTown);
-                siteDeck.Add(siteCard);
-            }
             // place in town site cards on top
             for (int i = 0; i < inTownSiteCount; i++)
             {
                 BuildingSite siteCard = new BuildingSite(materialType, SiteType.InsideRome);
+                siteDeck.Add(siteCard);
+            }
+            // place out of site cards on bottom
+            for (int i = 0; i < outOfTownSiteCount; i++)
+            {
+                BuildingSite siteCard = new BuildingSite(materialType, SiteType.OutOfTown);
                 siteDeck.Add(siteCard);
             }
             return siteDeck;

@@ -37,10 +37,10 @@ namespace GTR.Core.CardCollections
             return this[index];
         }
 
-        public virtual bool CanAdd(T card)
-        {
-            return true;
-        }
+        //public virtual bool CanAdd(T card)
+        //{
+        //    return true;
+        //}
 
         public string Id { get; set; }
     }
