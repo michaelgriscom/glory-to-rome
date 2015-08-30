@@ -33,7 +33,7 @@ namespace GTR.Core.UnitTests.Actions
 
             PlayerInputForTest input = new PlayerInputForTest();
 
-            _player = new Player("test-player", input);
+            _player = new Player("test-player");
             List<Player> players = new List<Player> {_player}
                 ;
             _gameTable.AddPlayers(players);

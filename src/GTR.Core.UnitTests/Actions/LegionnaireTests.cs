@@ -31,7 +31,7 @@ namespace GTR.Core.UnitTests.Actions
             _gameTable = new GameTable(orderDeck, jackDeck);
 
             PlayerInputForTest input = new PlayerInputForTest();
-            _player = new Player("test-player", input);
+            _player = new Player("test-player");
 
             _action = new LegionnaireAction(_player, _gameTable);
         }
@@ -79,7 +79,7 @@ namespace GTR.Core.UnitTests.Actions
             _player.Hand.OrderCards.Add(demandCard);
 
             OrderCardModel demandedCard = new OrderCardModel("hand card", "test", handCardRole);
-            enemyplayer.Hand.OrderCards.Add(demandedCard);
+            enemyPlayer.Hand.OrderCards.Add(demandedCard);
 
             IMove<OrderCardModel> demandMove = new Move<OrderCardModel>(demandCard, _player.Hand.OrderCards,
                 _player.DemandArea);
@@ -95,7 +95,7 @@ namespace GTR.Core.UnitTests.Actions
 
                     // ReSharper disable once PossibleNullReferenceException
                     Assert.AreEqual(demandedMove.Card, demandedCard);
-                    Assert.AreEqual(demandedMove.Source, enemyplayer.Hand.OrderCards);
+                    Assert.AreEqual(demandedMove.Source, enemyPlayer.Hand.OrderCards);
                     Assert.AreEqual(demandedMove.Destination, _player.Camp.Stockpile);
                 };
         }
@@ -104,7 +104,7 @@ namespace GTR.Core.UnitTests.Actions
         public void LegionnaireSingleTargetWithCards()
         {
             PlayerInputForTest enemyPlayerInput = new PlayerInputForTest();
-            var enemyPlayer = new Player("enemy-player", enemyPlayerInput);
+            var enemyPlayer = new Player("enemy-player");
 
             List<Player> players = new List<Player> {enemyPlayer, _player};
             _gameTable.AddPlayers(players);
@@ -115,9 +115,9 @@ namespace GTR.Core.UnitTests.Actions
             _player.Hand.OrderCards.Add(demandCard);
 
             OrderCardModel demandedCard1 = new OrderCardModel("hand card", "test", handCardRole);
-            enemyplayer.Hand.OrderCards.Add(demandedCard1);
+            enemyPlayer.Hand.OrderCards.Add(demandedCard1);
             OrderCardModel demandedCard2 = new OrderCardModel("hand card", "test", handCardRole);
-            enemyplayer.Hand.OrderCards.Add(demandedCard2);
+            enemyPlayer.Hand.OrderCards.Add(demandedCard2);
 
             IMove<OrderCardModel> demandMove = new Move<OrderCardModel>(demandCard, _player.Hand.OrderCards,
                 _player.DemandArea);
@@ -138,7 +138,7 @@ namespace GTR.Core.UnitTests.Actions
                         // ReSharper disable once PossibleNullReferenceException
                         bool isDemandable = demandedMove.Card == demandedCard1 || demandedMove.Card == demandedCard2;
                         Assert.IsTrue(isDemandable);
-                        Assert.AreEqual(demandedMove.Source, enemyplayer.Hand.OrderCards);
+                        Assert.AreEqual(demandedMove.Source, enemyPlayer.Hand.OrderCards);
                         Assert.AreEqual(demandedMove.Destination, _player.Camp.Stockpile);
                     }
                     Assert.AreEqual(2, possibleMoves);
@@ -149,7 +149,7 @@ namespace GTR.Core.UnitTests.Actions
         public void LegionnaireSingleTargetWithoutCard()
         {
             PlayerInputForTest enemyPlayerInput = new PlayerInputForTest();
-            var enemyPlayer = new Player("enemy-player", enemyPlayerInput);
+            var enemyPlayer = new Player("enemy-player");
 
             List<Player> players = new List<Player> {enemyPlayer, _player};
             _gameTable.AddPlayers(players);
@@ -170,7 +170,7 @@ namespace GTR.Core.UnitTests.Actions
             foreach (var role in enemyCardTypes)
             {
                 OrderCardModel demandedCard = new OrderCardModel("hand card", "test", role);
-                enemyplayer.Hand.OrderCards.Add(demandedCard);
+                enemyPlayer.Hand.OrderCards.Add(demandedCard);
             }
 
             IMove<OrderCardModel> demandMove = new Move<OrderCardModel>(demandCard, _player.Hand.OrderCards,

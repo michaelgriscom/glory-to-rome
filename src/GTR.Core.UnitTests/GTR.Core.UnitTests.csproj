@@ -76,7 +76,6 @@
     <Compile Include="Services\MessageProviderForTest.cs" />
     <Compile Include="Services\PlayerInputForTest.cs" />
     <Compile Include="Services\ResourceProviderForTest.cs" />
-    <Compile Include="GameTests.cs" />
     <Compile Include="DeckTests.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="UtilTests\MultisetTests.cs" />

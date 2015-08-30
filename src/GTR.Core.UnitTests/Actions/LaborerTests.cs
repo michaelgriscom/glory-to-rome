@@ -30,7 +30,7 @@ namespace GTR.Core.UnitTests.Actions
             _gameTable = new GameTable(orderDeck, jackDeck);
             PlayerInputForTest input = new PlayerInputForTest();
 
-            _player = new Player("test-player", input);
+            _player = new Player("test-player");
             _gameTable.AddPlayers(new List<Player> {_player});
 
             _action = new LaborerAction(_player, _gameTable);
