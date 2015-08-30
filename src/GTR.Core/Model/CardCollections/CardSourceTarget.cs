@@ -9,7 +9,7 @@ namespace GTR.Core.CardCollections
 {
     public class CardSourceTarget<T> : CardLocation<T>, ICardTarget<T>, ICardSource<T> where T : CardModelBase
     {
-        public CardSourceTarget(string id = "") : base(id)
+        public CardSourceTarget() : base()
         {
         }
 

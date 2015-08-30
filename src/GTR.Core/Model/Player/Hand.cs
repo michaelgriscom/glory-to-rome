@@ -16,9 +16,8 @@ namespace GTR.Core.Model
         public Hand(string player = "")
         {
             RefillCapacity = DefaultHandSize;
-            string locationName = string.Format("Player {0} hand", player);
-            JackCards = new JackCardGroup(this, locationName);
-            OrderCards = new OrderCardGroup(this, locationName);
+            JackCards = new JackCardGroup(this);
+            OrderCards = new OrderCardGroup(this);
         }
 
         public JackCardGroup JackCards
@@ -52,7 +51,7 @@ namespace GTR.Core.Model
         {
             private readonly Hand _hand;
 
-            public JackCardGroup(Hand hand, string locationId) : base(locationId)
+            public JackCardGroup(Hand hand) : base()
             {
                 _hand = hand;
             }
@@ -62,8 +61,8 @@ namespace GTR.Core.Model
         {
             private readonly Hand _hand;
 
-            public OrderCardGroup(Hand hand, string locationId)
-                : base(locationId)
+            public OrderCardGroup(Hand hand)
+                : base()
             {
                 _hand = hand;
             }

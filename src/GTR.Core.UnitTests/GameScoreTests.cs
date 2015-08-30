@@ -48,6 +48,7 @@ namespace GTR.Core.UnitTests
         [TestMethod]
         public void PlayerWithBuildings()
         {
+            // note, this test currently fails because the influence point work is done by playerengine
             Player player = new Player("test-player");
             var players = new List<Player>
             {
@@ -82,6 +83,7 @@ namespace GTR.Core.UnitTests
         [TestMethod]
         public void PlayersWithBuildingsAndVaults()
         {
+            // note, this test currently fails because the influence point work is done by playerengine
             Player player1 = new Player("test-player1");
             Player player2 = new Player("test-player2");
 

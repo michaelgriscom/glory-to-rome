@@ -10,7 +10,7 @@ namespace GTR.Core.CardCollections
     {
         private int _maxCapacity;
 
-        public BoundedCardTarget(string id = "") : base(id)
+        public BoundedCardTarget() : base()
         {
         }
 

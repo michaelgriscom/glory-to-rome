@@ -16,11 +16,6 @@ namespace GTR.Core.CardCollections
         {
         }
 
-        internal CardLocation(string id) : this()
-        {
-            Id = id;
-        }
-
         internal CardLocation(IEnumerable<T> cards)
             : base(cards)
         {

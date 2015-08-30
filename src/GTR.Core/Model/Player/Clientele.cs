@@ -10,7 +10,7 @@ namespace GTR.Core.Model
 {
     public class Clientele : BoundedCardTarget<OrderCardModel>
     {
-        public Clientele(string player = "")
+        public Clientele()
         {
             CanFollow = new WrappedFunc<OrderCardModel, RoleType, bool>(CanFollowBase);
         }

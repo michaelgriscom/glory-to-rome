@@ -14,9 +14,8 @@ namespace GTR.Core.Model
 
         public PlayArea(string player = "")
         {
-            string locationName = string.Format("Player {0} PlayArea", player);
-            JackCards = new JackCardGroup(this, locationName);
-            OrderCards = new OrderCardGroup(this, locationName);
+            JackCards = new JackCardGroup(this);
+            OrderCards = new OrderCardGroup(this);
         }
 
         public JackCardGroup JackCards
@@ -43,8 +42,8 @@ namespace GTR.Core.Model
         {
             private readonly PlayArea _playArea;
 
-            public JackCardGroup(PlayArea playArea, string locationId)
-                : base(locationId)
+            public JackCardGroup(PlayArea playArea)
+                : base()
             {
                 _playArea = playArea;
             }
@@ -54,7 +53,7 @@ namespace GTR.Core.Model
         {
             private readonly PlayArea _playArea;
 
-            internal OrderCardGroup(PlayArea PlayArea, string locationId) : base(locationId)
+            internal OrderCardGroup(PlayArea PlayArea) : base()
             {
                 _playArea = PlayArea;
             }

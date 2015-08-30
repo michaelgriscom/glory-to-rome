@@ -8,7 +8,7 @@ namespace GTR.Core.Model
 {
     public class Stockpile : CardSourceTarget<OrderCardModel>
     {
-        public Stockpile(string id = "") : base(id)
+        public Stockpile() : base()
         {
         }
     }

@@ -9,7 +9,7 @@ namespace GTR.Core.Model
 {
     public class JackDeck : CardSourceTarget<JackCardModel>
     {
-        public JackDeck(string id = "") : base(id)
+        public JackDeck() : base()
         {
         }
 
