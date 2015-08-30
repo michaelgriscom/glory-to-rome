@@ -21,15 +21,24 @@ namespace GTR.Core.Engine
         private Player _playerToLeft;
         private Player _playerToRight;
 
-        public Player(string playerName)
+        private string _id;
+
+        public string Id
         {
-            PlayArea = new PlayArea(playerName);
-            Hand = new Hand(playerName);
-            Camp = new Camp(playerName);
-            ConstructionZone = new ConstructionZone(playerName);
-            CompletedBuildings = new CompletedBuildings(playerName);
-            DemandArea = new DemandArea(playerName);
-            PlayerName = playerName;
+            get { return _id; }
+            set { _id = value; RaisePropertyChanged(); }
+        }
+
+
+        public Player(string id)
+        {
+            PlayArea = new PlayArea();
+            Hand = new Hand();
+            Camp = new Camp();
+            ConstructionZone = new ConstructionZone();
+            CompletedBuildings = new CompletedBuildings();
+            DemandArea = new DemandArea();
+            Id = id;
             OutstandingActions = new Multiset<RoleType>();
         }
 

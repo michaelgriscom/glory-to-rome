@@ -23,7 +23,7 @@ namespace GTR.Core.Game
         private IPlayerInputService playerInputService;
 
         public GameEngine(
-            Game gameModel,
+            Model.Game gameModel,
             IMessageProvider messageProvider,
             IPlayerInputService playerInputService)
         {
@@ -41,7 +41,7 @@ namespace GTR.Core.Game
             }
         }
 
-        public Game Game { get; }
+        public Model.Game Game { get; }
         public IMessageProvider MessageProvider { get; set; }
 
         private GameTable GameTable

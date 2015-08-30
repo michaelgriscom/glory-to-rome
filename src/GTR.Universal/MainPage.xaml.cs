@@ -5,6 +5,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using GTR.Core.AIController;
 using GTR.Core.Game;
+using GTR.Core.Model;
 using GTR.Core.Services;
 using GTR.Universal.Services;
 using GTR.Windows.Services;

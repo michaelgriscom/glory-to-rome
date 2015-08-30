@@ -5,7 +5,7 @@
         public T Serialization;
     }
 
-    public class GameStateResponseSerialization : GetReponseSerialization<GameStateSerialization>
+    public class GameStateResponseSerialization : GetReponseSerialization<GameDto>
     {
     }
 

@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace GTR.Core.Serialization
 {
-    public class CardSerialization
+    public class CardSerialization : IDto
     {
         [JsonProperty("id")] public int Id;
     }

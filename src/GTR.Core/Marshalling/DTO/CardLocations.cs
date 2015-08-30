@@ -1,23 +1,24 @@
 ﻿#region
 
 using GTR.Core.Game;
+using GTR.Core.Serialization;
 
 #endregion
 
-namespace GTR.Core.Serialization
+namespace GTR.Core.Marshalling.DTO
 {
     public class CardLocationKindSerialization
     {
-        public int Id;
         public CardLocationKind Kind;
         public int PlayerId;
         public LocationScope Scope;
     }
 
-    public class CardLocationSerialization
+    public class CardLocationDto : IDto
     {
         public CardSerialization[] Cards;
         public CardLocationKindSerialization LocationKind;
+        public string Id;
     }
 
     public enum LocationScope
@@ -26,7 +27,7 @@ namespace GTR.Core.Serialization
         Player
     }
 
-    public class SiteDeck : CardLocationSerialization
+    public class SiteDeck : CardLocationDto
     {
         public MaterialType Material;
     }

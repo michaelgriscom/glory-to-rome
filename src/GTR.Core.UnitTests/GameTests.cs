@@ -27,7 +27,7 @@ namespace GTR.Core.UnitTests
             playerInputs.Add("player1", new AiPlayerInput());
             playerInputs.Add("player2", new AiPlayerInput());
 
-            Game.Game game = new Game.Game(playerInputs, options, deckIo, rp, mp);
+            Model.Game game = new Model.Game(playerInputs, options, deckIo, rp, mp);
             try
             {
                 await game.PlayGame();

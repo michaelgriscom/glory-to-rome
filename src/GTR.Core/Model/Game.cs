@@ -1,12 +1,13 @@
 #region
 
+using System.Collections.ObjectModel;
 using GTR.Core.Engine;
-using GTR.Core.Model;
+using GTR.Core.Game;
 using GTR.Core.Serialization;
 
 #endregion
 
-namespace GTR.Core.Game
+namespace GTR.Core.Model
 {
     public class Game : ObservableModel
     {
@@ -14,6 +15,23 @@ namespace GTR.Core.Game
         private GameTable _gameTable;
         private Player _leadPlayer;
         private int _turnNumber;
+
+        private string _id;
+
+        public string Id
+        {
+            get { return _id; }
+            set { _id = value; RaisePropertyChanged(); }
+        }
+
+        private ObservableCollection<CardModelBase> _cards;
+
+        public ObservableCollection<CardModelBase> Cards
+        {
+            get { return _cards; }
+            set { _cards = value; }
+        }
+
 
         public GameOptions GameOptions
         {

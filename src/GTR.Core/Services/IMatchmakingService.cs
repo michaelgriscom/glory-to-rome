@@ -14,10 +14,16 @@ namespace GTR.Core.Services
 
     public class StartGameResponseSerialization : ResponseSerialization
     {
+        public GameDto Game;
     }
 
     public class CreateGameRequest : Request
     {
         public GameOptions GameOptions;
+    }
+
+    public class GameInfoResponseSerialization : ResponseSerialization
+    {
+        public GameDto Game;
     }
 }

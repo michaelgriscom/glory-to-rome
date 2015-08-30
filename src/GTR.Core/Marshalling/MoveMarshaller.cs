@@ -10,9 +10,9 @@ namespace GTR.Core.Serialization
 {
     public class MoveMarshaller : IMarshaller<Move<CardModelBase>, MoveSerialization>
     {
-        private Game.Game game;
+        private Model.Game game;
 
-        public MoveMarshaller(Game.Game game)
+        public MoveMarshaller(Model.Game game)
         {
             this.game = game;
         }
@@ -22,7 +22,7 @@ namespace GTR.Core.Serialization
             throw new NotImplementedException();
         }
 
-        public MoveSerialization Marshall(Move<CardModelBase> fatRepresentation)
+        public MoveSerialization Marshall(Move<CardModelBase> poco)
         {
             throw new NotImplementedException();
         }

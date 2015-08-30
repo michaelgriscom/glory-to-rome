@@ -22,22 +22,25 @@ namespace GTR.Core.Game
             return orderDeck;
         }
 
-        public static Game MakeGame(IEnumerable<string> playerInputs,
-            GameOptions gameOptions, IDeckIo deckIo, IResourceProvider resourceProvider,
-            IMessageProvider messageProvider)
+        public static Model.Game MakeGame(
+            IEnumerable<string> playerIds,
+            GameOptions gameOptions,
+            IDeckIo deckIo, 
+            IResourceProvider resourceProvider)
         {
             var orderDeck = CreateOrderDeck(deckIo, resourceProvider, gameOptions);
             var jackDeck = CreateJackDeck();
             var table = new GameTable(orderDeck, jackDeck);
-            var players = CreatePlayers(playerInputs, table);
+            var players = CreatePlayers(playerIds, table);
             table.AddPlayers(players);
 
-            Game game = new Game
+            Model.Game game = new Model.Game
             {
                 GameOptions = gameOptions,
                 GameTable = table,
                 TurnNumber = 1
             };
+
             return game;
         }
 
