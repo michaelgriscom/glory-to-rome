@@ -57,7 +57,7 @@ namespace GTR.Core.Model
             }
         }
 
-        public class OrderCardGroup : ObservableCardCollection<OrderCardModel>, IConditionalAddable<OrderCardModel>
+        public class OrderCardGroup : ObservableCardCollection<OrderCardModel>
         {
             private readonly Hand _hand;
 

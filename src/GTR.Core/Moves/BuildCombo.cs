@@ -1,12 +1,11 @@
 ﻿#region
 
-using System.Collections;
-using System.Collections.Generic;
+using GTR.Core.Action;
 using GTR.Core.Model;
 
 #endregion
 
-namespace GTR.Core.Action
+namespace GTR.Core.Moves
 {
     public class BuildCombo : IAction
     {

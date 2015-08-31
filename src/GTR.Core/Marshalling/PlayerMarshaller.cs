@@ -10,18 +10,25 @@ namespace GTR.Core.Marshalling
 {
     class PlayerMarshaller : IMarshaller<Player, PlayerDto>
     {
-        private OrderCardLocationMarshaller cardLocationMarshaller;
+        private readonly CardLocationMarshaller<OrderCardModel> _orderCardMarshaller;
+        private readonly CardLocationMarshaller<JackCardModel> _jackCardMarshaller;
+        private readonly CardLocationMarshaller<BuildingSite> _buildingSiteClMarshaller;
 
-        public PlayerMarshaller(OrderCardLocationMarshaller cardLocationMarshaller)
+        public PlayerMarshaller(
+            CardLocationMarshaller<OrderCardModel> orderCardMarshaller, 
+            CardLocationMarshaller<JackCardModel> jackCardMarshaller,
+            CardLocationMarshaller<BuildingSite> buildingSiteCLMarshaller)
         {
-            this.cardLocationMarshaller = cardLocationMarshaller;
+            _orderCardMarshaller = orderCardMarshaller;
+            _jackCardMarshaller = jackCardMarshaller;
+            _buildingSiteClMarshaller = buildingSiteCLMarshaller;
         }
 
         public PlayerDto Marshall(Player poco)
         {
             string id = poco.Id;
             List<CardLocationDto> cardLocations = new List<CardLocationDto>();
-            var playerJackHand = cardLocationMarshaller.Marshall(poco.Hand.JackCards);
+            var playerJackHand = _jackCardMarshaller.Marshall(poco.Hand.JackCards);
             playerJackHand.LocationKind = new CardLocationKindSerialization()
             {
                 Kind = CardLocationKind.Hand,
@@ -30,7 +37,7 @@ namespace GTR.Core.Marshalling
             };
             cardLocations.Add(playerJackHand);
 
-            var playerOrderHand = cardLocationMarshaller.Marshall(poco.Hand.OrderCards);
+            var playerOrderHand = _orderCardMarshaller.Marshall(poco.Hand.OrderCards);
             playerOrderHand.LocationKind = new CardLocationKindSerialization()
             {
                 Kind = CardLocationKind.Hand,
@@ -39,7 +46,7 @@ namespace GTR.Core.Marshalling
             };
             cardLocations.Add(playerOrderHand);
 
-            var playerDemandArea = cardLocationMarshaller.Marshall(poco.DemandArea);
+            var playerDemandArea = _orderCardMarshaller.Marshall(poco.DemandArea);
             playerDemandArea.LocationKind = new CardLocationKindSerialization()
             {
                 Kind = CardLocationKind.DemandArea,
@@ -50,7 +57,7 @@ namespace GTR.Core.Marshalling
 
             AddCamp(poco, cardLocations);
 
-            var playAreaJack = cardLocationMarshaller.Marshall(poco.PlayArea.JackCards);
+            var playAreaJack = _jackCardMarshaller.Marshall(poco.PlayArea.JackCards);
             playAreaJack.LocationKind = new CardLocationKindSerialization()
             {
                 Kind = CardLocationKind.PlayArea,
@@ -59,7 +66,7 @@ namespace GTR.Core.Marshalling
             };
             cardLocations.Add(playAreaJack);
 
-            var playAreaOrder = cardLocationMarshaller.Marshall(poco.PlayArea.OrderCards);
+            var playAreaOrder = _orderCardMarshaller.Marshall(poco.PlayArea.OrderCards);
             playAreaOrder.LocationKind = new CardLocationKindSerialization()
             {
                 Kind = CardLocationKind.PlayArea,
@@ -68,7 +75,7 @@ namespace GTR.Core.Marshalling
             };
             cardLocations.Add(playAreaOrder);
 
-            var completedBuildings = cardLocationMarshaller.Marshall(poco.CompletedBuildings);
+            var completedBuildings = _orderCardMarshaller.Marshall(poco.CompletedBuildings);
             completedBuildings.LocationKind = new CardLocationKindSerialization()
             {
                 Kind = CardLocationKind.CompletedBuildings,
@@ -90,7 +97,7 @@ namespace GTR.Core.Marshalling
         {
             string id = poco.Id;
 
-            var vault = cardLocationMarshaller.Marshall(poco.Camp.Vault);
+            var vault = _orderCardMarshaller.Marshall(poco.Camp.Vault);
             vault.LocationKind = new CardLocationKindSerialization()
             {
                 Kind = CardLocationKind.Vault,
@@ -99,7 +106,7 @@ namespace GTR.Core.Marshalling
             };
             cardLocations.Add(vault);
 
-            var stockpile = cardLocationMarshaller.Marshall(poco.Camp.Stockpile);
+            var stockpile = _orderCardMarshaller.Marshall(poco.Camp.Stockpile);
             stockpile.LocationKind = new CardLocationKindSerialization()
             {
                 Kind = CardLocationKind.Stockpile,
@@ -108,7 +115,7 @@ namespace GTR.Core.Marshalling
             };
             cardLocations.Add(stockpile);
 
-            var clientele = cardLocationMarshaller.Marshall(poco.Camp.Clientele);
+            var clientele = _orderCardMarshaller.Marshall(poco.Camp.Clientele);
             clientele.LocationKind = new CardLocationKindSerialization()
             {
                 Kind = CardLocationKind.Clientele,

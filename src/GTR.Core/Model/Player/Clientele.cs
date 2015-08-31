@@ -10,7 +10,7 @@ using GTR.Core.Util;
 
 namespace GTR.Core.Model
 {
-    public class Clientele : ObservableCardCollection<OrderCardModel>, IConditionalAddable<OrderCardModel>
+    public class Clientele : ObservableCardCollection<OrderCardModel>
     {
         public Clientele()
         {

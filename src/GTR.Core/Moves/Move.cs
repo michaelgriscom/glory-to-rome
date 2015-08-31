@@ -1,17 +1,13 @@
 ﻿#region
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using GTR.Core.CardCollections;
 using GTR.Core.Model;
 using GTR.Core.Model.CardCollections;
-using GTR.Core.Serialization;
-using GTR.Core.Util;
 
 #endregion
 
-namespace GTR.Core.Action
+namespace GTR.Core.Moves
 {
     public class Move<T> : IMove<T>, IModel where T : CardModelBase
     {

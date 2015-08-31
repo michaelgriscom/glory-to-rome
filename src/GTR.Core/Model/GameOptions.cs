@@ -1,6 +1,6 @@
 ﻿#region
 
-using GTR.Core.Serialization;
+using GTR.Core.Model;
 
 #endregion
 

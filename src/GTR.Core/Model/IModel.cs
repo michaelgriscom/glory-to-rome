@@ -4,7 +4,7 @@ using GTR.Core.Util;
 
 #endregion
 
-namespace GTR.Core.Serialization
+namespace GTR.Core.Model
 {
     public interface IModel
     {

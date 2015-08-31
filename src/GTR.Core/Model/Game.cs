@@ -25,15 +25,6 @@ namespace GTR.Core.Model
             set { _id = value; RaisePropertyChanged(); }
         }
 
-        private ObservableCollection<CardModelBase> _cards;
-
-        public ObservableCollection<CardModelBase> Cards
-        {
-            get { return _cards; }
-            set { _cards = value; }
-        }
-
-
         public GameOptions GameOptions
         {
             get { return _gameOptions; }

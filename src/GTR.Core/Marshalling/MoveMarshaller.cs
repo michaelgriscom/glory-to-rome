@@ -3,10 +3,11 @@
 using System;
 using GTR.Core.Action;
 using GTR.Core.Model;
+using GTR.Core.Serialization;
 
 #endregion
 
-namespace GTR.Core.Serialization
+namespace GTR.Core.Marshalling
 {
     public class MoveMarshaller : IMarshaller<Move<CardModelBase>, MoveSerialization>
     {

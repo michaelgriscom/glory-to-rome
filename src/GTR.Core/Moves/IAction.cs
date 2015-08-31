@@ -1,11 +1,4 @@
-﻿#region
-
-using System.Collections.Generic;
-using GTR.Core.Model;
-
-#endregion
-
-namespace GTR.Core.Action
+﻿namespace GTR.Core.Moves
 {
     public interface IAction
     {

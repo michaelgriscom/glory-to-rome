@@ -36,7 +36,7 @@ namespace GTR.Universal.Design
                         role = RoleType.Legionnaire;
                         break;
                 }
-                OrderDeck.Cards.Add(new OrderCardModel(cardName, description, role));
+                OrderDeck.Add(new OrderCardModel(cardName, description, role));
             }
 
             for (int i = 0; i < 5; i++)

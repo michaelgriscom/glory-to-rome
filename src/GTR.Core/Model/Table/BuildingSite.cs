@@ -58,17 +58,6 @@ namespace GTR.Core.Model
             get { return string.Concat(MaterialType, " building site"); }
         }
 
-        public override CardSerialization ToDto()
-        {
-            return new BuildingFoundationSerialization()
-            {
-                CardType = CardType.BuildingSite,
-                Id = Id,
-                Material = MaterialType,
-                SiteType = SiteType
-            };
-        }
-
         private void MaterialsOnCollectionChanged(object sender,
             NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
         {

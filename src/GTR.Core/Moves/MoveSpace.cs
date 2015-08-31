@@ -6,7 +6,7 @@ using GTR.Core.Model;
 
 #endregion
 
-namespace GTR.Core.Action
+namespace GTR.Core.Moves
 {
     // consider: do we want movespace to be a generic?
     public class MoveSpace : MoveSpaceBase<IAction>

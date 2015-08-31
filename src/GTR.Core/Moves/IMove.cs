@@ -1,12 +1,11 @@
 ﻿#region
 
-using GTR.Core.CardCollections;
 using GTR.Core.Model;
 using GTR.Core.Model.CardCollections;
 
 #endregion
 
-namespace GTR.Core.Action
+namespace GTR.Core.Moves
 {
     public interface IMove<T> : IAction where T : CardModelBase
     {

@@ -51,6 +51,8 @@ namespace GTR.Universal
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
+            StartButton.IsEnabled = false;
+
             const string endpoint = "http://localhost:51291/";
             GameOptions gameOptions = new GameOptions
             {
@@ -86,8 +88,6 @@ namespace GTR.Universal
                 var gamePoco = marshaller.UnMarshall(game.Game);
             }
 
-            StartButton.IsEnabled = false;
-            StartButton.Visibility = Visibility.Collapsed;
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)

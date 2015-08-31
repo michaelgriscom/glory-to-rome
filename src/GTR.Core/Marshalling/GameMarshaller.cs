@@ -1,32 +1,40 @@
 #region
 
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using GTR.Core.DeckManagement;
 using GTR.Core.Engine;
-using GTR.Core.Game;
-using GTR.Core.Marshalling;
 using GTR.Core.Marshalling.DTO;
 using GTR.Core.Model;
+using GTR.Core.Serialization;
 using GTR.Core.Services;
 
 #endregion
 
-namespace GTR.Core.Serialization
+namespace GTR.Core.Marshalling
 {
     public class GameMarshaller : IMarshaller<Model.Game, GameDto>
     {
         private PlayerMarshaller playerMarshaller;
-        private OrderCardLocationMarshaller cardLocationMarshaller;
+        private CardLocationMarshaller<OrderCardModel> orderCLMarshaller;
+        private CardLocationMarshaller<JackCardModel> jackCLMarshaller;
+        private CardLocationMarshaller<BuildingSite> buildingSiteCLMarshaller;  
 
         public GameMarshaller(IDeckIo deckIo, IResourceProvider resourceProvider)
         {
             var cardManager = new CardManager(resourceProvider, deckIo);
-            var cardMarshaller = new CardMarshaller(cardManager.CardSet);
-            cardLocationMarshaller = new OrderCardLocationMarshaller(cardMarshaller);
-            this.playerMarshaller = new PlayerMarshaller(cardLocationMarshaller);
+
+            var orderCardMarshaller = new OrderCardMarshaller(cardManager.CardSet);
+            orderCLMarshaller = new CardLocationMarshaller<OrderCardModel>(orderCardMarshaller);
+
+            var jackCardMarshaller = new JackCardMarshaller();
+            jackCLMarshaller = new CardLocationMarshaller<JackCardModel>(jackCardMarshaller);
+
+            var buildingSiteMarshaller = new BuildSiteMarshaller();
+            buildingSiteCLMarshaller = new CardLocationMarshaller<BuildingSite>(buildingSiteMarshaller);
+
+            playerMarshaller = new PlayerMarshaller(orderCLMarshaller, jackCLMarshaller, buildingSiteCLMarshaller);
         }
 
         public GameDto Marshall(Model.Game poco)
@@ -36,13 +44,13 @@ namespace GTR.Core.Serialization
                 return null;
             }
 
-            var fatRepPlayers = poco.GameTable.Players;
+            var playerPocos = poco.GameTable.Players;
 
-            var players = fatRepPlayers.Select(p => playerMarshaller.Marshall(p)).ToArray();
+            var playerDtos = playerPocos.Select(p => playerMarshaller.Marshall(p)).ToArray();
 
             var cardLocDtos = new List<CardLocationDto>();
 
-            var orderDeckDto = cardLocationMarshaller.Marshall(poco.GameTable.OrderDeck);
+            var orderDeckDto = orderCLMarshaller.Marshall(poco.GameTable.OrderDeck);
             orderDeckDto.LocationKind = new CardLocationKindSerialization()
             {
                 Scope = LocationScope.Global,
@@ -50,7 +58,7 @@ namespace GTR.Core.Serialization
             };
             cardLocDtos.Add(orderDeckDto);
 
-            var jackDeckDto = cardLocationMarshaller.Marshall(poco.GameTable.JackDeck);
+            var jackDeckDto = jackCLMarshaller.Marshall(poco.GameTable.JackDeck);
             jackDeckDto.LocationKind = new CardLocationKindSerialization()
             {
                 Scope = LocationScope.Global,
@@ -60,7 +68,7 @@ namespace GTR.Core.Serialization
 
             GameDto dto = new GameDto()
             {
-                Players = players,
+                Players = playerDtos,
                 Id = poco.Id,
                 CardLocations = cardLocDtos.ToArray(),
                 GameOptions = poco.GameOptions
@@ -83,13 +91,15 @@ namespace GTR.Core.Serialization
             var orderDeckDto = dto.CardLocations?.First(cl => cl.LocationKind.Kind == CardLocationKind.OrderDeck);
             if (orderDeckDto != null)
             {
-                poco.GameTable.OrderDeck = (OrderDeck)cardLocationMarshaller.UnMarshall(orderDeckDto);
+                var cl = orderCLMarshaller.UnMarshall(orderDeckDto);
+                poco.GameTable.OrderDeck = new OrderDeck(cl);
             }
 
             var jackDeckDto = dto.CardLocations?.First(cl => cl.LocationKind.Kind == CardLocationKind.JackDeck);
             if (jackDeckDto != null)
             {
-                poco.GameTable.JackDeck = (JackDeck)cardLocationMarshaller.UnMarshall(jackDeckDto);
+                var cl = jackCLMarshaller.UnMarshall(jackDeckDto);
+                poco.GameTable.JackDeck = new JackDeck(cl);
             }
 
             var players = dto.Players?.Select(p => playerMarshaller.UnMarshall(p));

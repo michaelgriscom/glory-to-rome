@@ -15,7 +15,5 @@ namespace GTR.Core.Model
 
         public abstract string Name { get; }
         public int Id { get; set; }
-
-        public abstract CardSerialization ToDto();
     }
 }

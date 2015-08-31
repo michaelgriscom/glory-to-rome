@@ -53,10 +53,10 @@ namespace GTR.Core.Game
 
         private void WireEvents()
         {
-            GameTable.OrderDeck.Cards.CollectionChanged += OrderDeckOnCollectionChanged;
+            GameTable.OrderDeck.CollectionChanged += OrderDeckOnCollectionChanged;
             foreach (var siteDeck in GameTable.SiteDecks)
             {
-                siteDeck.Cards.CollectionChanged += SiteDeckOnCollectionChanged;
+                siteDeck.CollectionChanged += SiteDeckOnCollectionChanged;
             }
             GameOver += OnGameOver;
         }
@@ -200,7 +200,7 @@ namespace GTR.Core.Game
             {
                 return;
             }
-            if (GameTable.OrderDeck.Cards.Count != 0)
+            if (GameTable.OrderDeck.Count != 0)
             {
                 return;
             }

@@ -9,13 +9,6 @@ namespace GTR.Core.Model
             get { return "Jack"; }
         }
 
-        public override CardSerialization ToDto()
-        {
-            return new CardSerialization()
-            {
-                CardType = CardType.Jack,
-                Id = Id
-            };
-        }
+      
     }
 }
