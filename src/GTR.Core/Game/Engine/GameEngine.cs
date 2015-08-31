@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
-using GTR.Core.Action;
 using GTR.Core.Engine;
 using GTR.Core.Model;
+using GTR.Core.Moves;
 using GTR.Core.Services;
 using GTR.Core.Util;
 

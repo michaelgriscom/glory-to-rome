@@ -1,9 +1,9 @@
 ﻿#region
 
 using System;
-using GTR.Core.Action;
+using GTR.Core.Marshalling.DTO;
 using GTR.Core.Model;
-using GTR.Core.Serialization;
+using GTR.Core.Moves;
 
 #endregion
 

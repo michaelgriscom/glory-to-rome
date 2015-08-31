@@ -1,9 +1,9 @@
 ﻿#region
 
 using System.Threading.Tasks;
-using GTR.Core.Action;
 using GTR.Core.Engine;
 using GTR.Core.Game;
+using GTR.Core.Moves;
 
 #endregion
 

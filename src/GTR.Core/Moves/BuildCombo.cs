@@ -1,6 +1,5 @@
 ﻿#region
 
-using GTR.Core.Action;
 using GTR.Core.Model;
 
 #endregion

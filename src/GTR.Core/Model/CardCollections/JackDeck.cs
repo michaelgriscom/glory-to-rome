@@ -1,15 +1,14 @@
 ﻿#region
 
 using System.Collections.Generic;
-using GTR.Core.CardCollections;
 
 #endregion
 
-namespace GTR.Core.Model
+namespace GTR.Core.Model.CardCollections
 {
     public class JackDeck : ObservableCardCollection<JackCardModel>
     {
-        public JackDeck() : base()
+        public JackDeck()
         {
         }
 

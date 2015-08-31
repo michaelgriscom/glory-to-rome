@@ -1,6 +1,6 @@
 ﻿#region
 
-using GTR.Core.CardCollections;
+using GTR.Core.Model.CardCollections;
 
 #endregion
 
@@ -8,9 +8,11 @@ namespace GTR.Core.Model.Table
 {
     public class BuildingFoundation : ObservableCardCollection<OrderCardModel>
     {
+        private int _capacity;
+
         public BuildingFoundation()
         {
-            this.Capacity = 1;
+            Capacity = 1;
         }
 
         public OrderCardModel Building
@@ -33,13 +35,14 @@ namespace GTR.Core.Model.Table
             }
         }
 
-        private int _capacity;
-
         public int Capacity
         {
             get { return _capacity; }
-            set { _capacity = value; RaisePropertyChanged(); }
+            set
+            {
+                _capacity = value;
+                RaisePropertyChanged();
+            }
         }
-
     }
 }

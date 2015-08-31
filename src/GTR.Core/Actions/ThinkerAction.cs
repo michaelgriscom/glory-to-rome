@@ -1,9 +1,10 @@
 ﻿#region
 
 using System;
-using GTR.Core.Action;
 using GTR.Core.Engine;
 using GTR.Core.Model;
+using GTR.Core.Model.CardCollections;
+using GTR.Core.Moves;
 
 #endregion
 

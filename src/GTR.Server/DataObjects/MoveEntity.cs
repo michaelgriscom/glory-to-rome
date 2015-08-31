@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using GTR.Core.Game;
 using GTR.Core.Marshalling.DTO;
-using GTR.Core.Serialization;
 using Microsoft.Azure.Mobile.Server;
 
 namespace GTR.Server.DataObjects

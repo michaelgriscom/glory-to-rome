@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using GTR.Core.Model;
+using GTR.Core.Model.CardCollections;
 using GTR.Core.Services;
 
 #endregion

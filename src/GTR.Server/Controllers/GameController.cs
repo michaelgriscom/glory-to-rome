@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Web.Http;
-using GTR.Core.Serialization;
+using GTR.Core.Marshalling.DTO;
 using GTR.Core.Services;
 using GTR.Server;
 using Microsoft.Azure.Mobile.Server.Config;

@@ -1,23 +1,18 @@
 ﻿#region
 
 using GTR.Core.Game;
-using Newtonsoft.Json;
 
 #endregion
 
-namespace GTR.Core.Serialization
+namespace GTR.Core.Marshalling.DTO
 {
     public class CardSerialization : IDto
     {
-        public int Id;
-
-        public MaterialType? Material;
-
         public string BuildingName;
-
-        public SiteType? SiteType;
-
         public CardType CardType;
+        public int Id;
+        public MaterialType? Material;
+        public SiteType? SiteType;
     }
 
 

@@ -1,6 +1,4 @@
-﻿using GTR.Core.Serialization;
-
-namespace GTR.Core.Model
+﻿namespace GTR.Core.Model
 {
     public class JackCardModel : HandCardModel
     {
@@ -8,7 +6,5 @@ namespace GTR.Core.Model
         {
             get { return "Jack"; }
         }
-
-      
     }
 }

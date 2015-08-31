@@ -1,8 +1,8 @@
 ﻿#region
 
-using GTR.Core.Action;
 using GTR.Core.Engine;
 using GTR.Core.Model;
+using GTR.Core.Moves;
 
 #endregion
 

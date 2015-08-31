@@ -12,7 +12,6 @@ namespace GTR.Core.Moves
     public class Move<T> : IMove<T>, IModel where T : CardModelBase
     {
         private readonly Func<ICardCollection<T>> _destinationFunction;
-        private readonly ICardCollection<T> _source;
         // this member should be treated as readonly after its initial assignment,
         // however we want to allow it to be evaluated lazily through a Func, so
         // we have to rely on this class not to mutate it after evaluation. Otherwise,
@@ -22,7 +21,7 @@ namespace GTR.Core.Moves
         public Move(T card, ICardCollection<T> source, ICardCollection<T> destination)
         {
             Card = card;
-            _source = source;
+            Source = source;
             _destination = destination;
         }
 
@@ -38,7 +37,7 @@ namespace GTR.Core.Moves
         public Move(T card, ICardCollection<T> source, Func<ICardCollection<T>> destinationFunction)
         {
             Card = card;
-            _source = source;
+            Source = source;
             _destinationFunction = destinationFunction;
         }
 
@@ -56,15 +55,12 @@ namespace GTR.Core.Moves
             }
         }
 
-        public ICardCollection<T> Source
-        {
-            get { return _source; }
-        }
+        public ICardCollection<T> Source { get; }
 
         public bool Perform()
         {
             bool success;
-            success = _source.Remove(Card);
+            success = Source.Remove(Card);
             if (success)
             {
                 _destination.Add(Card);

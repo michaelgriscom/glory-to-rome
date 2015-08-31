@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.Model;
+using GTR.Core.Model.CardCollections;
 
 #endregion
 

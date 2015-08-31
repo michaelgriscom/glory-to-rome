@@ -4,11 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GTR.Core.Action;
-using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.Model;
 using GTR.Core.Model.CardCollections;
+using GTR.Core.Moves;
 using GTR.Core.Services;
 
 #endregion

@@ -1,7 +1,7 @@
 ﻿#region
 
 using System.Threading.Tasks;
-using GTR.Core.Serialization;
+using GTR.Core.Marshalling.DTO;
 
 #endregion
 

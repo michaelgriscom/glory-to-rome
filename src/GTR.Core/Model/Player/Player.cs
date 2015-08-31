@@ -2,7 +2,6 @@
 
 using GTR.Core.Game;
 using GTR.Core.Model;
-using GTR.Core.Serialization;
 using GTR.Core.Util;
 
 #endregion
@@ -16,19 +15,11 @@ namespace GTR.Core.Engine
         private ConstructionZone _constructionZone;
         private DemandArea _demandArea;
         private Hand _hand;
+        private string _id;
         private PlayArea _playArea;
         private string _playerName;
         private Player _playerToLeft;
         private Player _playerToRight;
-
-        private string _id;
-
-        public string Id
-        {
-            get { return _id; }
-            set { _id = value; RaisePropertyChanged(); }
-        }
-
 
         public Player(string id)
         {
@@ -40,6 +31,16 @@ namespace GTR.Core.Engine
             DemandArea = new DemandArea();
             Id = id;
             OutstandingActions = new Multiset<RoleType>();
+        }
+
+        public string Id
+        {
+            get { return _id; }
+            set
+            {
+                _id = value;
+                RaisePropertyChanged();
+            }
         }
 
         public CompletedBuildings CompletedBuildings

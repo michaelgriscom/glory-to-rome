@@ -1,10 +1,7 @@
 #region
 
-using System.Collections.ObjectModel;
 using GTR.Core.DeckManagement;
 using GTR.Core.Engine;
-using GTR.Core.Game;
-using GTR.Core.Serialization;
 
 #endregion
 
@@ -12,17 +9,21 @@ namespace GTR.Core.Model
 {
     public class Game : ObservableModel
     {
+        private CardSet _cardSet;
         private GameOptions _gameOptions;
         private GameTable _gameTable;
+        private string _id;
         private Player _leadPlayer;
         private int _turnNumber;
-
-        private string _id;
 
         public string Id
         {
             get { return _id; }
-            set { _id = value; RaisePropertyChanged(); }
+            set
+            {
+                _id = value;
+                RaisePropertyChanged();
+            }
         }
 
         public GameOptions GameOptions
@@ -67,13 +68,14 @@ namespace GTR.Core.Model
             }
         }
 
-        private CardSet _cardSet;
-
         public CardSet CardSet
         {
             get { return _cardSet; }
-            set { _cardSet = value; RaisePropertyChanged(); }
+            set
+            {
+                _cardSet = value;
+                RaisePropertyChanged();
+            }
         }
-
     }
 }

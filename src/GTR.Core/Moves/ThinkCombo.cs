@@ -1,13 +1,12 @@
 #region
 
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using GTR.Core.Model;
 
 #endregion
 
-namespace GTR.Core.Action
+namespace GTR.Core.Moves
 {
     public class ThinkCombo : IAction
     {

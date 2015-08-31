@@ -3,11 +3,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GTR.Core.Action;
-using GTR.Core.CardCollections;
 using GTR.Core.Game;
 using GTR.Core.Model;
 using GTR.Core.Model.CardCollections;
+using GTR.Core.Moves;
 
 #endregion
 
@@ -35,7 +34,8 @@ namespace GTR.Core.AIController
             return collection.ElementAt(0);
         }
 
-        public async Task<ICardCollection<HandCardModel>> GetSource(List<ICardCollection<HandCardModel>> availableSources)
+        public async Task<ICardCollection<HandCardModel>> GetSource(
+            List<ICardCollection<HandCardModel>> availableSources)
         {
             return availableSources.ElementAt(0);
         }

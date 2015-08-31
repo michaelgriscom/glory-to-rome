@@ -7,7 +7,7 @@ using GTR.Core.DeckManagement;
 using GTR.Core.Engine;
 using GTR.Core.Marshalling.DTO;
 using GTR.Core.Model;
-using GTR.Core.Serialization;
+using GTR.Core.Model.CardCollections;
 using GTR.Core.Services;
 
 #endregion
@@ -16,10 +16,10 @@ namespace GTR.Core.Marshalling
 {
     public class GameMarshaller : IMarshaller<Model.Game, GameDto>
     {
-        private PlayerMarshaller playerMarshaller;
-        private CardLocationMarshaller<OrderCardModel> orderCLMarshaller;
-        private CardLocationMarshaller<JackCardModel> jackCLMarshaller;
-        private CardLocationMarshaller<BuildingSite> buildingSiteCLMarshaller;  
+        private readonly CardLocationMarshaller<BuildingSite> buildingSiteCLMarshaller;
+        private readonly CardLocationMarshaller<JackCardModel> jackCLMarshaller;
+        private readonly CardLocationMarshaller<OrderCardModel> orderCLMarshaller;
+        private readonly PlayerMarshaller playerMarshaller;
 
         public GameMarshaller(IDeckIo deckIo, IResourceProvider resourceProvider)
         {
@@ -51,7 +51,7 @@ namespace GTR.Core.Marshalling
             var cardLocDtos = new List<CardLocationDto>();
 
             var orderDeckDto = orderCLMarshaller.Marshall(poco.GameTable.OrderDeck);
-            orderDeckDto.LocationKind = new CardLocationKindSerialization()
+            orderDeckDto.LocationKind = new CardLocationKindSerialization
             {
                 Scope = LocationScope.Global,
                 Kind = CardLocationKind.OrderDeck
@@ -59,14 +59,14 @@ namespace GTR.Core.Marshalling
             cardLocDtos.Add(orderDeckDto);
 
             var jackDeckDto = jackCLMarshaller.Marshall(poco.GameTable.JackDeck);
-            jackDeckDto.LocationKind = new CardLocationKindSerialization()
+            jackDeckDto.LocationKind = new CardLocationKindSerialization
             {
                 Scope = LocationScope.Global,
                 Kind = CardLocationKind.JackDeck
             };
             cardLocDtos.Add(jackDeckDto);
 
-            GameDto dto = new GameDto()
+            GameDto dto = new GameDto
             {
                 Players = playerDtos,
                 Id = poco.Id,

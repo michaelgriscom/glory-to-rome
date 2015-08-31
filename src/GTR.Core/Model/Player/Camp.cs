@@ -1,7 +1,5 @@
 ﻿#region
 
-using GTR.Core.Serialization;
-
 #endregion
 
 namespace GTR.Core.Model

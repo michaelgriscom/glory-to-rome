@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using GTR.Core.Game;
 using GTR.Core.Model;
+using GTR.Core.Model.CardCollections;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 #endregion

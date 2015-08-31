@@ -1,8 +1,7 @@
 ﻿#region
 
-using GTR.Core.Game;
 using GTR.Core.Marshalling.DTO;
-using GTR.Core.Serialization;
+using GTR.Core.Model;
 
 #endregion
 

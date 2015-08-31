@@ -1,13 +1,16 @@
-using GTR.Core.Game;
-using GTR.Core.Serialization;
+#region
+
+using GTR.Core.Model;
+
+#endregion
 
 namespace GTR.Core.Marshalling.DTO
 {
     public class GameDto : IDto
     {
-        public GameOptions GameOptions;
         public CardLocationDto[] CardLocations;
-        public PlayerDto[] Players;
+        public GameOptions GameOptions;
         public string Id;
+        public PlayerDto[] Players;
     }
 }

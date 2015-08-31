@@ -1,4 +1,4 @@
-﻿namespace GTR.Core.Serialization
+﻿namespace GTR.Core.Marshalling.DTO
 {
     public class MoveSerialization : IDto
     {

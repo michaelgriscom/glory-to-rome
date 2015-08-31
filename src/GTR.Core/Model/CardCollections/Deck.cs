@@ -1,23 +1,17 @@
 ﻿#region
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using GTR.Core.CardCollections;
-using GTR.Core.Serialization;
-using GTR.Core.Util;
 
 #endregion
 
-namespace GTR.Core.Model
+namespace GTR.Core.Model.CardCollections
 {
     public class Deck<T> : ObservableCardCollection<T> where T : CardModelBase
     {
         public Deck()
         {
-            
-        } 
+        }
 
         internal Deck(IEnumerable<T> cards) : base(cards)
         {

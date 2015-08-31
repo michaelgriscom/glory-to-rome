@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
-using GTR.Core.Action;
 using GTR.Core.Engine;
 using GTR.Core.Game;
-using GTR.Core.Serialization;
+using GTR.Core.Model.CardCollections;
+using GTR.Core.Moves;
 
 #endregion
 

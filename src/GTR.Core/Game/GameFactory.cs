@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using GTR.Core.DeckManagement;
 using GTR.Core.Engine;
 using GTR.Core.Model;
+using GTR.Core.Model.CardCollections;
 using GTR.Core.Services;
 
 #endregion
@@ -15,7 +16,7 @@ namespace GTR.Core.Game
         public static Model.Game MakeGame(
             IEnumerable<string> playerIds,
             GameOptions gameOptions,
-            IDeckIo deckIo, 
+            IDeckIo deckIo,
             IResourceProvider resourceProvider)
         {
             var deckSerialization = deckIo.GetBuiltinDeck(gameOptions.DeckName);
@@ -24,7 +25,7 @@ namespace GTR.Core.Game
             var orderDeck = cardManager.CreateOrderCardDeck(deckType);
 
             var jackDeck = CreateJackDeck();
-            var table = new GameTable() { OrderDeck = orderDeck, JackDeck = jackDeck};
+            var table = new GameTable {OrderDeck = orderDeck, JackDeck = jackDeck};
             var players = CreatePlayers(playerIds);
             table.AddPlayers(players);
 

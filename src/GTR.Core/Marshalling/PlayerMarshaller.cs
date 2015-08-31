@@ -1,21 +1,22 @@
-﻿using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿#region
+
+using System.Collections.Generic;
 using GTR.Core.Engine;
 using GTR.Core.Marshalling.DTO;
 using GTR.Core.Model;
-using GTR.Core.Serialization;
+
+#endregion
 
 namespace GTR.Core.Marshalling
 {
-    class PlayerMarshaller : IMarshaller<Player, PlayerDto>
+    internal class PlayerMarshaller : IMarshaller<Player, PlayerDto>
     {
-        private readonly CardLocationMarshaller<OrderCardModel> _orderCardMarshaller;
-        private readonly CardLocationMarshaller<JackCardModel> _jackCardMarshaller;
         private readonly CardLocationMarshaller<BuildingSite> _buildingSiteClMarshaller;
+        private readonly CardLocationMarshaller<JackCardModel> _jackCardMarshaller;
+        private readonly CardLocationMarshaller<OrderCardModel> _orderCardMarshaller;
 
         public PlayerMarshaller(
-            CardLocationMarshaller<OrderCardModel> orderCardMarshaller, 
+            CardLocationMarshaller<OrderCardModel> orderCardMarshaller,
             CardLocationMarshaller<JackCardModel> jackCardMarshaller,
             CardLocationMarshaller<BuildingSite> buildingSiteCLMarshaller)
         {
@@ -29,7 +30,7 @@ namespace GTR.Core.Marshalling
             string id = poco.Id;
             List<CardLocationDto> cardLocations = new List<CardLocationDto>();
             var playerJackHand = _jackCardMarshaller.Marshall(poco.Hand.JackCards);
-            playerJackHand.LocationKind = new CardLocationKindSerialization()
+            playerJackHand.LocationKind = new CardLocationKindSerialization
             {
                 Kind = CardLocationKind.Hand,
                 PlayerId = id,
@@ -38,7 +39,7 @@ namespace GTR.Core.Marshalling
             cardLocations.Add(playerJackHand);
 
             var playerOrderHand = _orderCardMarshaller.Marshall(poco.Hand.OrderCards);
-            playerOrderHand.LocationKind = new CardLocationKindSerialization()
+            playerOrderHand.LocationKind = new CardLocationKindSerialization
             {
                 Kind = CardLocationKind.Hand,
                 PlayerId = id,
@@ -47,7 +48,7 @@ namespace GTR.Core.Marshalling
             cardLocations.Add(playerOrderHand);
 
             var playerDemandArea = _orderCardMarshaller.Marshall(poco.DemandArea);
-            playerDemandArea.LocationKind = new CardLocationKindSerialization()
+            playerDemandArea.LocationKind = new CardLocationKindSerialization
             {
                 Kind = CardLocationKind.DemandArea,
                 PlayerId = id,
@@ -58,7 +59,7 @@ namespace GTR.Core.Marshalling
             AddCamp(poco, cardLocations);
 
             var playAreaJack = _jackCardMarshaller.Marshall(poco.PlayArea.JackCards);
-            playAreaJack.LocationKind = new CardLocationKindSerialization()
+            playAreaJack.LocationKind = new CardLocationKindSerialization
             {
                 Kind = CardLocationKind.PlayArea,
                 PlayerId = id,
@@ -67,7 +68,7 @@ namespace GTR.Core.Marshalling
             cardLocations.Add(playAreaJack);
 
             var playAreaOrder = _orderCardMarshaller.Marshall(poco.PlayArea.OrderCards);
-            playAreaOrder.LocationKind = new CardLocationKindSerialization()
+            playAreaOrder.LocationKind = new CardLocationKindSerialization
             {
                 Kind = CardLocationKind.PlayArea,
                 PlayerId = id,
@@ -76,7 +77,7 @@ namespace GTR.Core.Marshalling
             cardLocations.Add(playAreaOrder);
 
             var completedBuildings = _orderCardMarshaller.Marshall(poco.CompletedBuildings);
-            completedBuildings.LocationKind = new CardLocationKindSerialization()
+            completedBuildings.LocationKind = new CardLocationKindSerialization
             {
                 Kind = CardLocationKind.CompletedBuildings,
                 PlayerId = id,
@@ -84,7 +85,7 @@ namespace GTR.Core.Marshalling
             };
             cardLocations.Add(completedBuildings);
 
-            var playerSerialization = new PlayerDto()
+            var playerSerialization = new PlayerDto
             {
                 Id = id,
                 CardLocations = cardLocations.ToArray()
@@ -93,12 +94,19 @@ namespace GTR.Core.Marshalling
             return playerSerialization;
         }
 
+        public Player UnMarshall(PlayerDto slimRepresentation)
+        {
+            string playerId = slimRepresentation.Id;
+            var player = new Player(playerId);
+            return player;
+        }
+
         private void AddCamp(Player poco, List<CardLocationDto> cardLocations)
         {
             string id = poco.Id;
 
             var vault = _orderCardMarshaller.Marshall(poco.Camp.Vault);
-            vault.LocationKind = new CardLocationKindSerialization()
+            vault.LocationKind = new CardLocationKindSerialization
             {
                 Kind = CardLocationKind.Vault,
                 PlayerId = id,
@@ -107,7 +115,7 @@ namespace GTR.Core.Marshalling
             cardLocations.Add(vault);
 
             var stockpile = _orderCardMarshaller.Marshall(poco.Camp.Stockpile);
-            stockpile.LocationKind = new CardLocationKindSerialization()
+            stockpile.LocationKind = new CardLocationKindSerialization
             {
                 Kind = CardLocationKind.Stockpile,
                 PlayerId = id,
@@ -116,20 +124,13 @@ namespace GTR.Core.Marshalling
             cardLocations.Add(stockpile);
 
             var clientele = _orderCardMarshaller.Marshall(poco.Camp.Clientele);
-            clientele.LocationKind = new CardLocationKindSerialization()
+            clientele.LocationKind = new CardLocationKindSerialization
             {
                 Kind = CardLocationKind.Clientele,
                 PlayerId = id,
                 Scope = LocationScope.Global
             };
             cardLocations.Add(clientele);
-        }
-
-        public Player UnMarshall(PlayerDto slimRepresentation)
-        {
-            string playerId = slimRepresentation.Id;
-            var player = new Player(playerId);
-            return player;
         }
     }
 }

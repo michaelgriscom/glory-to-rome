@@ -6,11 +6,11 @@ using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using GTR.Core.Action;
 using GTR.Core.Actions;
 using GTR.Core.Buildings;
 using GTR.Core.Game;
 using GTR.Core.Model;
+using GTR.Core.Moves;
 using GTR.Core.Services;
 
 #endregion

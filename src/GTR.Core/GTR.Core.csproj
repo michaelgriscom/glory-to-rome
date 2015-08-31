@@ -80,8 +80,8 @@
     <Compile Include="Marshalling\MoveMarshaller.cs" />
     <Compile Include="Marshalling\DTO\Matchmaking.cs" />
     <Compile Include="Marshalling\DTO\Move.cs" />
-    <Compile Include="Model\Deck\JackDeck.cs" />
-    <Compile Include="Model\Deck\OrderDeck.cs" />
+    <Compile Include="Model\CardCollections\JackDeck.cs" />
+    <Compile Include="Model\CardCollections\OrderDeck.cs" />
     <Compile Include="Game\Scoring\PlayerScores.cs" />
     <Compile Include="Game\Scoring\GameScorer.cs" />
     <Compile Include="Game\Scoring\GameWonEventArgs.cs" />
@@ -105,7 +105,6 @@
     <Compile Include="Model\CardCollections\ICardCollection.cs" />
     <Compile Include="DeckManagement\CardManager.cs" />
     <Compile Include="DeckManagement\DeckTypeSerializer.cs" />
-    <Compile Include="Design\DesignResourceProvider.cs" />
     <Compile Include="Model\GameOptions.cs" />
     <Compile Include="Moves\BuildCombo.cs" />
     <Compile Include="Actions\ArchitectAction.cs" />
@@ -125,10 +124,10 @@
     <Compile Include="Model\CardCollections\BoundedCardCollection.cs" />
     <Compile Include="Model\Table\BuildingSite.cs" />
     <Compile Include="Model\Player\Clientele.cs" />
-    <Compile Include="Model\Deck\Deck.cs" />
+    <Compile Include="Model\CardCollections\Deck.cs" />
     <Compile Include="Model\Player\Hand.cs" />
-    <Compile Include="Model\Table\Pool.cs" />
-    <Compile Include="Model\Deck\SiteDeck.cs" />
+    <Compile Include="Model\CardCollections\Pool.cs" />
+    <Compile Include="Model\CardCollections\SiteDeck.cs" />
     <Compile Include="Model\Player\Stockpile.cs" />
     <Compile Include="Model\CardCollections\ObservableCardCollection.cs" />
     <Compile Include="DeckManagement\DeckType.cs" />
@@ -157,7 +156,6 @@
     <Compile Include="Model\Table\GameTable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util\Globals.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">

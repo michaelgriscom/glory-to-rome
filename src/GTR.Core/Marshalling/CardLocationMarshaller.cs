@@ -1,21 +1,23 @@
-using System;
+#region
+
 using System.Linq;
-using GTR.Core.CardCollections;
 using GTR.Core.Marshalling.DTO;
 using GTR.Core.Model;
 using GTR.Core.Model.CardCollections;
-using GTR.Core.Serialization;
+
+#endregion
 
 namespace GTR.Core.Marshalling
 {
-    sealed public class CardLocationMarshaller<T> : IMarshaller<ICardCollection<T>, CardLocationDto> where T : CardModelBase
+    public sealed class CardLocationMarshaller<T> : IMarshaller<ICardCollection<T>, CardLocationDto>
+        where T : CardModelBase
     {
-        private IMarshaller<T, CardSerialization> _cardMarshaller;
+        private readonly IMarshaller<T, CardSerialization> _cardMarshaller;
 
         public CardLocationMarshaller(IMarshaller<T, CardSerialization> cardMarshaller)
         {
-            this._cardMarshaller = cardMarshaller;
-        } 
+            _cardMarshaller = cardMarshaller;
+        }
 
         public CardLocationDto Marshall(ICardCollection<T> poco)
         {

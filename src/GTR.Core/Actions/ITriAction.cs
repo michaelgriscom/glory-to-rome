@@ -1,8 +1,8 @@
 ﻿#region
 
 using System.Collections.Generic;
-using GTR.Core.Action;
 using GTR.Core.Buildings;
+using GTR.Core.Moves;
 using GTR.Core.Util;
 
 #endregion

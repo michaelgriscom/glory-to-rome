@@ -1,7 +1,6 @@
 ﻿#region
 
 using GTR.Core.Game;
-using GTR.Core.Serialization;
 
 #endregion
 

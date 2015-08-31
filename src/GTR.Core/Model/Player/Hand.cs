@@ -1,7 +1,6 @@
 ﻿#region
 
-using GTR.Core.CardCollections;
-using GTR.Core.Serialization;
+using GTR.Core.Model.CardCollections;
 
 #endregion
 
@@ -51,7 +50,7 @@ namespace GTR.Core.Model
         {
             private readonly Hand _hand;
 
-            public JackCardGroup(Hand hand) : base()
+            public JackCardGroup(Hand hand)
             {
                 _hand = hand;
             }

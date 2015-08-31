@@ -1,7 +1,6 @@
 ﻿#region
 
-using GTR.Core.CardCollections;
-using GTR.Core.Serialization;
+using GTR.Core.Model.CardCollections;
 
 #endregion
 

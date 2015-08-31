@@ -2,12 +2,12 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using GTR.Core.Action;
 using GTR.Core.Actions;
-using GTR.Core.CardCollections;
 using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.Model;
+using GTR.Core.Model.CardCollections;
+using GTR.Core.Moves;
 using GTR.Core.UnitTests.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

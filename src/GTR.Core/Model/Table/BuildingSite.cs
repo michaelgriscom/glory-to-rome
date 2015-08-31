@@ -2,10 +2,9 @@
 
 using System.Collections.Specialized;
 using GTR.Core.Buildings;
-using GTR.Core.CardCollections;
 using GTR.Core.Game;
+using GTR.Core.Model.CardCollections;
 using GTR.Core.Model.Table;
-using GTR.Core.Serialization;
 
 #endregion
 

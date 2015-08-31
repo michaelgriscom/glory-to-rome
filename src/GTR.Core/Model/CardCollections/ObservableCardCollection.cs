@@ -4,12 +4,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using GTR.Core.Model;
-using GTR.Core.Model.CardCollections;
 
 #endregion
 
-namespace GTR.Core.CardCollections
+namespace GTR.Core.Model.CardCollections
 {
     public class ObservableCardCollection<T> : ObservableCollection<T>, ICardCollection<T>, INotifyPropertyChanged
         where T : CardModelBase

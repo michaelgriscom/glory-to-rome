@@ -1,10 +1,10 @@
 ﻿#region
 
-using GTR.Core.Action;
 using GTR.Core.Actions;
 using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.Model;
+using GTR.Core.Moves;
 using GTR.Core.Util;
 
 #endregion

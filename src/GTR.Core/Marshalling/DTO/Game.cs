@@ -1,6 +1,4 @@
-﻿using GTR.Core.Marshalling.DTO;
-
-namespace GTR.Core.Serialization
+﻿namespace GTR.Core.Marshalling.DTO
 {
     public class MoveHistorySerialization : IDto
     {

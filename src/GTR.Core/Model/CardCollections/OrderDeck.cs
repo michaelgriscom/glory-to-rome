@@ -1,6 +1,4 @@
-﻿using GTR.Core.Model.CardCollections;
-
-namespace GTR.Core.Model
+﻿namespace GTR.Core.Model.CardCollections
 {
     public class OrderDeck : Deck<OrderCardModel>
     {
@@ -10,7 +8,6 @@ namespace GTR.Core.Model
 
         public OrderDeck()
         {
-            
         }
     }
 }

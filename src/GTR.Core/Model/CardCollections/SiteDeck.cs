@@ -4,7 +4,7 @@ using GTR.Core.Game;
 
 #endregion
 
-namespace GTR.Core.Model
+namespace GTR.Core.Model.CardCollections
 {
     public class SiteDeck : Deck<BuildingSite>
     {

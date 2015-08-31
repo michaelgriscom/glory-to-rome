@@ -1,35 +1,36 @@
 ﻿#region
 
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using GTR.Core.Model;
-using GTR.Core.Model.CardCollections;
 using GTR.Core.Util;
 
 #endregion
 
-namespace GTR.Core.CardCollections
+namespace GTR.Core.Model.CardCollections
 {
     public class BoundedCardCollection<T> : ObservableObject, ICardCollection<T> where T : CardModelBase
     {
+        private readonly ICardCollection<T> collection;
         private int _capacity;
-        private ICardCollection<T> collection;
-
-        public int Capacity
-        {
-            get { return _capacity; }
-            set { _capacity = value; RaisePropertyChanged();}
-        }
 
         public BoundedCardCollection(ICardCollection<T> collection)
         {
             this.collection = collection;
-        } 
+        }
+
+        public int Capacity
+        {
+            get { return _capacity; }
+            set
+            {
+                _capacity = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public IEnumerator<T> GetEnumerator()
         {
-           return this.collection.GetEnumerator();
+            return collection.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -39,12 +40,12 @@ namespace GTR.Core.CardCollections
 
         public void Add(T item)
         {
-            this.collection.Add(item);
+            collection.Add(item);
         }
 
         public void Clear()
         {
-           collection.Clear();
+            collection.Clear();
         }
 
         public bool Contains(T item)
@@ -72,13 +73,17 @@ namespace GTR.Core.CardCollections
 
         public void RemoveAt(int index)
         {
-           collection.RemoveAt(index);
+            collection.RemoveAt(index);
         }
 
         public string Id
         {
             get { return collection.Id; }
-            set { collection.Id = value;  RaisePropertyChanged();}
+            set
+            {
+                collection.Id = value;
+                RaisePropertyChanged();
+            }
         }
     }
 }

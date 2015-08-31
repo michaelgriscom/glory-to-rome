@@ -1,7 +1,6 @@
 ﻿#region
 
 using GTR.Core.Game;
-using GTR.Core.Serialization;
 
 #endregion
 
@@ -17,8 +16,8 @@ namespace GTR.Core.Marshalling.DTO
     public class CardLocationDto : IDto
     {
         public CardSerialization[] Cards;
-        public CardLocationKindSerialization LocationKind;
         public string Id;
+        public CardLocationKindSerialization LocationKind;
     }
 
     public enum LocationScope
