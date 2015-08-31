@@ -21,17 +21,21 @@ namespace GTR.Core.Marshalling
 
         public CardLocationDto Marshall(ICardCollection<T> poco)
         {
-            var dto = new CardLocationDto();
-            dto.Cards = poco.Select(cPoco => _cardMarshaller.Marshall(cPoco)).ToArray();
-            dto.Id = poco.Id;
+            var dto = new CardLocationDto
+            {
+                Cards = poco.Select(cPoco => _cardMarshaller.Marshall(cPoco)).ToArray(),
+                Id = poco.Id
+            };
             return dto;
         }
 
         public ICardCollection<T> UnMarshall(CardLocationDto dto)
         {
             var cards = dto.Cards.Select(cDto => _cardMarshaller.UnMarshall(cDto));
-            var poco = new ObservableCardCollection<T>(cards);
-            poco.Id = dto.Id;
+            var poco = new ObservableCardCollection<T>(cards)
+            {
+                Id = dto.Id
+            };
             return poco;
         }
     }

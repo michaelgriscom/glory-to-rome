@@ -6,8 +6,10 @@ using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.Model;
 using GTR.Core.Model.CardCollections;
+using GTR.Core.Services;
 using GTR.Core.Util;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
 #endregion
 
@@ -48,12 +50,14 @@ namespace GTR.Core.UnitTests
         [TestMethod]
         public void PlayerWithBuildings()
         {
-            // note, this test currently fails because the influence point work is done by playerengine
             Player player = new Player("test-player");
             var players = new List<Player>
             {
                 player
             };
+
+            var mock = new Mock<IPlayerInputService>();
+            var playerEngine = new PlayerEngine(player, mock.Object, _gameTable);
             _gameTable.AddPlayers(players);
 
             var brickFoundation = new BuildingSite(MaterialType.Brick);
@@ -83,7 +87,6 @@ namespace GTR.Core.UnitTests
         [TestMethod]
         public void PlayersWithBuildingsAndVaults()
         {
-            // note, this test currently fails because the influence point work is done by playerengine
             Player player1 = new Player("test-player1");
             Player player2 = new Player("test-player2");
 
@@ -93,6 +96,10 @@ namespace GTR.Core.UnitTests
                 player2
             };
             _gameTable.AddPlayers(players);
+            var mock = new Mock<IPlayerInputService>();
+            var player1Engine = new PlayerEngine(player1, mock.Object, _gameTable);
+            var player2Engine = new PlayerEngine(player2, mock.Object, _gameTable);
+
 
             var brickFoundation1 = new BuildingSite(MaterialType.Brick);
             var brickFoundation2 = new BuildingSite(MaterialType.Brick);
