@@ -16,9 +16,9 @@ namespace GTR.Core.Marshalling
 {
     public class GameMarshaller : IMarshaller<Model.Game, GameDto>
     {
-        private readonly CardLocationMarshaller<BuildingSite, BuildingFoundationSerialization> buildingSiteCLMarshaller;
-        private readonly CardLocationMarshaller<JackCardModel, JackCardSerialization> jackCLMarshaller;
-        private readonly CardLocationMarshaller<OrderCardModel, OrderCardSerialization> orderCLMarshaller;
+        private readonly CardLocationMarshaller<BuildingSite> buildingSiteCLMarshaller;
+        private readonly CardLocationMarshaller<JackCardModel> jackCLMarshaller;
+        private readonly CardLocationMarshaller<OrderCardModel> orderCLMarshaller;
         private readonly PlayerMarshaller playerMarshaller;
 
         public GameMarshaller(IDeckIo deckIo, IResourceProvider resourceProvider)
@@ -27,13 +27,13 @@ namespace GTR.Core.Marshalling
             var cardMaker = CardSetSerializer.Deserialize(resourceProvider.CardXml);
 
             var orderCardMarshaller = new OrderCardMarshaller(cardMaker);
-            orderCLMarshaller = new CardLocationMarshaller<OrderCardModel, OrderCardSerialization>(orderCardMarshaller);
+            orderCLMarshaller = new CardLocationMarshaller<OrderCardModel>(orderCardMarshaller);
 
             var jackCardMarshaller = new JackCardMarshaller();
-            jackCLMarshaller = new CardLocationMarshaller<JackCardModel, JackCardSerialization>(jackCardMarshaller);
+            jackCLMarshaller = new CardLocationMarshaller<JackCardModel>(jackCardMarshaller);
 
             var buildingSiteMarshaller = new BuildSiteMarshaller();
-            buildingSiteCLMarshaller = new CardLocationMarshaller<BuildingSite, BuildingFoundationSerialization>(buildingSiteMarshaller);
+            buildingSiteCLMarshaller = new CardLocationMarshaller<BuildingSite>(buildingSiteMarshaller);
 
             playerMarshaller = new PlayerMarshaller(orderCLMarshaller, jackCLMarshaller, buildingSiteCLMarshaller);
         }
@@ -66,6 +66,17 @@ namespace GTR.Core.Marshalling
                 Kind = CardLocationKind.JackDeck
             };
             cardLocDtos.Add(jackDeckDto);
+
+            foreach (var siteDeck in poco.GameTable.SiteDecks)
+            {
+                var siteDeckDto = buildingSiteCLMarshaller.Marshall(siteDeck);
+                siteDeckDto.LocationKind = new CardLocationKindSerialization()
+                {
+                    Scope = LocationScope.Global,
+                    Kind = CardLocationKind.SiteDeck
+                };
+                cardLocDtos.Add(siteDeckDto);
+            }
 
             GameDto dto = new GameDto
             {
@@ -101,6 +112,13 @@ namespace GTR.Core.Marshalling
             {
                 var cl = jackCLMarshaller.UnMarshall(jackDeckDto);
                 poco.GameTable.JackDeck = new JackDeck(cl);
+            }
+
+            var siteDeckDtos = dto.CardLocations?.Where(cl => cl.LocationKind.Kind == CardLocationKind.SiteDeck);
+            foreach (var siteDeckDto in siteDeckDtos)
+            {
+                var cl = buildingSiteCLMarshaller.UnMarshall(siteDeckDto);
+                poco.GameTable.SiteDecks.Add(new SiteDeck(cl));
             }
 
             var players = dto.Players?.Select(p => playerMarshaller.UnMarshall(p));

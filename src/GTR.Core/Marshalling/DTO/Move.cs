@@ -3,8 +3,8 @@
     public class MoveSerialization : IDto
     {
         public int CardId;
-        public int DestinationId;
-        public int SourceId;
+        public string DestinationId;
+        public string SourceId;
     }
 
     public class ExecutedMoveSerialization : IDto

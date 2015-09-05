@@ -11,14 +11,14 @@ namespace GTR.Core.Marshalling
 {
     internal class PlayerMarshaller : IMarshaller<Player, PlayerDto>
     {
-        private readonly CardLocationMarshaller<BuildingSite, BuildingFoundationSerialization> _buildingSiteClMarshaller;
-        private readonly CardLocationMarshaller<JackCardModel, JackCardSerialization> _jackCardMarshaller;
-        private readonly CardLocationMarshaller<OrderCardModel, OrderCardSerialization> _orderCardMarshaller;
+        private readonly CardLocationMarshaller<BuildingSite> _buildingSiteClMarshaller;
+        private readonly CardLocationMarshaller<JackCardModel> _jackCardMarshaller;
+        private readonly CardLocationMarshaller<OrderCardModel> _orderCardMarshaller;
 
         public PlayerMarshaller(
-            CardLocationMarshaller<OrderCardModel, OrderCardSerialization> orderCardMarshaller,
-            CardLocationMarshaller<JackCardModel, JackCardSerialization> jackCardMarshaller,
-            CardLocationMarshaller<BuildingSite, BuildingFoundationSerialization> buildingSiteCLMarshaller)
+            CardLocationMarshaller<OrderCardModel> orderCardMarshaller,
+            CardLocationMarshaller<JackCardModel> jackCardMarshaller,
+            CardLocationMarshaller<BuildingSite> buildingSiteCLMarshaller)
         {
             _orderCardMarshaller = orderCardMarshaller;
             _jackCardMarshaller = jackCardMarshaller;

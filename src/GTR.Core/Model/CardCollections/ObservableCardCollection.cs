@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -14,10 +15,12 @@ namespace GTR.Core.Model.CardCollections
     {
         public ObservableCardCollection()
         {
+            this.Id = Guid.NewGuid().ToString();
         }
 
         public ObservableCardCollection(IEnumerable<T> cards) : base(cards)
         {
+            this.Id = Guid.NewGuid().ToString();
         }
 
         public T ElementAt(int index)
@@ -25,7 +28,7 @@ namespace GTR.Core.Model.CardCollections
             return this[index];
         }
 
-        public int Id { get; set; }
+        public string Id { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void RaisePropertyChanged([CallerMemberName] string propertyName = null)

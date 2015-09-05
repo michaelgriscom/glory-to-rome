@@ -26,9 +26,8 @@ namespace GTR.Core.Marshalling
 
     public interface ICardCollectionLocator // where T : CardModelBase
     {
-        ICardCollection<T> Locate<T>(int id) where T : CardModelBase;
+        ICardCollection<T> Locate<T>(string id) where T : CardModelBase;
     }
-
 
     public interface ICardFactory
     {
@@ -165,15 +164,15 @@ namespace GTR.Core.Marshalling
 
     public class CardCollectionLocator : ICardCollectionLocator
     {
-        private Dictionary<int, ICardCollection<OrderCardModel>> orderLocations;
-        private Dictionary<int, ICardCollection<JackCardModel>> jackLocations;
-        private Dictionary<int, ICardCollection<BuildingSite>> foundationLocations;
+        private Dictionary<string, ICardCollection<OrderCardModel>> orderLocations;
+        private Dictionary<string, ICardCollection<JackCardModel>> jackLocations;
+        private Dictionary<string, ICardCollection<BuildingSite>> foundationLocations;
 
         public CardCollectionLocator()
         {
-            this.orderLocations = new Dictionary<int, ICardCollection<OrderCardModel>>();
-            this.jackLocations = new Dictionary<int, ICardCollection<JackCardModel>>();
-            this.foundationLocations = new Dictionary<int, ICardCollection<BuildingSite>>();
+            this.orderLocations = new Dictionary<string, ICardCollection<OrderCardModel>>();
+            this.jackLocations = new Dictionary<string, ICardCollection<JackCardModel>>();
+            this.foundationLocations = new Dictionary<string, ICardCollection<BuildingSite>>();
         }
 
         public void Add(ICardCollection<OrderCardModel> collection)
@@ -189,7 +188,7 @@ namespace GTR.Core.Marshalling
             foundationLocations.Add(collection.Id, collection);
         }
 
-        public ICardCollection<T> Locate<T>(int id) where T : CardModelBase
+        public ICardCollection<T> Locate<T>(string id) where T : CardModelBase
         {
             if (orderLocations.ContainsKey(id))
             {

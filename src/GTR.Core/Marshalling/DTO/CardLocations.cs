@@ -16,7 +16,7 @@ namespace GTR.Core.Marshalling.DTO
     public class CardLocationDto : IDto
     {
         public CardSerialization[] Cards;
-        public int Id;
+        public string Id;
         public CardLocationKindSerialization LocationKind;
     }
 
@@ -27,10 +27,10 @@ namespace GTR.Core.Marshalling.DTO
         Private
     }
 
-    public class SiteDeck : CardLocationDto
-    {
-        public MaterialType Material;
-    }
+    //public class SiteDeck : CardLocationDto
+    //{
+    //    public MaterialType Material;
+    //}
 
 
     public enum CardLocationKind
@@ -46,6 +46,7 @@ namespace GTR.Core.Marshalling.DTO
         CompletedFoundations,
         JackDeck,
         OrderDeck,
-        Pool
+        Pool,
+        SiteDeck
     }
 }

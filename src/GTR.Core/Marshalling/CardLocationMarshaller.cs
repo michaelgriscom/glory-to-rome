@@ -9,12 +9,12 @@ using GTR.Core.Model.CardCollections;
 
 namespace GTR.Core.Marshalling
 {
-    public sealed class CardLocationMarshaller<T, T2> : IMarshaller<ICardCollection<T>, CardLocationDto>
-        where T : CardModelBase where T2 : CardSerialization
+    public sealed class CardLocationMarshaller<T> : IMarshaller<ICardCollection<T>, CardLocationDto>
+        where T : CardModelBase
     {
-        private readonly IMarshaller<T, T2> _cardMarshaller;
+        private readonly IMarshaller<T, CardSerialization> _cardMarshaller;
 
-        public CardLocationMarshaller(IMarshaller<T, T2> cardMarshaller)
+        public CardLocationMarshaller(IMarshaller<T, CardSerialization> cardMarshaller)
         {
             _cardMarshaller = cardMarshaller;
         }
@@ -31,7 +31,7 @@ namespace GTR.Core.Marshalling
 
         public ICardCollection<T> UnMarshall(CardLocationDto dto)
         {
-            var cards = dto.Cards.Select(cDto => _cardMarshaller.UnMarshall((T2)cDto));
+            var cards = dto.Cards.Select(cDto => _cardMarshaller.UnMarshall(cDto));
             var poco = new ObservableCardCollection<T>(cards)
             {
                 Id = dto.Id

@@ -27,6 +27,7 @@ namespace GTR.Core.Model
             Pool = new Pool();
             OrderDeck = new OrderDeck();
             JackDeck = new JackDeck();
+            SiteDecks = new ObservableCollection<SiteDeck>();
         }
 
         public ObservableCollection<SiteDeck> SiteDecks
