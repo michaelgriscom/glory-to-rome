@@ -24,7 +24,6 @@ namespace GTR.Core.Model
             materials.CollectionChanged += MaterialsOnCollectionChanged;
             Materials = new BoundedCardCollection<OrderCardModel>(materials);
             Materials.Capacity = MaterialType.MaterialWorth();
-            Materials.Id = "Building materials";
 
             BuildingFoundation = new BuildingFoundation();
         }

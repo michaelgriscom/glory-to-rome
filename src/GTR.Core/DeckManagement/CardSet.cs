@@ -8,7 +8,12 @@ using GTR.Core.Model;
 
 namespace GTR.Core.DeckManagement
 {
-    public class CardSet : IEnumerable<OrderCardModel>
+    public interface IOrderCardMaker
+    {
+        OrderCardModel MakeCard(string buildingName);
+    }
+
+    public class CardSet : IOrderCardMaker, IEnumerable<OrderCardModel>
     {
         private readonly Dictionary<string, OrderCardModel> _cards;
 

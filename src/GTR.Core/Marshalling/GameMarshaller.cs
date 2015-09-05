@@ -16,9 +16,9 @@ namespace GTR.Core.Marshalling
 {
     public class GameMarshaller : IMarshaller<Model.Game, GameDto>
     {
-        private readonly CardLocationMarshaller<BuildingSite> buildingSiteCLMarshaller;
-        private readonly CardLocationMarshaller<JackCardModel> jackCLMarshaller;
-        private readonly CardLocationMarshaller<OrderCardModel> orderCLMarshaller;
+        private readonly CardLocationMarshaller<BuildingSite, BuildingFoundationSerialization> buildingSiteCLMarshaller;
+        private readonly CardLocationMarshaller<JackCardModel, JackCardSerialization> jackCLMarshaller;
+        private readonly CardLocationMarshaller<OrderCardModel, OrderCardSerialization> orderCLMarshaller;
         private readonly PlayerMarshaller playerMarshaller;
 
         public GameMarshaller(IDeckIo deckIo, IResourceProvider resourceProvider)
@@ -26,13 +26,13 @@ namespace GTR.Core.Marshalling
             var cardManager = new CardManager(resourceProvider, deckIo);
 
             var orderCardMarshaller = new OrderCardMarshaller(cardManager.CardSet);
-            orderCLMarshaller = new CardLocationMarshaller<OrderCardModel>(orderCardMarshaller);
+            orderCLMarshaller = new CardLocationMarshaller<OrderCardModel, OrderCardSerialization>(orderCardMarshaller);
 
             var jackCardMarshaller = new JackCardMarshaller();
-            jackCLMarshaller = new CardLocationMarshaller<JackCardModel>(jackCardMarshaller);
+            jackCLMarshaller = new CardLocationMarshaller<JackCardModel, JackCardSerialization>(jackCardMarshaller);
 
             var buildingSiteMarshaller = new BuildSiteMarshaller();
-            buildingSiteCLMarshaller = new CardLocationMarshaller<BuildingSite>(buildingSiteMarshaller);
+            buildingSiteCLMarshaller = new CardLocationMarshaller<BuildingSite, BuildingFoundationSerialization>(buildingSiteMarshaller);
 
             playerMarshaller = new PlayerMarshaller(orderCLMarshaller, jackCLMarshaller, buildingSiteCLMarshaller);
         }

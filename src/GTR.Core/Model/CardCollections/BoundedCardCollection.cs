@@ -76,7 +76,7 @@ namespace GTR.Core.Model.CardCollections
             collection.RemoveAt(index);
         }
 
-        public string Id
+        public int Id
         {
             get { return collection.Id; }
             set

@@ -25,7 +25,7 @@ namespace GTR.Core.Model.CardCollections
             return this[index];
         }
 
-        public string Id { get; set; }
+        public int Id { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void RaisePropertyChanged([CallerMemberName] string propertyName = null)

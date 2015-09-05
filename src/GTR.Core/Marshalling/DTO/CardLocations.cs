@@ -16,7 +16,7 @@ namespace GTR.Core.Marshalling.DTO
     public class CardLocationDto : IDto
     {
         public CardSerialization[] Cards;
-        public string Id;
+        public int Id;
         public CardLocationKindSerialization LocationKind;
     }
 

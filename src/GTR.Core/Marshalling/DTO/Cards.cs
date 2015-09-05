@@ -15,7 +15,6 @@ namespace GTR.Core.Marshalling.DTO
         public SiteType? SiteType;
     }
 
-
     public enum CardType
     {
         Order,
@@ -23,16 +22,14 @@ namespace GTR.Core.Marshalling.DTO
         BuildingSite
     }
 
-    public class MaterialCardSerialization : CardSerialization
+    public class OrderCardSerialization : CardSerialization
     {
+
     }
 
-    public class OrderCardSerialization : MaterialCardSerialization
+    public class BuildingFoundationSerialization : CardSerialization
     {
-    }
 
-    public class BuildingFoundationSerialization : MaterialCardSerialization
-    {
     }
 
     public class JackCardSerialization : CardSerialization

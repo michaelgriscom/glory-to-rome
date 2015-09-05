@@ -11,11 +11,11 @@ using GTR.Core.Util;
 
 namespace GTR.Core.Marshalling
 {
-    internal class JackCardMarshaller : IMarshaller<JackCardModel, CardSerialization>
+    internal class JackCardMarshaller : IMarshaller<JackCardModel, JackCardSerialization>
     {
-        public CardSerialization Marshall(JackCardModel poco)
+        public JackCardSerialization Marshall(JackCardModel poco)
         {
-            var dto = new CardSerialization
+            var dto = new JackCardSerialization
             {
                 CardType = CardType.Jack,
                 Id = poco.Id
@@ -23,7 +23,7 @@ namespace GTR.Core.Marshalling
             return dto;
         }
 
-        public JackCardModel UnMarshall(CardSerialization dto)
+        public JackCardModel UnMarshall(JackCardSerialization dto)
         {
             if (dto.CardType != CardType.Jack)
             {
@@ -38,9 +38,9 @@ namespace GTR.Core.Marshalling
         }
     }
 
-    internal class BuildSiteMarshaller : IMarshaller<BuildingSite, CardSerialization>
+    internal class BuildSiteMarshaller : IMarshaller<BuildingSite, BuildingFoundationSerialization>
     {
-        public CardSerialization Marshall(BuildingSite poco)
+        public BuildingFoundationSerialization Marshall(BuildingSite poco)
         {
             var dto = new BuildingFoundationSerialization
             {
@@ -52,7 +52,7 @@ namespace GTR.Core.Marshalling
             return dto;
         }
 
-        public BuildingSite UnMarshall(CardSerialization dto)
+        public BuildingSite UnMarshall(BuildingFoundationSerialization dto)
         {
             if (dto.CardType != CardType.BuildingSite)
             {
@@ -65,18 +65,18 @@ namespace GTR.Core.Marshalling
         }
     }
 
-    internal class OrderCardMarshaller : IMarshaller<OrderCardModel, CardSerialization>
+    internal class OrderCardMarshaller : IMarshaller<OrderCardModel, OrderCardSerialization>
     {
-        private readonly CardSet cardSet;
+        private readonly IOrderCardMaker cardMaker;
 
-        public OrderCardMarshaller(CardSet cardSet)
+        public OrderCardMarshaller(IOrderCardMaker cardMaker)
         {
-            this.cardSet = cardSet;
+            this.cardMaker = cardMaker;
         }
 
-        public CardSerialization Marshall(OrderCardModel poco)
+        public OrderCardSerialization Marshall(OrderCardModel poco)
         {
-            var dto = new CardSerialization
+            var dto = new OrderCardSerialization
             {
                 BuildingName = poco.Name,
                 CardType = CardType.Order,
@@ -86,13 +86,13 @@ namespace GTR.Core.Marshalling
             return dto;
         }
 
-        public OrderCardModel UnMarshall(CardSerialization dto)
+        public OrderCardModel UnMarshall(OrderCardSerialization dto)
         {
             if (dto.CardType != CardType.Order)
             {
                 throw new ArgumentException("Invalid card type.");
             }
-            var poco = cardSet.MakeCard(dto.BuildingName);
+            var poco = cardMaker.MakeCard(dto.BuildingName);
 
             poco.Id = dto.Id;
             return poco;
