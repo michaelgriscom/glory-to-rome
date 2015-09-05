@@ -134,6 +134,7 @@
       <HintPath>..\packages\Swashbuckle.Core.5.0.0\lib\net40\Swashbuckle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.20511.1437, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.4.0.2.205111437\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
       <Private>True</Private>
@@ -212,11 +213,13 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\GameTableController.cs" />
     <Compile Include="Controllers\JoinGame.cs" />
     <Compile Include="Controllers\Lobby.cs" />
     <Compile Include="Controllers\MatchmakingController.cs" />
     <Compile Include="Controllers\MoveController.cs" />
-    <Compile Include="DataObjects\LobbyGame.cs" />
+    <Compile Include="Controllers\MoveEntityController.cs" />
+    <Compile Include="DataObjects\GameEntity.cs" />
     <Compile Include="DataObjects\MoveEntity.cs" />
     <Compile Include="ErrorMessages.Designer.cs">
       <AutoGen>True</AutoGen>

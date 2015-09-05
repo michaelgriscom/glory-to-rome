@@ -17,10 +17,6 @@ namespace GTR.Core.Model
         private Player _leadPlayer;
         private int _turnNumber;
 
-        public ICardLocator CardLocator { get; set; }
-
-        public ICardCollectionLocator CardCollectionLocator { get; set; }
-
         public ICardCollectionLocator GetCardCollectionLocator()
         {
             return GetLocator();

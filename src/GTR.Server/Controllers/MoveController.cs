@@ -1,52 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Controllers;
-using System.Web.Http.OData;
-using System.Web.Http.OData.Builder;
-using System.Web.Http.OData.Query;
-using GTR.Server;
+using GTR.Core.Marshalling.DTO;
 using GTR.Server.DataObjects;
 using Microsoft.Azure.Mobile.Server;
+using Microsoft.Azure.Mobile.Server.Config;
 using Microsoft.Azure.Mobile.Server.Tables;
 using tiberService.Models;
 
 namespace GTR.Server.Controllers
 {
-    public class MovesController : TableController<MoveEntity>
+    [MobileAppController]
+    public class MoveController : ApiController
     {
-        private GtrDbContext context;
-
-        private GameManager gameManager = GameManager.Instance;
+        GtrDbContext context = new GtrDbContext();
+        private EntityDomainManager<MoveEntity> domainManager;
 
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
-            this.context = new GtrDbContext();
-            DomainManager = new EntityDomainManager<MoveEntity>(context, Request);
+           domainManager = new EntityDomainManager<MoveEntity>(context, Request);
         }
 
-        // GET tables/Moves/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public IQueryable<MoveEntity> GetAllMoves(string gameId)
+        //public ApiServices Services { get; set; }
+
+        public IEnumerable<MoveSerialization> GetMoves(string gameId)
         {
-            // TODO: make async
-            var query = this.context.ActiveMoves.Where(move => move.GameId == gameId);
-            return query;
-        }
-
-        // POST tables/Moves
-        public async Task<IHttpActionResult> PostMoveAsync(MoveEntity item)
-        {
-            string playerId = null;
-           //bool moveSuccess = gameManager.MakeMove(playerId, item);
-
-
-            var current = await InsertAsync(item);
-            return CreatedAtRoute("Tables", new { id = current.Id }, current);
+            var returnVal = domainManager.Query().Where(x => x.GameEntity.Id == gameId).Select(x =>
+            new MoveSerialization()
+            {
+                CardId = x.CardId,
+                DestinationId = x.DestinationId,
+                SourceId = x.SourceId,
+                Id = x.Id
+            }
+            );
+            
+            return returnVal;
         }
     }
 }

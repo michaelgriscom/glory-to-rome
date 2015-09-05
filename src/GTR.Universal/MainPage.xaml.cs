@@ -2,6 +2,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -11,10 +13,13 @@ using GTR.Core.Game;
 using GTR.Core.Marshalling;
 using GTR.Core.Marshalling.DTO;
 using GTR.Core.Model;
+using GTR.Core.Moves;
 using GTR.Core.Services;
 using GTR.Universal.Services;
 using GTR.Windows.Services;
+using Microsoft.WindowsAzure.MobileServices;
 using Newtonsoft.Json;
+using HttpMethod = System.Net.Http.HttpMethod;
 
 #endregion
 
@@ -28,7 +33,8 @@ namespace GTR.Universal
     public sealed partial class MainPage : Page
     {
         private readonly DelayedPlayerInput _delayedPlayerInput;
-        private readonly Game game;
+        private Game game;
+        private GameLoader gameLoader;
 
         public MainPage()
         {
@@ -54,7 +60,39 @@ namespace GTR.Universal
         {
             StartButton.IsEnabled = false;
 
-            const string endpoint = "http://localhost:51291/";
+           gameLoader = new GameLoader();
+           var gameDto = await gameLoader.CreateGame();
+            game = gameLoader.LoadGame(gameDto);
+            this.DataContext = game;
+
+           //await gameLoader.UpdateMoves(game);
+        }
+
+        private async void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+           await gameLoader.TestMoves(game);
+        }
+    }
+
+    public class GameLoader
+    {
+        MobileServiceClient _client;
+        const string endpoint = "http://localhost:51291/";
+
+        private MobileServiceCollection<MoveSerialization> moves;
+        private MoveMarshaller<OrderCardModel> orderMoveMarshaller;
+        private MoveMarshaller<JackCardModel> jackMoveMarshaller;
+        private MoveMarshaller<BuildingSite> foundationMoveMarshaller;
+        private ICardLocator cardLocator;
+        private ICardCollectionLocator collectionLocator;
+
+        public GameLoader()
+        {
+           _client = new MobileServiceClient(endpoint);
+        }
+
+        public async Task<GameDto> CreateGame()
+        {
             GameOptions gameOptions = new GameOptions
             {
                 DeckName = "republic",
@@ -66,35 +104,103 @@ namespace GTR.Universal
                 GameOptions = gameOptions
             };
 
-            string createGameUrl = endpoint + "api/matchmaking";
+          var createGameResponse =  await _client.InvokeApiAsync<CreateGameRequest, CreateGameResponseSerialization>("matchmaking", gr);
+            var gameId = createGameResponse.GameId;
 
-            using (var client = new HttpClient())
-            {
-                var json = JsonConvert.SerializeObject(gr);
-                var stringContent = new HttpStringContent(json, UnicodeEncoding.Utf8, "application/json");
-                var uri = new Uri(createGameUrl);
-                var response = await client.PostAsync(uri, stringContent);
-                var gameInfoJson = await response.Content.ReadAsStringAsync();
-                var gameInfo = JsonConvert.DeserializeObject<CreateGameResponseSerialization>(gameInfoJson);
+            var startGameParams = new Dictionary<string, string>() { { "GameId", gameId}};
+            var startGameResponse = await _client.InvokeApiAsync<string, StartGameResponseSerialization>("matchmaking", null, HttpMethod.Get, startGameParams);
 
-                 uri = new Uri(createGameUrl + "?GameId=" + gameInfo.GameId);
-                response = await client.GetAsync(uri);
-                var gameJson = await response.Content.ReadAsStringAsync();
-                var game = JsonConvert.DeserializeObject<StartGameResponseSerialization>(gameJson);
-
-                var deckIo = new DeckIo();
-                var resourceProvider = new ResourceProvider();
-
-                GameMarshaller marshaller = new GameMarshaller(deckIo, resourceProvider);
-                var gamePoco = marshaller.UnMarshall(game.Game);
-               
-            }
-
+            return startGameResponse.Game;
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private HashSet<string> CompletedMoves = new HashSet<string>(); 
+        public async Task UpdateMoves(Game game)
         {
-            _delayedPlayerInput.Execute(null);
+            var gameId = game.Id;
+            var parameters = new Dictionary<string, string>() { { "gameId", gameId } };
+
+            var moves =
+                await
+                    _client.InvokeApiAsync<string, IEnumerable<MoveSerialization>>("move", null, HttpMethod.Get,
+                        parameters);
+
+            foreach (var move in moves)
+            {
+                PropagateMove(move);
+            }
+
+            //IMobileServiceTable<MoveSerialization> table = _client.GetTable<MoveSerialization>();
+            //await _client.InvokeApiAsync<MoveSerialization, object>("move", playerScore);
+
+            //moves = await table.OrderBy(x => x.CardId).ToCollectionAsync();
+        }
+
+        private async Task MakeMove(MoveSerialization move, Game game)
+        {
+            MoveSetRequest msr = new MoveSetRequest()
+            {
+                GameId = game.Id,
+                MoveSet = new MoveSetSerialization()
+                {
+                    Moves = new MoveSerialization[]
+                    {
+                        move
+                    }
+                }
+            };
+            await _client.InvokeApiAsync<MoveSetRequest, object>("game", msr);
+        }
+
+        public async Task TestMoves(Game game)
+        {
+            var move = new Move<OrderCardModel>(game.GameTable.OrderDeck.Top, game.GameTable.OrderDeck,
+                game.GameTable.Pool);
+            var moveDto = orderMoveMarshaller.Marshall(move);
+            await MakeMove(moveDto, game);
+            await Task.Delay(100);
+            await UpdateMoves(game);
+        }
+
+        private void PropagateMove(MoveSerialization moveDto)
+        {
+            if (CompletedMoves.Contains(moveDto.Id))
+            {
+                return;
+            }
+            var cardType = cardLocator.DetermineType(moveDto.CardId);
+            switch (cardType)
+            {
+                case CardType.Order:
+                    var orderMove = orderMoveMarshaller.UnMarshall(moveDto);
+                    orderMove.Perform();
+                    break;
+                case CardType.Jack:
+                    var jackMove = jackMoveMarshaller.UnMarshall(moveDto);
+                    jackMove.Perform();
+                    break;
+                case CardType.BuildingSite:
+                    var foundationMove = foundationMoveMarshaller.UnMarshall(moveDto);
+                    foundationMove.Perform();
+                    break;
+            }
+            CompletedMoves.Add(moveDto.Id);
+        }
+
+        public Game LoadGame(GameDto gameDto)
+        {
+            var deckIo = new DeckIo();
+            var resourceProvider = new ResourceProvider();
+
+            GameMarshaller marshaller = new GameMarshaller(deckIo, resourceProvider);
+            var gamePoco = marshaller.UnMarshall(gameDto);
+
+            collectionLocator = gamePoco.GetCardCollectionLocator();
+            cardLocator = gamePoco.GetCardLocator();
+            orderMoveMarshaller = new MoveMarshaller<OrderCardModel>(cardLocator, collectionLocator);
+            jackMoveMarshaller = new MoveMarshaller<JackCardModel>(cardLocator, collectionLocator);
+            foundationMoveMarshaller = new MoveMarshaller<BuildingSite>(cardLocator, collectionLocator);
+
+            return gamePoco;
         }
     }
 }

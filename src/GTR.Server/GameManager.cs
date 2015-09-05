@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using GTR.Core.Game;
 using GTR.Core.Marshalling;
@@ -10,6 +11,7 @@ using GTR.Core.Services;
 using GTR.Server.Services;
 using GTR.Server.DataObjects;
 using GTR.Server.Services;
+using Microsoft.Azure.Mobile.Server;
 using tiberService.Models;
 
 namespace GTR.Server
@@ -38,10 +40,10 @@ namespace GTR.Server
         private IResourceProvider resourceProvider;
         private GameMarshaller marshaller;
 
-        public GameDto CreateGame(LobbyGame gameInfo)
+        public GameDto CreateGame(GameEntity gameInfo)
         {
             GameFactory gameFactory = new GameFactory();
-            Game game = gameFactory.MakeGame(gameInfo.Players, gameInfo.GameOptions, deckIo, resourceProvider);
+            Core.Model.Game game = gameFactory.MakeGame(gameInfo.Players, gameInfo.GameOptions, deckIo, resourceProvider);
             game.Id = gameInfo.Id;
             PlayerInputService inputService = new PlayerInputService();
 
@@ -56,7 +58,7 @@ namespace GTR.Server
             return marshaller.Marshall(game);
         }
 
-        public Game GetGameInfo(string gameId)
+        public Core.Model.Game GetGameInfo(string gameId)
         {
             if (!Games.ContainsKey(gameId))
             {
@@ -79,35 +81,6 @@ namespace GTR.Server
             var gameEngine = Games[gameId];
            return await gameEngine.PlayGame();
         }
-
-        public bool MakeMove(string playerId, MoveSetRequest moveSetRequest)
-        {
-            //Game game;
-            //var success = Games.TryGetValue(moveSetRequest.GameId, out game);
-            //if (!success)
-            //{
-            //    return false;
-            //}
-
-            //var player = game.GameTable.Players.First(p => p.PlayerName == playerId);
-            //if (player == null)
-            //{
-            //    return false;
-            //}
-
-            //var input = player.InputService as PlayerInput;
-            //if (input == null)
-            //{
-            //    return false;
-            //}
-
-            //MoveSet moveSet = new MoveSet();
-            //foreach (var moveSerialization in moveSetRequest.MoveSet.Moves)
-            //{
-            //    var move = new Move<CardModelBase>();
-            //}
-            return false;
-        }
     }
 
     internal class ServerGame
@@ -115,7 +88,7 @@ namespace GTR.Server
         private GameEngine game;
         private GtrDbContext context;
 
-        public ServerGame(Game game, GtrDbContext context)
+        public ServerGame(Core.Model.Game game, GtrDbContext context)
         {
             this.game = new GameEngine(game, null, null);
             this.context = context;

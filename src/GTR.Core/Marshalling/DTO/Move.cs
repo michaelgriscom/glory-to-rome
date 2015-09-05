@@ -2,6 +2,7 @@
 {
     public class MoveSerialization : IDto
     {
+        public string Id;
         public int CardId;
         public string DestinationId;
         public string SourceId;

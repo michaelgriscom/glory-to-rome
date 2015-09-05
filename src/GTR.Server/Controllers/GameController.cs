@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using GTR.Core.Marshalling.DTO;
 using GTR.Core.Services;
 using GTR.Server;
+using GTR.Server.DataObjects;
+using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.Config;
+using tiberService.Models;
 
 namespace GTR.Server.Controllers
 {
@@ -44,31 +48,38 @@ namespace GTR.Server.Controllers
 
             string playerId = GetPlayerId(moveSetRequest.AuthorizationToken, moveSetRequest.GameId);
 
-            bool moveSuccess = gameManager.MakeMove(playerId, moveSetRequest);
+            GtrDbContext context = new GtrDbContext();
 
-            if (!PerformMove(moveSetRequest))
+
+            var DomainManager = new EntityDomainManager<MoveEntity>(context, Request);
+            var game = await context.Games.FindAsync(moveSetRequest.GameId);
+
+            foreach (var move in moveSetRequest.MoveSet.Moves)
             {
-                response.Message = ErrorMessages.IllegalMove;
-                return response;
+                var moveEntity = new MoveEntity()
+                {
+                    DestinationId = move.DestinationId,
+                    SourceId = move.SourceId,
+                    CardId = move.CardId,
+                    GameEntity = game
+                };
+                await DomainManager.InsertAsync(moveEntity);
             }
+
+            await context.SaveChangesAsync();
+
             response.Success = true;
             return response;
         }
 
-        private bool PerformMove(MoveSetRequest moveSetRequest)
-        {
-            return gameManager.MakeMove(moveSetRequest.GameId, moveSetRequest);
-        }
-
-
         private bool IsValidToken(int authorizationToken, string gameId)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         private string GetPlayerId(int authorizationToken, string gameId)
         {
-            throw new NotImplementedException();
+            return "1";
         }
     }
 }

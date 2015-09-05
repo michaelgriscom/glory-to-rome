@@ -26,37 +26,37 @@ namespace GTR.Server.Controllers
         {
         }
 
-        public IQueryable<LobbyGame> GetAllLobbyGames(HttpRequestMessage request)
+        public IQueryable<GameEntity> GetAllLobbyGames(HttpRequestMessage request)
         {
-            var DomainManager = new EntityDomainManager<LobbyGame>(context, request);
+            var DomainManager = new EntityDomainManager<GameEntity>(context, request);
 
             return DomainManager.Query();
         }
 
-        public async Task<SingleResult<LobbyGame>> GetLobbyGame(string id, HttpRequestMessage request)
+        public async Task<SingleResult<GameEntity>> GetLobbyGame(string id, HttpRequestMessage request)
         {
-            var DomainManager = new EntityDomainManager<LobbyGame>(context, request);
+            var DomainManager = new EntityDomainManager<GameEntity>(context, request);
 
             return await DomainManager.LookupAsync(id);
         }
 
-        public Task<LobbyGame> UpdateLobbyGame(string id, Delta<LobbyGame> patch, HttpRequestMessage request)
+        public Task<GameEntity> UpdateLobbyGame(string id, Delta<GameEntity> patch, HttpRequestMessage request)
         {
-            var DomainManager = new EntityDomainManager<LobbyGame>(context, request);
+            var DomainManager = new EntityDomainManager<GameEntity>(context, request);
             return DomainManager.UpdateAsync(id, patch);
         }
 
-        public async Task<LobbyGame> AddLobbyGame(LobbyGame item, HttpRequestMessage request)
+        public async Task<GameEntity> AddLobbyGame(GameEntity item, HttpRequestMessage request)
         {
-            var DomainManager = new EntityDomainManager<LobbyGame>(context, request);
+            var DomainManager = new EntityDomainManager<GameEntity>(context, request);
 
-            LobbyGame current = await DomainManager.InsertAsync(item);
+            GameEntity current = await DomainManager.InsertAsync(item);
             return current;
         }
 
         public async Task DeleteLobbyGame(string id, HttpRequestMessage request)
         {
-            var DomainManager = new EntityDomainManager<LobbyGame>(context, request);
+            var DomainManager = new EntityDomainManager<GameEntity>(context, request);
 
             await DomainManager.DeleteAsync(id);
         }

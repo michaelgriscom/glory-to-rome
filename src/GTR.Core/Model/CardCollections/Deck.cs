@@ -17,7 +17,7 @@ namespace GTR.Core.Model.CardCollections
         {
         }
 
-        internal T Top
+        public T Top
         {
             get { return ElementAt(0); }
         }

@@ -26,7 +26,7 @@ namespace tiberService.Models
         } 
 
         //public DbSet<TodoItem> TodoItems { get; set; }
-        public DbSet<MoveEntity> ActiveMoves { get; set; }
+        //public DbSet<MoveEntity> ActiveMoves { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -35,11 +35,15 @@ namespace tiberService.Models
             {
                 modelBuilder.HasDefaultSchema(schema);
             }
-            modelBuilder.Entity<LobbyGame>().ToTable("LobbyGame");
+            modelBuilder.Entity<GameEntity>().ToTable("Game");
             modelBuilder.Conventions.Add(
                 new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
         }
+
+        public System.Data.Entity.DbSet<GTR.Server.DataObjects.MoveEntity> MoveEntities { get; set; }
+
+        public System.Data.Entity.DbSet<GTR.Server.DataObjects.GameEntity> Games { get; set; }
     }
 
 }

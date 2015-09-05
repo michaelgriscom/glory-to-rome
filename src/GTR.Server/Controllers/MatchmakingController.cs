@@ -13,6 +13,7 @@ using GTR.Core.Marshalling.DTO;
 using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.NotificationHubs;
 using Microsoft.Azure.Mobile.Server.Config;
+using tiberService.Models;
 
 namespace GTR.Server.Controllers
 {
@@ -21,9 +22,8 @@ namespace GTR.Server.Controllers
     {
         public MatchmakingController()
         {
-            lobbyTable = new LobbyTable();
+            context = new GtrDbContext();
         }
-        private LobbyTable lobbyTable;
 
         /// <summary>
         /// Creates a game.
@@ -35,15 +35,18 @@ namespace GTR.Server.Controllers
             CreateGameResponseSerialization response = new CreateGameResponseSerialization();
             var playerId = GetPlayerId();
 
-            LobbyGame game = new LobbyGame()
+            GameEntity game = new GameEntity()
             {
-                Players = new List<string>() { playerId },
+                Players = new string[] { playerId },
                 GameOptions = request.GameOptions,
                 HostId = playerId
             };
 
             response.Success = true;
-            game = await lobbyTable.AddLobbyGame(game, Request);
+
+           var DomainManager = new EntityDomainManager<GameEntity>(context, Request);
+            game = await DomainManager.InsertAsync(game);
+            await context.SaveChangesAsync();
 
             response.GameId = game.Id;
 
@@ -61,7 +64,9 @@ namespace GTR.Server.Controllers
             response.Success = false;
 
             // TODO: query
-            var allGames = lobbyTable.GetAllLobbyGames(Request);
+            var DomainManager = new EntityDomainManager<GameEntity>(context, Request);
+
+            var allGames = DomainManager.Query();
             var gameInfo = allGames.First(g => g.Id == GameId);
 
             if (gameInfo == null)
@@ -78,7 +83,7 @@ namespace GTR.Server.Controllers
 
            var game = gameManager.CreateGame(gameInfo);
 
-            await lobbyTable.DeleteLobbyGame(GameId, Request);
+            //await gameTable.DeleteGame(GameId);
 
             response.Success = true;
             response.Game = game;
@@ -86,6 +91,7 @@ namespace GTR.Server.Controllers
         }
 
         private GameManager gameManager = GameManager.Instance;
+        private GtrDbContext context;
 
         private string GetPlayerId()
         {

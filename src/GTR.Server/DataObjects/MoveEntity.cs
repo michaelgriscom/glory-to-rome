@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using GTR.Core.Game;
@@ -10,21 +11,23 @@ namespace GTR.Server.DataObjects
 {
     public class MoveEntity : EntityData
     {
-        public string PlayerId { get; set; }
+        //[ForeignKey("Id")]
+        //public virtual Player Player { get; set; }
 
-        public int PlayerSeat { get; set; }
+        [ForeignKey("Id")]
+        public virtual GameEntity GameEntity { get; set; }
 
-        public string GameId { get; set; }
-
-        public string CardId { get; set; }
+        public int CardId { get; set; }
 
         public string DestinationId { get; set; }
 
         public string SourceId { get; set; }
 
         public int MoveSetNumber { get; set; }
-    }
 
+        public RoleType EffectiveRole { get; set; }
+    }
+/*
     public class CardLocation : EntityData
     {
         public string GameId { get; set; }
@@ -46,7 +49,7 @@ namespace GTR.Server.DataObjects
 
         public SiteType SiteType { get; set; }
     }
-
+    */
     public enum CardType
     {
         Order, Jack, Foundation
