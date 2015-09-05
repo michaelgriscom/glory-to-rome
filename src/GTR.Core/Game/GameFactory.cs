@@ -17,11 +17,11 @@ namespace GTR.Core.Game
     public class GameFactory
     {
         private const int BuildingSiteCount = 6;
-        CardFactory cardFactory;
+        CardFactory _cardFactory;
 
         public GameFactory()
         {
-            cardFactory = new CardFactory();
+            _cardFactory = new CardFactory();
         }
 
         public Model.Game MakeGame(
@@ -33,7 +33,7 @@ namespace GTR.Core.Game
             var deckSerialization = deckIo.GetBuiltinDeck(gameOptions.DeckName);
             var deckType = DeckTypeSerializer.Deserialize(deckSerialization);
 
-            var cardManager = new CardManager(resourceProvider, deckIo, cardFactory);
+            var cardManager = new CardManager(resourceProvider, deckIo, _cardFactory);
             var orderDeck = cardManager.CreateOrderCardDeck(deckType);
 
             var jackDeck = CreateJackDeck();
@@ -78,7 +78,7 @@ namespace GTR.Core.Game
             HashSet<JackCardModel> cards = new HashSet<JackCardModel>();
             for (int i = 0; i < defaultJackCount; i++)
             {
-                var jack = cardFactory.CreateJackCard();
+                var jack = _cardFactory.CreateJackCard();
                 cards.Add(jack);
             }
             return new JackDeck(cards);
@@ -107,13 +107,13 @@ namespace GTR.Core.Game
             // place in town site cards on top
             for (int i = 0; i < inTownSiteCount; i++)
             {
-                BuildingSite siteCard = cardFactory.CreateBuildingSite(materialType, SiteType.InsideRome);
+                BuildingSite siteCard = _cardFactory.CreateBuildingSite(materialType, SiteType.InsideRome);
                 siteDeck.Add(siteCard);
             }
             // place out of site cards on bottom
             for (int i = 0; i < outOfTownSiteCount; i++)
             {
-                BuildingSite siteCard = cardFactory.CreateBuildingSite(materialType, SiteType.OutOfTown);
+                BuildingSite siteCard = _cardFactory.CreateBuildingSite(materialType, SiteType.OutOfTown);
                 siteDeck.Add(siteCard);
             }
             return siteDeck;

@@ -37,47 +37,35 @@ namespace GTR.Core.Marshalling
         BuildingSite CreateBuildingSite(MaterialType materialType, SiteType siteType);
     }
 
-    public class CardFactory : ICardLocator, ICardFactory
+    public class CardLocator : ICardLocator
     {
-        private int nextIndex = 0;
         private Dictionary<int, OrderCardModel> orderCards;
         private Dictionary<int, JackCardModel> jackCards;
         private Dictionary<int, BuildingSite> foundationCards;
 
-        public CardFactory()
+        public CardLocator()
         {
             orderCards = new Dictionary<int, OrderCardModel>();
             jackCards = new Dictionary<int, JackCardModel>();
             foundationCards = new Dictionary<int, BuildingSite>();
         }
 
+        public void Add(OrderCardModel card)
+        {
+            this.orderCards.Add(card.Id, card);
+        }
+        public void Add(JackCardModel card)
+        {
+            this.jackCards.Add(card.Id, card);
+        }
+        public void Add(BuildingSite card)
+        {
+            this.foundationCards.Add(card.Id, card);
+        }
+
         public OrderCardModel Locate(int id)
         {
             return orderCards[id];
-        }
-
-        public OrderCardModel CreateOrderCard(IOrderCardMaker cardMaker, string buildingName)
-        {
-            var orderCard = cardMaker.MakeCard(buildingName);
-            orderCard.Id = nextIndex;
-            nextIndex++;
-            return orderCard;
-        }
-
-        public JackCardModel CreateJackCard()
-        {
-            var jackCard = new JackCardModel();
-            jackCard.Id = nextIndex;
-            nextIndex++;
-            return jackCard;
-        }
-
-        public BuildingSite CreateBuildingSite(MaterialType materialType, SiteType siteType)
-        {
-            var buildingSite = new BuildingSite(materialType, siteType);
-            buildingSite.Id = nextIndex;
-            nextIndex++;
-            return buildingSite;
         }
 
         public T Locate<T>(int id) where T : CardModelBase
@@ -115,36 +103,65 @@ namespace GTR.Core.Marshalling
         }
     }
 
-    public class CardCollectionLocatorFactory
+    public class CardFactory : ICardFactory
     {
-        public ICardCollectionLocator MakeLocator(Model.Game game)
-        {
-            CardCollectionLocator locator = new CardCollectionLocator();
-            locator.Add(game.GameTable.OrderDeck);
-            locator.Add(game.GameTable.JackDeck);
-            locator.Add(game.GameTable.Pool);
+        private int nextIndex = 0;
 
-            foreach (var siteDeck in game.GameTable.SiteDecks)
-            {
-                locator.Add(siteDeck);
-            }
-            foreach (var player in game.GameTable.Players)
-            {
-                locator.Add(player.CompletedBuildings);
-                locator.Add(player.ConstructionZone);
-                locator.Add(player.DemandArea);
-                locator.Add(player.PlayArea.JackCards);
-                locator.Add(player.PlayArea.OrderCards);
-                locator.Add(player.Hand.JackCards);
-                locator.Add(player.Hand.OrderCards);
-                locator.Add(player.Camp.Clientele);
-                locator.Add(player.Camp.Vault);
-                locator.Add(player.Camp.CompletedFoundations);
-                locator.Add(player.Camp.Stockpile);
-            }
-            return locator;
+        public OrderCardModel CreateOrderCard(IOrderCardMaker cardMaker, string buildingName)
+        {
+            var orderCard = cardMaker.MakeCard(buildingName);
+            orderCard.Id = nextIndex;
+            nextIndex++;
+            return orderCard;
+        }
+
+        public JackCardModel CreateJackCard()
+        {
+            var jackCard = new JackCardModel();
+            jackCard.Id = nextIndex;
+            nextIndex++;
+            return jackCard;
+        }
+
+        public BuildingSite CreateBuildingSite(MaterialType materialType, SiteType siteType)
+        {
+            var buildingSite = new BuildingSite(materialType, siteType);
+            buildingSite.Id = nextIndex;
+            nextIndex++;
+            return buildingSite;
         }
     }
+
+    //public class CardCollectionLocatorFactory
+    //{
+    //    public ICardCollectionLocator MakeLocator(Model.Game game)
+    //    {
+    //        CardCollectionLocator locator = new CardCollectionLocator();
+    //        locator.Add(game.GameTable.OrderDeck);
+    //        locator.Add(game.GameTable.JackDeck);
+    //        locator.Add(game.GameTable.Pool);
+
+    //        foreach (var siteDeck in game.GameTable.SiteDecks)
+    //        {
+    //            locator.Add(siteDeck);
+    //        }
+    //        foreach (var player in game.GameTable.Players)
+    //        {
+    //            locator.Add(player.CompletedBuildings);
+    //            locator.Add(player.ConstructionZone);
+    //            locator.Add(player.DemandArea);
+    //            locator.Add(player.PlayArea.JackCards);
+    //            locator.Add(player.PlayArea.OrderCards);
+    //            locator.Add(player.Hand.JackCards);
+    //            locator.Add(player.Hand.OrderCards);
+    //            locator.Add(player.Camp.Clientele);
+    //            locator.Add(player.Camp.Vault);
+    //            locator.Add(player.Camp.CompletedFoundations);
+    //            locator.Add(player.Camp.Stockpile);
+    //        }
+    //        return locator;
+    //    }
+    //}
 
     public class CardCollectionLocator : ICardCollectionLocator
     {
@@ -188,6 +205,32 @@ namespace GTR.Core.Marshalling
             }
             throw new KeyNotFoundException("Unknown location " + id);
         }
-    }
 
+        public ICardLocator GetCardLocator()
+        {
+            CardLocator cardLocator = new CardLocator();
+            foreach (var loc in orderLocations)
+            {
+                foreach (var card in loc.Value)
+                {
+                    cardLocator.Add(card);
+                }
+            }
+            foreach (var loc in jackLocations)
+            {
+                foreach (var card in loc.Value)
+                {
+                    cardLocator.Add(card);
+                }
+            }
+            foreach (var loc in foundationLocations)
+            {
+                foreach (var card in loc.Value)
+                {
+                    cardLocator.Add(card);
+                }
+            }
+            return cardLocator;
+        }
+    }
 }

@@ -87,6 +87,7 @@ namespace GTR.Universal
 
                 GameMarshaller marshaller = new GameMarshaller(deckIo, resourceProvider);
                 var gamePoco = marshaller.UnMarshall(game.Game);
+               
             }
 
         }
