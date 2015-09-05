@@ -32,22 +32,9 @@ namespace GTR.Core.Marshalling
 
         public MoveSerialization Marshall(Move<T> poco)
         {
-            CardType cardType = CardType.Order;
-            if (poco.Card is OrderCardModel)
-            {
-                cardType = CardType.Order;
-            }else if (poco.Card is JackCardModel)
-            {
-                cardType = CardType.Jack;
-            } else if (poco.Card is BuildingSite)
-            {
-                cardType = CardType.BuildingSite;
-            }
-
             return new MoveSerialization()
             {
                 CardId = poco.Card.Id,
-                CardType = cardType,
                 DestinationId = poco.Destination.Id,
                 SourceId = poco.Source.Id
             };

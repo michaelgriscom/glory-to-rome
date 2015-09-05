@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using GTR.Core.Marshalling;
 using GTR.Core.Model;
 using GTR.Core.Model.CardCollections;
 using GTR.Core.Services;
@@ -14,18 +15,20 @@ namespace GTR.Core.DeckManagement
     {
         private readonly IDeckIo _deckIo;
         private IResourceProvider _resourceProvider;
+        private ICardFactory _cardFactory;
 
-        public CardManager(IResourceProvider resourceProvider, IDeckIo deckIo)
+        public CardManager(IResourceProvider resourceProvider, IDeckIo deckIo, ICardFactory cardFactory)
         {
             _deckIo = deckIo;
             _resourceProvider = resourceProvider;
             var builtInDecks = GetBuiltinDecks();
             var customDecks = GetCustomDecks();
 
-            CardSet = CardSetSerializer.Deserialize(resourceProvider.CardXml);
+            CardMaker = CardSetSerializer.Deserialize(resourceProvider.CardXml);
+            _cardFactory = cardFactory;
         }
 
-        public CardSet CardSet { get; }
+        public IOrderCardMaker CardMaker { get; }
 
         private HashSet<DeckType> GetCustomDecks()
         {
@@ -60,7 +63,7 @@ namespace GTR.Core.DeckManagement
                 int cardCount = deckVersion.GetCount(cardName);
                 for (int i = 0; i < cardCount; i++)
                 {
-                    OrderCardModel cardModel = CardSet.MakeCard(cardName);
+                    OrderCardModel cardModel = _cardFactory.CreateOrderCard(CardMaker, cardName);
                     orderDeck.Add(cardModel);
                 }
             }

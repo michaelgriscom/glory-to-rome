@@ -67,15 +67,5 @@ namespace GTR.Core.Model
                 RaisePropertyChanged();
             }
         }
-
-        public CardSet CardSet
-        {
-            get { return _cardSet; }
-            set
-            {
-                _cardSet = value;
-                RaisePropertyChanged();
-            }
-        }
     }
 }

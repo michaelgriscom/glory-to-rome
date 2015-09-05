@@ -5,7 +5,6 @@
         public int CardId;
         public int DestinationId;
         public int SourceId;
-        public CardType CardType;
     }
 
     public class ExecutedMoveSerialization : IDto

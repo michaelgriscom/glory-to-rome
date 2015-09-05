@@ -16,7 +16,6 @@ namespace GTR.Core.Model
 {
     public class GameTable : ObservableModel
     {
-        private const int BuildingSiteCount = 6;
         private JackDeck _jackDeck;
         private OrderDeck _orderDeck;
         private ObservableCollection<Player> _players;
@@ -33,7 +32,7 @@ namespace GTR.Core.Model
         public ObservableCollection<SiteDeck> SiteDecks
         {
             get { return _siteDecks; }
-            private set
+            set
             {
                 _siteDecks = value;
                 RaisePropertyChanged();
@@ -90,7 +89,6 @@ namespace GTR.Core.Model
                 players[i].PlayerToRight = players[rightPlayer];
                 players[rightPlayer].PlayerToLeft = players[i];
             }
-            CreateBuildingSites(players.Count);
         }
 
         public void AddPlayer(Player player)
@@ -111,50 +109,6 @@ namespace GTR.Core.Model
         internal Deck<BuildingSite> GetSiteDeck(MaterialType materialType)
         {
             var siteDeck = SiteDecks.First(deck => materialType == deck.MaterialType);
-            return siteDeck;
-        }
-
-        /// <summary>
-        ///     Get the player at a given location.
-        /// </summary>
-        /// <param name="location">Player location, indexed from zero.</param>
-        /// <returns>Player at the given location.</returns>
-        private Player GetPlayerAtLocation(int location)
-        {
-            Debug.Assert(-1 < location && location < Players.Count, "Invalid player index");
-            return Players[location];
-        }
-
-        private void CreateBuildingSites(int playerCount)
-        {
-            int inTownSiteCount = Math.Min(playerCount, BuildingSiteCount);
-            int outOfTownSiteCount = BuildingSiteCount - inTownSiteCount;
-
-            var materialTypes = Enum.GetValues(typeof (MaterialType));
-            _siteDecks = new ObservableCollection<SiteDeck>();
-            foreach (MaterialType type in materialTypes)
-            {
-                SiteDeck buildingSiteDeck
-                    = CreateSiteDeck(type, inTownSiteCount, outOfTownSiteCount);
-                SiteDecks.Add(buildingSiteDeck);
-            }
-        }
-
-        private SiteDeck CreateSiteDeck(MaterialType materialType, int inTownSiteCount, int outOfTownSiteCount)
-        {
-            SiteDeck siteDeck = new SiteDeck(materialType);
-            // place in town site cards on top
-            for (int i = 0; i < inTownSiteCount; i++)
-            {
-                BuildingSite siteCard = new BuildingSite(materialType, SiteType.InsideRome);
-                siteDeck.Add(siteCard);
-            }
-            // place out of site cards on bottom
-            for (int i = 0; i < outOfTownSiteCount; i++)
-            {
-                BuildingSite siteCard = new BuildingSite(materialType, SiteType.OutOfTown);
-                siteDeck.Add(siteCard);
-            }
             return siteDeck;
         }
 

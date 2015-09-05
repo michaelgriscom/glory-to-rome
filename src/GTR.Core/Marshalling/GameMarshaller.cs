@@ -23,9 +23,10 @@ namespace GTR.Core.Marshalling
 
         public GameMarshaller(IDeckIo deckIo, IResourceProvider resourceProvider)
         {
-            var cardManager = new CardManager(resourceProvider, deckIo);
+            // TODO: this line is duplicated elsewhere
+            var cardMaker = CardSetSerializer.Deserialize(resourceProvider.CardXml);
 
-            var orderCardMarshaller = new OrderCardMarshaller(cardManager.CardSet);
+            var orderCardMarshaller = new OrderCardMarshaller(cardMaker);
             orderCLMarshaller = new CardLocationMarshaller<OrderCardModel, OrderCardSerialization>(orderCardMarshaller);
 
             var jackCardMarshaller = new JackCardMarshaller();

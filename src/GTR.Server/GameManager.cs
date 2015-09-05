@@ -40,7 +40,8 @@ namespace GTR.Server
 
         public GameDto CreateGame(LobbyGame gameInfo)
         {
-            Game game = GameFactory.MakeGame(gameInfo.Players, gameInfo.GameOptions, deckIo, resourceProvider);
+            GameFactory gameFactory = new GameFactory();
+            Game game = gameFactory.MakeGame(gameInfo.Players, gameInfo.GameOptions, deckIo, resourceProvider);
             game.Id = gameInfo.Id;
             PlayerInputService inputService = new PlayerInputService();
 
