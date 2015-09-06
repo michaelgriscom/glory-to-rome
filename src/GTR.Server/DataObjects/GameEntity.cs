@@ -12,31 +12,25 @@ namespace GTR.Server.DataObjects
 {
     public class GameEntity : EntityData
     {
-        public string HostId { get; set; }
+        public PlayerEntity Host { get; set; }
 
-        [NotMapped]
-        public string[] Players
-        {
-            get
-            {
-                return this.InternalData.Split(',');
-            }
-            set
-            {
-                this.InternalData = string.Join(",", value);
-            }
-        }
+        public List<PlayerEntity> Players { get; set; }
+        //[NotMapped]
+        //public string[] Players
+        //{
+        //    get
+        //    {
+        //        return this.InternalData.Split(',');
+        //    }
+        //    set
+        //    {
+        //        this.InternalData = string.Join(",", value);
+        //    }
+        //}
 
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public string InternalData { get; set; }
+        //[EditorBrowsable(EditorBrowsableState.Never)]
+        //public string InternalData { get; set; }
 
         public GameOptions GameOptions { get; set; }
     }
-
-    public class Player : EntityData
-    {
-        public string Name { get; set; }
-    }
-
-
 }

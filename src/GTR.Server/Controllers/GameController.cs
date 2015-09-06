@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
@@ -48,12 +49,12 @@ namespace GTR.Server.Controllers
                 return response;
             }
 
-            string playerId = GetPlayerId(moveSetRequest.AuthorizationToken, moveSetRequest.GameId);
-
             using (var context = new GtrDbContext())
             {
+                const string playerId = "1";
+                var player = await context.Players.FirstOrDefaultAsync(p => p.Id == playerId);
+
                 var game = await context.Games.FindAsync(moveSetRequest.GameId);
-                var DomainManager = new EntityDomainManager<MoveEntity>(context, Request);
 
                 var moveEntities = moveSetRequest.MoveSet.Moves.Select(
                     move => new MoveEntity()
@@ -62,11 +63,12 @@ namespace GTR.Server.Controllers
                         SourceId = move.SourceId,
                         CardId = move.CardId,
                         GameEntity = game,
-                    }
-                    );
-            
+                        OriginatingPlayer = player
+                    });
+
                 //context.MoveEntities.AddRange(moveEntities);
-                await DomainManager.InsertAsync(moveEntities.First());
+                var moveDomainManager = new EntityDomainManager<MoveEntity>(context, Request);
+                await moveDomainManager.InsertAsync(moveEntities.First());
                 await context.SaveChangesAsync();
             }
 
@@ -80,11 +82,6 @@ namespace GTR.Server.Controllers
         private bool IsValidToken(int authorizationToken, string gameId)
         {
             return true;
-        }
-
-        private string GetPlayerId(int authorizationToken, string gameId)
-        {
-            return "1";
         }
     }
 }

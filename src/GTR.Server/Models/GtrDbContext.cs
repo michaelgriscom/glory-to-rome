@@ -39,11 +39,23 @@ namespace tiberService.Models
             modelBuilder.Conventions.Add(
                 new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
+
+            modelBuilder.Entity<PlayerEntity>()
+             .HasMany<GameEntity>(s => s.Games)
+             .WithMany(c => c.Players)
+             .Map(cs =>
+             {
+                 cs.MapLeftKey("PlayerRefId");
+                 cs.MapRightKey("GameRefId");
+                 cs.ToTable("PlayerGames");
+             });
         }
 
         public System.Data.Entity.DbSet<GTR.Server.DataObjects.MoveEntity> MoveEntities { get; set; }
 
         public System.Data.Entity.DbSet<GTR.Server.DataObjects.GameEntity> Games { get; set; }
+
+        public DbSet<PlayerEntity> Players { get; set; }
     }
 
 }

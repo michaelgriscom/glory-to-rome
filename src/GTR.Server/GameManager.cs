@@ -13,6 +13,7 @@ using GTR.Server.DataObjects;
 using GTR.Server.Services;
 using Microsoft.Azure.Mobile.Server;
 using tiberService.Models;
+using System.Linq;
 
 namespace GTR.Server
 {
@@ -43,7 +44,8 @@ namespace GTR.Server
         public GameDto CreateGame(GameEntity gameInfo)
         {
             GameFactory gameFactory = new GameFactory();
-            Core.Model.Game game = gameFactory.MakeGame(gameInfo.Players, gameInfo.GameOptions, deckIo, resourceProvider);
+            var playerIds = gameInfo.Players.Select(p => p.Id);
+            Core.Model.Game game = gameFactory.MakeGame(playerIds, gameInfo.GameOptions, deckIo, resourceProvider);
             game.Id = gameInfo.Id;
             PlayerInputService inputService = new PlayerInputService();
 

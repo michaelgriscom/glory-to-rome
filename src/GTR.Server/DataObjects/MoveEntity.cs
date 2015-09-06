@@ -24,6 +24,8 @@ namespace GTR.Server.DataObjects
         public int MoveSetNumber { get; set; }
 
         public RoleType EffectiveRole { get; set; }
+
+        public PlayerEntity OriginatingPlayer { get; set; }
     }
 /*
     public class CardLocation : EntityData

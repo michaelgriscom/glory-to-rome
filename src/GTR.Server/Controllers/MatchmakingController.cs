@@ -9,6 +9,8 @@ using GTR.Server.Controllers;
 using GTR.Server.DataObjects;
 using Microsoft.Azure.Mobile.Server.Config;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Web.Http.OData;
 using GTR.Core.Marshalling.DTO;
 using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.NotificationHubs;
@@ -22,7 +24,6 @@ namespace GTR.Server.Controllers
     {
         public MatchmakingController()
         {
-            context = new GtrDbContext();
         }
 
         /// <summary>
@@ -33,24 +34,38 @@ namespace GTR.Server.Controllers
         public async Task<CreateGameResponseSerialization> PostHost(CreateGameRequest request)
         {
             CreateGameResponseSerialization response = new CreateGameResponseSerialization();
-            var playerId = GetPlayerId();
 
-            GameEntity game = new GameEntity()
+            using (var context = new GtrDbContext())
             {
-                Players = new string[] { playerId },
-                GameOptions = request.GameOptions,
-                HostId = playerId
-            };
+                PlayerEntity player = await context.Players.FirstOrDefaultAsync(p => p.Id == "1");
+                if (player == null)
+                {
+                    var playerDomainManager = new EntityDomainManager<PlayerEntity>(context, Request);
+                    player = await playerDomainManager.InsertAsync(new PlayerEntity()
+                    {
+                        Name = "TestUser",
+                        Id = "1"
+                    });
+                }
 
-            response.Success = true;
+                GameEntity game = new GameEntity()
+                {
+                    Players = new List<PlayerEntity>() { player },
+                    GameOptions = request.GameOptions,
+                    Host = player
+                };
+                response.Success = true;
 
-           var DomainManager = new EntityDomainManager<GameEntity>(context, Request);
-            game = await DomainManager.InsertAsync(game);
-            await context.SaveChangesAsync();
+                var gameDomainManager = new EntityDomainManager<GameEntity>(context, Request);
+                game = await gameDomainManager.InsertAsync(game);
 
-            response.GameId = game.Id;
+                await context.SaveChangesAsync();
 
-            return response;
+                response.GameId = game.Id;
+
+                return response;
+            }
+            //player = await GetPlayerId();
         }
 
         /// <summary>
@@ -63,39 +78,38 @@ namespace GTR.Server.Controllers
             var response = new StartGameResponseSerialization();
             response.Success = false;
 
-            // TODO: query
-            var DomainManager = new EntityDomainManager<GameEntity>(context, Request);
-
-            var allGames = DomainManager.Query();
-            var gameInfo = allGames.First(g => g.Id == GameId);
-
-            if (gameInfo == null)
+            using (var context = new GtrDbContext())
             {
-                response.Message = ErrorMessages.NonexistentGame;
+                // TODO: query
+                //var DomainManager = new EntityDomainManager<GameEntity>(context, Request);
+
+                //var allGames = DomainManager.Query();
+                var gameInfo = await context.Games.FirstOrDefaultAsync(g => g.Id == GameId);
+
+                if (gameInfo == null)
+                {
+                    response.Message = ErrorMessages.NonexistentGame;
+                    return response;
+                }
+
+                var player = await context.Players.FirstOrDefaultAsync(p => p.Id == "1");
+                if (player.Id != gameInfo.Host.Id)
+                {
+                    response.Message = ErrorMessages.NotGameHost;
+                    return response;
+                }
+
+                gameInfo.Players = context.Entry(gameInfo).Collection(g => g.Players).Query().ToList();
+                var game = gameManager.CreateGame(gameInfo);
+
+                //await gameTable.DeleteGame(GameId);
+
+                response.Success = true;
+                response.Game = game;
                 return response;
             }
-            string playerId = GetPlayerId();
-            if (playerId != gameInfo.HostId)
-            {
-                response.Message = ErrorMessages.NotGameHost;
-                return response;
-            }
-
-           var game = gameManager.CreateGame(gameInfo);
-
-            //await gameTable.DeleteGame(GameId);
-
-            response.Success = true;
-            response.Game = game;
-            return response;
         }
 
         private GameManager gameManager = GameManager.Instance;
-        private GtrDbContext context;
-
-        private string GetPlayerId()
-        {
-            return "1";
-        }
     }
 }

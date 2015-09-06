@@ -222,6 +222,7 @@
     <Compile Include="Controllers\MoveEntityController.cs" />
     <Compile Include="DataObjects\GameEntity.cs" />
     <Compile Include="DataObjects\MoveEntity.cs" />
+    <Compile Include="DataObjects\PlayerEntity.cs" />
     <Compile Include="ErrorMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
