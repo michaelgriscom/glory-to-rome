@@ -91,7 +91,7 @@
         <StackPanel Orientation="Horizontal" d:LayoutOverrides="LeftMargin, RightMargin, LeftPosition, RightPosition"
                     Height="400" Width="1665">
             <Border Height="1440" BorderBrush="Black" BorderThickness="2">
-                <StackPanel Orientation="Horizontal" Width="1440">
+                <StackPanel Orientation="Horizontal" Width="1440" Height="400" VerticalAlignment="Top">
                     <ListView x:Name="listView" ItemTemplate="{StaticResource PlayerTemplate1}"
                               ItemsSource="{Binding Players}" Header="PLAYERS" Width="320"
                               d:LayoutOverrides="Height, TopPosition, BottomPosition" />

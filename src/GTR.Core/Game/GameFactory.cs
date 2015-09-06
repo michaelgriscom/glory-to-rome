@@ -35,7 +35,7 @@ namespace GTR.Core.Game
 
             var cardManager = new CardManager(resourceProvider, deckIo, _cardFactory);
             var orderDeck = cardManager.CreateOrderCardDeck(deckType);
-
+            orderDeck.Shuffle();
             var jackDeck = CreateJackDeck();
             var table = new GameTable
             {

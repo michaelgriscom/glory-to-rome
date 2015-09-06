@@ -249,6 +249,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <DesignData Include="SampleData\GameTableSampleData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </DesignData>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -261,7 +265,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="SampleData\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.WindowsAzure.Mobile">

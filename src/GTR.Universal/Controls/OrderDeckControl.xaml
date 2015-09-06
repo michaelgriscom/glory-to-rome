@@ -27,13 +27,13 @@
         </DataTemplate>
     </UserControl.Resources>
 
-    <StackPanel Margin="0" d:DataContext="{d:DesignData /SampleData/OrderDeckSampleData.xaml}">
-        <TextBlock Text="{Binding LocationName}" Margin="19,0,0,0" HorizontalAlignment="Left"
+    <StackPanel Margin="0" d:DataContext="{d:DesignData /SampleData/GameTableSampleData.xaml}">
+        <TextBlock Text="{Binding OrderDeck.Id}" Margin="19,0,0,0" HorizontalAlignment="Left"
                    d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" />
         <StackPanel HorizontalAlignment="Left" Margin="26,0,-5,0" Orientation="Horizontal" Width="163"
                     d:LayoutOverrides="LeftPosition, RightPosition">
             <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="Count: " d:LayoutOverrides="Width" />
-            <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="{Binding Cards.Count, Mode=OneWay}" />
+            <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="{Binding OrderDeck.Count}" />
 
         </StackPanel>
         <Grid Margin="19,0,0,0" Height="200" HorizontalAlignment="Left" Width="151" Background="Black"
