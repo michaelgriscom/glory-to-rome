@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -48,25 +50,28 @@ namespace GTR.Server.Controllers
 
             string playerId = GetPlayerId(moveSetRequest.AuthorizationToken, moveSetRequest.GameId);
 
-            GtrDbContext context = new GtrDbContext();
-
-
-            var DomainManager = new EntityDomainManager<MoveEntity>(context, Request);
-            var game = await context.Games.FindAsync(moveSetRequest.GameId);
-
-            foreach (var move in moveSetRequest.MoveSet.Moves)
+            using (var context = new GtrDbContext())
             {
-                var moveEntity = new MoveEntity()
-                {
-                    DestinationId = move.DestinationId,
-                    SourceId = move.SourceId,
-                    CardId = move.CardId,
-                    GameEntity = game
-                };
-                await DomainManager.InsertAsync(moveEntity);
+                var game = await context.Games.FindAsync(moveSetRequest.GameId);
+                var DomainManager = new EntityDomainManager<MoveEntity>(context, Request);
+
+                var moveEntities = moveSetRequest.MoveSet.Moves.Select(
+                    move => new MoveEntity()
+                    {
+                        DestinationId = move.DestinationId,
+                        SourceId = move.SourceId,
+                        CardId = move.CardId,
+                        GameEntity = game,
+                    }
+                    );
+            
+                //context.MoveEntities.AddRange(moveEntities);
+                await DomainManager.InsertAsync(moveEntities.First());
+                await context.SaveChangesAsync();
             }
 
-            await context.SaveChangesAsync();
+            //var DomainManager = new EntityDomainManager<MoveEntity>(context, Request);
+           
 
             response.Success = true;
             return response;

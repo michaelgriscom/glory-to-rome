@@ -11,10 +11,8 @@ namespace GTR.Server.DataObjects
 {
     public class MoveEntity : EntityData
     {
-        //[ForeignKey("Id")]
         //public virtual Player Player { get; set; }
 
-        [ForeignKey("Id")]
         public virtual GameEntity GameEntity { get; set; }
 
         public int CardId { get; set; }
