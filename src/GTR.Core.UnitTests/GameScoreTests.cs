@@ -6,6 +6,7 @@ using GTR.Core.Engine;
 using GTR.Core.Game;
 using GTR.Core.Model;
 using GTR.Core.Model.CardCollections;
+using GTR.Core.Moves;
 using GTR.Core.Services;
 using GTR.Core.Util;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -21,12 +22,14 @@ namespace GTR.Core.UnitTests
         // every player starts with score of 2
         private const int BaseScore = 2;
         private GameTable _gameTable;
+        private MoveMaker _moveMaker;
 
         [TestInitialize]
         public void Initialization()
         {
             OrderDeck orderDeck = new OrderDeck();
             JackDeck jackDeck = new JackDeck();
+            _moveMaker = new MoveMaker();
 
             _gameTable = new GameTable() { OrderDeck = orderDeck, JackDeck = jackDeck };
         }
@@ -57,7 +60,7 @@ namespace GTR.Core.UnitTests
             };
 
             var mock = new Mock<IPlayerInputService>();
-            var playerEngine = new PlayerEngine(player, mock.Object, _gameTable);
+            var playerEngine = new PlayerEngine(player, mock.Object, _gameTable, _moveMaker);
             _gameTable.AddPlayers(players);
 
             var brickFoundation = new BuildingSite(MaterialType.Brick);
@@ -97,8 +100,8 @@ namespace GTR.Core.UnitTests
             };
             _gameTable.AddPlayers(players);
             var mock = new Mock<IPlayerInputService>();
-            var player1Engine = new PlayerEngine(player1, mock.Object, _gameTable);
-            var player2Engine = new PlayerEngine(player2, mock.Object, _gameTable);
+            var player1Engine = new PlayerEngine(player1, mock.Object, _gameTable, _moveMaker);
+            var player2Engine = new PlayerEngine(player2, mock.Object, _gameTable, _moveMaker);
 
 
             var brickFoundation1 = new BuildingSite(MaterialType.Brick);

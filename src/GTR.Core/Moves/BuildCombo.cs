@@ -17,9 +17,12 @@ namespace GTR.Core.Moves
         public IMove<OrderCardModel> BuildMove { get; }
         public IMove<BuildingSite> SiteMove { get; }
 
-        public bool Perform()
+        public bool Perform(MoveMaker moveMaker)
         {
-            return BuildMove.Perform() && SiteMove.Perform();
+          return  moveMaker.MakeMove(BuildMove.Card, BuildMove.Source, BuildMove.Destination, null) &&
+            moveMaker.MakeMove(SiteMove.Card, SiteMove.Source, SiteMove.Destination, null);
+
+      
         }
     }
 }

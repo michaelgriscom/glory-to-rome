@@ -23,6 +23,11 @@ namespace GTR.Core.Model.CardCollections
             this.Id = Guid.NewGuid().ToString();
         }
 
+        public ObservableCardCollection(ICardCollection<T> cl) : base(cl)
+        {
+            this.Id = cl.Id;
+        }
+
         public T ElementAt(int index)
         {
             return this[index];

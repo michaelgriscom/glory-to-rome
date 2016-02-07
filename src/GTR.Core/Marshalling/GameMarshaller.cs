@@ -55,15 +55,26 @@ namespace GTR.Core.Marshalling
             orderDeckDto.LocationKind = new CardLocationKindSerialization
             {
                 Scope = LocationScope.Global,
-                Kind = CardLocationKind.OrderDeck
+                Kind = CardLocationKind.OrderDeck,
+                CardType = CardType.Order
             };
             cardLocDtos.Add(orderDeckDto);
+
+            var poolDto = orderCLMarshaller.Marshall(poco.GameTable.Pool);
+            poolDto.LocationKind = new CardLocationKindSerialization
+            {
+                Scope = LocationScope.Global,
+                Kind = CardLocationKind.Pool,
+                CardType = CardType.Order
+            };
+            cardLocDtos.Add(poolDto);
 
             var jackDeckDto = jackCLMarshaller.Marshall(poco.GameTable.JackDeck);
             jackDeckDto.LocationKind = new CardLocationKindSerialization
             {
                 Scope = LocationScope.Global,
-                Kind = CardLocationKind.JackDeck
+                Kind = CardLocationKind.JackDeck,
+                CardType = CardType.Jack
             };
             cardLocDtos.Add(jackDeckDto);
 
@@ -73,7 +84,8 @@ namespace GTR.Core.Marshalling
                 siteDeckDto.LocationKind = new CardLocationKindSerialization()
                 {
                     Scope = LocationScope.Global,
-                    Kind = CardLocationKind.SiteDeck
+                    Kind = CardLocationKind.SiteDeck,
+                    CardType = CardType.Order
                 };
                 cardLocDtos.Add(siteDeckDto);
             }
@@ -112,6 +124,13 @@ namespace GTR.Core.Marshalling
             {
                 var cl = jackCLMarshaller.UnMarshall(jackDeckDto);
                 poco.GameTable.JackDeck = new JackDeck(cl);
+            }
+
+            var poolDto = dto.CardLocations?.First(cl => cl.LocationKind.Kind == CardLocationKind.Pool);
+            if (poolDto != null)
+            {
+                var cl = orderCLMarshaller.UnMarshall(poolDto);
+                poco.GameTable.Pool = new Pool(cl);
             }
 
             var siteDeckDtos = dto.CardLocations?.Where(cl => cl.LocationKind.Kind == CardLocationKind.SiteDeck);

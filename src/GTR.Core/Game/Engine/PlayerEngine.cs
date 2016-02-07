@@ -24,13 +24,14 @@ namespace GTR.Core.Engine
         private GameTable _gameTable;
         private OrderActions _playerActions;
         private IPlayerInput _playerInput;
+        private MoveMaker _moveMaker;
 
-        public PlayerEngine(Player player, IPlayerInputService inputService, GameTable gameTable)
+        public PlayerEngine(Player player, IPlayerInputService inputService, GameTable gameTable, MoveMaker moveMaker)
         {
             Player = player;
             _inputService = inputService;
             _playerActions = new OrderActions(player, gameTable);
-
+            _moveMaker = moveMaker;
             WireEvents();
         }
 
@@ -55,14 +56,12 @@ namespace GTR.Core.Engine
             while (Player.PlayArea.JackCards.Count > 0)
             {
                 var card = Player.PlayArea.JackCards.ElementAt(0);
-                var move = new Move<JackCardModel>(card, Player.PlayArea.JackCards, _gameTable.JackDeck);
-                move.Perform();
+                _moveMaker.MakeMove(card, Player.PlayArea.JackCards, _gameTable.JackDeck, Player);
             }
             while (Player.PlayArea.OrderCards.Count > 0)
             {
                 var card = Player.PlayArea.OrderCards.ElementAt(0);
-                var move = new Move<OrderCardModel>(card, Player.PlayArea.OrderCards, _gameTable.Pool);
-                move.Perform();
+                _moveMaker.MakeMove(card, Player.PlayArea.OrderCards, _gameTable.Pool, Player);
             }
         }
 
@@ -105,15 +104,14 @@ namespace GTR.Core.Engine
             var buildingSite = args.BuildingSite;
             var completedFoundations = Player.Camp.CompletedFoundations;
             var constructionZone = Player.ConstructionZone;
-            var siteMove = new Move<BuildingSite>(buildingSite, constructionZone, completedFoundations);
-            siteMove.Perform();
+            _moveMaker.MakeMove(buildingSite, constructionZone, completedFoundations, Player);
 
             // move building into completed building zone
             var buildingCard = args.BuildingSite.BuildingFoundation.Building;
             var completedBuildings = Player.CompletedBuildings;
-            var buildingMove = new Move<OrderCardModel>(buildingCard, buildingSite.BuildingFoundation,
-                completedBuildings);
-            buildingMove.Perform();
+
+            _moveMaker.MakeMove(buildingCard, buildingSite.BuildingFoundation,
+                completedBuildings, Player);
 
             // material cards no longer needed,
             // let the garbage collector get rid of them
@@ -291,14 +289,12 @@ namespace GTR.Core.Engine
                 if (card is JackCardModel)
                 {
                     var jack = card as JackCardModel;
-                    var move = new Move<JackCardModel>(jack, Player.Hand.JackCards, Player.PlayArea.JackCards);
-                    move.Perform();
+                    _moveMaker.MakeMove(jack, Player.Hand.JackCards, Player.PlayArea.JackCards, Player);
                 }
                 else
                 {
                     var order = card as OrderCardModel;
-                    var move = new Move<OrderCardModel>(order, Player.Hand.OrderCards, Player.PlayArea.OrderCards);
-                    move.Perform();
+                    _moveMaker.MakeMove(order, Player.Hand.OrderCards, Player.PlayArea.OrderCards, Player);
                 }
             }
         }
@@ -354,7 +350,7 @@ namespace GTR.Core.Engine
             var move = await _inputService.RequestMoveAsync(moveRequest);
             if (move != null)
             {
-                _gameTable.ExecuteMove(move);
+                _moveMaker.MakeMove(move);
             }
             return move;
         }

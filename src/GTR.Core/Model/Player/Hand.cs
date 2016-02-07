@@ -54,6 +54,11 @@ namespace GTR.Core.Model
             {
                 _hand = hand;
             }
+
+            public JackCardGroup(Hand hand, ICardCollection<JackCardModel> cl) : base(cl)
+            {
+                _hand = hand;
+            }
         }
 
         public class OrderCardGroup : ObservableCardCollection<OrderCardModel>
@@ -65,9 +70,9 @@ namespace GTR.Core.Model
                 _hand = hand;
             }
 
-            public bool CanAdd(OrderCardModel card)
+            public OrderCardGroup(Hand hand, ICardCollection<OrderCardModel> cl) : base(cl)
             {
-                return _hand.Count < _hand.RefillCapacity;
+                _hand = hand;
             }
         }
     }

@@ -11,6 +11,7 @@ namespace GTR.Core.Marshalling.DTO
         public CardLocationKind Kind;
         public string PlayerId;
         public LocationScope Scope;
+        public CardType CardType;
     }
 
     public class CardLocationDto : IDto

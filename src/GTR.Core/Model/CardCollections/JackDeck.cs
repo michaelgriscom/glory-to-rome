@@ -15,5 +15,9 @@ namespace GTR.Core.Model.CardCollections
         public JackDeck(IEnumerable<JackCardModel> cards) : base(cards)
         {
         }
+
+        public JackDeck(ICardCollection<JackCardModel> cl) : base(cl)
+        {
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Net.Http;
 using System.Threading.Tasks;
 using GTR.Core.Game;
@@ -60,7 +61,7 @@ namespace GTR.Server
             return marshaller.Marshall(game);
         }
 
-        public Core.Model.Game GetGameInfo(string gameId)
+        public GameEngine GetGameInfo(string gameId)
         {
             if (!Games.ContainsKey(gameId))
             {
@@ -68,14 +69,14 @@ namespace GTR.Server
             }
             else
             {
-                return Games[gameId].Game;
+                return Games[gameId];
             }
         }
 
         public GameDto GetGameDtoInfo(string gameId)
         {
             var game = GetGameInfo(gameId);
-            return marshaller.Marshall(game);
+            return marshaller.Marshall(game.Game);
         }
 
         public async Task<CompletedGame> RunGame(string gameId)

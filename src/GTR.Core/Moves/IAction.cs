@@ -2,6 +2,6 @@
 {
     public interface IAction
     {
-        bool Perform();
+        bool Perform(MoveMaker moveMaker);
     }
 }

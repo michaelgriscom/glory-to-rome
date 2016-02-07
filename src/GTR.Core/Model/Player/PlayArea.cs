@@ -45,6 +45,11 @@ namespace GTR.Core.Model
             {
                 _playArea = playArea;
             }
+
+            public JackCardGroup(PlayArea playArea, ICardCollection<JackCardModel> cl) : base(cl)
+            {
+                _playArea = playArea;
+            }
         }
 
         public class OrderCardGroup : ObservableCardCollection<OrderCardModel>
@@ -54,6 +59,11 @@ namespace GTR.Core.Model
             internal OrderCardGroup(PlayArea PlayArea)
             {
                 _playArea = PlayArea;
+            }
+
+            public OrderCardGroup(PlayArea playArea, ICardCollection<OrderCardModel> cl) : base(cl)
+            {
+                _playArea = playArea;
             }
         }
     }

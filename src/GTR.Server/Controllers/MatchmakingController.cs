@@ -101,8 +101,9 @@ namespace GTR.Server.Controllers
 
                 gameInfo.Players = context.Entry(gameInfo).Collection(g => g.Players).Query().ToList();
                 var game = gameManager.CreateGame(gameInfo);
-
+                gameManager.RunGame(game.Id);
                 //await gameTable.DeleteGame(GameId);
+
 
                 response.Success = true;
                 response.Game = game;

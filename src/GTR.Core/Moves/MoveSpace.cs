@@ -16,20 +16,6 @@ namespace GTR.Core.Moves
         }
     }
 
-    public class MoveSet : List<Move<CardModelBase>>, IAction
-    {
-        public bool Perform()
-        {
-            bool success = TrueForAll(move => move.Perform());
-            return success;
-        }
-
-        public IEnumerator<IMove<CardModelBase>> GetEnumerator()
-        {
-            return base.GetEnumerator();
-        }
-    }
-
     public class MoveSpaceBase<T> : IEnumerable<T> where T : IAction
     {
         private readonly HashSet<T> _actions;

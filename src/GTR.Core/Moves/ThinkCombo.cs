@@ -22,14 +22,19 @@ namespace GTR.Core.Moves
 
         public IList<IMove<OrderCardModel>> ThinkMoves { get; }
 
-        public bool Perform()
-        {
-            return ThinkMoves.Select(move => move.Perform()).All(success => success);
-        }
+        //public bool Perform()
+        //{
+        //    return ThinkMoves.Select(move => move.Perform()).All(success => success);
+        //}
 
         public void Add(IMove<OrderCardModel> thinkMove)
         {
             ThinkMoves.Add(thinkMove);
+        }
+
+        public bool Perform(MoveMaker moveMaker)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

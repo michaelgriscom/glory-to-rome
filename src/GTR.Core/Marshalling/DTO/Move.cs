@@ -11,7 +11,7 @@
     public class ExecutedMoveSerialization : IDto
     {
         public MoveSerialization Move;
-        public int PlayerId;
+        public string PlayerId;
     }
 
 

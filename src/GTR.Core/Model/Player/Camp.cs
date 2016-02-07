@@ -22,10 +22,18 @@ namespace GTR.Core.Model
             InfluencePoints = StartingInfluence;
         }
 
+        public Camp(Clientele clientele, Vault vault, CompletedFoundations completedFoundations, Stockpile stockPile)
+        {
+            this.Clientele = clientele;
+            this.Vault = vault;
+            this.CompletedFoundations = completedFoundations;
+            this.Stockpile = stockPile;
+        }
+
         public CompletedFoundations CompletedFoundations
         {
             get { return _completedFoundations; }
-            private set
+            set
             {
                 _completedFoundations = value;
                 RaisePropertyChanged();
@@ -35,7 +43,7 @@ namespace GTR.Core.Model
         public Clientele Clientele
         {
             get { return _clientele; }
-            private set
+            set
             {
                 _clientele = value;
                 RaisePropertyChanged();
@@ -55,7 +63,7 @@ namespace GTR.Core.Model
         public Stockpile Stockpile
         {
             get { return _stockpile; }
-            private set
+            set
             {
                 _stockpile = value;
                 RaisePropertyChanged();
@@ -65,7 +73,7 @@ namespace GTR.Core.Model
         public Vault Vault
         {
             get { return _vault; }
-            private set
+            set
             {
                 _vault = value;
                 RaisePropertyChanged();

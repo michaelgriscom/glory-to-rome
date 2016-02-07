@@ -28,19 +28,11 @@ namespace GTR.Server.Controllers
 
         //public ApiServices Services { get; set; }
 
-        public IEnumerable<MoveSerialization> GetMoves(string gameId)
+        public IEnumerable<ExecutedMoveSerialization> GetMoves(string gameId)
         {
-            var returnVal = domainManager.Query().Where(x => x.GameEntity.Id == gameId).Select(x =>
-            new MoveSerialization()
-            {
-                CardId = x.CardId,
-                DestinationId = x.DestinationId,
-                SourceId = x.SourceId,
-                Id = x.Id
-            }
-            );
-            
-            return returnVal;
+           var gameEngine = GameManager.Instance.GetGameInfo(gameId);
+
+            return gameEngine.MoveHistory.Moves;
         }
     }
 }

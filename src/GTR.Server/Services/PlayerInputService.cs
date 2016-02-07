@@ -10,18 +10,24 @@ namespace GTR.Server.Services
 {
     public class PlayerInputService : IPlayerInputService
     {
-        public Task<Lead> RequestLeadAsync(LeadRequest leadRequest)
+        public async Task<Lead> RequestLeadAsync(LeadRequest leadRequest)
         {
+            await Task.Delay(new TimeSpan(1, 0, 0));
+            throw new NotImplementedException();
+
+        }
+
+        public async Task<Follow> RequestFollowAsync(FollowRequest followRequest)
+        {
+            await Task.Delay(new TimeSpan(1, 0, 0));
+
             throw new NotImplementedException();
         }
 
-        public Task<Follow> RequestFollowAsync(FollowRequest followRequest)
+        public async Task<IAction> RequestMoveAsync(MoveRequest moveRequest)
         {
-            throw new NotImplementedException();
-        }
+            await Task.Delay(new TimeSpan(1, 0, 0));
 
-        public Task<IAction> RequestMoveAsync(MoveRequest moveRequest)
-        {
             throw new NotImplementedException();
         }
     }

@@ -13,7 +13,7 @@ namespace GTR.Core.Model.CardCollections
         {
         }
 
-        internal Deck(IEnumerable<T> cards) : base(cards)
+        internal Deck(ICardCollection<T> cl) : base(cl)
         {
         }
 

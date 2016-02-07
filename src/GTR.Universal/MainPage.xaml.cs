@@ -45,7 +45,6 @@ namespace GTR.Universal
             //this.DataContext = vm;
 
 
-
             int playerCount = 3;
             var deckIo = new DeckIo();
             var resourceProvider = new ResourceProvider();
@@ -64,8 +63,9 @@ namespace GTR.Universal
            var gameDto = await gameLoader.CreateGame();
             game = gameLoader.LoadGame(gameDto);
             this.DataContext = game;
+            await gameLoader.PollForMoves(game, this);
 
-           //await gameLoader.UpdateMoves(game);
+            //await gameLoader.UpdateMoves(game);
         }
 
         private async void ButtonBase_OnClick(object sender, RoutedEventArgs e)
@@ -85,10 +85,12 @@ namespace GTR.Universal
         private MoveMarshaller<BuildingSite> foundationMoveMarshaller;
         private ICardLocator cardLocator;
         private ICardCollectionLocator collectionLocator;
+        private MoveMaker _moveMaker;
 
         public GameLoader()
         {
            _client = new MobileServiceClient(endpoint);
+            _moveMaker = new MoveMaker();
         }
 
         public async Task<GameDto> CreateGame()
@@ -114,6 +116,7 @@ namespace GTR.Universal
         }
 
         private HashSet<string> CompletedMoves = new HashSet<string>(); 
+
         public async Task UpdateMoves(Game game)
         {
             var gameId = game.Id;
@@ -121,12 +124,12 @@ namespace GTR.Universal
 
             var moves =
                 await
-                    _client.InvokeApiAsync<string, IEnumerable<MoveSerialization>>("move", null, HttpMethod.Get,
+                    _client.InvokeApiAsync<string, IEnumerable<ExecutedMoveSerialization>>("move", null, HttpMethod.Get,
                         parameters);
 
             foreach (var move in moves)
             {
-                PropagateMove(move);
+                PropagateMove(move.Move);
             }
 
             //IMobileServiceTable<MoveSerialization> table = _client.GetTable<MoveSerialization>();
@@ -161,6 +164,15 @@ namespace GTR.Universal
             await UpdateMoves(game);
         }
 
+        public async Task PollForMoves(Game game, MainPage page)
+        {
+            while (true)
+            {
+                await Task.Delay(100);
+                await UpdateMoves(game);
+            }
+        }
+
         private void PropagateMove(MoveSerialization moveDto)
         {
             if (CompletedMoves.Contains(moveDto.Id))
@@ -172,15 +184,15 @@ namespace GTR.Universal
             {
                 case CardType.Order:
                     var orderMove = orderMoveMarshaller.UnMarshall(moveDto);
-                    orderMove.Perform();
+                    _moveMaker.MakeMove(orderMove);
                     break;
                 case CardType.Jack:
                     var jackMove = jackMoveMarshaller.UnMarshall(moveDto);
-                    jackMove.Perform();
+                    _moveMaker.MakeMove(jackMove);
                     break;
                 case CardType.BuildingSite:
                     var foundationMove = foundationMoveMarshaller.UnMarshall(moveDto);
-                    foundationMove.Perform();
+                    _moveMaker.MakeMove(foundationMove);
                     break;
             }
             CompletedMoves.Add(moveDto.Id);

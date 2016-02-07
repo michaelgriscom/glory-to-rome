@@ -57,25 +57,15 @@ namespace GTR.Core.Moves
 
         public ICardCollection<T> Source { get; }
 
-        public bool Perform()
-        {
-            bool success;
-            success = Source.Remove(Card);
-            if (success)
-            {
-                _destination.Add(Card);
-            }
-            return success;
-        }
-
-        //public IEnumerator<IMove<CardModelBase>> GetEnumerator()
+        //public bool Perform()
         //{
-        //    yield return this;
-        //}
-
-        //IEnumerator IEnumerable.GetEnumerator()
-        //{
-        //    return GetEnumerator();
+        //    bool success;
+        //    success = Source.Remove(Card);
+        //    if (success)
+        //    {
+        //        _destination.Add(Card);
+        //    }
+        //    return success;
         //}
 
         public IEnumerator<IMove<CardModelBase>> GetEnumerator()
@@ -109,6 +99,11 @@ namespace GTR.Core.Moves
                 result = (result*primeHash) ^ Destination.GetHashCode();
                 return result;
             }
+        }
+
+        public bool Perform(MoveMaker moveMaker)
+        {
+            throw new NotImplementedException();
         }
     }
 }

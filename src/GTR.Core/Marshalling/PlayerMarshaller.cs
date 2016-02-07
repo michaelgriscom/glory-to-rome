@@ -1,9 +1,11 @@
 ﻿#region
 
 using System.Collections.Generic;
+using System.Linq;
 using GTR.Core.Engine;
 using GTR.Core.Marshalling.DTO;
 using GTR.Core.Model;
+using GTR.Core.Model.CardCollections;
 
 #endregion
 
@@ -34,7 +36,8 @@ namespace GTR.Core.Marshalling
             {
                 Kind = CardLocationKind.Hand,
                 PlayerId = id,
-                Scope = LocationScope.Player
+                Scope = LocationScope.Player,
+                CardType = CardType.Jack
             };
             cardLocations.Add(playerJackHand);
 
@@ -43,7 +46,8 @@ namespace GTR.Core.Marshalling
             {
                 Kind = CardLocationKind.Hand,
                 PlayerId = id,
-                Scope = LocationScope.Player
+                Scope = LocationScope.Player,
+                CardType = CardType.Order
             };
             cardLocations.Add(playerOrderHand);
 
@@ -52,7 +56,8 @@ namespace GTR.Core.Marshalling
             {
                 Kind = CardLocationKind.DemandArea,
                 PlayerId = id,
-                Scope = LocationScope.Player
+                Scope = LocationScope.Player,
+                CardType = CardType.Order
             };
             cardLocations.Add(playerDemandArea);
 
@@ -63,7 +68,8 @@ namespace GTR.Core.Marshalling
             {
                 Kind = CardLocationKind.PlayArea,
                 PlayerId = id,
-                Scope = LocationScope.Global
+                Scope = LocationScope.Global,
+                CardType = CardType.Jack
             };
             cardLocations.Add(playAreaJack);
 
@@ -72,7 +78,8 @@ namespace GTR.Core.Marshalling
             {
                 Kind = CardLocationKind.PlayArea,
                 PlayerId = id,
-                Scope = LocationScope.Global
+                Scope = LocationScope.Global,
+                CardType = CardType.Order
             };
             cardLocations.Add(playAreaOrder);
 
@@ -81,7 +88,8 @@ namespace GTR.Core.Marshalling
             {
                 Kind = CardLocationKind.CompletedBuildings,
                 PlayerId = id,
-                Scope = LocationScope.Global
+                Scope = LocationScope.Global,
+                CardType = CardType.Order
             };
             cardLocations.Add(completedBuildings);
 
@@ -98,6 +106,70 @@ namespace GTR.Core.Marshalling
         {
             string playerId = slimRepresentation.Id;
             var player = new Player(playerId);
+
+            var vaultDto = slimRepresentation.CardLocations?.First(cl => cl.LocationKind.Kind == CardLocationKind.Vault);
+            if (vaultDto != null)
+            {
+                var cl = _orderCardMarshaller.UnMarshall(vaultDto);
+                player.Camp.Vault = new Vault(cl);
+            }
+
+            var stockPileDto = slimRepresentation.CardLocations?.First(cl => cl.LocationKind.Kind == CardLocationKind.Stockpile);
+            if (stockPileDto != null)
+            {
+                var cl = _orderCardMarshaller.UnMarshall(stockPileDto);
+                player.Camp.Stockpile = new Stockpile(cl);
+            }
+
+            var handOrderDto = slimRepresentation.CardLocations?.First(cl => cl.LocationKind.Kind == CardLocationKind.Hand && cl.LocationKind.CardType == CardType.Order);
+            if (handOrderDto != null)
+            {
+                var cl = _orderCardMarshaller.UnMarshall(handOrderDto);
+                player.Hand.OrderCards = new Hand.OrderCardGroup(player.Hand, cl);
+            }
+
+            var handJackDto = slimRepresentation.CardLocations?.First(cl => cl.LocationKind.Kind == CardLocationKind.Hand && cl.LocationKind.CardType == CardType.Jack);
+            if (handJackDto != null)
+            {
+                var cl = _jackCardMarshaller.UnMarshall(handJackDto);
+                player.Hand.JackCards = new Hand.JackCardGroup(player.Hand, cl);
+            }
+
+            var clienteleDto = slimRepresentation.CardLocations?.First(cl => cl.LocationKind.Kind == CardLocationKind.Clientele);
+            if (clienteleDto != null)
+            {
+                var cl = _orderCardMarshaller.UnMarshall(clienteleDto);
+                player.Camp.Clientele = new Clientele(cl);
+            }
+
+            var cbDto = slimRepresentation.CardLocations?.First(cl => cl.LocationKind.Kind == CardLocationKind.CompletedBuildings);
+            if (cbDto != null)
+            {
+                var cl = _orderCardMarshaller.UnMarshall(cbDto);
+                player.CompletedBuildings = new CompletedBuildings(cl);
+            }
+
+            var demandAreaDto = slimRepresentation.CardLocations?.First(cl => cl.LocationKind.Kind == CardLocationKind.DemandArea);
+            if (demandAreaDto != null)
+            {
+                var cl = _orderCardMarshaller.UnMarshall(demandAreaDto);
+                player.DemandArea = new DemandArea(cl);
+            }
+
+            var playAreaOrderDto = slimRepresentation.CardLocations?.First(cl => cl.LocationKind.Kind == CardLocationKind.PlayArea && cl.LocationKind.CardType == CardType.Order);
+            if (playAreaOrderDto != null)
+            {
+                var cl = _orderCardMarshaller.UnMarshall(playAreaOrderDto);
+                player.PlayArea.OrderCards = new PlayArea.OrderCardGroup(player.PlayArea, cl);
+            }
+
+            var playAreaJackDto = slimRepresentation.CardLocations?.First(cl => cl.LocationKind.Kind == CardLocationKind.PlayArea && cl.LocationKind.CardType == CardType.Jack);
+            if (playAreaJackDto != null)
+            {
+                var cl = _jackCardMarshaller.UnMarshall(playAreaJackDto);
+                player.PlayArea.JackCards = new PlayArea.JackCardGroup(player.PlayArea, cl);
+            }
+
             return player;
         }
 

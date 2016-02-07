@@ -21,6 +21,7 @@ namespace GTR.Core.UnitTests.Actions
         private LegionnaireAction _action;
         private GameTable _gameTable;
         private Player _player;
+        private MoveMaker _moveMaker;
 
         [TestInitialize]
         public void Initialization()
@@ -34,6 +35,8 @@ namespace GTR.Core.UnitTests.Actions
             _player = new Player("test-player");
 
             _action = new LegionnaireAction(_player, _gameTable);
+
+            _moveMaker = new MoveMaker();
         }
 
         [TestMethod]
@@ -81,9 +84,8 @@ namespace GTR.Core.UnitTests.Actions
             OrderCardModel demandedCard = new OrderCardModel("hand card", "test", handCardRole);
             enemyPlayer.Hand.OrderCards.Add(demandedCard);
 
-            IMove<OrderCardModel> demandMove = new Move<OrderCardModel>(demandCard, _player.Hand.OrderCards,
-                _player.DemandArea);
-            demandMove.Perform();
+            _moveMaker.MakeMove(demandCard, _player.Hand.OrderCards,
+                _player.DemandArea, _player);
 
             enemyPlayerInput.OnMoveEventHandler +=
                 (sender, args) =>
@@ -119,9 +121,8 @@ namespace GTR.Core.UnitTests.Actions
             OrderCardModel demandedCard2 = new OrderCardModel("hand card", "test", handCardRole);
             enemyPlayer.Hand.OrderCards.Add(demandedCard2);
 
-            IMove<OrderCardModel> demandMove = new Move<OrderCardModel>(demandCard, _player.Hand.OrderCards,
-                _player.DemandArea);
-            demandMove.Perform();
+            _moveMaker.MakeMove(demandCard, _player.Hand.OrderCards,
+              _player.DemandArea, _player);
 
             enemyPlayerInput.OnMoveEventHandler +=
                 (sender, args) =>
@@ -173,9 +174,8 @@ namespace GTR.Core.UnitTests.Actions
                 enemyPlayer.Hand.OrderCards.Add(demandedCard);
             }
 
-            IMove<OrderCardModel> demandMove = new Move<OrderCardModel>(demandCard, _player.Hand.OrderCards,
-                _player.DemandArea);
-            demandMove.Perform();
+            _moveMaker.MakeMove(demandCard, _player.Hand.OrderCards,
+             _player.DemandArea, _player);
 
             enemyPlayerInput.OnMoveEventHandler +=
                 (sender, args) => { Assert.AreEqual(0, args.MoveSpace.Count()); };

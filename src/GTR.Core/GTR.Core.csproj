@@ -86,6 +86,7 @@
     <Compile Include="Game\Scoring\PlayerScores.cs" />
     <Compile Include="Game\Scoring\GameScorer.cs" />
     <Compile Include="Game\Scoring\GameWonEventArgs.cs" />
+    <Compile Include="Moves\MoveMaker.cs" />
     <Compile Include="Moves\ThinkCombo.cs" />
     <Compile Include="Model\Table\BuildingFoundation.cs" />
     <Compile Include="Model\Player\PlayArea.cs" />

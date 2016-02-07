@@ -112,10 +112,5 @@ namespace GTR.Core.Model
             var siteDeck = SiteDecks.First(deck => materialType == deck.MaterialType);
             return siteDeck;
         }
-
-        internal void ExecuteMove(IAction action)
-        {
-            action.Perform();
-        }
     }
 }

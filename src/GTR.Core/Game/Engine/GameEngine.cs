@@ -1,14 +1,19 @@
 #region
 
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
 using GTR.Core.Engine;
+using GTR.Core.Marshalling;
+using GTR.Core.Marshalling.DTO;
 using GTR.Core.Model;
 using GTR.Core.Moves;
 using GTR.Core.Services;
 using GTR.Core.Util;
+using MoveEventArgs = GTR.Core.Moves.MoveEventArgs;
 
 #endregion
 
@@ -21,6 +26,7 @@ namespace GTR.Core.Game
         private bool _isGameOver;
         private CompletedGame completedGame;
         private IPlayerInputService playerInputService;
+        private MoveMaker moveMaker;
 
         public GameEngine(
             Model.Game gameModel,
@@ -34,12 +40,16 @@ namespace GTR.Core.Game
             WireEvents();
 
             playerEngines = new Dictionary<Player, PlayerEngine>();
+            moveMaker = new MoveMaker();
+
             foreach (var player in GameTable.Players)
             {
-                var playerEngine = new PlayerEngine(player, playerInputService, gameModel.GameTable);
+                var playerEngine = new PlayerEngine(player, playerInputService, gameModel.GameTable, moveMaker);
                 playerEngines.Add(player, playerEngine);
             }
         }
+
+        public MoveHistory MoveHistory {  get { return moveMaker.History; } }
 
         public Model.Game Game { get; }
         public IMessageProvider MessageProvider { get; set; }
@@ -84,12 +94,10 @@ namespace GTR.Core.Game
                 for (int i = 0; i < player.Hand.RefillCapacity; i++)
                 {
                     var topDeckCard = GameTable.OrderDeck.Top;
-                    var move = new Move<OrderCardModel>(topDeckCard, GameTable.OrderDeck, player.Hand.OrderCards);
-                    move.Perform();
+                    moveMaker.MakeMove(topDeckCard, GameTable.OrderDeck, player.Hand.OrderCards, null);
                 }
                 var topJackCard = GameTable.JackDeck.ElementAt(0);
-                var jackMove = new Move<JackCardModel>(topJackCard, GameTable.JackDeck, player.Hand.JackCards);
-                jackMove.Perform();
+                moveMaker.MakeMove(topJackCard, GameTable.JackDeck, player.Hand.JackCards, null);
             }
         }
 
