@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CardsSchema"
+    targetNamespace="http://tempuri.org/CardsSchema.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/CardsSchema.xsd"
+    xmlns:mstns="http://tempuri.org/CardsSchema.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="cards">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="card"/>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:unique name="uniqueBuilding">
+      <xs:selector xpath="card"/>
+      <xs:field xpath="building"/>
+    </xs:unique>
+  </xs:element>
+  <xs:element name="card">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="building" type="buildingName"/>
+        <xs:element name="material" type="materialType"/>
+        <xs:element name="description" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="buildingName">
+    <xs:restriction base="xs:string">
+      <!--Each word must start with a capital letter-->
+      <xs:pattern value="[A-Z][a-z|(\sA-Z)]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="materialType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="brick"/>
+      <xs:enumeration value="concrete"/>
+      <xs:enumeration value="marble"/>
+      <xs:enumeration value="rubble"/>
+      <xs:enumeration value="stone"/>
+      <xs:enumeration value="wood"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

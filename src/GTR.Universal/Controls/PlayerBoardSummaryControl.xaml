@@ -1,0 +1,59 @@
+﻿<UserControl
+    x:Class="GTR.Universal.Controls.PlayerBoardSummaryControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GTR.Universal.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <StackPanel d:DataContext="{d:DesignData /SampleData/PlayerBoardSampleData.xaml}" HorizontalAlignment="Left"
+                VerticalAlignment="Top">
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal"
+                    d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition">
+            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="Hand: "
+                       d:LayoutOverrides="Width, LeftPosition, RightPosition, TopPosition, BottomPosition" />
+            <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="{Binding Hand.Count}" />
+            <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Text=" of " />
+            <TextBlock x:Name="textBlock3" TextWrapping="Wrap" Text="{Binding Hand.RefillCapacity}" />
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+            <TextBlock x:Name="textBlock4" TextWrapping="Wrap" Text="Vault: "
+                       d:LayoutOverrides="Width, LeftPosition, RightPosition, TopPosition, BottomPosition" />
+            <TextBlock x:Name="textBlock5" TextWrapping="Wrap" Text="{Binding Camp.Vault.Count, Mode=OneWay}"
+                       d:LayoutOverrides="Width, LeftPosition, RightPosition" />
+            <TextBlock x:Name="textBlock2_Copy" TextWrapping="Wrap" Text=" of " HorizontalAlignment="Left" />
+            <TextBlock x:Name="textBlock3_Copy" TextWrapping="Wrap" Text="{Binding Camp.Vault.Capacity}"
+                       HorizontalAlignment="Left" />
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+            <TextBlock x:Name="textBlock6" TextWrapping="Wrap" Text="Clientele: "
+                       d:LayoutOverrides="Width, LeftPosition, RightPosition, TopPosition, BottomPosition" />
+            <TextBlock x:Name="textBlock7" TextWrapping="Wrap" Text="{Binding Camp.Clientele.Count, Mode=OneWay}"
+                       d:LayoutOverrides="Width, LeftPosition, RightPosition" />
+            <TextBlock x:Name="textBlock2_Copy1" TextWrapping="Wrap" Text=" of " HorizontalAlignment="Left" />
+            <TextBlock x:Name="textBlock3_Copy1" TextWrapping="Wrap" Text="{Binding Camp.Clientele.Capacity}"
+                       HorizontalAlignment="Left" />
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+            <TextBlock x:Name="textBlock8" TextWrapping="Wrap" Text="Stockpile: "
+                       d:LayoutOverrides="Width, LeftPosition, RightPosition, TopPosition, BottomPosition" />
+            <TextBlock x:Name="textBlock9" TextWrapping="Wrap" Text="{Binding Camp.Stockpile.Count, Mode=OneWay}"
+                       d:LayoutOverrides="Width, LeftPosition, RightPosition" />
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+            <TextBlock x:Name="textBlock10" TextWrapping="Wrap" Text="VP: "
+                       d:LayoutOverrides="Width, LeftPosition, RightPosition, TopPosition, BottomPosition" />
+            <TextBlock x:Name="textBlock11" TextWrapping="Wrap" Text="{Binding Camp.InfluencePoints}"
+                       d:LayoutOverrides="Width, LeftPosition, RightPosition" />
+
+        </StackPanel>
+
+    </StackPanel>
+</UserControl>

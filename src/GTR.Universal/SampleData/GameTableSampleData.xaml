@@ -1,0 +1,2421 @@
+﻿<Model:GameTable xmlns:Model="using:GTR.Core.Model" xmlns:CardCollections="using:GTR.Core.Model.CardCollections" xmlns:Engine="using:GTR.Core.Engine" xmlns:Table="using:GTR.Core.Model.Table">
+	<Model:GameTable.JackDeck>
+		<CardCollections:JackDeck Id="Dis eros fermentum quisque">
+			<Model:JackCardModel Id="64" Name="Nibh habitant adipiscing est fames"/>
+			<Model:JackCardModel Id="85" Name="Tortor fringilla"/>
+			<Model:JackCardModel Id="97" Name="Hac felis turpis"/>
+			<Model:JackCardModel Id="83" Name="Parturient vivamus ipsum"/>
+			<Model:JackCardModel Id="94" Name="Nisi nisl aliquam justo"/>
+			<Model:JackCardModel Id="15" Name="Habitasse varius vestibulum hendrerit"/>
+			<Model:JackCardModel Id="15" Name="Vestibulum aenean himenaeos"/>
+			<Model:JackCardModel Id="74" Name="Imperdiet adipiscing leo mus inceptos"/>
+			<Model:JackCardModel Id="24" Name="Interdum parturient malesuada nec aliquet"/>
+			<Model:JackCardModel Id="74" Name="Blandit penatibus nunc lacus vestibulum"/>
+		</CardCollections:JackDeck>
+	</Model:GameTable.JackDeck>
+	<Model:GameTable.OrderDeck>
+		<CardCollections:OrderDeck Id="Mauris placerat nullam">
+			<CardCollections:OrderDeck.Top>
+				<Model:OrderCardModel Description="Lobortis nascetur commodo" Id="15" Name="Non vestibulum pharetra porttitor conubia" RoleType="Architect"/>
+			</CardCollections:OrderDeck.Top>
+			<Model:OrderCardModel Description="Pulvinar odio" Id="18" Name="Sagittis tincidunt senectus" RoleType="Legionnaire"/>
+			<Model:OrderCardModel Description="Orci pede quam lorem" Id="57" Name="Aptent magna tristique" RoleType="Architect"/>
+			<Model:OrderCardModel Description="Massa cubilia" Id="20" Name="Dapibus per auctor sociosqu suscipit" RoleType="Patron"/>
+			<Model:OrderCardModel Description="Metus morbi" Id="57" Name="Sed adipiscing" RoleType="Laborer"/>
+			<Model:OrderCardModel Description="Ultricies quis urna parturient congue" Id="54" Name="Cras sem neque egestas netus" RoleType="Architect"/>
+			<Model:OrderCardModel Description="Nulla sit torquent vel duis" Id="54" Name="Venenatis porta euismod" RoleType="Legionnaire"/>
+			<Model:OrderCardModel Description="Nam vestibulum" Id="52" Name="Cursus purus vestibulum risus" RoleType="Laborer"/>
+			<Model:OrderCardModel Description="Dictum lectus ultrices velit" Id="30" Name="Vulputate curabitur libero sed feugiat" RoleType="Legionnaire"/>
+			<Model:OrderCardModel Description="Vitae adipiscing vehicula gravida class" Id="98" Name="Volutpat dis nunc est maecenas" RoleType="Legionnaire"/>
+			<Model:OrderCardModel Description="Iaculis hac ligula phasellus parturient" Id="96" Name="Curae consequat donec convallis" RoleType="Laborer"/>
+		</CardCollections:OrderDeck>
+	</Model:GameTable.OrderDeck>
+	<Model:GameTable.Pool>
+		<CardCollections:Pool Id="Sem blandit">
+			<Model:OrderCardModel Description="Convallis neque" Id="42" Name="Sit vel" RoleType="Merchant"/>
+			<Model:OrderCardModel Description="Dignissim dictumst elementum" Id="36" Name="Commodo turpis nam parturient varius" RoleType="Merchant"/>
+			<Model:OrderCardModel Description="Facilisis eleifend facilisi fermentum" Id="56" Name="Fringilla vestibulum" RoleType="Legionnaire"/>
+			<Model:OrderCardModel Description="Habitasse conubia sed vestibulum faucibus" Id="56" Name="Adipiscing hendrerit netus" RoleType="Architect"/>
+			<Model:OrderCardModel Description="Himenaeos imperdiet" Id="46" Name="Dis aenean malesuada cubilia parturient" RoleType="Craftsman"/>
+			<Model:OrderCardModel Description="Quis urna vestibulum est cras" Id="63" Name="Hac leo mus mauris" RoleType="Patron"/>
+			<Model:OrderCardModel Description="Habitant dapibus duis" Id="45" Name="Inceptos penatibus" RoleType="Merchant"/>
+			<Model:OrderCardModel Description="Vestibulum nunc" Id="69" Name="Porttitor nec nulla interdum" RoleType="Patron"/>
+			<Model:OrderCardModel Description="Nullam egestas adipiscing euismod amet" Id="33" Name="Ante aptent tincidunt non auctor" RoleType="Legionnaire"/>
+			<Model:OrderCardModel Description="Parturient arcu" Id="56" Name="Congue cursus" RoleType="Legionnaire"/>
+		</CardCollections:Pool>
+	</Model:GameTable.Pool>
+	<Model:GameTable.Players>
+		<Engine:Player Id="Amet leo lacinia litora" PlayerName="Bibendum dolor dictumst sit nostra">
+			<Engine:Player.Camp>
+				<Model:Camp InfluencePoints="15">
+					<Model:Camp.Clientele>
+						<Model:Clientele Capacity="23" Id="Vestibulum nunc odio senectus">
+							<Model:OrderCardModel Description="Vestibulum feugiat adipiscing" Id="57" Name="Tristique metus" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Ultricies sociosqu taciti" Id="55" Name="Suscipit leo torquent parturient" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Ultrices vehicula mus nec" Id="75" Name="Non vestibulum" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Per orci" Id="42" Name="Tellus morbi pede" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Neque venenatis gravida" Id="99" Name="Vulputate sed curabitur" RoleType="Craftsman"/>
+						</Model:Clientele>
+					</Model:Camp.Clientele>
+					<Model:Camp.CompletedFoundations>
+						<Model:CompletedFoundations Id="Vestibulum pharetra adipiscing egestas porttitor">
+							<Model:BuildingSite Id="90" MaterialType="Concrete" Name="Nisi placerat pulvinar nisl rutrum" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="21" MaterialType="Rubble" Name="Massa dis" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="68" MaterialType="Brick" Name="Sapien semper est" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="35" MaterialType="Marble" Name="Parturient sociis" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="12" MaterialType="Wood" Name="Hac tincidunt euismod sagittis" SiteType="InsideRome"/>
+						</Model:CompletedFoundations>
+					</Model:Camp.CompletedFoundations>
+					<Model:Camp.Stockpile>
+						<Model:Stockpile Id="Vestibulum sem tempor volutpat">
+							<Model:OrderCardModel Description="Adipiscing phasellus" Id="70" Name="Maecenas consequat convallis dignissim" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Iaculis praesent" Id="13" Name="Lacinia elementum netus tempus" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Parturient accumsan tortor" Id="28" Name="Bibendum turpis dictumst vestibulum" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Sit vel" Id="43" Name="Quam laoreet varius" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Natoque nam" Id="10" Name="Facilisis vestibulum posuere eleifend" RoleType="Merchant"/>
+						</Model:Stockpile>
+					</Model:Camp.Stockpile>
+					<Model:Camp.Vault>
+						<Model:Vault Capacity="47" Id="Fermentum adipiscing quis urna facilisi">
+							<Model:OrderCardModel Description="Fringilla aenean nulla cras duis" Id="81" Name="Potenti pretium habitasse rhoncus hendrerit" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Parturient vestibulum himenaeos mauris porta" Id="83" Name="Purus risus" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Nunc nullam faucibus habitant" Id="27" Name="Velit amet ante imperdiet vestibulum" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Inceptos arcu adipiscing parturient" Id="51" Name="Vitae diam interdum sed" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Lobortis class" Id="45" Name="Dis aptent malesuada sodales" RoleType="Laborer"/>
+						</Model:Vault>
+					</Model:Camp.Vault>
+				</Model:Camp>
+			</Engine:Player.Camp>
+			<Engine:Player.ConstructionZone>
+				<Model:ConstructionZone Id="Viverra aliquam integer sem quisque">
+					<Model:BuildingSite Id="11" MaterialType="Marble" Name="Vestibulum adipiscing morbi faucibus facilisis" SiteType="OutOfTown"/>
+					<Model:BuildingSite Id="86" MaterialType="Rubble" Name="Vivamus nulla fermentum eget proin" SiteType="OutOfTown"/>
+					<Model:BuildingSite Id="55" MaterialType="Stone" Name="Elit parturient vestibulum fringilla" SiteType="OutOfTown"/>
+					<Model:BuildingSite Id="47" MaterialType="Concrete" Name="Ornare augue" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="78" MaterialType="Marble" Name="Habitasse habitant aliquam enim" SiteType="InsideRome"/>
+				</Model:ConstructionZone>
+			</Engine:Player.ConstructionZone>
+			<Engine:Player.CompletedBuildings>
+				<Model:CompletedBuildings Id="Etiam vestibulum luctus mus">
+					<Model:OrderCardModel Description="Laoreet praesent" Id="80" Name="Natoque accumsan vestibulum" RoleType="Legionnaire"/>
+					<Model:OrderCardModel Description="Ante magnis mattis arcu posuere" Id="68" Name="Fusce nec adipiscing" RoleType="Architect"/>
+					<Model:OrderCardModel Description="Non dignissim" Id="56" Name="Lorem potenti" RoleType="Patron"/>
+					<Model:OrderCardModel Description="Mauris diam per bibendum dictumst" Id="48" Name="Sed parturient pretium rhoncus" RoleType="Legionnaire"/>
+					<Model:OrderCardModel Description="Elementum mollis eleifend montes" Id="64" Name="Nostra sodales vestibulum facilisi" RoleType="Patron"/>
+				</Model:CompletedBuildings>
+			</Engine:Player.CompletedBuildings>
+			<Engine:Player.DemandArea>
+				<Model:DemandArea Id="Dolor fames sit">
+					<Model:OrderCardModel Description="Inceptos hendrerit erat interdum vel" Id="86" Name="Eros aliquet nibh" RoleType="Architect"/>
+					<Model:OrderCardModel Description="Himenaeos blandit imperdiet" Id="57" Name="Felis nam" RoleType="Architect"/>
+					<Model:OrderCardModel Description="Ipsum vestibulum" Id="79" Name="Justo platea lacus" RoleType="Patron"/>
+					<Model:OrderCardModel Description="Malesuada lobortis sed commodo conubia" Id="98" Name="Primis penatibus cubilia lorem" RoleType="Patron"/>
+					<Model:OrderCardModel Description="Nascetur adipiscing" Id="96" Name="Parturient vestibulum magna dapibus" RoleType="Legionnaire"/>
+				</Model:DemandArea>
+			</Engine:Player.DemandArea>
+			<Engine:Player.Hand>
+				<Model:Hand Count="63" RefillCapacity="60">
+					<Model:Hand.JackCards>
+						<Model:JackCardModel Id="39" Name="Viverra auctor"/>
+						<Model:JackCardModel Id="13" Name="Vestibulum aliquam"/>
+						<Model:JackCardModel Id="29" Name="Nascetur eget"/>
+						<Model:JackCardModel Id="29" Name="Est integer elit congue quisque"/>
+						<Model:JackCardModel Id="76" Name="Penatibus porttitor"/>
+					</Model:Hand.JackCards>
+					<Model:Hand.OrderCards>
+						<Model:OrderCardModel Description="Vivamus vestibulum cursus enim erat" Id="96" Name="Curae eros" RoleType="Craftsman"/>
+						<Model:OrderCardModel Description="Tincidunt donec adipiscing" Id="29" Name="Pharetra dictum placerat" RoleType="Patron"/>
+						<Model:OrderCardModel Description="Nibh tristique ultricies hac" Id="60" Name="Etiam venenatis lectus vulputate nisi" RoleType="Craftsman"/>
+						<Model:OrderCardModel Description="Fusce libero" Id="78" Name="Pulvinar aliquam sagittis" RoleType="Laborer"/>
+						<Model:OrderCardModel Description="Parturient nisl vestibulum" Id="21" Name="Ligula litora aliquet" RoleType="Craftsman"/>
+					</Model:Hand.OrderCards>
+				</Model:Hand>
+			</Engine:Player.Hand>
+			<Engine:Player.PlayerToLeft>
+				<Engine:Player Id="Convallis ornare vel egestas" PlayerName="Ultrices sodales">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="94"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Lacus parturient himenaeos non sapien">
+							<Model:BuildingSite Id="85" MaterialType="Wood" Name="Gravida iaculis" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="20" MaterialType="Rubble" Name="Lacinia semper lobortis nascetur pharetra" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="97" MaterialType="Stone" Name="Enim laoreet erat sociis" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="24" MaterialType="Brick" Name="Imperdiet malesuada per" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="79" MaterialType="Rubble" Name="Vestibulum lorem magna penatibus" SiteType="InsideRome"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Fames platea">
+							<Model:OrderCardModel Description="Felis nam eleifend sed parturient" Id="96" Name="Nunc facilisi" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Vestibulum faucibus dis amet" Id="25" Name="Dignissim est habitant elementum ante" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Facilisis fermentum vestibulum hac adipiscing" Id="52" Name="Euismod arcu" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Inceptos leo interdum fringilla" Id="28" Name="Habitasse diam eget feugiat primis" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Mus ipsum" Id="45" Name="Rutrum nec justo hendrerit elit" RoleType="Craftsman"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Porttitor taciti">
+							<Model:OrderCardModel Description="Natoque tincidunt placerat tristique" Id="49" Name="Eros pulvinar vestibulum sed sagittis" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Senectus nibh" Id="76" Name="Nisi tellus ultricies nisl posuere" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Sem tempor nunc potenti tempus" Id="39" Name="Massa venenatis adipiscing vulputate" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Pretium metus" Id="31" Name="Morbi curabitur parturient sit odio" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Vestibulum rhoncus phasellus sociosqu" Id="83" Name="Consequat suscipit orci vestibulum torquent" RoleType="Laborer"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="59" RefillCapacity="80"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Adipiscing parturient neque netus" PlayerName="Vestibulum convallis tortor pede vestibulum"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Viverra nulla vel" PlayerName="Quam adipiscing dignissim nam vehicula"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToLeft>
+			<Engine:Player.PlayerToRight>
+				<Engine:Player Id="Turpis aliquam" PlayerName="Dis mauris parturient tristique">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="74"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Faucibus amet">
+							<Model:BuildingSite Id="49" MaterialType="Wood" Name="Commodo ante cursus" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="86" MaterialType="Marble" Name="Leo hendrerit dictum lectus" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="59" MaterialType="Wood" Name="Mus nec himenaeos non conubia" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="14" MaterialType="Wood" Name="Libero ligula" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="51" MaterialType="Wood" Name="Velit vitae habitant cubilia inceptos" SiteType="OutOfTown"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Quis volutpat">
+							<Model:OrderCardModel Description="Integer sed urna parturient" Id="55" Name="Vestibulum varius maecenas" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Aenean cras porta elementum facilisis" Id="81" Name="Praesent vestibulum adipiscing" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Quisque duis purus mauris" Id="31" Name="Nullam accumsan dis vivamus" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Bibendum aliquam dictumst fermentum est" Id="93" Name="Eleifend aliquet blandit nunc" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Aptent fringilla risus parturient hac" Id="19" Name="Auctor vestibulum congue facilisi habitasse" RoleType="Merchant"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Interdum imperdiet dapibus">
+							<Model:OrderCardModel Description="Class vestibulum egestas" Id="99" Name="Per litora malesuada luctus sed" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Lobortis adipiscing curae donec" Id="59" Name="Arcu etiam" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Diam nascetur fusce eget sem" Id="15" Name="Magnis sit euismod" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Penatibus porttitor mattis" Id="70" Name="Feugiat vel" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Gravida tincidunt" Id="39" Name="Nam sed" RoleType="Craftsman"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="13" RefillCapacity="17"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Iaculis mollis pharetra" PlayerName="Vestibulum placerat pulvinar"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Est elit hac enim" PlayerName="Erat lorem vestibulum eros adipiscing"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToRight>
+			<Engine:Player.PlayArea>
+				<Model:PlayArea>
+					<Model:PlayArea.JackCards>
+						<Model:JackCardModel Id="42" Name="Luctus nunc leo"/>
+						<Model:JackCardModel Id="83" Name="Odio mus vestibulum"/>
+						<Model:JackCardModel Id="95" Name="Nec blandit senectus orci"/>
+						<Model:JackCardModel Id="95" Name="Magnis pede non adipiscing"/>
+						<Model:JackCardModel Id="82" Name="Parturient lorem sociosqu"/>
+					</Model:PlayArea.JackCards>
+					<Model:PlayArea.OrderCards>
+						<Model:OrderCardModel Description="Quam quis curabitur mattis vestibulum" Id="33" Name="Morbi commodo per conubia" RoleType="Patron"/>
+						<Model:OrderCardModel Description="Suscipit torquent" Id="22" Name="Urna ultrices mauris" RoleType="Architect"/>
+						<Model:OrderCardModel Description="Mollis nulla vestibulum" Id="80" Name="Proin sed vehicula" RoleType="Patron"/>
+						<Model:OrderCardModel Description="Volutpat adipiscing augue maecenas" Id="15" Name="Phasellus cras sem consequat" RoleType="Craftsman"/>
+						<Model:OrderCardModel Description="Duis cubilia dapibus praesent" Id="65" Name="Accumsan montes" RoleType="Merchant"/>
+					</Model:PlayArea.OrderCards>
+				</Model:PlayArea>
+			</Engine:Player.PlayArea>
+		</Engine:Player>
+		<Engine:Player Id="Morbi montes" PlayerName="Tortor turpis">
+			<Engine:Player.Camp>
+				<Model:Camp InfluencePoints="97">
+					<Model:Camp.Clientele>
+						<Model:Clientele Capacity="15" Id="Malesuada cubilia arcu dapibus vestibulum">
+							<Model:OrderCardModel Description="Risus sed facilisi nullam penatibus" Id="12" Name="Velit vitae" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Egestas dis" Id="42" Name="Aptent vestibulum est euismod" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Class auctor adipiscing" Id="85" Name="Congue diam hac curae" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Eget parturient elit" Id="80" Name="Leo cursus donec feugiat mus" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Etiam gravida nec enim erat" Id="68" Name="Vestibulum vestibulum iaculis faucibus habitant" RoleType="Legionnaire"/>
+						</Model:Clientele>
+					</Model:Camp.Clientele>
+					<Model:Camp.CompletedFoundations>
+						<Model:CompletedFoundations Id="Vestibulum nunc">
+							<Model:BuildingSite Id="62" MaterialType="Rubble" Name="Blandit porta amet" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="34" MaterialType="Marble" Name="Eleifend vel adipiscing ante" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="34" MaterialType="Brick" Name="Commodo conubia nam" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="43" MaterialType="Brick" Name="Aenean parturient imperdiet" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="12" MaterialType="Rubble" Name="Mauris purus" SiteType="OutOfTown"/>
+						</Model:CompletedFoundations>
+					</Model:Camp.CompletedFoundations>
+					<Model:Camp.Stockpile>
+						<Model:Stockpile Id="Porttitor inceptos interdum lacinia">
+							<Model:OrderCardModel Description="Dictum non eros fusce" Id="64" Name="Lorem lectus adipiscing" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Morbi nulla proin" Id="73" Name="Nibh augue tincidunt dolor" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Tristique laoreet per natoque" Id="78" Name="Ultricies nisi nisl libero ligula" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Venenatis vulputate posuere litora" Id="47" Name="Parturient fames curabitur felis luctus" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Potenti pretium magnis sed" Id="65" Name="Phasellus sem" RoleType="Merchant"/>
+						</Model:Stockpile>
+					</Model:Camp.Stockpile>
+					<Model:Camp.Vault>
+						<Model:Vault Capacity="23" Id="Vestibulum sit vel">
+							<Model:OrderCardModel Description="Vestibulum nunc" Id="79" Name="Lobortis nam adipiscing odio" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Rhoncus nascetur sed" Id="27" Name="Pharetra ipsum parturient mattis" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Mauris dis placerat mollis" Id="31" Name="Sodales consequat" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Vestibulum vestibulum est viverra hac" Id="98" Name="Pulvinar sagittis justo" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Adipiscing senectus sociosqu" Id="22" Name="Parturient aliquam suscipit orci" RoleType="Merchant"/>
+						</Model:Vault>
+					</Model:Camp.Vault>
+				</Model:Camp>
+			</Engine:Player.Camp>
+			<Engine:Player.ConstructionZone>
+				<Model:ConstructionZone Id="Pretium odio sapien orci rhoncus">
+					<Model:BuildingSite Id="80" MaterialType="Brick" Name="Sodales vestibulum pede vestibulum" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="97" MaterialType="Marble" Name="Adipiscing dignissim viverra quam parturient" SiteType="OutOfTown"/>
+					<Model:BuildingSite Id="81" MaterialType="Stone" Name="Quis nec semper ultrices vehicula" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="24" MaterialType="Stone" Name="Volutpat felis non sociis ipsum" SiteType="OutOfTown"/>
+					<Model:BuildingSite Id="66" MaterialType="Wood" Name="Justo lacus lorem taciti" SiteType="InsideRome"/>
+				</Model:ConstructionZone>
+			</Engine:Player.ConstructionZone>
+			<Engine:Player.CompletedBuildings>
+				<Model:CompletedBuildings Id="Lacinia nulla nostra sagittis leo">
+					<Model:OrderCardModel Description="Ultricies senectus" Id="77" Name="Venenatis sociosqu" RoleType="Patron"/>
+					<Model:OrderCardModel Description="Vulputate nibh laoreet curabitur proin" Id="58" Name="Parturient nisi ornare natoque augue" RoleType="Patron"/>
+					<Model:OrderCardModel Description="Suscipit nisl" Id="61" Name="Platea phasellus" RoleType="Legionnaire"/>
+					<Model:OrderCardModel Description="Mus primis torquent" Id="43" Name="Posuere dolor" RoleType="Merchant"/>
+					<Model:OrderCardModel Description="Fames nunc" Id="50" Name="Rutrum consequat convallis potenti" RoleType="Laborer"/>
+				</Model:CompletedBuildings>
+			</Engine:Player.CompletedBuildings>
+			<Engine:Player.DemandArea>
+				<Model:DemandArea Id="Aliquam integer magna">
+					<Model:OrderCardModel Description="Tellus elementum massa facilisis maecenas" Id="54" Name="Fermentum metus" RoleType="Legionnaire"/>
+					<Model:OrderCardModel Description="Per praesent accumsan" Id="74" Name="Sed quisque vestibulum morbi fringilla" RoleType="Architect"/>
+					<Model:OrderCardModel Description="Tempor vivamus sem neque" Id="21" Name="Bibendum habitasse urna cras netus" RoleType="Legionnaire"/>
+					<Model:OrderCardModel Description="Tempus dictumst sit" Id="88" Name="Hendrerit duis nulla" RoleType="Legionnaire"/>
+					<Model:OrderCardModel Description="Tortor aliquam turpis" Id="53" Name="Aliquet varius himenaeos" RoleType="Craftsman"/>
+				</Model:DemandArea>
+			</Engine:Player.DemandArea>
+			<Engine:Player.Hand>
+				<Model:Hand Count="52" RefillCapacity="16">
+					<Model:Hand.JackCards>
+						<Model:JackCardModel Id="41" Name="Lacus pede torquent"/>
+						<Model:JackCardModel Id="50" Name="Convallis vestibulum"/>
+						<Model:JackCardModel Id="95" Name="Montes dignissim"/>
+						<Model:JackCardModel Id="37" Name="Lorem quam quis leo integer"/>
+						<Model:JackCardModel Id="34" Name="Urna cras nostra magna"/>
+					</Model:Hand.JackCards>
+					<Model:Hand.OrderCards>
+						<Model:OrderCardModel Description="Ornare quisque mus nec non" Id="30" Name="Vestibulum ultrices vehicula" RoleType="Merchant"/>
+						<Model:OrderCardModel Description="Massa duis adipiscing" Id="14" Name="Vivamus parturient" RoleType="Patron"/>
+						<Model:OrderCardModel Description="Metus volutpat maecenas nunc morbi" Id="40" Name="Per elementum vestibulum praesent accumsan" RoleType="Craftsman"/>
+						<Model:OrderCardModel Description="Platea sed" Id="39" Name="Bibendum facilisis primis vestibulum amet" RoleType="Craftsman"/>
+						<Model:OrderCardModel Description="Rutrum sem aliquam sapien" Id="21" Name="Neque semper" RoleType="Architect"/>
+					</Model:Hand.OrderCards>
+				</Model:Hand>
+			</Engine:Player.Hand>
+			<Engine:Player.PlayerToLeft>
+				<Engine:Player Id="Malesuada gravida habitant" PlayerName="Ligula aliquam fermentum adipiscing litora">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="77"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Tristique per">
+							<Model:BuildingSite Id="89" MaterialType="Brick" Name="Odio sagittis senectus sed" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="61" MaterialType="Concrete" Name="Sociosqu fusce" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="42" MaterialType="Rubble" Name="Orci parturient suscipit torquent auctor" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="70" MaterialType="Stone" Name="Ultricies posuere vestibulum congue" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="31" MaterialType="Rubble" Name="Venenatis vestibulum adipiscing pede" SiteType="InsideRome"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Eget curae varius">
+							<Model:OrderCardModel Description="Aenean vestibulum inceptos elit interdum" Id="83" Name="Penatibus enim erat" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Lobortis nascetur" Id="42" Name="Donec etiam" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Iaculis pharetra vestibulum porttitor eros" Id="18" Name="Adipiscing nibh" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Mauris nisi nisl nunc placerat" Id="45" Name="Mus lacinia pulvinar" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Tincidunt nullam nec" Id="28" Name="Laoreet natoque non aptent" RoleType="Laborer"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Lorem vulputate parturient sem">
+							<Model:OrderCardModel Description="Quam quis morbi curabitur ultrices" Id="64" Name="Sit phasellus" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Nulla vel consequat convallis" Id="22" Name="Vehicula cursus urna cras volutpat" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Vestibulum vestibulum" Id="92" Name="Duis nam dictum sed dignissim" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Nunc lectus potenti" Id="93" Name="Elementum pretium amet proin" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Rhoncus augue ante sodales viverra" Id="16" Name="Facilisis libero" RoleType="Patron"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="22" RefillCapacity="77"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Luctus parturient fringilla arcu" PlayerName="Vestibulum integer habitasse"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Diam dolor fames quisque vestibulum" PlayerName="Maecenas dis felis est"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToLeft>
+			<Engine:Player.PlayerToRight>
+				<Engine:Player Id="Magnis hac ipsum" PlayerName="Velit consequat">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="59"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Per vestibulum sed nisl">
+							<Model:BuildingSite Id="31" MaterialType="Concrete" Name="Vestibulum malesuada nostra ornare egestas" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="43" MaterialType="Concrete" Name="Nunc platea odio primis orci" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="42" MaterialType="Wood" Name="Penatibus pede porttitor rutrum" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="34" MaterialType="Brick" Name="Sem sit tincidunt" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="18" MaterialType="Brick" Name="Adipiscing sapien" SiteType="OutOfTown"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Eget leo hendrerit justo">
+							<Model:OrderCardModel Description="Vivamus aliquam adipiscing praesent mattis" Id="81" Name="Elit mauris lacus" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Lorem mus parturient accumsan vestibulum" Id="50" Name="Mollis enim" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Aliquet erat himenaeos" Id="39" Name="Vestibulum adipiscing eros bibendum" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Nibh imperdiet blandit commodo magna" Id="86" Name="Nec conubia" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Cubilia dictumst massa eleifend dapibus" Id="58" Name="Nisi facilisi non parturient montes" RoleType="Craftsman"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Tristique ultricies metus">
+							<Model:OrderCardModel Description="Faucibus vel morbi" Id="81" Name="Neque euismod semper netus nulla" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Venenatis nam quam sociis" Id="53" Name="Quis sed urna cras" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Habitant vulputate dis porta" Id="16" Name="Duis est curabitur taciti" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Tellus nunc hac phasellus feugiat" Id="32" Name="Leo tempor amet" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Tempus inceptos ante purus mus" Id="59" Name="Risus gravida parturient vestibulum arcu" RoleType="Patron"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="63" RefillCapacity="67"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Vestibulum vitae diam nec" PlayerName="Adipiscing interdum"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Eget iaculis convallis tortor" PlayerName="Non lacinia class parturient"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToRight>
+			<Engine:Player.PlayArea>
+				<Model:PlayArea>
+					<Model:PlayArea.JackCards>
+						<Model:JackCardModel Id="45" Name="Aliquet blandit"/>
+						<Model:JackCardModel Id="15" Name="Sit netus commodo"/>
+						<Model:JackCardModel Id="40" Name="Vel sociis dictumst conubia"/>
+						<Model:JackCardModel Id="14" Name="Nulla porta adipiscing taciti"/>
+						<Model:JackCardModel Id="98" Name="Tellus purus parturient nam"/>
+					</Model:PlayArea.JackCards>
+					<Model:PlayArea.OrderCards>
+						<Model:OrderCardModel Description="Cubilia tempor fermentum" Id="74" Name="Vestibulum eleifend vestibulum risus" RoleType="Laborer"/>
+						<Model:OrderCardModel Description="Sed velit facilisi dis faucibus" Id="25" Name="Fringilla est dapibus" RoleType="Architect"/>
+						<Model:OrderCardModel Description="Hac vitae ante egestas arcu" Id="75" Name="Habitasse class hendrerit" RoleType="Craftsman"/>
+						<Model:OrderCardModel Description="Diam adipiscing" Id="62" Name="Himenaeos imperdiet tempus parturient" RoleType="Patron"/>
+						<Model:OrderCardModel Description="Vestibulum euismod vestibulum feugiat leo" Id="81" Name="Adipiscing parturient" RoleType="Architect"/>
+					</Model:PlayArea.OrderCards>
+				</Model:PlayArea>
+			</Engine:Player.PlayArea>
+		</Engine:Player>
+		<Engine:Player Id="Dignissim curae" PlayerName="Non fames felis fringilla ipsum">
+			<Engine:Player.Camp>
+				<Model:Camp InfluencePoints="61">
+					<Model:Camp.Clientele>
+						<Model:Clientele Capacity="84" Id="Dignissim est pede">
+							<Model:OrderCardModel Description="Egestas hac mattis ipsum" Id="86" Name="Vestibulum justo" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Leo quam euismod" Id="12" Name="Vestibulum mus" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Lacus adipiscing lorem parturient volutpat" Id="86" Name="Mauris maecenas quis" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Magna feugiat nec vestibulum" Id="65" Name="Urna praesent" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Elementum accumsan massa" Id="53" Name="Mollis non facilisis per" RoleType="Patron"/>
+						</Model:Clientele>
+					</Model:Camp.Clientele>
+					<Model:Camp.CompletedFoundations>
+						<Model:CompletedFoundations Id="Commodo sit phasellus consequat">
+							<Model:BuildingSite Id="13" MaterialType="Concrete" Name="Vehicula adipiscing parturient convallis" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="94" MaterialType="Concrete" Name="Vestibulum vestibulum felis litora conubia" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="21" MaterialType="Stone" Name="Adipiscing luctus" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="52" MaterialType="Marble" Name="Vel nam cubilia orci dapibus" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="96" MaterialType="Brick" Name="Magnis sed dis parturient" SiteType="InsideRome"/>
+						</Model:CompletedFoundations>
+					</Model:Camp.CompletedFoundations>
+					<Model:Camp.Stockpile>
+						<Model:Stockpile Id="Bibendum dictumst">
+							<Model:OrderCardModel Description="Metus fermentum gravida iaculis" Id="26" Name="Montes sed nostra eleifend vestibulum" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Sem adipiscing" Id="25" Name="Cras duis nunc lacinia ornare" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Laoreet morbi" Id="41" Name="Natoque facilisi" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Faucibus platea" Id="62" Name="Sit amet habitant ante inceptos" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Fringilla habitasse primis vel" Id="42" Name="Nam interdum neque" RoleType="Merchant"/>
+						</Model:Stockpile>
+					</Model:Camp.Stockpile>
+					<Model:Camp.Vault>
+						<Model:Vault Capacity="35" Id="Sed dis arcu hendrerit">
+							<Model:OrderCardModel Description="Netus est himenaeos" Id="53" Name="Parturient diam imperdiet nulla" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Rutrum posuere potenti lobortis" Id="57" Name="Hac pretium rhoncus sapien vestibulum" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Leo vestibulum nascetur porta adipiscing" Id="89" Name="Purus semper sodales" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Malesuada sociis" Id="20" Name="Parturient vestibulum viverra" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Vestibulum mus taciti risus" Id="66" Name="Pharetra nec tellus penatibus porttitor" RoleType="Laborer"/>
+						</Model:Vault>
+					</Model:Camp.Vault>
+				</Model:Camp>
+			</Engine:Player.Camp>
+			<Engine:Player.ConstructionZone>
+				<Model:ConstructionZone Id="Erat eros pharetra hendrerit morbi">
+					<Model:BuildingSite Id="97" MaterialType="Concrete" Name="Himenaeos hac parturient imperdiet nulla" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="50" MaterialType="Stone" Name="Cursus placerat" SiteType="OutOfTown"/>
+					<Model:BuildingSite Id="84" MaterialType="Concrete" Name="Proin rhoncus sodales leo" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="88" MaterialType="Wood" Name="Malesuada viverra aliquam" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="32" MaterialType="Brick" Name="Nibh mus augue pulvinar" SiteType="OutOfTown"/>
+				</Model:ConstructionZone>
+			</Engine:Player.ConstructionZone>
+			<Engine:Player.CompletedBuildings>
+				<Model:CompletedBuildings Id="Turpis varius elementum">
+					<Model:OrderCardModel Description="Facilisis laoreet vestibulum per natoque" Id="29" Name="Vestibulum fermentum sed" RoleType="Merchant"/>
+					<Model:OrderCardModel Description="Donec etiam sem aenean" Id="88" Name="Sit lobortis adipiscing" RoleType="Patron"/>
+					<Model:OrderCardModel Description="Mauris vel nam" Id="11" Name="Parturient fringilla habitasse vestibulum" RoleType="Merchant"/>
+					<Model:OrderCardModel Description="Vestibulum nullam adipiscing posuere potenti" Id="24" Name="Sed dis aptent fusce" RoleType="Patron"/>
+					<Model:OrderCardModel Description="Auctor congue lorem" Id="78" Name="Pretium elit est enim nascetur" RoleType="Laborer"/>
+				</Model:CompletedBuildings>
+			</Engine:Player.CompletedBuildings>
+			<Engine:Player.DemandArea>
+				<Model:DemandArea Id="Nec penatibus non integer per">
+					<Model:OrderCardModel Description="Porttitor nisi sagittis dictum" Id="22" Name="Vestibulum lectus tincidunt senectus nisl" RoleType="Architect"/>
+					<Model:OrderCardModel Description="Sed sociosqu quisque vestibulum" Id="47" Name="Vivamus tristique" RoleType="Merchant"/>
+					<Model:OrderCardModel Description="Ultricies aliquam venenatis" Id="98" Name="Adipiscing parturient vulputate dolor suscipit" RoleType="Architect"/>
+					<Model:OrderCardModel Description="Aliquet libero" Id="30" Name="Vestibulum torquent curabitur ligula" RoleType="Patron"/>
+					<Model:OrderCardModel Description="Blandit sem fames" Id="96" Name="Nunc vestibulum odio ultrices" RoleType="Craftsman"/>
+				</Model:DemandArea>
+			</Engine:Player.DemandArea>
+			<Engine:Player.Hand>
+				<Model:Hand Count="12" RefillCapacity="57">
+					<Model:Hand.JackCards>
+						<Model:JackCardModel Id="72" Name="Velit vitae"/>
+						<Model:JackCardModel Id="41" Name="Adipiscing eget aliquam non per"/>
+						<Model:JackCardModel Id="46" Name="Tincidunt parturient"/>
+						<Model:JackCardModel Id="73" Name="Integer quisque"/>
+						<Model:JackCardModel Id="43" Name="Placerat class"/>
+					</Model:Hand.JackCards>
+					<Model:Hand.OrderCards>
+						<Model:OrderCardModel Description="Elit tempor tristique ultricies vestibulum" Id="20" Name="Pulvinar curae sed sagittis" RoleType="Patron"/>
+						<Model:OrderCardModel Description="Venenatis tempus vulputate" Id="29" Name="Senectus tortor donec curabitur phasellus" RoleType="Architect"/>
+						<Model:OrderCardModel Description="Vivamus vestibulum" Id="87" Name="Sem etiam aliquam turpis varius" RoleType="Craftsman"/>
+						<Model:OrderCardModel Description="Sociosqu suscipit" Id="20" Name="Fusce aenean" RoleType="Merchant"/>
+						<Model:OrderCardModel Description="Sit mauris" Id="60" Name="Nullam lorem adipiscing aliquet" RoleType="Merchant"/>
+					</Model:Hand.OrderCards>
+				</Model:Hand>
+			</Engine:Player.Hand>
+			<Engine:Player.PlayerToLeft>
+				<Engine:Player Id="Iaculis libero per sed vehicula" PlayerName="Ante vulputate velit non">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="20"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Orci magna pede">
+							<Model:BuildingSite Id="79" MaterialType="Marble" Name="Bibendum dictumst imperdiet malesuada" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="21" MaterialType="Marble" Name="Eleifend penatibus" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="54" MaterialType="Rubble" Name="Sodales vestibulum quam" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="72" MaterialType="Wood" Name="Facilisi est massa hac" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="17" MaterialType="Concrete" Name="Faucibus magnis metus" SiteType="InsideRome"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Habitasse lacinia">
+							<Model:OrderCardModel Description="Volutpat hendrerit" Id="46" Name="Justo sem ligula" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Litora maecenas" Id="33" Name="Sit laoreet" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Praesent nisl accumsan lacus" Id="69" Name="Vel natoque" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Posuere nam luctus" Id="56" Name="Himenaeos lorem potenti nunc" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Adipiscing parturient sed" Id="70" Name="Odio pretium rhoncus dis" RoleType="Patron"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Leo porttitor vestibulum">
+							<Model:OrderCardModel Description="Viverra adipiscing mattis parturient" Id="93" Name="Aliquam tincidunt mauris mus quis" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Vestibulum urna vestibulum mollis morbi" Id="37" Name="Adipiscing parturient habitant cras" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Inceptos vestibulum neque vestibulum" Id="49" Name="Tristique nec adipiscing duis integer" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Ultricies netus venenatis nulla quisque" Id="20" Name="Porta nunc" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Interdum purus amet" Id="60" Name="Lobortis risus parturient" RoleType="Legionnaire"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="91" RefillCapacity="53"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Per nascetur vivamus vestibulum" PlayerName="Arcu pharetra"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Placerat sed vitae vestibulum" PlayerName="Pulvinar sagittis"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToLeft>
+			<Engine:Player.PlayerToRight>
+				<Engine:Player Id="Sem montes" PlayerName="Parturient aenean vestibulum posuere">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="46"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Dis vestibulum platea primis">
+							<Model:BuildingSite Id="23" MaterialType="Brick" Name="Adipiscing rutrum etiam" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="12" MaterialType="Rubble" Name="Sapien parturient euismod eros" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="24" MaterialType="Marble" Name="Feugiat fusce est" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="35" MaterialType="Rubble" Name="Nibh lorem semper vestibulum dignissim" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="64" MaterialType="Concrete" Name="Accumsan hac nisi morbi" SiteType="OutOfTown"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Sit class">
+							<Model:OrderCardModel Description="Curae senectus sociosqu nostra suscipit" Id="67" Name="Aliquam torquent diam ultrices" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Vehicula curabitur vel adipiscing" Id="77" Name="Phasellus volutpat aliquet" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Blandit consequat" Id="42" Name="Parturient eget commodo" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Conubia maecenas cubilia" Id="10" Name="Nam elit enim" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Donec dapibus sed erat convallis" Id="69" Name="Egestas vestibulum praesent ornare" RoleType="Merchant"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Sociis taciti">
+							<Model:OrderCardModel Description="Tellus gravida bibendum iaculis" Id="75" Name="Leo lacinia" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Vestibulum nisl" Id="24" Name="Nunc tempor laoreet" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Tempus tortor odio mus" Id="12" Name="Orci pede dictumst" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Turpis adipiscing" Id="95" Name="Eleifend nec" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Varius elementum" Id="17" Name="Facilisis nulla natoque non" RoleType="Laborer"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="22" RefillCapacity="95"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Vestibulum per" PlayerName="Potenti fermentum facilisi"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Adipiscing fringilla sed quam proin" PlayerName="Sem faucibus pretium"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToRight>
+			<Engine:Player.PlayArea>
+				<Model:PlayArea>
+					<Model:PlayArea.JackCards>
+						<Model:JackCardModel Id="38" Name="Parturient vel aptent"/>
+						<Model:JackCardModel Id="48" Name="Consequat nam convallis blandit torquent"/>
+						<Model:JackCardModel Id="17" Name="Commodo auctor congue"/>
+						<Model:JackCardModel Id="71" Name="Morbi dignissim conubia elementum"/>
+						<Model:JackCardModel Id="78" Name="Sed enim"/>
+					</Model:PlayArea.JackCards>
+					<Model:PlayArea.OrderCards>
+						<Model:OrderCardModel Description="Dis cubilia" Id="43" Name="Dapibus est" RoleType="Craftsman"/>
+						<Model:OrderCardModel Description="Egestas hac" Id="86" Name="Cursus erat nulla proin facilisis" RoleType="Patron"/>
+						<Model:OrderCardModel Description="Vestibulum eros dictum leo vestibulum" Id="24" Name="Mus euismod nibh augue adipiscing" RoleType="Laborer"/>
+						<Model:OrderCardModel Description="Lectus nisi feugiat" Id="59" Name="Gravida nec" RoleType="Legionnaire"/>
+						<Model:OrderCardModel Description="Parturient vestibulum dolor" Id="35" Name="Vestibulum fermentum ultrices" RoleType="Architect"/>
+					</Model:PlayArea.OrderCards>
+				</Model:PlayArea>
+			</Engine:Player.PlayArea>
+		</Engine:Player>
+		<Engine:Player Id="Parturient vestibulum habitant" PlayerName="Vestibulum vestibulum">
+			<Engine:Player.Camp>
+				<Model:Camp InfluencePoints="79">
+					<Model:Camp.Clientele>
+						<Model:Clientele Capacity="64" Id="Vel sapien purus semper">
+							<Model:OrderCardModel Description="Enim erat eros risus sociis" Id="56" Name="Nibh taciti" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Phasellus velit" Id="54" Name="Egestas nam" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Euismod tellus" Id="56" Name="Consequat convallis vestibulum dignissim vitae" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Feugiat sed dis class" Id="53" Name="Gravida nisi" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Nisl curae vehicula tempor" Id="57" Name="Nunc volutpat tempus donec iaculis" RoleType="Craftsman"/>
+						</Model:Clientele>
+					</Model:Camp.Clientele>
+					<Model:Camp.CompletedFoundations>
+						<Model:CompletedFoundations Id="Morbi cubilia sociosqu vestibulum">
+							<Model:BuildingSite Id="95" MaterialType="Brick" Name="Vestibulum platea adipiscing" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="57" MaterialType="Rubble" Name="Parturient sem neque" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="81" MaterialType="Concrete" Name="Netus suscipit vestibulum nulla" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="92" MaterialType="Concrete" Name="Primis torquent sit" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="45" MaterialType="Brick" Name="Porta elit dapibus rutrum ultrices" SiteType="InsideRome"/>
+						</Model:CompletedFoundations>
+					</Model:Camp.CompletedFoundations>
+					<Model:Camp.Stockpile>
+						<Model:Stockpile Id="Tortor etiam">
+							<Model:OrderCardModel Description="Elementum maecenas praesent" Id="57" Name="Facilisis odio fusce" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Orci est adipiscing lacinia turpis" Id="15" Name="Fermentum varius" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Accumsan aenean parturient" Id="97" Name="Bibendum fringilla pede" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Mauris habitasse laoreet vestibulum hac" Id="30" Name="Quam natoque vestibulum dictumst" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Eleifend leo hendrerit" Id="12" Name="Adipiscing mus" RoleType="Craftsman"/>
+						</Model:Stockpile>
+					</Model:Camp.Stockpile>
+					<Model:Camp.Vault>
+						<Model:Vault Capacity="24" Id="Posuere nec">
+							<Model:OrderCardModel Description="Quis non potenti nullam" Id="47" Name="Himenaeos parturient lorem" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Facilisi faucibus habitant aptent morbi" Id="16" Name="Imperdiet inceptos interdum" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Malesuada pretium auctor per congue" Id="67" Name="Urna lobortis nascetur rhoncus sodales" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Cursus dictum nulla penatibus porttitor" Id="51" Name="Viverra tincidunt vestibulum" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Pharetra proin vestibulum cras lectus" Id="26" Name="Libero aliquam integer adipiscing augue" RoleType="Merchant"/>
+						</Model:Vault>
+					</Model:Camp.Vault>
+				</Model:Camp>
+			</Engine:Player.Camp>
+			<Engine:Player.ConstructionZone>
+				<Model:ConstructionZone Id="Libero ipsum">
+					<Model:BuildingSite Id="66" MaterialType="Wood" Name="Justo porttitor vestibulum cras" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="87" MaterialType="Stone" Name="Dis est lacus duis nunc" SiteType="OutOfTown"/>
+					<Model:BuildingSite Id="49" MaterialType="Stone" Name="Hac ligula lorem litora leo" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="19" MaterialType="Rubble" Name="Luctus adipiscing vivamus aliquam" SiteType="OutOfTown"/>
+					<Model:BuildingSite Id="11" MaterialType="Brick" Name="Magnis tincidunt mattis magna amet" SiteType="InsideRome"/>
+				</Model:ConstructionZone>
+			</Engine:Player.ConstructionZone>
+			<Engine:Player.CompletedBuildings>
+				<Model:CompletedBuildings Id="Inceptos mauris habitasse nullam vestibulum">
+					<Model:OrderCardModel Description="Rhoncus interdum augue sit" Id="14" Name="Hendrerit lobortis nascetur vel himenaeos" RoleType="Legionnaire"/>
+					<Model:OrderCardModel Description="Quis imperdiet sodales nam" Id="86" Name="Viverra aptent" RoleType="Architect"/>
+					<Model:OrderCardModel Description="Aliquam urna integer" Id="50" Name="Dolor adipiscing auctor" RoleType="Craftsman"/>
+					<Model:OrderCardModel Description="Malesuada fames sed" Id="50" Name="Penatibus felis" RoleType="Laborer"/>
+					<Model:OrderCardModel Description="Parturient congue vestibulum cursus dictum" Id="75" Name="Quisque lectus pharetra" RoleType="Legionnaire"/>
+				</Model:CompletedBuildings>
+			</Engine:Player.CompletedBuildings>
+			<Engine:Player.DemandArea>
+				<Model:DemandArea Id="Aliquet placerat massa mus mauris">
+					<Model:OrderCardModel Description="Pulvinar ante" Id="99" Name="Arcu mollis nec non metus" RoleType="Craftsman"/>
+					<Model:OrderCardModel Description="Montes sagittis" Id="96" Name="Per tristique nostra ornare" RoleType="Patron"/>
+					<Model:OrderCardModel Description="Diam ultricies venenatis" Id="21" Name="Vulputate blandit" RoleType="Architect"/>
+					<Model:OrderCardModel Description="Parturient curabitur vestibulum" Id="67" Name="Commodo sed" RoleType="Craftsman"/>
+					<Model:OrderCardModel Description="Vestibulum eget" Id="89" Name="Senectus adipiscing parturient conubia" RoleType="Architect"/>
+				</Model:DemandArea>
+			</Engine:Player.DemandArea>
+			<Engine:Player.Hand>
+				<Model:Hand Count="16" RefillCapacity="35">
+					<Model:Hand.JackCards>
+						<Model:JackCardModel Id="12" Name="Ligula tristique dolor duis parturient"/>
+						<Model:JackCardModel Id="76" Name="Vestibulum fames"/>
+						<Model:JackCardModel Id="23" Name="Nunc litora"/>
+						<Model:JackCardModel Id="29" Name="Vestibulum amet ultricies luctus"/>
+						<Model:JackCardModel Id="13" Name="Magnis adipiscing venenatis felis"/>
+					</Model:Hand.JackCards>
+					<Model:Hand.OrderCards>
+						<Model:OrderCardModel Description="Mattis parturient vulputate curabitur ante" Id="10" Name="Quisque ipsum sed mauris placerat" RoleType="Merchant"/>
+						<Model:OrderCardModel Description="Pulvinar arcu" Id="25" Name="Sem mollis phasellus justo" RoleType="Craftsman"/>
+						<Model:OrderCardModel Description="Lacus diam consequat lorem" Id="38" Name="Magna vivamus massa aliquam aliquet" RoleType="Architect"/>
+						<Model:OrderCardModel Description="Sit convallis" Id="53" Name="Dignissim vestibulum elementum" RoleType="Architect"/>
+						<Model:OrderCardModel Description="Blandit eget commodo vel elit" Id="17" Name="Sagittis nam conubia metus" RoleType="Craftsman"/>
+					</Model:Hand.OrderCards>
+				</Model:Hand>
+			</Engine:Player.Hand>
+			<Engine:Player.PlayerToLeft>
+				<Engine:Player Id="Cras duis" PlayerName="Quis auctor per sed">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="44"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Eros nibh nisi vitae">
+							<Model:BuildingSite Id="96" MaterialType="Marble" Name="Nisl potenti parturient" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="81" MaterialType="Marble" Name="Nunc class praesent" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="73" MaterialType="Marble" Name="Accumsan bibendum" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="60" MaterialType="Rubble" Name="Dictumst sed dis odio est" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="32" MaterialType="Wood" Name="Aenean fringilla vestibulum eleifend hac" SiteType="OutOfTown"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Taciti natoque">
+							<Model:OrderCardModel Description="Nunc amet ante" Id="86" Name="Risus arcu tellus" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Diam adipiscing parturient" Id="39" Name="Tempor eget ultrices tempus tortor" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Elit vehicula vestibulum" Id="44" Name="Volutpat turpis posuere vestibulum" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Per sed velit varius" Id="22" Name="Maecenas enim" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Sem erat sit" Id="81" Name="Adipiscing fermentum vel nam" RoleType="Craftsman"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Orci vestibulum">
+							<Model:OrderCardModel Description="Adipiscing pretium" Id="54" Name="Curae leo facilisi habitasse rhoncus" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Mauris sodales nullam" Id="40" Name="Pede parturient" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Viverra aliquam" Id="79" Name="Integer hendrerit faucibus" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Habitant inceptos donec interdum" Id="25" Name="Lobortis mus quam" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Vestibulum vestibulum nec" Id="32" Name="Aptent non" RoleType="Legionnaire"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="53" RefillCapacity="52"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Etiam congue" PlayerName="Nascetur fusce"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Himenaeos cursus quisque urna cras" PlayerName="Duis lorem imperdiet"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToLeft>
+			<Engine:Player.PlayerToRight>
+				<Engine:Player Id="Nunc pharetra dictum malesuada" PlayerName="Morbi neque platea netus nulla">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="83"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Est hac erat eros senectus">
+							<Model:BuildingSite Id="98" MaterialType="Concrete" Name="Ultricies venenatis leo" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="58" MaterialType="Wood" Name="Vulputate curabitur" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="95" MaterialType="Brick" Name="Dolor sociosqu fames commodo" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="58" MaterialType="Wood" Name="Felis vestibulum magnis" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="64" MaterialType="Marble" Name="Ipsum conubia nibh suscipit phasellus" SiteType="InsideRome"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Adipiscing amet">
+							<Model:OrderCardModel Description="Parturient morbi penatibus ante nulla" Id="41" Name="Lectus sem sit" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Placerat porttitor vel" Id="25" Name="Libero ligula nam sed vestibulum" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Arcu diam vestibulum" Id="13" Name="Vivamus adipiscing proin" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Eget elit litora" Id="71" Name="Aliquam pulvinar luctus tincidunt" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Augue aliquet sagittis" Id="32" Name="Dis parturient blandit tristique enim" RoleType="Laborer"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Consequat convallis torquent justo">
+							<Model:OrderCardModel Description="Mattis nisi mauris lacus" Id="89" Name="Mollis cubilia lorem" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Ultrices nisl mus dignissim" Id="58" Name="Magna nunc" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Montes nostra" Id="35" Name="Odio dapibus" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Elementum ornare vehicula egestas" Id="57" Name="Facilisis massa fermentum volutpat" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Maecenas vestibulum" Id="30" Name="Euismod feugiat metus" RoleType="Legionnaire"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="83" RefillCapacity="89"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Praesent gravida primis porta fringilla" PlayerName="Purus iaculis rutrum"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Orci nec non per pede" PlayerName="Accumsan lacinia quam"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToRight>
+			<Engine:Player.PlayArea>
+				<Model:PlayArea>
+					<Model:PlayArea.JackCards>
+						<Model:JackCardModel Id="48" Name="Enim vestibulum sed cubilia"/>
+						<Model:JackCardModel Id="35" Name="Morbi senectus dis montes"/>
+						<Model:JackCardModel Id="54" Name="Dapibus neque"/>
+						<Model:JackCardModel Id="60" Name="Nostra erat eros nibh egestas"/>
+						<Model:JackCardModel Id="58" Name="Est adipiscing euismod nisi"/>
+					</Model:PlayArea.JackCards>
+					<Model:PlayArea.OrderCards>
+						<Model:OrderCardModel Description="Nisl hac sociosqu feugiat nunc" Id="58" Name="Gravida odio ornare iaculis" RoleType="Legionnaire"/>
+						<Model:OrderCardModel Description="Parturient netus orci" Id="42" Name="Pede facilisis vestibulum suscipit" RoleType="Legionnaire"/>
+						<Model:OrderCardModel Description="Platea quam vestibulum" Id="93" Name="Leo adipiscing lacinia laoreet" RoleType="Architect"/>
+						<Model:OrderCardModel Description="Nulla primis" Id="96" Name="Rutrum torquent sapien mus" RoleType="Patron"/>
+						<Model:OrderCardModel Description="Nec non porta quis parturient" Id="28" Name="Semper urna sociis purus" RoleType="Craftsman"/>
+					</Model:PlayArea.OrderCards>
+				</Model:PlayArea>
+			</Engine:Player.PlayArea>
+		</Engine:Player>
+		<Engine:Player Id="Sed risus sem habitasse bibendum" PlayerName="Vestibulum turpis adipiscing inceptos">
+			<Engine:Player.Camp>
+				<Model:Camp InfluencePoints="83">
+					<Model:Camp.Clientele>
+						<Model:Clientele Capacity="17" Id="Vestibulum enim sem erat conubia">
+							<Model:OrderCardModel Description="Praesent sit accumsan" Id="46" Name="Bibendum vel dictumst cubilia" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Dapibus congue nulla" Id="63" Name="Nam proin vestibulum" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Egestas adipiscing parturient augue" Id="85" Name="Eros convallis euismod dolor vestibulum" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Nibh vestibulum fames adipiscing" Id="48" Name="Nisi nisl nunc cursus" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Sed eleifend dis felis" Id="27" Name="Dictum est parturient ipsum" RoleType="Laborer"/>
+						</Model:Clientele>
+					</Model:Camp.Clientele>
+					<Model:Camp.CompletedFoundations>
+						<Model:CompletedFoundations Id="Vestibulum vehicula nullam lorem">
+							<Model:BuildingSite Id="88" MaterialType="Brick" Name="Volutpat diam adipiscing non" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="62" MaterialType="Marble" Name="Eget aliquet" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="81" MaterialType="Stone" Name="Parturient blandit per aptent maecenas" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="25" MaterialType="Brick" Name="Curabitur elit phasellus morbi" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="25" MaterialType="Concrete" Name="Auctor sed consequat commodo" SiteType="InsideRome"/>
+						</Model:CompletedFoundations>
+					</Model:Camp.CompletedFoundations>
+					<Model:Camp.Stockpile>
+						<Model:Stockpile Id="Feugiat justo">
+							<Model:OrderCardModel Description="Dignissim odio lacus vestibulum" Id="12" Name="Facilisi vestibulum gravida lectus adipiscing" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Faucibus habitant parturient orci iaculis" Id="97" Name="Pede inceptos vestibulum" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Elementum libero hac lacinia" Id="96" Name="Ligula lorem leo quam litora" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Magna interdum quis vestibulum" Id="19" Name="Adipiscing mus laoreet" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Natoque facilisis urna lobortis cras" Id="96" Name="Duis massa" RoleType="Merchant"/>
+						</Model:Stockpile>
+					</Model:Camp.Stockpile>
+					<Model:Camp.Vault>
+						<Model:Vault Capacity="36" Id="Luctus fermentum nunc">
+							<Model:OrderCardModel Description="Posuere fringilla" Id="48" Name="Amet magnis potenti nec nascetur" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Non per habitasse mattis pharetra" Id="59" Name="Mauris hendrerit metus himenaeos morbi" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Placerat parturient ante" Id="61" Name="Sed pulvinar sagittis" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Neque senectus imperdiet sem sit" Id="33" Name="Sociosqu pretium vel suscipit" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Malesuada arcu penatibus diam" Id="22" Name="Vestibulum vestibulum" RoleType="Merchant"/>
+						</Model:Vault>
+					</Model:Camp.Vault>
+				</Model:Camp>
+			</Engine:Player.Camp>
+			<Engine:Player.ConstructionZone>
+				<Model:ConstructionZone Id="Tincidunt potenti nunc pretium">
+					<Model:BuildingSite Id="80" MaterialType="Rubble" Name="Tempor rhoncus tempus sodales sed" SiteType="OutOfTown"/>
+					<Model:BuildingSite Id="56" MaterialType="Stone" Name="Vitae dis" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="12" MaterialType="Rubble" Name="Vestibulum adipiscing est" SiteType="OutOfTown"/>
+					<Model:BuildingSite Id="62" MaterialType="Rubble" Name="Viverra pulvinar sagittis" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="17" MaterialType="Rubble" Name="Parturient class" SiteType="InsideRome"/>
+				</Model:ConstructionZone>
+			</Engine:Player.ConstructionZone>
+			<Engine:Player.CompletedBuildings>
+				<Model:CompletedBuildings Id="Hendrerit dictumst">
+					<Model:OrderCardModel Description="Eleifend facilisi" Id="85" Name="Faucibus habitant quis himenaeos" RoleType="Laborer"/>
+					<Model:OrderCardModel Description="Inceptos sapien adipiscing" Id="91" Name="Imperdiet urna malesuada" RoleType="Laborer"/>
+					<Model:OrderCardModel Description="Laoreet sit semper interdum sociis" Id="29" Name="Parturient taciti cras" RoleType="Legionnaire"/>
+					<Model:OrderCardModel Description="Lobortis nascetur" Id="28" Name="Natoque pharetra penatibus vel" RoleType="Patron"/>
+					<Model:OrderCardModel Description="Duis velit nam tellus" Id="57" Name="Posuere placerat porttitor vestibulum" RoleType="Patron"/>
+				</Model:CompletedBuildings>
+			</Engine:Player.CompletedBuildings>
+			<Engine:Player.DemandArea>
+				<Model:DemandArea Id="Senectus vestibulum hac amet">
+					<Model:OrderCardModel Description="Vestibulum adipiscing ante" Id="55" Name="Sociosqu tortor" RoleType="Architect"/>
+					<Model:OrderCardModel Description="Turpis varius curae aenean parturient" Id="38" Name="Aliquam donec" RoleType="Merchant"/>
+					<Model:OrderCardModel Description="Tristique integer ultricies quisque venenatis" Id="38" Name="Suscipit leo vivamus" RoleType="Architect"/>
+					<Model:OrderCardModel Description="Etiam torquent vestibulum mus" Id="23" Name="Nec ultrices fusce" RoleType="Patron"/>
+					<Model:OrderCardModel Description="Vulputate aliquam" Id="15" Name="Mauris arcu" RoleType="Merchant"/>
+				</Model:DemandArea>
+			</Engine:Player.DemandArea>
+			<Engine:Player.Hand>
+				<Model:Hand Count="46" RefillCapacity="53">
+					<Model:Hand.JackCards>
+						<Model:JackCardModel Id="67" Name="Porttitor rhoncus sodales"/>
+						<Model:JackCardModel Id="33" Name="Tincidunt adipiscing eget"/>
+						<Model:JackCardModel Id="24" Name="Elit tristique"/>
+						<Model:JackCardModel Id="29" Name="Netus mollis nulla montes"/>
+						<Model:JackCardModel Id="45" Name="Parturient viverra aliquam integer enim"/>
+					</Model:Hand.JackCards>
+					<Model:Hand.OrderCards>
+						<Model:OrderCardModel Description="Vestibulum erat" Id="51" Name="Ultricies venenatis torquent nam" RoleType="Legionnaire"/>
+						<Model:OrderCardModel Description="Quisque nostra" Id="49" Name="Ornare ultrices" RoleType="Laborer"/>
+						<Model:OrderCardModel Description="Vulputate vestibulum eros adipiscing" Id="30" Name="Sed curabitur" RoleType="Patron"/>
+						<Model:OrderCardModel Description="Porta parturient purus vehicula nibh" Id="35" Name="Volutpat platea nisi vestibulum" RoleType="Patron"/>
+						<Model:OrderCardModel Description="Primis vivamus maecenas risus praesent" Id="76" Name="Rutrum nisl velit" RoleType="Craftsman"/>
+					</Model:Hand.OrderCards>
+				</Model:Hand>
+			</Engine:Player.Hand>
+			<Engine:Player.PlayerToLeft>
+				<Engine:Player Id="Varius aenean etiam imperdiet parturient" PlayerName="Fringilla mus nec ipsum">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="87"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Egestas fames consequat convallis">
+							<Model:BuildingSite Id="59" MaterialType="Concrete" Name="Dignissim sagittis" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="12" MaterialType="Rubble" Name="Euismod vestibulum feugiat" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="89" MaterialType="Marble" Name="Senectus adipiscing nam" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="64" MaterialType="Wood" Name="Sociosqu sed" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="54" MaterialType="Concrete" Name="Elementum cursus parturient" SiteType="InsideRome"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Sem fusce interdum duis lobortis">
+							<Model:OrderCardModel Description="Nunc malesuada lorem morbi vestibulum" Id="96" Name="Mauris vestibulum nulla" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Sit vel penatibus blandit" Id="54" Name="Porttitor nascetur tincidunt nullam aptent" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Proin commodo auctor pharetra" Id="15" Name="Augue dolor congue conubia amet" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Tristique adipiscing ultricies placerat" Id="66" Name="Cubilia pulvinar parturient ante vestibulum" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Dapibus venenatis" Id="97" Name="Arcu vulputate curabitur phasellus" RoleType="Patron"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Suscipit torquent gravida">
+							<Model:OrderCardModel Description="Vestibulum iaculis" Id="65" Name="Felis lacinia diam ultrices vehicula" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Volutpat eget laoreet" Id="49" Name="Elit natoque" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Facilisis maecenas dis vestibulum dictum" Id="23" Name="Posuere praesent potenti enim" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Adipiscing erat est pretium" Id="91" Name="Rhoncus eros hac leo nibh" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Fermentum sodales" Id="10" Name="Nisi nisl" RoleType="Craftsman"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="22" RefillCapacity="11"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Accumsan nunc non habitasse bibendum" PlayerName="Parturient lectus libero odio"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Per vestibulum vestibulum adipiscing justo" PlayerName="Parturient orci lacus sed lorem"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToLeft>
+			<Engine:Player.PlayerToRight>
+				<Engine:Player Id="Pede vestibulum viverra" PlayerName="Placerat nibh elementum sit facilisis">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="38"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Tincidunt nam">
+							<Model:BuildingSite Id="61" MaterialType="Wood" Name="Vivamus eget sed dis interdum" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="11" MaterialType="Marble" Name="Mollis metus" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="69" MaterialType="Brick" Name="Lobortis vestibulum" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="38" MaterialType="Marble" Name="Tristique est aliquam" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="61" MaterialType="Brick" Name="Ultricies elit morbi" SiteType="OutOfTown"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Ligula aliquam dictumst sem hendrerit">
+							<Model:OrderCardModel Description="Eleifend magna facilisi himenaeos" Id="46" Name="Vestibulum adipiscing quam" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Parturient integer litora luctus" Id="27" Name="Quis urna" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Faucibus cras magnis duis" Id="91" Name="Nunc amet ante mattis quisque" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Sit imperdiet malesuada penatibus" Id="17" Name="Porttitor massa vel habitant" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Mauris arcu" Id="59" Name="Inceptos diam" RoleType="Legionnaire"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Montes nostra">
+							<Model:OrderCardModel Description="Venenatis neque hac" Id="72" Name="Netus vulputate leo enim mus" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Vestibulum curabitur adipiscing parturient" Id="20" Name="Erat aliquet nec vestibulum non" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Phasellus vestibulum" Id="32" Name="Eros per blandit sed nulla" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Porta adipiscing parturient consequat purus" Id="89" Name="Commodo vestibulum" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Risus sem nascetur" Id="42" Name="Convallis vestibulum pharetra dignissim" RoleType="Architect"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="70" RefillCapacity="36"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Conubia ornare pulvinar sagittis velit" PlayerName="Vel senectus fermentum vitae"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Class nisi platea curae nisl" PlayerName="Fringilla adipiscing parturient nam primis"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToRight>
+			<Engine:Player.PlayArea>
+				<Model:PlayArea>
+					<Model:PlayArea.JackCards>
+						<Model:JackCardModel Id="95" Name="Vestibulum phasellus"/>
+						<Model:JackCardModel Id="49" Name="Dis nunc odio"/>
+						<Model:JackCardModel Id="68" Name="Est sapien adipiscing semper sociis"/>
+						<Model:JackCardModel Id="74" Name="Taciti vitae consequat"/>
+						<Model:JackCardModel Id="76" Name="Hac tellus class"/>
+					</Model:PlayArea.JackCards>
+					<Model:PlayArea.OrderCards>
+						<Model:OrderCardModel Description="Aliquam aliquet accumsan" Id="48" Name="Orci convallis parturient pede bibendum" RoleType="Legionnaire"/>
+						<Model:OrderCardModel Description="Dictumst dignissim quam tempor" Id="38" Name="Vestibulum leo" RoleType="Craftsman"/>
+						<Model:OrderCardModel Description="Elementum quis eleifend facilisi" Id="43" Name="Curae mus nec faucibus" RoleType="Merchant"/>
+						<Model:OrderCardModel Description="Urna facilisis fermentum" Id="80" Name="Fringilla habitasse donec non hendrerit" RoleType="Legionnaire"/>
+						<Model:OrderCardModel Description="Per tempus sed tortor" Id="39" Name="Habitant cras himenaeos" RoleType="Legionnaire"/>
+					</Model:PlayArea.OrderCards>
+				</Model:PlayArea>
+			</Engine:Player.PlayArea>
+		</Engine:Player>
+		<Engine:Player Id="Habitasse donec vestibulum cubilia vestibulum" PlayerName="Taciti parturient amet ante rhoncus">
+			<Engine:Player.Camp>
+				<Model:Camp InfluencePoints="27">
+					<Model:Camp.Clientele>
+						<Model:Clientele Capacity="94" Id="Interdum nunc fermentum lobortis">
+							<Model:OrderCardModel Description="Pretium adipiscing parturient rhoncus" Id="54" Name="Turpis fringilla varius aenean odio" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Vestibulum metus orci sodales" Id="65" Name="Sed vestibulum morbi neque sem" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Nascetur adipiscing pede pharetra parturient" Id="37" Name="Viverra mauris sit quam aliquam" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Vel quis netus urna nam" Id="31" Name="Integer cras sed" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Quisque nulla habitasse" Id="50" Name="Porta placerat hendrerit" RoleType="Legionnaire"/>
+						</Model:Clientele>
+					</Model:Camp.Clientele>
+					<Model:Camp.CompletedFoundations>
+						<Model:CompletedFoundations Id="Parturient eros dignissim non">
+							<Model:BuildingSite Id="26" MaterialType="Wood" Name="Posuere vestibulum nibh per nisi" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="97" MaterialType="Concrete" Name="Nisl potenti lorem" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="62" MaterialType="Stone" Name="Habitant magna elementum" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="48" MaterialType="Wood" Name="Vestibulum facilisis" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="89" MaterialType="Brick" Name="Massa inceptos" SiteType="OutOfTown"/>
+						</Model:CompletedFoundations>
+					</Model:Camp.CompletedFoundations>
+					<Model:Camp.Stockpile>
+						<Model:Stockpile Id="Nullam purus aptent">
+							<Model:OrderCardModel Description="Duis risus" Id="54" Name="Vestibulum vestibulum dis" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Velit vivamus auctor adipiscing" Id="31" Name="Congue himenaeos est cursus" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Nunc vitae aliquam" Id="75" Name="Parturient class" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Hac aliquet" Id="16" Name="Amet leo vestibulum imperdiet vestibulum" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Pulvinar mus curae donec ante" Id="85" Name="Dictum etiam blandit nec" RoleType="Craftsman"/>
+						</Model:Stockpile>
+					</Model:Camp.Stockpile>
+					<Model:Camp.Vault>
+						<Model:Vault Capacity="64" Id="Fusce malesuada">
+							<Model:OrderCardModel Description="Arcu sagittis non penatibus senectus" Id="39" Name="Sociosqu diam eget lectus adipiscing" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Elit enim libero" Id="72" Name="Suscipit porttitor" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Ligula litora torquent lorem" Id="32" Name="Erat morbi" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Eros parturient nulla nibh" Id="68" Name="Proin per ultrices" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Vestibulum commodo" Id="56" Name="Conubia augue tincidunt" RoleType="Legionnaire"/>
+						</Model:Vault>
+					</Model:Camp.Vault>
+				</Model:Camp>
+			</Engine:Player.Camp>
+			<Engine:Player.ConstructionZone>
+				<Model:ConstructionZone Id="Morbi accumsan bibendum adipiscing">
+					<Model:BuildingSite Id="46" MaterialType="Rubble" Name="Duis tristique nulla dictumst nunc" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="21" MaterialType="Marble" Name="Eleifend proin" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="98" MaterialType="Stone" Name="Laoreet dis" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="81" MaterialType="Brick" Name="Amet ante" SiteType="OutOfTown"/>
+					<Model:BuildingSite Id="56" MaterialType="Rubble" Name="Natoque augue dolor fames" SiteType="OutOfTown"/>
+				</Model:ConstructionZone>
+			</Engine:Player.ConstructionZone>
+			<Engine:Player.CompletedBuildings>
+				<Model:CompletedBuildings Id="Rutrum sociosqu nunc odio">
+					<Model:OrderCardModel Description="Orci pede hendrerit etiam" Id="24" Name="Sed suscipit dapibus himenaeos" RoleType="Patron"/>
+					<Model:OrderCardModel Description="Torquent quam ultrices vehicula volutpat" Id="78" Name="Maecenas egestas adipiscing" RoleType="Legionnaire"/>
+					<Model:OrderCardModel Description="Parturient fusce euismod" Id="53" Name="Praesent vestibulum imperdiet malesuada quis" RoleType="Legionnaire"/>
+					<Model:OrderCardModel Description="Sapien urna semper feugiat" Id="89" Name="Penatibus porttitor lorem" RoleType="Craftsman"/>
+					<Model:OrderCardModel Description="Gravida tincidunt sociis iaculis" Id="28" Name="Cras lacinia vestibulum" RoleType="Craftsman"/>
+				</Model:CompletedBuildings>
+			</Engine:Player.CompletedBuildings>
+			<Engine:Player.DemandArea>
+				<Model:DemandArea Id="Facilisi ultricies parturient">
+					<Model:OrderCardModel Description="Arcu vestibulum vestibulum adipiscing" Id="36" Name="Parturient est" RoleType="Laborer"/>
+					<Model:OrderCardModel Description="Vestibulum diam eget taciti tellus" Id="76" Name="Vestibulum adipiscing parturient vestibulum vestibulum" RoleType="Patron"/>
+					<Model:OrderCardModel Description="Faucibus hac venenatis vulputate" Id="73" Name="Leo curabitur felis ipsum" RoleType="Laborer"/>
+					<Model:OrderCardModel Description="Phasellus mus tempor justo elit" Id="88" Name="Enim consequat adipiscing erat tempus" RoleType="Architect"/>
+					<Model:OrderCardModel Description="Tortor convallis" Id="47" Name="Nec lacus" RoleType="Patron"/>
+				</Model:DemandArea>
+			</Engine:Player.DemandArea>
+			<Engine:Player.Hand>
+				<Model:Hand Count="16" RefillCapacity="73">
+					<Model:Hand.JackCards>
+						<Model:JackCardModel Id="99" Name="Cubilia luctus nisi dolor nisl"/>
+						<Model:JackCardModel Id="55" Name="Tristique magnis ultricies venenatis"/>
+						<Model:JackCardModel Id="96" Name="Fames vestibulum dapibus adipiscing"/>
+						<Model:JackCardModel Id="60" Name="Vulputate vehicula felis"/>
+						<Model:JackCardModel Id="79" Name="Parturient curabitur phasellus consequat sed"/>
+					</Model:Hand.JackCards>
+					<Model:Hand.OrderCards>
+						<Model:OrderCardModel Description="Mattis sem convallis volutpat" Id="54" Name="Egestas mauris maecenas euismod" RoleType="Patron"/>
+						<Model:OrderCardModel Description="Nunc vestibulum" Id="43" Name="Mollis vestibulum" RoleType="Architect"/>
+						<Model:OrderCardModel Description="Ipsum adipiscing justo praesent" Id="61" Name="Odio lacus" RoleType="Architect"/>
+						<Model:OrderCardModel Description="Parturient dignissim lorem" Id="88" Name="Feugiat elementum vestibulum facilisis" RoleType="Patron"/>
+						<Model:OrderCardModel Description="Magna montes nostra massa vestibulum" Id="84" Name="Accumsan bibendum ornare dictumst sit" RoleType="Merchant"/>
+					</Model:Hand.OrderCards>
+				</Model:Hand>
+			</Engine:Player.Hand>
+			<Engine:Player.PlayerToLeft>
+				<Engine:Player Id="Inceptos tellus" PlayerName="Nisl vehicula">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="44"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Phasellus nullam">
+							<Model:BuildingSite Id="51" MaterialType="Marble" Name="Placerat aptent consequat etiam fusce" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="21" MaterialType="Rubble" Name="Auctor enim congue" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="43" MaterialType="Wood" Name="Erat eros adipiscing" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="25" MaterialType="Stone" Name="Parturient nec cursus pulvinar" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="24" MaterialType="Brick" Name="Non dictum sagittis" SiteType="OutOfTown"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Tempor sodales arcu">
+							<Model:OrderCardModel Description="Risus velit interdum diam vestibulum" Id="29" Name="Hac tempus vitae" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Class vestibulum tortor adipiscing lobortis" Id="67" Name="Tincidunt parturient" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Curae tristique turpis" Id="76" Name="Varius eget aenean" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Elit vestibulum leo vestibulum" Id="15" Name="Nascetur pharetra ultricies venenatis" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Adipiscing donec mus mauris" Id="49" Name="Parturient vulputate vestibulum curabitur vestibulum" RoleType="Merchant"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Nibh lorem">
+							<Model:OrderCardModel Description="Lectus viverra" Id="57" Name="Libero morbi" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Senectus ligula" Id="50" Name="Aliquam convallis vestibulum per integer" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Dignissim sociosqu" Id="63" Name="Vestibulum litora adipiscing nulla" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Suscipit elementum quisque luctus" Id="93" Name="Nisi torquent" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Ultrices sed proin" Id="93" Name="Sem sit" RoleType="Patron"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="20" RefillCapacity="74"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Vivamus nunc volutpat magnis vel" PlayerName="Nam parturient aliquam maecenas facilisis"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Vestibulum mattis mauris" PlayerName="Odio praesent sed orci"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToLeft>
+			<Engine:Player.PlayerToRight>
+				<Engine:Player Id="Dis est" PlayerName="Neque vestibulum eget adipiscing">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="31"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Parturient platea imperdiet urna">
+							<Model:BuildingSite Id="24" MaterialType="Marble" Name="Cras lorem primis" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="83" MaterialType="Rubble" Name="Rutrum sapien malesuada" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="36" MaterialType="Wood" Name="Mus facilisi magna" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="95" MaterialType="Wood" Name="Penatibus vestibulum duis faucibus habitant" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="27" MaterialType="Stone" Name="Nec porttitor vestibulum" SiteType="OutOfTown"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Accumsan fermentum">
+							<Model:OrderCardModel Description="Fringilla vestibulum bibendum adipiscing pede" Id="94" Name="Parturient habitasse augue" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Dolor mollis aliquet blandit fames" Id="69" Name="Montes felis quam" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Ipsum vestibulum justo hac" Id="62" Name="Dictumst vestibulum" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Adipiscing commodo parturient hendrerit" Id="43" Name="Nostra leo vestibulum quis" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Vestibulum adipiscing ornare himenaeos" Id="80" Name="Eleifend lacus" RoleType="Merchant"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Non per">
+							<Model:OrderCardModel Description="Semper sociis tincidunt massa" Id="64" Name="Nunc taciti conubia amet" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Tellus tristique sed ante ultricies" Id="12" Name="Sem sit adipiscing" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Tempor cubilia dapibus arcu" Id="18" Name="Vel inceptos venenatis vulputate nam" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Diam curabitur" Id="52" Name="Metus phasellus" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Interdum parturient morbi vestibulum tempus" Id="88" Name="Tortor lobortis" RoleType="Legionnaire"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="38" RefillCapacity="36"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Consequat nascetur pharetra parturient" PlayerName="Elit placerat sed dis"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Egestas convallis pulvinar netus" PlayerName="Turpis dignissim vestibulum"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToRight>
+			<Engine:Player.PlayArea>
+				<Model:PlayArea>
+					<Model:PlayArea.JackCards>
+						<Model:JackCardModel Id="92" Name="Metus morbi gravida iaculis"/>
+						<Model:JackCardModel Id="79" Name="Platea fermentum neque lacinia primis"/>
+						<Model:JackCardModel Id="89" Name="Rutrum eleifend laoreet"/>
+						<Model:JackCardModel Id="47" Name="Adipiscing netus"/>
+						<Model:JackCardModel Id="75" Name="Facilisi fringilla"/>
+					</Model:PlayArea.JackCards>
+					<Model:PlayArea.OrderCards>
+						<Model:OrderCardModel Description="Natoque parturient vel" Id="70" Name="Habitasse hendrerit" RoleType="Architect"/>
+						<Model:OrderCardModel Description="Orci himenaeos vestibulum pede vestibulum" Id="23" Name="Quam quis nulla" RoleType="Craftsman"/>
+						<Model:OrderCardModel Description="Urna imperdiet sapien posuere malesuada" Id="25" Name="Adipiscing porta potenti faucibus" RoleType="Architect"/>
+						<Model:OrderCardModel Description="Semper nam sed" Id="68" Name="Dis purus sociis cras" RoleType="Craftsman"/>
+						<Model:OrderCardModel Description="Penatibus pretium" Id="78" Name="Est habitant duis nunc porttitor" RoleType="Architect"/>
+					</Model:PlayArea.OrderCards>
+				</Model:PlayArea>
+			</Engine:Player.PlayArea>
+		</Engine:Player>
+		<Engine:Player Id="Sagittis senectus est enim" PlayerName="Mauris senectus mollis montes ultricies">
+			<Engine:Player.Camp>
+				<Model:Camp InfluencePoints="79">
+					<Model:Camp.Clientele>
+						<Model:Clientele Capacity="86" Id="Aliquam penatibus">
+							<Model:OrderCardModel Description="Vestibulum adipiscing mollis placerat" Id="62" Name="Montes proin porttitor nec pulvinar" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Urna sagittis parturient vestibulum senectus" Id="32" Name="Integer non" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Quisque tincidunt" Id="22" Name="Sociosqu per suscipit augue" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Vivamus torquent dolor" Id="56" Name="Aliquam fames" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Vestibulum aliquet ultrices" Id="94" Name="Sed vehicula blandit" RoleType="Legionnaire"/>
+						</Model:Clientele>
+					</Model:Camp.Clientele>
+					<Model:Camp.CompletedFoundations>
+						<Model:CompletedFoundations Id="Rhoncus quam interdum luctus parturient">
+							<Model:BuildingSite Id="13" MaterialType="Concrete" Name="Hendrerit magnis" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="31" MaterialType="Concrete" Name="Vestibulum nulla sodales mattis lobortis" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="98" MaterialType="Wood" Name="Himenaeos quis nascetur leo" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="25" MaterialType="Marble" Name="Imperdiet mus" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="86" MaterialType="Stone" Name="Mauris pharetra viverra malesuada" SiteType="InsideRome"/>
+						</Model:CompletedFoundations>
+					</Model:Camp.CompletedFoundations>
+					<Model:Camp.Stockpile>
+						<Model:Stockpile Id="Adipiscing commodo">
+							<Model:OrderCardModel Description="Sem nostra volutpat" Id="23" Name="Ornare sit maecenas platea parturient" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Conubia cubilia" Id="16" Name="Tristique cras vel" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Dapibus primis duis ultricies nam" Id="15" Name="Egestas nunc praesent felis venenatis" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Ipsum vestibulum" Id="62" Name="Vestibulum adipiscing rutrum" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Sed dis parturient justo" Id="41" Name="Vestibulum amet sapien euismod" RoleType="Merchant"/>
+						</Model:Stockpile>
+					</Model:Camp.Stockpile>
+					<Model:Camp.Vault>
+						<Model:Vault Capacity="66" Id="Vulputate semper accumsan lacus">
+							<Model:OrderCardModel Description="Ante sociis vestibulum" Id="64" Name="Arcu feugiat lorem magna" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Massa diam gravida metus" Id="60" Name="Bibendum adipiscing curabitur phasellus" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Dictumst eleifend" Id="99" Name="Taciti tellus est consequat" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Hac parturient" Id="14" Name="Iaculis lacinia tempor" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Eget convallis leo dignissim morbi" Id="12" Name="Tempus tortor neque vestibulum netus" RoleType="Laborer"/>
+						</Model:Vault>
+					</Model:Camp.Vault>
+				</Model:Camp>
+			</Engine:Player.Camp>
+			<Engine:Player.ConstructionZone>
+				<Model:ConstructionZone Id="Eros laoreet">
+					<Model:BuildingSite Id="54" MaterialType="Brick" Name="Curae vestibulum per aptent" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="68" MaterialType="Marble" Name="Auctor natoque" SiteType="OutOfTown"/>
+					<Model:BuildingSite Id="58" MaterialType="Wood" Name="Congue nibh nisi nisl adipiscing" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="59" MaterialType="Concrete" Name="Fermentum cursus" SiteType="OutOfTown"/>
+					<Model:BuildingSite Id="51" MaterialType="Concrete" Name="Dictum praesent accumsan lectus" SiteType="OutOfTown"/>
+				</Model:ConstructionZone>
+			</Engine:Player.ConstructionZone>
+			<Engine:Player.CompletedBuildings>
+				<Model:CompletedBuildings Id="Vestibulum sociosqu nulla">
+					<Model:OrderCardModel Description="Porta suscipit adipiscing elementum" Id="83" Name="Purus varius" RoleType="Laborer"/>
+					<Model:OrderCardModel Description="Torquent risus euismod" Id="74" Name="Feugiat velit ultrices aenean mauris" RoleType="Laborer"/>
+					<Model:OrderCardModel Description="Hac parturient gravida" Id="15" Name="Nullam erat" RoleType="Craftsman"/>
+					<Model:OrderCardModel Description="Vehicula volutpat leo mus" Id="91" Name="Iaculis vestibulum nec" RoleType="Architect"/>
+					<Model:OrderCardModel Description="Lacinia maecenas non" Id="49" Name="Vitae facilisis class" RoleType="Laborer"/>
+				</Model:CompletedBuildings>
+			</Engine:Player.CompletedBuildings>
+			<Engine:Player.DemandArea>
+				<Model:DemandArea Id="Bibendum dictumst sed posuere donec">
+					<Model:OrderCardModel Description="Potenti etiam parturient nunc" Id="26" Name="Fringilla vestibulum" RoleType="Craftsman"/>
+					<Model:OrderCardModel Description="Fusce lorem" Id="96" Name="Eleifend sem libero habitasse sit" RoleType="Laborer"/>
+					<Model:OrderCardModel Description="Vel vestibulum" Id="54" Name="Odio nam facilisi orci" RoleType="Craftsman"/>
+					<Model:OrderCardModel Description="Ligula adipiscing parturient faucibus sed" Id="41" Name="Habitant dis" RoleType="Legionnaire"/>
+					<Model:OrderCardModel Description="Vestibulum litora vestibulum est pretium" Id="96" Name="Pede adipiscing hac morbi inceptos" RoleType="Laborer"/>
+				</Model:DemandArea>
+			</Engine:Player.DemandArea>
+			<Engine:Player.Hand>
+				<Model:Hand Count="15" RefillCapacity="16">
+					<Model:Hand.JackCards>
+						<Model:JackCardModel Id="30" Name="Nulla facilisi"/>
+						<Model:JackCardModel Id="17" Name="Faucibus laoreet habitant natoque elit"/>
+						<Model:JackCardModel Id="74" Name="Turpis elementum porta"/>
+						<Model:JackCardModel Id="32" Name="Varius enim purus"/>
+						<Model:JackCardModel Id="65" Name="Inceptos vestibulum aenean adipiscing posuere"/>
+					</Model:Hand.JackCards>
+					<Model:Hand.OrderCards>
+						<Model:OrderCardModel Description="Potenti erat mauris nullam pretium" Id="41" Name="Eros nibh aptent" RoleType="Architect"/>
+						<Model:OrderCardModel Description="Risus auctor nisi parturient" Id="19" Name="Velit interdum facilisis rhoncus congue" RoleType="Merchant"/>
+						<Model:OrderCardModel Description="Mus lobortis vestibulum cursus" Id="98" Name="Nisl fermentum dictum fringilla vitae" RoleType="Craftsman"/>
+						<Model:OrderCardModel Description="Nec vestibulum" Id="73" Name="Lectus class adipiscing parturient" RoleType="Laborer"/>
+						<Model:OrderCardModel Description="Sodales habitasse nascetur hendrerit himenaeos" Id="32" Name="Vestibulum non" RoleType="Laborer"/>
+					</Model:Hand.OrderCards>
+				</Model:Hand>
+			</Engine:Player.Hand>
+			<Engine:Player.PlayerToLeft>
+				<Engine:Player Id="Ipsum venenatis justo lacus lorem" PlayerName="Nascetur penatibus porttitor">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="64"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Leo nunc fringilla vestibulum maecenas">
+							<Model:BuildingSite Id="85" MaterialType="Rubble" Name="Vestibulum mus adipiscing sapien" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="39" MaterialType="Wood" Name="Habitasse semper" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="89" MaterialType="Wood" Name="Blandit nec sociis non parturient" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="81" MaterialType="Rubble" Name="Praesent hendrerit amet himenaeos" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="96" MaterialType="Stone" Name="Per accumsan bibendum commodo" SiteType="InsideRome"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Nostra magna parturient integer">
+							<Model:OrderCardModel Description="Quisque sociosqu ornare" Id="74" Name="Dis vulputate curabitur" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Platea vivamus est primis massa" Id="54" Name="Phasellus consequat vestibulum convallis suscipit" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Metus vestibulum" Id="52" Name="Morbi adipiscing" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Dignissim elementum aliquam aliquet parturient" Id="53" Name="Quis urna facilisis cras" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Fermentum rutrum torquent duis neque" Id="89" Name="Ultrices vehicula hac volutpat" RoleType="Craftsman"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Taciti netus sed dictumst">
+							<Model:OrderCardModel Description="Eleifend tellus ante arcu conubia" Id="98" Name="Cubilia imperdiet diam eget vestibulum" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Sem facilisi dapibus" Id="28" Name="Sit faucibus nulla" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Tempor egestas habitant vestibulum inceptos" Id="78" Name="Elit interdum adipiscing euismod porta" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Feugiat tempus tortor" Id="17" Name="Enim gravida" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Purus malesuada turpis risus vel" Id="21" Name="Lobortis velit nam varius" RoleType="Laborer"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="90" RefillCapacity="96"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Pharetra placerat" PlayerName="Aenean vitae"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Sed parturient mauris erat tincidunt" PlayerName="Iaculis dis vestibulum nullam tristique"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToLeft>
+			<Engine:Player.PlayerToRight>
+				<Engine:Player Id="Class pulvinar" PlayerName="Faucibus quisque habitant mollis">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="75"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Consequat morbi adipiscing vehicula">
+							<Model:BuildingSite Id="10" MaterialType="Concrete" Name="Nulla dictum nunc" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="84" MaterialType="Wood" Name="Convallis odio" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="73" MaterialType="Rubble" Name="Proin lectus volutpat" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="35" MaterialType="Concrete" Name="Orci non dignissim pede maecenas" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="26" MaterialType="Wood" Name="Augue potenti elementum praesent per" SiteType="OutOfTown"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Curae est donec sagittis">
+							<Model:OrderCardModel Description="Vestibulum aptent ultricies" Id="12" Name="Venenatis hac senectus sociosqu" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Suscipit leo" Id="57" Name="Lacinia eros etiam vulputate" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Auctor adipiscing nibh mus" Id="31" Name="Parturient laoreet" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Natoque nec" Id="57" Name="Vestibulum torquent ultrices curabitur congue" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Vestibulum nisi fusce posuere phasellus" Id="17" Name="Cursus lorem nisl" RoleType="Legionnaire"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Accumsan sed sem pretium">
+							<Model:OrderCardModel Description="Facilisis libero dolor ligula fermentum" Id="21" Name="Fringilla sit rhoncus sodales bibendum" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Fames litora dictumst vel" Id="38" Name="Felis quam" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Habitasse luctus ipsum" Id="57" Name="Nam justo hendrerit" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Magnis quis parturient" Id="21" Name="Mattis vestibulum mauris viverra" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Himenaeos aliquam" Id="67" Name="Vestibulum eleifend facilisi integer" RoleType="Legionnaire"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="30" RefillCapacity="43"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Inceptos interdum vivamus aliquam" PlayerName="Sed imperdiet lacus lobortis"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Montes aliquet nostra urna lorem" PlayerName="Nascetur adipiscing"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToRight>
+			<Engine:Player.PlayArea>
+				<Model:PlayArea>
+					<Model:PlayArea.JackCards>
+						<Model:JackCardModel Id="30" Name="Viverra libero curae donec"/>
+						<Model:JackCardModel Id="89" Name="Imperdiet etiam vestibulum per"/>
+						<Model:JackCardModel Id="15" Name="Pharetra ligula"/>
+						<Model:JackCardModel Id="50" Name="Malesuada fusce"/>
+						<Model:JackCardModel Id="52" Name="Penatibus placerat sed"/>
+					</Model:PlayArea.JackCards>
+					<Model:PlayArea.OrderCards>
+						<Model:OrderCardModel Description="Nunc lorem morbi sem pulvinar" Id="31" Name="Nulla odio" RoleType="Legionnaire"/>
+						<Model:OrderCardModel Description="Orci adipiscing parturient litora" Id="52" Name="Proin augue" RoleType="Patron"/>
+						<Model:OrderCardModel Description="Luctus vestibulum sit" Id="92" Name="Porttitor magnis" RoleType="Laborer"/>
+						<Model:OrderCardModel Description="Vestibulum pede mattis vel" Id="45" Name="Tincidunt nam quam" RoleType="Legionnaire"/>
+						<Model:OrderCardModel Description="Tristique dolor fames" Id="54" Name="Aliquam sagittis adipiscing sed felis" RoleType="Laborer"/>
+					</Model:PlayArea.OrderCards>
+				</Model:PlayArea>
+			</Engine:Player.PlayArea>
+		</Engine:Player>
+		<Engine:Player Id="Magna parturient dis cras" PlayerName="Quis rutrum sapien sed">
+			<Engine:Player.Camp>
+				<Model:Camp InfluencePoints="77">
+					<Model:Camp.Clientele>
+						<Model:Clientele Capacity="47" Id="Tempus fringilla vestibulum mus">
+							<Model:OrderCardModel Description="Nunc dictumst habitasse adipiscing aliquam" Id="52" Name="Odio integer orci quisque" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Hendrerit class vivamus" Id="69" Name="Himenaeos curae aliquam nec eleifend" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Aliquet tortor pede parturient" Id="26" Name="Non per" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Imperdiet turpis malesuada" Id="59" Name="Quam facilisi varius penatibus aenean" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Donec mauris nullam" Id="23" Name="Faucibus aptent" RoleType="Craftsman"/>
+						</Model:Clientele>
+					</Model:Camp.Clientele>
+					<Model:Camp.CompletedFoundations>
+						<Model:CompletedFoundations Id="Convallis vel vitae">
+							<Model:BuildingSite Id="61" MaterialType="Brick" Name="Tellus dignissim nam" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="90" MaterialType="Marble" Name="Sed pretium dis" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="87" MaterialType="Rubble" Name="Rhoncus est nisi sodales" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="33" MaterialType="Stone" Name="Hac nisl leo viverra" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="26" MaterialType="Rubble" Name="Tempor elementum facilisis fermentum" SiteType="InsideRome"/>
+						</Model:CompletedFoundations>
+					</Model:Camp.CompletedFoundations>
+					<Model:Camp.Stockpile>
+						<Model:Stockpile Id="Quis blandit auctor etiam">
+							<Model:OrderCardModel Description="Congue vestibulum vestibulum fusce adipiscing" Id="52" Name="Commodo porttitor sed" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Urna tincidunt sem" Id="48" Name="Tristique lorem" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Habitant sit vel" Id="86" Name="Inceptos nam" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Cursus ultricies parturient vestibulum" Id="61" Name="Venenatis vulputate dictum" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Sed cras" Id="13" Name="Lectus conubia" RoleType="Craftsman"/>
+						</Model:Stockpile>
+					</Model:Camp.Stockpile>
+					<Model:Camp.Vault>
+						<Model:Vault Capacity="74" Id="Duis curabitur dis">
+							<Model:OrderCardModel Description="Nunc amet" Id="90" Name="Phasellus est hac interdum" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Vestibulum consequat adipiscing ante libero" Id="84" Name="Lobortis nascetur cubilia parturient pharetra" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Morbi placerat pulvinar" Id="85" Name="Leo arcu dapibus ligula" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Egestas mus" Id="47" Name="Diam vestibulum convallis litora" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Luctus euismod nec vestibulum adipiscing" Id="78" Name="Feugiat eget" RoleType="Merchant"/>
+						</Model:Vault>
+					</Model:Camp.Vault>
+				</Model:Camp>
+			</Engine:Player.Camp>
+			<Engine:Player.ConstructionZone>
+				<Model:ConstructionZone Id="Tincidunt parturient primis egestas">
+					<Model:BuildingSite Id="83" MaterialType="Concrete" Name="Euismod vestibulum vestibulum tristique mus" SiteType="OutOfTown"/>
+					<Model:BuildingSite Id="51" MaterialType="Concrete" Name="Purus adipiscing feugiat maecenas" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="20" MaterialType="Concrete" Name="Gravida praesent" SiteType="OutOfTown"/>
+					<Model:BuildingSite Id="16" MaterialType="Stone" Name="Parturient ultricies iaculis risus" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="12" MaterialType="Brick" Name="Venenatis vestibulum" SiteType="InsideRome"/>
+				</Model:ConstructionZone>
+			</Engine:Player.ConstructionZone>
+			<Engine:Player.CompletedBuildings>
+				<Model:CompletedBuildings Id="Blandit massa malesuada pharetra">
+					<Model:OrderCardModel Description="Est placerat duis ornare" Id="79" Name="Pulvinar hac" RoleType="Laborer"/>
+					<Model:OrderCardModel Description="Commodo conubia sagittis" Id="21" Name="Nunc vestibulum senectus platea sociosqu" RoleType="Merchant"/>
+					<Model:OrderCardModel Description="Metus morbi neque" Id="52" Name="Suscipit penatibus cubilia vestibulum leo" RoleType="Architect"/>
+					<Model:OrderCardModel Description="Torquent netus" Id="34" Name="Amet ultrices nulla" RoleType="Legionnaire"/>
+					<Model:OrderCardModel Description="Vehicula volutpat porta ante arcu" Id="68" Name="Porttitor adipiscing dapibus" RoleType="Craftsman"/>
+				</Model:CompletedBuildings>
+			</Engine:Player.CompletedBuildings>
+			<Engine:Player.DemandArea>
+				<Model:DemandArea Id="Nec vulputate diam">
+					<Model:OrderCardModel Description="Non accumsan" Id="20" Name="Curabitur vestibulum velit adipiscing phasellus" RoleType="Craftsman"/>
+					<Model:OrderCardModel Description="Parturient rutrum eget" Id="97" Name="Lacinia sapien consequat" RoleType="Craftsman"/>
+					<Model:OrderCardModel Description="Elit enim" Id="39" Name="Laoreet per" RoleType="Merchant"/>
+					<Model:OrderCardModel Description="Erat bibendum vestibulum eros sed" Id="88" Name="Natoque sem" RoleType="Laborer"/>
+					<Model:OrderCardModel Description="Sit semper sociis posuere" Id="34" Name="Taciti nibh potenti" RoleType="Patron"/>
+				</Model:DemandArea>
+			</Engine:Player.DemandArea>
+			<Engine:Player.Hand>
+				<Model:Hand Count="95" RefillCapacity="13">
+					<Model:Hand.JackCards>
+						<Model:JackCardModel Id="88" Name="Parturient non"/>
+						<Model:JackCardModel Id="48" Name="Vestibulum vestibulum"/>
+						<Model:JackCardModel Id="16" Name="Elit sagittis dignissim"/>
+						<Model:JackCardModel Id="96" Name="Elementum gravida per sed facilisis"/>
+						<Model:JackCardModel Id="93" Name="Enim magnis sem adipiscing mattis"/>
+					</Model:Hand.JackCards>
+					<Model:Hand.OrderCards>
+						<Model:OrderCardModel Description="Fermentum parturient iaculis senectus" Id="82" Name="Erat vestibulum vestibulum" RoleType="Architect"/>
+						<Model:OrderCardModel Description="Fringilla sit mauris lacinia" Id="62" Name="Laoreet nulla habitasse hendrerit vel" RoleType="Legionnaire"/>
+						<Model:OrderCardModel Description="Sociosqu suscipit eros torquent" Id="38" Name="Himenaeos adipiscing mollis ultrices" RoleType="Legionnaire"/>
+						<Model:OrderCardModel Description="Natoque parturient" Id="87" Name="Vestibulum nibh" RoleType="Craftsman"/>
+						<Model:OrderCardModel Description="Nisi vehicula" Id="33" Name="Vestibulum proin" RoleType="Laborer"/>
+					</Model:Hand.OrderCards>
+				</Model:Hand>
+			</Engine:Player.Hand>
+			<Engine:Player.PlayerToLeft>
+				<Engine:Player Id="Lacus sodales sem semper viverra" PlayerName="Litora conubia vestibulum dignissim">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="50"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Arcu senectus aenean">
+							<Model:BuildingSite Id="17" MaterialType="Rubble" Name="Diam nam sed mauris sociosqu" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="33" MaterialType="Wood" Name="Suscipit metus" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="48" MaterialType="Wood" Name="Torquent curabitur dis" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="13" MaterialType="Wood" Name="Morbi nullam ultrices vehicula" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="49" MaterialType="Brick" Name="Parturient volutpat aptent eget" SiteType="OutOfTown"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Sit lorem">
+							<Model:OrderCardModel Description="Sociis inceptos interdum parturient" Id="15" Name="Urna lobortis nascetur taciti pharetra" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Tellus venenatis placerat" Id="98" Name="Aliquam vel vestibulum cras tempor" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Pulvinar integer" Id="71" Name="Tempus vulputate duis" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Magna tortor vestibulum quisque" Id="29" Name="Vivamus turpis nunc" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Adipiscing sagittis varius amet" Id="51" Name="Massa ante" RoleType="Craftsman"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Neque elit est">
+							<Model:OrderCardModel Description="Maecenas hac netus" Id="24" Name="Nulla praesent" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Phasellus porta aliquam" Id="22" Name="Purus vestibulum accumsan auctor vestibulum" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Aliquet congue cursus dictum blandit" Id="99" Name="Bibendum leo enim dictumst" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Commodo mus consequat risus" Id="85" Name="Adipiscing lectus" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Libero parturient vestibulum" Id="20" Name="Convallis ligula" RoleType="Architect"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="87" RefillCapacity="58"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Erat nec adipiscing non" PlayerName="Eros cubilia nibh dapibus parturient"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Elementum nisi" PlayerName="Egestas velit vestibulum eleifend facilisi"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToLeft>
+			<Engine:Player.PlayerToRight>
+				<Engine:Player Id="Nisl vestibulum adipiscing euismod nunc" PlayerName="Nulla arcu">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="43"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Nam urna">
+							<Model:BuildingSite Id="52" MaterialType="Marble" Name="Cras lobortis adipiscing" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="65" MaterialType="Brick" Name="Curae donec sed" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="81" MaterialType="Concrete" Name="Nascetur pharetra duis" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="61" MaterialType="Marble" Name="Dis nunc fringilla" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="57" MaterialType="Rubble" Name="Habitasse est hendrerit" SiteType="OutOfTown"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Luctus magnis facilisis parturient per">
+							<Model:OrderCardModel Description="Vitae vestibulum vestibulum adipiscing" Id="63" Name="Feugiat parturient" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Gravida iaculis class mattis faucibus" Id="31" Name="Sed sem" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Odio mauris" Id="36" Name="Mollis fermentum lacinia" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Habitant vestibulum orci vestibulum" Id="53" Name="Pede quam quis montes" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Laoreet nostra natoque inceptos" Id="48" Name="Interdum sit vel" RoleType="Patron"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Placerat parturient hac">
+							<Model:OrderCardModel Description="Vestibulum vestibulum ornare himenaeos" Id="17" Name="Pulvinar sagittis leo platea" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Mus nec posuere" Id="57" Name="Imperdiet potenti adipiscing" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Non parturient etiam senectus malesuada" Id="42" Name="Amet primis penatibus" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Pretium fusce vestibulum per sed" Id="21" Name="Sociosqu porttitor lorem suscipit" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Sem tincidunt vestibulum sit ante" Id="13" Name="Tristique morbi adipiscing" RoleType="Architect"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="17" RefillCapacity="42"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Ultricies parturient rhoncus vel" PlayerName="Rutrum sapien proin venenatis"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Vulputate curabitur" PlayerName="Nam phasellus torquent ultrices"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToRight>
+			<Engine:Player.PlayArea>
+				<Model:PlayArea>
+					<Model:PlayArea.JackCards>
+						<Model:JackCardModel Id="31" Name="Volutpat maecenas"/>
+						<Model:JackCardModel Id="79" Name="Nam sed adipiscing"/>
+						<Model:JackCardModel Id="52" Name="Posuere praesent dis est nisl"/>
+						<Model:JackCardModel Id="26" Name="Hac nunc"/>
+						<Model:JackCardModel Id="82" Name="Augue odio dolor fames felis"/>
+					</Model:PlayArea.JackCards>
+					<Model:PlayArea.OrderCards>
+						<Model:OrderCardModel Description="Imperdiet potenti malesuada" Id="37" Name="Parturient orci accumsan" RoleType="Patron"/>
+						<Model:OrderCardModel Description="Penatibus montes porttitor leo" Id="52" Name="Pede mus tincidunt" RoleType="Merchant"/>
+						<Model:OrderCardModel Description="Bibendum nostra pretium" Id="36" Name="Ipsum vestibulum rhoncus dictumst" RoleType="Architect"/>
+						<Model:OrderCardModel Description="Tristique nec" Id="75" Name="Non vestibulum quam eleifend facilisi" RoleType="Laborer"/>
+						<Model:OrderCardModel Description="Ultricies justo ornare platea" Id="55" Name="Faucibus habitant adipiscing primis per" RoleType="Legionnaire"/>
+					</Model:PlayArea.OrderCards>
+				</Model:PlayArea>
+			</Engine:Player.PlayArea>
+		</Engine:Player>
+		<Engine:Player Id="Sed augue diam vestibulum sodales" PlayerName="Quam congue">
+			<Engine:Player.Camp>
+				<Model:Camp InfluencePoints="40">
+					<Model:Camp.Clientele>
+						<Model:Clientele Capacity="60" Id="Auctor vitae">
+							<Model:OrderCardModel Description="Congue sem vestibulum" Id="29" Name="Egestas senectus sociosqu adipiscing class" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Parturient suscipit vestibulum cras euismod" Id="64" Name="Ultricies feugiat torquent" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Vestibulum adipiscing gravida" Id="69" Name="Curae venenatis sit iaculis cursus" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Vulputate lacinia ultrices dictum" Id="56" Name="Duis laoreet" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Nunc donec amet curabitur" Id="75" Name="Parturient etiam vehicula fusce volutpat" RoleType="Legionnaire"/>
+						</Model:Clientele>
+					</Model:Camp.Clientele>
+					<Model:Camp.CompletedFoundations>
+						<Model:CompletedFoundations Id="Conubia quam varius aenean">
+							<Model:BuildingSite Id="65" MaterialType="Brick" Name="Pharetra parturient" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="73" MaterialType="Wood" Name="Purus quis sed risus mauris" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="53" MaterialType="Marble" Name="Placerat nullam" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="28" MaterialType="Rubble" Name="Pulvinar urna velit vestibulum" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="62" MaterialType="Stone" Name="Cubilia sagittis aptent dapibus" SiteType="InsideRome"/>
+						</Model:CompletedFoundations>
+					</Model:Camp.CompletedFoundations>
+					<Model:Camp.Stockpile>
+						<Model:Stockpile Id="Lectus vel vestibulum">
+							<Model:OrderCardModel Description="Natoque vestibulum" Id="55" Name="Posuere libero maecenas potenti" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Ligula phasellus consequat" Id="16" Name="Pretium nam sed rhoncus litora" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Sodales viverra convallis" Id="12" Name="Dis est luctus" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Hac lorem aliquam praesent" Id="18" Name="Leo accumsan" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Dignissim ante mus" Id="65" Name="Integer arcu diam eget elementum" RoleType="Craftsman"/>
+						</Model:Stockpile>
+					</Model:Camp.Stockpile>
+					<Model:Camp.Vault>
+						<Model:Vault Capacity="53" Id="Magnis quisque">
+							<Model:OrderCardModel Description="Adipiscing morbi facilisis elit" Id="13" Name="Nec mattis bibendum" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Dictumst enim non" Id="25" Name="Nulla vivamus eleifend per aliquam" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Aliquet proin facilisi" Id="83" Name="Parturient erat" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Mauris fermentum" Id="55" Name="Mollis sed faucibus" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Augue fringilla" Id="17" Name="Dolor fames habitasse vestibulum hendrerit" RoleType="Merchant"/>
+						</Model:Vault>
+					</Model:Camp.Vault>
+				</Model:Camp>
+			</Engine:Player.Camp>
+			<Engine:Player.ConstructionZone>
+				<Model:ConstructionZone Id="Erat eros nibh">
+					<Model:BuildingSite Id="48" MaterialType="Stone" Name="Taciti justo habitasse tellus" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="30" MaterialType="Concrete" Name="Vestibulum dictumst" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="64" MaterialType="Stone" Name="Hendrerit lacus nisi eleifend nec" SiteType="OutOfTown"/>
+					<Model:BuildingSite Id="81" MaterialType="Rubble" Name="Nisl lorem" SiteType="OutOfTown"/>
+					<Model:BuildingSite Id="19" MaterialType="Marble" Name="Vestibulum tempor adipiscing" SiteType="InsideRome"/>
+				</Model:ConstructionZone>
+			</Engine:Player.ConstructionZone>
+			<Engine:Player.CompletedBuildings>
+				<Model:CompletedBuildings Id="Vehicula semper viverra">
+					<Model:OrderCardModel Description="Consequat dolor aliquam dis volutpat" Id="35" Name="Convallis dignissim est" RoleType="Laborer"/>
+					<Model:OrderCardModel Description="Hac maecenas integer leo" Id="74" Name="Quisque vestibulum" RoleType="Laborer"/>
+					<Model:OrderCardModel Description="Adipiscing eget vivamus" Id="41" Name="Praesent elementum facilisis parturient" RoleType="Architect"/>
+					<Model:OrderCardModel Description="Sociis accumsan elit enim fames" Id="55" Name="Mus fermentum" RoleType="Craftsman"/>
+					<Model:OrderCardModel Description="Bibendum felis" Id="14" Name="Ipsum aliquam fringilla" RoleType="Architect"/>
+				</Model:CompletedBuildings>
+			</Engine:Player.CompletedBuildings>
+			<Engine:Player.DemandArea>
+				<Model:DemandArea Id="Himenaeos aliquet facilisi">
+					<Model:OrderCardModel Description="Magna faucibus massa parturient" Id="80" Name="Metus imperdiet non" RoleType="Laborer"/>
+					<Model:OrderCardModel Description="Tempus habitant morbi vestibulum" Id="67" Name="Nunc neque malesuada" RoleType="Merchant"/>
+					<Model:OrderCardModel Description="Inceptos interdum odio vestibulum netus" Id="16" Name="Penatibus orci lobortis nulla per" RoleType="Legionnaire"/>
+					<Model:OrderCardModel Description="Blandit pede" Id="42" Name="Porttitor tortor tincidunt adipiscing" RoleType="Craftsman"/>
+					<Model:OrderCardModel Description="Turpis nascetur porta" Id="79" Name="Commodo tristique" RoleType="Architect"/>
+				</Model:DemandArea>
+			</Engine:Player.DemandArea>
+			<Engine:Player.Hand>
+				<Model:Hand Count="77" RefillCapacity="78">
+					<Model:Hand.JackCards>
+						<Model:JackCardModel Id="26" Name="Vestibulum sem"/>
+						<Model:JackCardModel Id="87" Name="Habitant montes"/>
+						<Model:JackCardModel Id="32" Name="Felis adipiscing ipsum"/>
+						<Model:JackCardModel Id="84" Name="Inceptos interdum himenaeos"/>
+						<Model:JackCardModel Id="71" Name="Nostra parturient justo eros"/>
+					</Model:Hand.JackCards>
+					<Model:Hand.OrderCards>
+						<Model:OrderCardModel Description="Ornare vestibulum" Id="56" Name="Vestibulum lobortis imperdiet" RoleType="Merchant"/>
+						<Model:OrderCardModel Description="Blandit malesuada nibh sit" Id="11" Name="Vel adipiscing" RoleType="Laborer"/>
+						<Model:OrderCardModel Description="Penatibus platea" Id="93" Name="Porttitor commodo" RoleType="Merchant"/>
+						<Model:OrderCardModel Description="Primis rutrum sapien nisi conubia" Id="51" Name="Nascetur pharetra semper nisl lacus" RoleType="Merchant"/>
+						<Model:OrderCardModel Description="Sociis lorem nunc cubilia" Id="75" Name="Dapibus taciti tellus placerat" RoleType="Laborer"/>
+					</Model:Hand.OrderCards>
+				</Model:Hand>
+			</Engine:Player.Hand>
+			<Engine:Player.PlayerToLeft>
+				<Engine:Player Id="Natoque dignissim vestibulum" PlayerName="Vestibulum placerat">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="76"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Elementum quisque litora facilisis nam">
+							<Model:BuildingSite Id="24" MaterialType="Rubble" Name="Accumsan fermentum bibendum luctus diam" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="23" MaterialType="Marble" Name="Fringilla nulla vivamus habitasse" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="12" MaterialType="Concrete" Name="Aliquam dictumst porta" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="26" MaterialType="Rubble" Name="Eleifend aliquet magnis facilisi sed" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="95" MaterialType="Concrete" Name="Hendrerit faucibus himenaeos" SiteType="InsideRome"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Vestibulum metus cursus quis posuere">
+							<Model:OrderCardModel Description="Urna cras nec" Id="18" Name="Potenti non adipiscing duis pretium" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Rhoncus morbi per volutpat" Id="75" Name="Maecenas sed" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Nunc sodales amet praesent" Id="57" Name="Sem dictum lectus libero viverra" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Ante neque" Id="79" Name="Arcu parturient" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Netus sit vel" Id="10" Name="Ligula aliquam integer" RoleType="Merchant"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Purus vestibulum dis imperdiet mattis">
+							<Model:OrderCardModel Description="Mauris vestibulum mollis" Id="19" Name="Eget malesuada blandit" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Habitant inceptos elit adipiscing" Id="65" Name="Risus penatibus est velit" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Porttitor parturient tincidunt" Id="37" Name="Vitae montes" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Commodo interdum class tristique enim" Id="41" Name="Ultricies lobortis" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Venenatis nascetur hac vulputate curabitur" Id="39" Name="Pharetra phasellus" RoleType="Architect"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="18" RefillCapacity="58"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Vestibulum consequat nostra adipiscing parturient" PlayerName="Vestibulum conubia"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Cubilia dapibus leo vestibulum" PlayerName="Mus egestas"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToLeft>
+			<Engine:Player.PlayerToRight>
+				<Engine:Player Id="Adipiscing parturient euismod feugiat pulvinar" PlayerName="Sed vestibulum">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="87"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Laoreet fringilla natoque">
+							<Model:BuildingSite Id="38" MaterialType="Marble" Name="Nam habitasse quam adipiscing" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="64" MaterialType="Rubble" Name="Hendrerit quis primis rutrum parturient" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="59" MaterialType="Rubble" Name="Vestibulum vestibulum sed himenaeos urna" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="51" MaterialType="Brick" Name="Cras duis posuere suscipit morbi" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="73" MaterialType="Wood" Name="Imperdiet dis" SiteType="OutOfTown"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Erat convallis">
+							<Model:OrderCardModel Description="Eros nec nibh curae" Id="67" Name="Nisi dignissim non sagittis" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Ornare nisl" Id="62" Name="Gravida vestibulum per iaculis" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Vestibulum sed donec" Id="34" Name="Etiam platea senectus sem elementum" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Nunc odio facilisis" Id="65" Name="Sociosqu fusce fermentum" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Sit lorem" Id="77" Name="Orci vel lacinia pede" RoleType="Architect"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Potenti pretium rhoncus nunc">
+							<Model:OrderCardModel Description="Sodales est" Id="56" Name="Adipiscing viverra sapien parturient" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Hac leo aliquam nulla" Id="19" Name="Integer proin torquent" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Amet ultrices malesuada vehicula vestibulum" Id="74" Name="Volutpat augue penatibus dolor" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Mus vestibulum adipiscing nec" Id="84" Name="Semper ante non quisque vivamus" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Fames aliquam maecenas felis" Id="17" Name="Per sociis parturient aliquet" RoleType="Patron"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="57" RefillCapacity="79"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Sem ipsum porttitor" PlayerName="Praesent tincidunt"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Vestibulum taciti accumsan sit" PlayerName="Justo blandit tristique arcu tellus"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToRight>
+			<Engine:Player.PlayArea>
+				<Model:PlayArea>
+					<Model:PlayArea.JackCards>
+						<Model:JackCardModel Id="48" Name="Tempor tincidunt tristique magna"/>
+						<Model:JackCardModel Id="59" Name="Pulvinar nam tempus parturient sagittis"/>
+						<Model:JackCardModel Id="24" Name="Sed senectus tortor turpis"/>
+						<Model:JackCardModel Id="79" Name="Varius egestas dis odio"/>
+						<Model:JackCardModel Id="56" Name="Aenean est ultricies venenatis"/>
+					</Model:PlayArea.JackCards>
+					<Model:PlayArea.OrderCards>
+						<Model:OrderCardModel Description="Euismod vulputate feugiat" Id="15" Name="Curabitur mauris" RoleType="Legionnaire"/>
+						<Model:OrderCardModel Description="Nullam orci" Id="19" Name="Sociosqu gravida aptent" RoleType="Architect"/>
+						<Model:OrderCardModel Description="Iaculis lacinia pede" Id="71" Name="Vestibulum hac phasellus" RoleType="Architect"/>
+						<Model:OrderCardModel Description="Leo consequat massa suscipit torquent" Id="99" Name="Vestibulum laoreet convallis" RoleType="Patron"/>
+						<Model:OrderCardModel Description="Ultrices adipiscing parturient" Id="39" Name="Vehicula mus auctor" RoleType="Architect"/>
+					</Model:PlayArea.OrderCards>
+				</Model:PlayArea>
+			</Engine:Player.PlayArea>
+		</Engine:Player>
+		<Engine:Player Id="Lacus vel nam bibendum tempor" PlayerName="Non fusce">
+			<Engine:Player.Camp>
+				<Model:Camp InfluencePoints="55">
+					<Model:Camp.Clientele>
+						<Model:Clientele Capacity="98" Id="Suscipit nisl lorem">
+							<Model:OrderCardModel Description="Facilisis vestibulum" Id="28" Name="Mus morbi nunc nec" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Fermentum nulla non torquent rhoncus" Id="24" Name="Odio proin sodales" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Orci fringilla adipiscing ultrices augue" Id="50" Name="Viverra aliquam" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Per sed integer" Id="73" Name="Sem habitasse" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Parturient vestibulum vehicula vestibulum" Id="50" Name="Quisque libero pede" RoleType="Merchant"/>
+						</Model:Clientele>
+					</Model:Camp.Clientele>
+					<Model:Camp.CompletedFoundations>
+						<Model:CompletedFoundations Id="Sit sagittis vel">
+							<Model:BuildingSite Id="11" MaterialType="Wood" Name="Congue nam" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="14" MaterialType="Concrete" Name="Cursus senectus fusce posuere potenti" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="47" MaterialType="Rubble" Name="Vestibulum sed dis nibh dictum" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="14" MaterialType="Concrete" Name="Est pretium lectus elementum" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="52" MaterialType="Wood" Name="Sociosqu nisi hac leo" SiteType="OutOfTown"/>
+						</Model:CompletedFoundations>
+					</Model:Camp.CompletedFoundations>
+					<Model:Camp.Stockpile>
+						<Model:Stockpile Id="Volutpat vivamus hendrerit">
+							<Model:OrderCardModel Description="Quam quis ligula" Id="17" Name="Himenaeos urna imperdiet sit" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Maecenas litora dolor cras" Id="31" Name="Fames luctus" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Magnis duis mattis" Id="35" Name="Felis praesent malesuada penatibus" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Porttitor aliquam" Id="57" Name="Ipsum mauris nunc" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Tincidunt accumsan amet ante" Id="50" Name="Arcu adipiscing aliquet parturient" RoleType="Craftsman"/>
+						</Model:Stockpile>
+					</Model:Camp.Stockpile>
+					<Model:Camp.Vault>
+						<Model:Vault Capacity="61" Id="Mollis blandit tristique">
+							<Model:OrderCardModel Description="Justo commodo lacus" Id="81" Name="Ultricies vestibulum montes vel bibendum" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Dictumst eleifend nostra" Id="49" Name="Diam venenatis eget" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Nam conubia vulputate" Id="65" Name="Curabitur vestibulum facilisi adipiscing sed" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Cubilia lorem" Id="62" Name="Dis phasellus dapibus elit" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Magna egestas massa" Id="80" Name="Est parturient ornare hac consequat" RoleType="Legionnaire"/>
+						</Model:Vault>
+					</Model:Camp.Vault>
+				</Model:Camp>
+			</Engine:Player.Camp>
+			<Engine:Player.ConstructionZone>
+				<Model:ConstructionZone Id="Aenean nulla eget">
+					<Model:BuildingSite Id="48" MaterialType="Marble" Name="Conubia mus nec porta" SiteType="OutOfTown"/>
+					<Model:BuildingSite Id="58" MaterialType="Stone" Name="Vestibulum purus" SiteType="OutOfTown"/>
+					<Model:BuildingSite Id="82" MaterialType="Wood" Name="Non adipiscing" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="68" MaterialType="Stone" Name="Cubilia elit" SiteType="InsideRome"/>
+					<Model:BuildingSite Id="82" MaterialType="Concrete" Name="Facilisi dapibus risus enim phasellus" SiteType="InsideRome"/>
+				</Model:ConstructionZone>
+			</Engine:Player.ConstructionZone>
+			<Engine:Player.CompletedBuildings>
+				<Model:CompletedBuildings Id="Tempus ultricies adipiscing">
+					<Model:OrderCardModel Description="Parturient venenatis lorem vulputate vestibulum" Id="36" Name="Vestibulum commodo magna" RoleType="Patron"/>
+					<Model:OrderCardModel Description="Curabitur massa" Id="92" Name="Dictumst tortor" RoleType="Legionnaire"/>
+					<Model:OrderCardModel Description="Eleifend sed" Id="55" Name="Metus morbi dis est" RoleType="Craftsman"/>
+					<Model:OrderCardModel Description="Adipiscing turpis" Id="87" Name="Hac diam" RoleType="Craftsman"/>
+					<Model:OrderCardModel Description="Parturient varius neque" Id="80" Name="Netus vestibulum leo" RoleType="Laborer"/>
+				</Model:CompletedBuildings>
+			</Engine:Player.CompletedBuildings>
+			<Engine:Player.DemandArea>
+				<Model:DemandArea Id="Faucibus velit habitant inceptos">
+					<Model:OrderCardModel Description="Egestas vitae euismod mauris" Id="31" Name="Parturient consequat vestibulum" RoleType="Laborer"/>
+					<Model:OrderCardModel Description="Vestibulum nullam" Id="83" Name="Interdum per feugiat convallis gravida" RoleType="Merchant"/>
+					<Model:OrderCardModel Description="Erat sed aptent lobortis" Id="50" Name="Nascetur class adipiscing parturient sem" RoleType="Architect"/>
+					<Model:OrderCardModel Description="Auctor curae donec" Id="80" Name="Iaculis lacinia eros laoreet" RoleType="Merchant"/>
+					<Model:OrderCardModel Description="Natoque pharetra etiam placerat" Id="57" Name="Pulvinar dignissim" RoleType="Laborer"/>
+				</Model:DemandArea>
+			</Engine:Player.DemandArea>
+			<Engine:Player.Hand>
+				<Model:Hand Count="72" RefillCapacity="61">
+					<Model:Hand.JackCards>
+						<Model:JackCardModel Id="82" Name="Platea leo convallis primis rutrum"/>
+						<Model:JackCardModel Id="85" Name="Euismod faucibus feugiat sapien"/>
+						<Model:JackCardModel Id="16" Name="Semper sociis vestibulum enim taciti"/>
+						<Model:JackCardModel Id="94" Name="Dignissim mus gravida"/>
+						<Model:JackCardModel Id="69" Name="Elementum vestibulum"/>
+					</Model:Hand.JackCards>
+					<Model:Hand.OrderCards>
+						<Model:OrderCardModel Description="Metus adipiscing parturient" Id="81" Name="Habitant nec facilisis vestibulum" RoleType="Laborer"/>
+						<Model:OrderCardModel Description="Morbi erat" Id="37" Name="Neque tellus netus nulla" RoleType="Legionnaire"/>
+						<Model:OrderCardModel Description="Non porta per fermentum sed" Id="67" Name="Tempor eros" RoleType="Merchant"/>
+						<Model:OrderCardModel Description="Purus risus sem vestibulum" Id="32" Name="Inceptos tempus" RoleType="Legionnaire"/>
+						<Model:OrderCardModel Description="Iaculis sit adipiscing" Id="76" Name="Fringilla nibh" RoleType="Merchant"/>
+					</Model:Hand.OrderCards>
+				</Model:Hand>
+			</Engine:Player.Hand>
+			<Engine:Player.PlayerToLeft>
+				<Engine:Player Id="Vulputate curabitur per quam phasellus" PlayerName="Est hac malesuada">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="13"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Augue vestibulum diam luctus">
+							<Model:BuildingSite Id="81" MaterialType="Concrete" Name="Suscipit torquent" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="31" MaterialType="Stone" Name="Ultrices facilisis vehicula fermentum" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="69" MaterialType="Brick" Name="Sed fringilla commodo eget sem" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="40" MaterialType="Rubble" Name="Sit elit" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="91" MaterialType="Concrete" Name="Adipiscing habitasse" SiteType="OutOfTown"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Adipiscing quis sodales libero consequat">
+							<Model:OrderCardModel Description="Viverra convallis lorem" Id="93" Name="Urna aliquam cras" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Duis dignissim integer morbi quisque" Id="50" Name="Placerat parturient vivamus vestibulum" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Pulvinar vestibulum adipiscing aliquam" Id="61" Name="Sagittis parturient" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Vestibulum nulla ligula" Id="43" Name="Elementum proin senectus" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Aliquet nunc litora" Id="34" Name="Amet ante sociosqu blandit arcu" RoleType="Patron"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Parturient conubia cubilia hendrerit">
+							<Model:OrderCardModel Description="Magnis enim mattis dapibus" Id="49" Name="Volutpat vel erat" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Mauris nam mollis" Id="33" Name="Dolor egestas maecenas himenaeos" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Euismod vestibulum sed eros" Id="65" Name="Nibh feugiat praesent accumsan gravida" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Nisi montes dis nostra vestibulum" Id="29" Name="Nisl adipiscing" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Bibendum iaculis imperdiet nunc dictumst" Id="45" Name="Odio orci" RoleType="Craftsman"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="43" RefillCapacity="58"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Lacinia fames" PlayerName="Parturient ornare"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Pede eleifend" PlayerName="Felis ipsum facilisi leo"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToLeft>
+			<Engine:Player.PlayerToRight>
+				<Engine:Player Id="Faucibus habitant" PlayerName="Curabitur non odio orci pede">
+					<Engine:Player.Camp>
+						<Model:Camp InfluencePoints="52"/>
+					</Engine:Player.Camp>
+					<Engine:Player.ConstructionZone>
+						<Model:ConstructionZone Id="Rutrum vel">
+							<Model:BuildingSite Id="58" MaterialType="Concrete" Name="Vestibulum posuere eget magna" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="55" MaterialType="Marble" Name="Elit penatibus suscipit sapien" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="87" MaterialType="Wood" Name="Vestibulum porttitor" SiteType="InsideRome"/>
+							<Model:BuildingSite Id="67" MaterialType="Stone" Name="Enim erat semper torquent" SiteType="OutOfTown"/>
+							<Model:BuildingSite Id="34" MaterialType="Rubble" Name="Potenti eros adipiscing" SiteType="OutOfTown"/>
+						</Model:ConstructionZone>
+					</Engine:Player.ConstructionZone>
+					<Engine:Player.CompletedBuildings>
+						<Model:CompletedBuildings Id="Platea vestibulum mus inceptos">
+							<Model:OrderCardModel Description="Interdum quam quis laoreet" Id="23" Name="Lobortis urna cras nec nascetur" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Pharetra placerat natoque" Id="15" Name="Non primis" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Pulvinar vestibulum duis justo" Id="27" Name="Per lacus sagittis nunc" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Sed senectus" Id="79" Name="Sociosqu amet lorem" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Ante arcu sem diam adipiscing" Id="55" Name="Sit parturient" RoleType="Laborer"/>
+						</Model:CompletedBuildings>
+					</Engine:Player.CompletedBuildings>
+					<Engine:Player.DemandArea>
+						<Model:DemandArea Id="Tincidunt parturient">
+							<Model:OrderCardModel Description="Pretium nibh sociis tristique taciti" Id="31" Name="Vestibulum nam vestibulum ultrices" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Rhoncus ultricies sodales sed" Id="42" Name="Adipiscing viverra dis" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Aliquam nisi vehicula nisl parturient" Id="88" Name="Tellus integer venenatis vestibulum" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Vestibulum est volutpat tempor quisque" Id="57" Name="Hac leo massa" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Mus adipiscing vulputate tempus maecenas" Id="66" Name="Praesent metus nunc parturient nec" RoleType="Merchant"/>
+						</Model:DemandArea>
+					</Engine:Player.DemandArea>
+					<Engine:Player.Hand>
+						<Model:Hand Count="65" RefillCapacity="92"/>
+					</Engine:Player.Hand>
+					<Engine:Player.PlayerToLeft>
+						<Engine:Player Id="Phasellus accumsan" PlayerName="Vestibulum vestibulum quam"/>
+					</Engine:Player.PlayerToLeft>
+					<Engine:Player.PlayerToRight>
+						<Engine:Player Id="Vivamus per sed aliquam bibendum" PlayerName="Consequat aliquet adipiscing morbi tortor"/>
+					</Engine:Player.PlayerToRight>
+					<Engine:Player.PlayArea>
+						<Model:PlayArea/>
+					</Engine:Player.PlayArea>
+				</Engine:Player>
+			</Engine:Player.PlayerToRight>
+			<Engine:Player.PlayArea>
+				<Model:PlayArea>
+					<Model:PlayArea.JackCards>
+						<Model:JackCardModel Id="79" Name="Tortor vel turpis habitasse"/>
+						<Model:JackCardModel Id="70" Name="Hendrerit lacinia"/>
+						<Model:JackCardModel Id="82" Name="Varius interdum laoreet natoque nisi"/>
+						<Model:JackCardModel Id="36" Name="Aenean nisl parturient"/>
+						<Model:JackCardModel Id="59" Name="Nunc nam himenaeos vestibulum mauris"/>
+					</Model:PlayArea.JackCards>
+					<Model:PlayArea.OrderCards>
+						<Model:OrderCardModel Description="Vestibulum sed" Id="17" Name="Odio lobortis posuere adipiscing parturient" RoleType="Legionnaire"/>
+						<Model:OrderCardModel Description="Vestibulum dis nascetur velit imperdiet" Id="77" Name="Nullam aptent est hac orci" RoleType="Merchant"/>
+						<Model:OrderCardModel Description="Malesuada vitae auctor" Id="14" Name="Potenti congue class penatibus pretium" RoleType="Merchant"/>
+						<Model:OrderCardModel Description="Leo porttitor tincidunt mus cursus" Id="23" Name="Curae pharetra nec dictum" RoleType="Laborer"/>
+						<Model:OrderCardModel Description="Tristique pede donec etiam vestibulum" Id="39" Name="Ultricies venenatis rhoncus lectus" RoleType="Patron"/>
+					</Model:PlayArea.OrderCards>
+				</Model:PlayArea>
+			</Engine:Player.PlayArea>
+		</Engine:Player>
+	</Model:GameTable.Players>
+	<Model:GameTable.SiteDecks>
+		<CardCollections:SiteDeck Id="Morbi elit enim" MaterialType="Concrete">
+			<CardCollections:SiteDeck.Top>
+				<Model:BuildingSite Id="91" MaterialType="Wood" Name="Congue quisque" SiteType="OutOfTown">
+					<Model:BuildingSite.BuildingFoundation>
+						<Table:BuildingFoundation Capacity="99" Id="Nam class">
+							<Model:OrderCardModel Description="Aenean curae curabitur" Id="77" Name="Cras phasellus maecenas" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Mauris vestibulum sed" Id="98" Name="Duis donec dis etiam nunc" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Nullam praesent" Id="91" Name="Aliquam amet aptent ante auctor" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Accumsan fusce est bibendum" Id="86" Name="Hac consequat convallis" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Arcu dignissim dictumst lorem diam" Id="51" Name="Eget integer" RoleType="Merchant"/>
+						</Table:BuildingFoundation>
+					</Model:BuildingSite.BuildingFoundation>
+				</Model:BuildingSite>
+			</CardCollections:SiteDeck.Top>
+			<Model:BuildingSite Id="31" MaterialType="Concrete" Name="Adipiscing facilisi parturient" SiteType="OutOfTown">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="76" Id="Elementum eleifend"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="61" MaterialType="Marble" Name="Nulla leo faucibus" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="29" Id="Vivamus aliquam"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="97" MaterialType="Concrete" Name="Habitasse inceptos vestibulum interdum" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="65" Id="Habitant facilisis fermentum fringilla"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="96" MaterialType="Concrete" Name="Vestibulum lobortis himenaeos" SiteType="OutOfTown">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="15" Id="Aliquet hendrerit"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="58" MaterialType="Concrete" Name="Mus adipiscing eros" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="92" Id="Erat cursus"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+		</CardCollections:SiteDeck>
+		<CardCollections:SiteDeck Id="Sem tristique" MaterialType="Brick">
+			<CardCollections:SiteDeck.Top>
+				<Model:BuildingSite Id="12" MaterialType="Brick" Name="Euismod dolor" SiteType="InsideRome">
+					<Model:BuildingSite.BuildingFoundation>
+						<Table:BuildingFoundation Capacity="45" Id="Nascetur parturient nec proin">
+							<Model:OrderCardModel Description="Non nibh dictum" Id="56" Name="Imperdiet malesuada" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Pharetra per sed lectus" Id="51" Name="Blandit placerat" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Commodo nisi vestibulum conubia libero" Id="21" Name="Augue penatibus cubilia porttitor tincidunt" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Ligula nisl" Id="78" Name="Nunc vestibulum pulvinar odio adipiscing" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Sagittis litora dapibus orci" Id="21" Name="Egestas luctus senectus" RoleType="Laborer"/>
+						</Table:BuildingFoundation>
+					</Model:BuildingSite.BuildingFoundation>
+				</Model:BuildingSite>
+			</CardCollections:SiteDeck.Top>
+			<Model:BuildingSite Id="79" MaterialType="Wood" Name="Mattis parturient pede" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="24" Id="Fames feugiat magnis felis"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="80" MaterialType="Brick" Name="Ultricies venenatis ipsum" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="95" Id="Sit mauris mollis montes"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="28" MaterialType="Rubble" Name="Sociosqu vestibulum" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="30" Id="Quam gravida"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="34" MaterialType="Concrete" Name="Nostra sed adipiscing ornare" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="50" Id="Justo vestibulum vel iaculis nam"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="36" MaterialType="Stone" Name="Lorem vestibulum magna quis" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="93" Id="Parturient suscipit lacus vestibulum dis"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+		</CardCollections:SiteDeck>
+		<CardCollections:SiteDeck Id="Vestibulum ante arcu tellus maecenas" MaterialType="Wood">
+			<CardCollections:SiteDeck.Top>
+				<Model:BuildingSite Id="66" MaterialType="Marble" Name="Viverra facilisis porta taciti" SiteType="InsideRome">
+					<Model:BuildingSite.BuildingFoundation>
+						<Table:BuildingFoundation Capacity="55" Id="Massa est vulputate urna torquent">
+							<Model:OrderCardModel Description="Lacinia ultrices laoreet cras" Id="21" Name="Vehicula curabitur phasellus metus" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Adipiscing hac natoque" Id="87" Name="Leo mus" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Consequat convallis posuere parturient" Id="22" Name="Morbi potenti platea neque" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Primis duis rutrum sapien semper" Id="28" Name="Dignissim nec vestibulum nunc pretium" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Amet non netus rhoncus elementum" Id="24" Name="Sodales nulla sociis per volutpat" RoleType="Patron"/>
+						</Table:BuildingFoundation>
+					</Model:BuildingSite.BuildingFoundation>
+				</Model:BuildingSite>
+			</CardCollections:SiteDeck.Top>
+			<Model:BuildingSite Id="70" MaterialType="Marble" Name="Tempus diam aliquam sed" SiteType="OutOfTown">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="67" Id="Tempor fermentum purus praesent"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="89" MaterialType="Brick" Name="Accumsan tortor turpis adipiscing hendrerit" SiteType="OutOfTown">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="46" Id="Fringilla eget sem habitasse risus"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="37" MaterialType="Brick" Name="Vestibulum varius himenaeos dictumst integer" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="89" Id="Elit parturient vestibulum bibendum"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="43" MaterialType="Concrete" Name="Aenean velit quisque" SiteType="OutOfTown">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="56" Id="Adipiscing sit"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="88" MaterialType="Stone" Name="Imperdiet malesuada penatibus class parturient" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="99" Id="Vivamus vitae"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+		</CardCollections:SiteDeck>
+		<CardCollections:SiteDeck Id="Fusce vestibulum" MaterialType="Stone">
+			<CardCollections:SiteDeck.Top>
+				<Model:BuildingSite Id="96" MaterialType="Wood" Name="Hac habitant" SiteType="InsideRome">
+					<Model:BuildingSite.BuildingFoundation>
+						<Table:BuildingFoundation Capacity="78" Id="Curae enim">
+							<Model:OrderCardModel Description="Mauris aliquam donec vel" Id="30" Name="Vestibulum erat nam vestibulum adipiscing" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Parturient nullam" Id="42" Name="Sed aliquet eleifend" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Porttitor vestibulum" Id="43" Name="Tincidunt vestibulum" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Facilisi blandit commodo" Id="31" Name="Dis etiam tristique aptent eros" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Est adipiscing conubia cubilia faucibus" Id="66" Name="Parturient ultricies venenatis dapibus" RoleType="Laborer"/>
+						</Table:BuildingFoundation>
+					</Model:BuildingSite.BuildingFoundation>
+				</Model:BuildingSite>
+			</CardCollections:SiteDeck.Top>
+			<Model:BuildingSite Id="16" MaterialType="Concrete" Name="Nibh cursus vestibulum egestas" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="77" Id="Auctor congue leo"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="21" MaterialType="Wood" Name="Nec dictum nisi inceptos" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="55" Id="Mus euismod adipiscing parturient"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="12" MaterialType="Rubble" Name="Nisl lectus gravida interdum nunc" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="55" Id="Feugiat lorem"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="36" MaterialType="Concrete" Name="Iaculis odio lobortis" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="78" Id="Non morbi nulla proin"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="70" MaterialType="Marble" Name="Lacinia per dolor pede laoreet" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="71" Id="Orci nascetur augue"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+		</CardCollections:SiteDeck>
+		<CardCollections:SiteDeck Id="Dignissim dis viverra vestibulum" MaterialType="Concrete">
+			<CardCollections:SiteDeck.Top>
+				<Model:BuildingSite Id="84" MaterialType="Stone" Name="Convallis sociosqu sed" SiteType="InsideRome">
+					<Model:BuildingSite.BuildingFoundation>
+						<Table:BuildingFoundation Capacity="60" Id="Vestibulum vulputate vestibulum adipiscing">
+							<Model:OrderCardModel Description="Sed natoque parturient posuere potenti" Id="84" Name="Quam pharetra sem quis urna" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Vestibulum cras curabitur" Id="14" Name="Duis fames" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Felis placerat" Id="46" Name="Phasellus sit ipsum libero justo" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Lacus lorem pulvinar pretium" Id="26" Name="Ligula consequat" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Rhoncus vel litora magna luctus" Id="41" Name="Sagittis senectus sodales nam" RoleType="Architect"/>
+						</Table:BuildingFoundation>
+					</Model:BuildingSite.BuildingFoundation>
+				</Model:BuildingSite>
+			</CardCollections:SiteDeck.Top>
+			<Model:BuildingSite Id="17" MaterialType="Stone" Name="Suscipit facilisis hac fermentum" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="53" Id="Elementum est"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="23" MaterialType="Wood" Name="Aliquam magnis torquent amet" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="74" Id="Fringilla nunc habitasse"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="52" MaterialType="Rubble" Name="Imperdiet integer mus" SiteType="OutOfTown">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="34" Id="Ultrices hendrerit leo himenaeos"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="47" MaterialType="Concrete" Name="Penatibus nec vivamus porttitor massa" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="48" Id="Malesuada quisque"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="40" MaterialType="Wood" Name="Aliquam mattis tincidunt mauris" SiteType="OutOfTown">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="31" Id="Adipiscing non per"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+		</CardCollections:SiteDeck>
+		<CardCollections:SiteDeck Id="Vestibulum cubilia" MaterialType="Brick">
+			<CardCollections:SiteDeck.Top>
+				<Model:BuildingSite Id="90" MaterialType="Rubble" Name="Erat sed praesent" SiteType="OutOfTown">
+					<Model:BuildingSite.BuildingFoundation>
+						<Table:BuildingFoundation Capacity="72" Id="Aliquet vehicula tristique">
+							<Model:OrderCardModel Description="Blandit ultricies venenatis" Id="14" Name="Ante metus commodo" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Vulputate arcu parturient morbi mollis" Id="61" Name="Vestibulum volutpat" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Diam vestibulum" Id="92" Name="Montes nostra sed" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Eget elit maecenas" Id="34" Name="Neque netus conubia" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Adipiscing sem curabitur sit vel" Id="55" Name="Parturient phasellus nam enim nulla" RoleType="Patron"/>
+						</Table:BuildingFoundation>
+					</Model:BuildingSite.BuildingFoundation>
+				</Model:BuildingSite>
+			</CardCollections:SiteDeck.Top>
+			<Model:BuildingSite Id="22" MaterialType="Brick" Name="Ornare consequat dis platea" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="45" Id="Vestibulum adipiscing parturient dapibus"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="55" MaterialType="Stone" Name="Risus primis est" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="69" Id="Convallis accumsan vestibulum porta purus"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="67" MaterialType="Brick" Name="Dignissim elementum" SiteType="OutOfTown">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="21" Id="Velit egestas vitae class eros"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="62" MaterialType="Brick" Name="Bibendum curae" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="68" Id="Hac leo euismod rutrum"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="66" MaterialType="Brick" Name="Feugiat gravida" SiteType="OutOfTown">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="28" Id="Vestibulum adipiscing facilisis"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+		</CardCollections:SiteDeck>
+		<CardCollections:SiteDeck Id="Tellus vestibulum" MaterialType="Brick">
+			<CardCollections:SiteDeck.Top>
+				<Model:BuildingSite Id="57" MaterialType="Rubble" Name="Taciti laoreet malesuada" SiteType="OutOfTown">
+					<Model:BuildingSite.BuildingFoundation>
+						<Table:BuildingFoundation Capacity="96" Id="Donec etiam dictumst eleifend fermentum">
+							<Model:OrderCardModel Description="Facilisi fringilla faucibus" Id="58" Name="Mus fusce nibh habitant sapien" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Inceptos interdum nisi parturient" Id="94" Name="Semper sociis lobortis" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Lorem nisl nunc habitasse iaculis" Id="51" Name="Vestibulum morbi" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Nulla nec hendrerit" Id="61" Name="Himenaeos non imperdiet nascetur per" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Odio proin pharetra" Id="88" Name="Placerat lacinia" RoleType="Merchant"/>
+						</Table:BuildingFoundation>
+					</Model:BuildingSite.BuildingFoundation>
+				</Model:BuildingSite>
+			</CardCollections:SiteDeck.Top>
+			<Model:BuildingSite Id="23" MaterialType="Brick" Name="Sem tempus" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="89" Id="Tempor sed pulvinar adipiscing orci"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="82" MaterialType="Brick" Name="Sit parturient vel vestibulum" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="91" Id="Tortor penatibus augue pede"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="64" MaterialType="Marble" Name="Posuere nam porttitor sagittis" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="52" Id="Dolor turpis natoque quam"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="73" MaterialType="Marble" Name="Tincidunt quis senectus tristique" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="16" Id="Potenti pretium"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="72" MaterialType="Marble" Name="Cras venenatis suscipit varius adipiscing" SiteType="OutOfTown">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="34" Id="Urna ultricies fames sociosqu vestibulum"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+		</CardCollections:SiteDeck>
+		<CardCollections:SiteDeck Id="Aliquam lacus consequat" MaterialType="Brick">
+			<CardCollections:SiteDeck.Top>
+				<Model:BuildingSite Id="23" MaterialType="Marble" Name="Cursus dictum vivamus vestibulum" SiteType="InsideRome">
+					<Model:BuildingSite.BuildingFoundation>
+						<Table:BuildingFoundation Capacity="15" Id="Torquent felis ultrices">
+							<Model:OrderCardModel Description="Parturient aenean vestibulum sed mauris" Id="31" Name="Rhoncus vulputate" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Duis vestibulum adipiscing sodales" Id="19" Name="Parturient curabitur" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Viverra nullam" Id="78" Name="Dis aptent ipsum vestibulum vehicula" RoleType="Merchant"/>
+							<Model:OrderCardModel Description="Volutpat aliquam integer phasellus auctor" Id="35" Name="Vestibulum adipiscing nunc maecenas" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Est praesent quisque amet congue" Id="38" Name="Parturient justo accumsan" RoleType="Laborer"/>
+						</Table:BuildingFoundation>
+					</Model:BuildingSite.BuildingFoundation>
+				</Model:BuildingSite>
+			</CardCollections:SiteDeck.Top>
+			<Model:BuildingSite Id="14" MaterialType="Concrete" Name="Bibendum lorem aliquet" SiteType="OutOfTown">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="11" Id="Convallis dignissim ante"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="39" MaterialType="Marble" Name="Elementum dictumst hac" SiteType="OutOfTown">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="72" Id="Vestibulum blandit"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="50" MaterialType="Marble" Name="Eleifend lectus facilisi" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="41" Id="Magna adipiscing arcu"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="61" MaterialType="Brick" Name="Faucibus massa" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="15" Id="Commodo conubia facilisis diam parturient"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="85" MaterialType="Rubble" Name="Metus habitant" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="16" Id="Cubilia eget libero leo vestibulum"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+		</CardCollections:SiteDeck>
+		<CardCollections:SiteDeck Id="Magnis malesuada nulla pharetra sit" MaterialType="Brick">
+			<CardCollections:SiteDeck.Top>
+				<Model:BuildingSite Id="14" MaterialType="Marble" Name="Nunc sem odio gravida" SiteType="InsideRome">
+					<Model:BuildingSite.BuildingFoundation>
+						<Table:BuildingFoundation Capacity="52" Id="Mus morbi inceptos nec">
+							<Model:OrderCardModel Description="Dapibus fermentum" Id="88" Name="Elit fringilla" RoleType="Laborer"/>
+							<Model:OrderCardModel Description="Enim erat eros" Id="36" Name="Habitasse egestas neque interdum" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Netus euismod lobortis vestibulum hendrerit" Id="88" Name="Ligula non litora nascetur" RoleType="Patron"/>
+							<Model:OrderCardModel Description="Himenaeos nibh imperdiet" Id="21" Name="Per nisi nisl" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Adipiscing feugiat" Id="26" Name="Luctus parturient sed vestibulum" RoleType="Laborer"/>
+						</Table:BuildingFoundation>
+					</Model:BuildingSite.BuildingFoundation>
+				</Model:BuildingSite>
+			</CardCollections:SiteDeck.Top>
+			<Model:BuildingSite Id="21" MaterialType="Wood" Name="Vestibulum penatibus porttitor" SiteType="OutOfTown">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="13" Id="Orci pede vel"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="18" MaterialType="Rubble" Name="Tincidunt sed" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="64" Id="Porta nam mattis purus adipiscing"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="57" MaterialType="Wood" Name="Dis quis iaculis" SiteType="OutOfTown">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="92" Id="Quam mauris"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="81" MaterialType="Stone" Name="Laoreet vitae placerat" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="62" Id="Est risus lacinia velit"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="95" MaterialType="Rubble" Name="Pulvinar tristique ultricies" SiteType="OutOfTown">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="87" Id="Urna mollis natoque class curae"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+		</CardCollections:SiteDeck>
+		<CardCollections:SiteDeck Id="Arcu maecenas praesent" MaterialType="Concrete">
+			<CardCollections:SiteDeck.Top>
+				<Model:BuildingSite Id="80" MaterialType="Marble" Name="Rutrum ante per" SiteType="OutOfTown">
+					<Model:BuildingSite.BuildingFoundation>
+						<Table:BuildingFoundation Capacity="63" Id="Sagittis senectus parturient venenatis">
+							<Model:OrderCardModel Description="Hac montes donec" Id="40" Name="Posuere potenti" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Leo sociosqu mus cras" Id="18" Name="Duis vestibulum" RoleType="Architect"/>
+							<Model:OrderCardModel Description="Suscipit pretium etiam nunc fusce" Id="88" Name="Nostra ornare" RoleType="Craftsman"/>
+							<Model:OrderCardModel Description="Vulputate rhoncus" Id="71" Name="Torquent lorem ultrices platea curabitur" RoleType="Legionnaire"/>
+							<Model:OrderCardModel Description="Vehicula nec volutpat" Id="30" Name="Amet non primis sodales" RoleType="Craftsman"/>
+						</Table:BuildingFoundation>
+					</Model:BuildingSite.BuildingFoundation>
+				</Model:BuildingSite>
+			</CardCollections:SiteDeck.Top>
+			<Model:BuildingSite Id="56" MaterialType="Marble" Name="Adipiscing viverra phasellus accumsan sem" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="50" Id="Sed morbi vestibulum nulla sapien"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="28" MaterialType="Brick" Name="Taciti diam parturient tellus eget" SiteType="OutOfTown">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="25" Id="Semper sociis"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="73" MaterialType="Marble" Name="Vestibulum sit dignissim elit" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="57" Id="Bibendum consequat vestibulum dictumst convallis"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="31" MaterialType="Rubble" Name="Vel aliquam facilisi" SiteType="InsideRome">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="85" Id="Eleifend tempor enim proin erat"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+			<Model:BuildingSite Id="78" MaterialType="Stone" Name="Faucibus facilisis nam sed" SiteType="OutOfTown">
+				<Model:BuildingSite.BuildingFoundation>
+					<Table:BuildingFoundation Capacity="45" Id="Augue tempus integer dolor elementum"/>
+				</Model:BuildingSite.BuildingFoundation>
+			</Model:BuildingSite>
+		</CardCollections:SiteDeck>
+	</Model:GameTable.SiteDecks>
+</Model:GameTable>
